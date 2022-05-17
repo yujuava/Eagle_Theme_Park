@@ -9,6 +9,141 @@
 // @import 'page/index';
 // @import 'page/about';
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    // border: 1px solid #000;
+    background-color: $color1;
+    min-height: 100vh;
+    border-left: 15px solid $color3;
+    border-right:15px solid $color3 ;
+    @include md(){
+        //平板
+        border-left: 20px solid $color3;
+        border-right:20px solid $color3 ;
+    }
+}
+
+//固定容器
+.wrap{
+    // border: 3px dashed gray;
+    width: 88%;
+    margin: auto;
+    @include md(){
+        //平板
+        // border: 3px dashed red;
+        width: calc(720 / 768 * 100%);
+    }
+    @include lg(){
+        //平板橫
+        // border: 3px dashed blue;
+        width: calc(880 / 960 * 100%);
+    }
+    @include xl(){
+        // border: 3px dashed pink;
+        width: calc(1100 / 1200 * 100%);
+    }
+    
+}
+
+//黃色標題
+.title-h2{
+    width: 150px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    color:$color4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include md(){
+        width: 20%;
+        margin-top: 80px;
+        margin-bottom: 50px;
+    }
+    @include lg(){
+        width: 180px;
+        margin-top: 80px;
+        margin-bottom: 50px;
+    }
+    @include xl(){
+        width: 200;
+        margin-top: 80px;
+        margin-bottom: 50px;
+    }
+    p{
+        font-size: 1.2rem;
+        text-align: center;
+        @include md(){
+            font-size: 1.4rem;
+        }
+        @include lg(){
+            font-size: 1.6rem;
+        }
+        @include xl(){
+            font-size: 1.8rem;
+        }
+    }
+  
+    p:nth-of-type(2){
+        font-size: .6rem;
+        @include md(){
+            font-size: 0.8rem;
+        }
+        @include lg(){
+            font-size: 1rem;
+     
+        }
+        @include xl(){
+            font-size: 1.2rem;
+        }
+    }
+    &::after{
+        // border: 1px solid #000;
+        content: "";
+        width: 80px;
+        height: 45px;
+        background-image: url(../images/titleYellowShape.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 0;
+        bottom:-25px;
+        transform: translateX(-35%);
+        z-index: 10;
+        @include md(){
+            width: 100px;
+            bottom:-20px;
+            transform: translateX(-20%);
+        }
+        @include lg(){
+            width: 100px;
+            bottom:-20px;
+            transform: translateX(-20%);
+     
+        }
+        @include xl(){  
+            width: 120px;
+            height: 45px;
+            bottom:-15px;
+            transform: translateX(-10%);
+        }
+    }
+}
+
+//地圖
+.map{
+    img{
+        width: 100%;
+        margin: auto;
+    }
+}
 
 
 
