@@ -1,33 +1,46 @@
+//==========斷點=========
+
+$md_breakpoint:768px;
+$lg_breakpoint:996px;
+$xl_breakpoint:1200px;
+
+//==========顏色=========
+$color1:#FFFBEF;
+$color2:#A7D4D3;
+$color3:#4EACB7;
+$color4:#398590;
+$color5:#245D68;
+$color6:#FDB52D;
+$color7:#FDC251;
+$color8:#C4C4C4;
+$color9:#606060;
+
 //變數
-$color : #333;
-$bgc : #eee;
-$margin : 10px auto;
-$fontSize : 20px;
-$layout : 1920px;
+// $color : #333;
+// $bgc : #eee;
+// $margin : 10px auto;
+// $fontSize : 20px;
+// $layout : 1920px;
 /*==css== */
 // map 數值型態
 
-$map : (
-    'red' : #f20,
-    'black' : #333);
+// $map : (
+//     'red' : #f20,
+//     'black' : #333);
 
 // images url
-$path  :  dist/images;
+// $path  :  dist/images;
 
 
 //map
-$title : (
-  "h1" : 50px,
-  "h2" : 40px, 
-  "h3" : 30px,
-  "h4" : 20px,
-  "h5" : 16px,
-  ".small" : 10px,
-  ".large" : 3rem
-);
+// $title : (
+//   "h1" : 50px,
+//   "h2" : 40px, 
+//   "h3" : 30px,
+//   "h4" : 20px,
+//   "h5" : 16px,
+//   ".small" : 10px,
+//   ".large" : 3rem
+// );
 
 
-//斷點
-
-$m_breakpoint : 720px;
-$t_breakpoint : 1024px;

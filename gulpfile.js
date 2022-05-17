@@ -36,7 +36,8 @@ const sourcemaps = require('gulp-sourcemaps');
 function styleSass() {
   return src('./src/sass/*.scss')
       .pipe(sourcemaps.init())
-      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+      // .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+      .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
       .pipe(sourcemaps.write())
       .pipe(dest('./dist/css'));
 }
