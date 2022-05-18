@@ -1,73 +1,6 @@
-.index{
-    .indexHeader{
-        // border: 2px solid red;
-        width: 100%;
-        height: 100vh;
-        .video{
-            .pic img{
-                display: none;
-            }
-        }
-        .ticket{
-            display:none;
-        }
-        @include xl(){
-            display: flex;
-            nav{
-                // border: 3px solid #000;
-                width:4%;
-                padding: 0 5px;
-                background-color: $color3;
-                z-index: 2;
-                ul{
-                    display: flex;
-                    flex-direction: column;
-                    li{
-                        // border: 1px solid #000;
-                        margin-bottom: 16px;
-                        img{
-                            // border: 1px solid #000;
-                            width: 100%;
-                        }
-    
-                    }
-                }
-            }
-            .ticket{
-                position: absolute;
-                right:5%;
-            }
-
-            .video{
-                width: 96%;
-                background-image: url(../../images/coludCar.png);
-                background-size: 100%;
-                background-position: bottom;
-                background-repeat: no-repeat;
-                position: relative;
-                .pic{
-                    position: absolute;
-                    bottom:-650px;
-                    left:-60px;
-                    background-image: none;
-                    img{
-                        width: 77%;
-                    }
-                }
-
-            }
-        }
-               
-        }
-
-
-    // 主題園區
-     
-}
-
     // 購票區
     .buy-ticket{
-        border: 2px solid #000;
+        // border: 2px solid #000;
         padding:30px 0px;
         width: 100%;
         background-color: $color3;
@@ -220,4 +153,3 @@
 
         }
     }
-
