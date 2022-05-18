@@ -1,0 +1,126 @@
+.index{
+    @include xl(){
+        border:0;
+    }
+    .indexHeader{
+        // border: 2px solid red;
+        width: 100%;
+        height: 100vh;
+        .video{
+            .pic img{
+                display: none;
+            }
+        }
+        .ticket{
+            display:none;
+        }
+        @include xl(){
+            display: flex;
+            nav{
+                // border: 3px solid #000;
+                width:4%;
+                padding: 0 5px;
+                background-color: $color3;
+                z-index: 2;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    li{
+                        // border: 1px solid #000;
+                        margin-bottom: 16px;
+                        img{
+                            // border: 1px solid #000;
+                            width: 100%;
+                        }
+    
+                    }
+                }
+            }
+            .ticket{
+                position: absolute;
+                right:5%;
+            }
+
+            .video{
+                width: 96%;
+                background-image: url(/images/indexTopBcg.svg);
+                background-size: 100%;
+                background-position: bottom;
+                background-repeat: no-repeat;
+                position: relative;
+                .pic{
+                    position: absolute;
+                    bottom:-650px;
+                    left:-60px;
+                    background-image: none;
+                    img{
+                        width: 77%;
+                    }
+                }
+
+            }
+        }
+               
+        }
+        
+  
+    }
+
+    // 購票區
+    .buy-ticket{
+        padding-top: 300px;
+        width: 100%;
+        height: 750px;
+        background-color: $color3;
+        h3,p{
+            text-align: center;
+            margin: auto;
+            color:$color1;
+        }
+        h3{
+            font-size: $big-fzsize;
+            margin-bottom: 25px;
+        }
+        p{
+            width: 80%;
+            font-size: $word-fzSize;
+            margin-bottom: 40px;
+        }
+
+        .big-ticket{
+            width: 100%;
+            height: 350px;
+            border: 1px solid #000;
+            background-image: url(/images/bigTicket.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            h4{
+                width: 75%;
+                border: 1px solid #000;
+                margin-top: 20px;
+                margin-bottom: 40px;
+                text-align: left;
+                font-size: 2rem;
+                color:$color4;
+            }
+            form{
+                width: 75%;
+                border: 1px solid #000;
+                display: flex;
+                .col{
+                    display: flex;
+                    flex-direction: column;
+                    label,.count{
+                        display: flex;
+                    }
+                    label p{
+                        color:$color4;
+
+                    }
+                }
+            }
+        }
+    }

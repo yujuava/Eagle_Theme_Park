@@ -6,7 +6,7 @@
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'layout/header';
 @import 'layout/footer';
-// @import 'page/index';
+@import 'page/index';
 // @import 'page/about';
 
 *{
@@ -17,12 +17,40 @@
     text-decoration: none;
 }
 
+html{
+    font-size:12px;
+    @include md(){
+        font-size:13.5px;
+    }
+    @include lg(){
+        font-size:14.5px;
+    }
+    @include xl(){
+        font-size:16px;
+    }
+}
+
+h2,h3,h4,h5,h6{
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    line-height: 1.8em;
+}
+p{
+    font-weight: 200;
+    color:$color9;
+    letter-spacing: 0.08em;
+    text-indent: 0.08em;
+    line-height: 1.8em;
+}
+
 body{
     // border: 1px solid #000;
     background-color: $color1;
     min-height: 100vh;
     border-left: 15px solid $color3;
     border-right:15px solid $color3 ;
+    
     @include md(){
         //平板
         border-left: 20px solid $color3;
@@ -53,7 +81,7 @@ body{
 }
 
 //黃色標題
-.title-h2{
+.moon-title{
     width: 150px;
     margin: auto;
     margin-top: 80px;
@@ -78,31 +106,12 @@ body{
         margin-bottom: 50px;
     }
     p{
-        font-size: 1.2rem;
+        font-size: $h3-fzSize;
         text-align: center;
-        @include md(){
-            font-size: 1.4rem;
-        }
-        @include lg(){
-            font-size: 1.6rem;
-        }
-        @include xl(){
-            font-size: 1.8rem;
-        }
     }
   
     p:nth-of-type(2){
-        font-size: .6rem;
-        @include md(){
-            font-size: 0.8rem;
-        }
-        @include lg(){
-            font-size: 1rem;
-     
-        }
-        @include xl(){
-            font-size: 1.2rem;
-        }
+        font-size: $h5-fzSize;;
     }
     &::after{
         // border: 1px solid #000;

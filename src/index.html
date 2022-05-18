@@ -5,15 +5,124 @@
         "title" : "首頁"
     })
 </head>
-<body>
-  
-    <!-- header -->
+<body class="index">
+
+    <!-- 共用header -->
     @@include('layout/header.html')
-    <!-- header end -->
-    <div class="wrap">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nam dolorem ducimus aliquam doloribus officiis vero eum assumenda veritatis optio necessitatibus nesciunt quidem enim! Ipsum numquam corrupti consequuntur possimus commodi.!!!!!
-        
+    <!-- 共用header end -->
+    <!-- 首頁header -->
+    <div class="wrap indexHeader">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="/images/navHome.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navThemePark.png"alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navNew.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navTicket.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navFastfood.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navConversation.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/src/images/navContect.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div class="video">
+            <div class="pic">
+                <img src="./images/coludCar.png" alt="">
+            </div>
+        </div>
+
+        <a href="" class="ticket">
+            <img src="/images/ticket.svg" alt="">
+        </a>
+
     </div>
+
+    <section class="buy-ticket">
+        <div class="wrap">
+            <h3>歡迎來到伊果主題樂園</h3>
+            <p>六福村主題遊樂園」設有國內外知名設施，如全球第二座&亞洲唯一之「笑傲飛鷹」、全國最大人工河道「大峽谷急流泛舟」及「大海盜」、雙重體驗旅程設計之「火山歷險」、國內知名「大怒神」與360度正反向旋轉之「風火輪」，國內唯一刺激設施「3G老油井」等等。除上述刺激設施外，「六福村主題遊樂園」仍舊是臺灣目前最具規模之開放式野生動物園，包括約七十種、近千頭動物，提供遊客近距離觀賞野生動物生態之美。</p>
+            <div class="big-ticket">
+                <h4>樂園票券</h4>
+                <form action="">
+                    <div class="col">
+                        <label for="">
+                            <p>成人</p>
+                            <p>(12+)</p>
+                        </label>
+                        <div class="count">
+                            <div class="plus">+</div>
+                            <input type="number">
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <label for="">
+                            <p>小孩</p>
+                            <p>(4-11)</p>
+                        </label>
+                        <div class="count">
+                            <div class="plus">+</div>
+                            <input type="number">
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <label for="">
+                            <p>年長者</p>
+                            <p>(65+)</p>
+                        </label>
+                        <div class="count">
+                            <div class="plus">+</div>
+                            <input type="number">
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+
+                    <input type="submit" name="" id="" value="我要訂票">
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+
+        <div class="wrap">
+  
+        </div>
+    </section>
+
+
     <!-- footer  -->
     @@include('layout/footer.html')
 </body>

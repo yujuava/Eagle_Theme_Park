@@ -1,3 +1,6 @@
+h1{
+    display: none;
+}
 header{
   border-top:10px solid $color3;
   width: 100%;
@@ -10,13 +13,13 @@ header{
       border-top:16px solid $color3;
       height: 75px;
   }
-  .left,.right{
+  .left-back,.right-back{
       position: absolute;
       top:0;
       bottom:0;
   }
-  .left{
-      border: 1px solid #000;
+  .left-back{
+    //   border: 1px solid #000;
       width: 85%;
       border-radius: 15px 15px 0 0;
       left:0;
@@ -44,8 +47,8 @@ header{
       }
      
   }
-  .right{
-      // border: 1px solid #000;
+  .right-back{
+    //   border: 1px solid #000;
       border-radius: 0 0 0 15px;
       width: 15%;
       right:0;
@@ -107,7 +110,7 @@ header{
         
       }
      
-      nav{
+      .pc-nav{
           border-radius: 0 0 0 15px;
           width: 75%;
           z-index: 2;
@@ -132,11 +135,34 @@ header{
           ul{
               display: none;  
               @include lg(){
+                  margin-top: 6px;
                   display: flex;
                   justify-content: end;
                   li a{
+                    //   border: 1px solid #000;
                       color:$color1;
-                      margin-left: 30px;
+                      margin-left: 35px;
+                      font-weight: 500;
+                      position: relative;
+                      &::before{
+                        content:"";
+                        width: 0%;
+                        height: 8px;
+                        position: absolute;
+                        bottom:0;
+                        left: 0;
+                        right: 0;
+                        background-color: $color7;
+                        z-index: -1;
+                        transition: .3s;
+                      }
+                      &:hover::before{
+                          content:"";
+                          width: 100%;
+                      }
+                      @include xl(){
+                        margin-left: 55px;
+                      }
                   }
               }
           }
@@ -145,23 +171,27 @@ header{
   }
   .ticket{
       position: absolute;
-      top:-40px;
+      top:-10px;
       left:60%;
       z-index: 2;
-      transform: rotate(-20deg);
+    //   transform: rotate(-20deg);
       @include lg(){
-          top:-50px;
+          top:-16px;
           left:30%;
           z-index: 2;
       }
+      @include xl(){
+        left:26%;
+      }
+      
       img{
-          width: 90px;
+          width: 120px;
           @include lg(){
-              width: 130px;
+              width: 180px;
           }
       }
   }
-  .bottom{
+  .bottom-back{
       // border: 1px solid #000;
       width: 100%;
       height: 20px;
