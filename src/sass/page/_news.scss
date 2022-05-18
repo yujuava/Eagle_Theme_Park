@@ -1,7 +1,13 @@
 .news{
     .title{
         margin-top :50px;
-        margin-bottom :50px;
-        border: 1px solid #fff;
+        display: flex;
+        h2{
+            @include h2Set();
+            &::before{
+                @include h2Decorate();
+                @include h2DecorateRwd();
+            }
+        }
     }
 }
