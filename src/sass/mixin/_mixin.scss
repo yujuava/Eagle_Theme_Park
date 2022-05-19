@@ -26,7 +26,6 @@
     margin: auto;
     font-weight: $h2-fontWeight;
     position: relative;
-    @content;
     &::before{
         content: '';
         position: absolute;
@@ -40,11 +39,9 @@
         @include md(){
             width: 30vw;
             top: 120px;
-            border-top: 0.55rem solid $color2;
         };
         @include lg(){
             top: 130px;
-            border-top: 0.5rem solid $color2;    
         };
         @include xl(){
             top: 150px;
