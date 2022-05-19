@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "紐約都會"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="themePark">
+    <!-- 共用header -->
+    @@include('layout/header.html')
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "紐約都會"
+    })
+
+    <section>
+        @@include('layout/title.html',{
+            "h3TitleTC" : "主題設施",
+            "h3TitleEN": "Facilities"
+        })
+        <div class="wrap">
+            <div class="themePark__facilities">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+        </div>
+    </section>
+    <!-- 小標使用這個 -->
+
+    <!-- 主題樂園 打卡景點 -->
+    <section>
+        @@include('layout/title.html',{
+            "h3TitleTC" : "打卡景點",
+            "h3TitleEN": "Attractions"
+        })
+        <div class="wrap">
+            <div class="themePark__Attractions">
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="themePark__AttractionsBTN">
+                <button><<</button>
+                <button>>></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主題樂園 遊行表演 -->
+    <section>
+        <div class="full themePark__Parades">
+            @@include('layout/title.html',{
+                "h3TitleTC" : "遊行表演",
+                "h3TitleEN": "Parades"
+            })
+            <div class="ParadesBorad">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <img src="https://picsum.photos/300/200/?random=11">
+                <img src="https://picsum.photos/300/200/?random=12">
+                <img src="https://picsum.photos/300/200/?random=13">
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>
