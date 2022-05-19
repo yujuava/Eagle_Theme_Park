@@ -46,11 +46,11 @@
         border-top: 0.5rem solid $color5;
     };
     @include lg(){
-        top: 195px;
+        top: 210px;
         border-top: 0.6rem solid $color5;    
     };
     @include xl(){
-        top: 220px;
+        top: 240px;
         border-top: 0.65rem solid $color5; 
     };
 }
