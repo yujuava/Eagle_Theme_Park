@@ -2,128 +2,63 @@
 <html lang="en">
 <head>
     @@include('layout/meta.html', {
-        "title" : "首頁"
+        "title" : "伊果樂園"
     })
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 </head>
 <body class="index">
+<section>
+    <div class="full">
+        <div class="index__bcg">
+            <img src="./images/index__bcg.jpg" alt="">
+            <img class="index__ballon1" src="./images/index__ballon.png" alt="">
+            <img class="index__ballon2" src="./images/index__ballon.png" alt="">
+            <img class="index__cloud" src="./images/index__cloud2.png" alt="">
 
-    <!-- 共用header -->
-    @@include('layout/header.html')
-    <!-- 共用header end -->
-    <!-- 首頁header -->
-    <div class="wrap indexHeader">
-        <nav>
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="/images/navHome.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navThemePark.png"alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navNew.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navTicket.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navFastfood.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navConversation.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/src/images/navContect.svg" alt="">
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
-
-        <div class="video">
-            <div class="pic">
-                <img src="./images/coludCar.png" alt="">
+            <div class="index__logo">
+                <img src="./images/logo.svg" alt="">
             </div>
+    
+            <div class="index__entry">
+                <a class="index__front" href="./homepage.html">
+                    <p>前台</p>
+                    <div></div>
+                </a>
+                <a class="index__back" href="#">
+                    <p>後台</p>
+                    <div></div>
+                </a>
+            </div>
+
         </div>
-
-        <a href="" class="ticket">
-            <img src="/images/ticket.svg" alt="">
-        </a>
-
     </div>
+</section>
+<script>
+    gsap.to(".index__ballon1",{
+        y:50,
+        duration:3,
+        repeat:-1,
+        yoyo:true,
+        ease: "power2.inOut",
 
-    <section class="buy-ticket">
-        <div class="wrap">
-            <h3>歡迎來到伊果主題樂園</h3>
-            <p>六福村主題遊樂園」設有國內外知名設施，如全球第二座&亞洲唯一之「笑傲飛鷹」、全國最大人工河道「大峽谷急流泛舟」及「大海盜」、雙重體驗旅程設計之「火山歷險」、國內知名「大怒神」與360度正反向旋轉之「風火輪」，國內唯一刺激設施「3G老油井」等等。除上述刺激設施外，「六福村主題遊樂園」仍舊是臺灣目前最具規模之開放式野生動物園，包括約七十種、近千頭動物，提供遊客近距離觀賞野生動物生態之美。</p>
-            <div class="big-ticket">
-                <h4>樂園票券</h4>
-                <form action="">
-                    <div class="col">
-                        <label for="">
-                            <p>成人</p>
-                            <p>(12+)</p>
-                        </label>
-                        <div class="count">
-                            <div class="plus">+</div>
-                            <input type="number">
-                            <div class="minus">-</div>
-                        </div>
-                    </div>
+    });
+    gsap.to(".index__ballon2",{
+        y:50,
+        delay: 1,
+        duration:5,
+        repeat:-1,
+        yoyo:true,
+        ease: "power2.inOut",
 
-                    <div class="col">
-                        <label for="">
-                            <p>小孩</p>
-                            <p>(4-11)</p>
-                        </label>
-                        <div class="count">
-                            <div class="plus">+</div>
-                            <input type="number">
-                            <div class="minus">-</div>
-                        </div>
-                    </div>
+    });
+    gsap.to(".index__cloud",{
+        x:80,
+        duration:5,
+        repeat:-1,
+        yoyo:true,
+        ease: "power2.inOut",
 
-                    <div class="col">
-                        <label for="">
-                            <p>年長者</p>
-                            <p>(65+)</p>
-                        </label>
-                        <div class="count">
-                            <div class="plus">+</div>
-                            <input type="number">
-                            <div class="minus">-</div>
-                        </div>
-                    </div>
-
-                    <input type="submit" name="" id="" value="我要訂票">
-                </form>
-            </div>
-        </div>
-    </section>
-
-
-    <section>
-
-        <div class="wrap">
-  
-        </div>
-    </section>
-
-
-    <!-- footer  -->
-    @@include('layout/footer.html')
+    });
+</script>
 </body>
 </html>

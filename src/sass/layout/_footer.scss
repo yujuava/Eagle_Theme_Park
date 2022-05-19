@@ -8,7 +8,7 @@ footer{
     flex-direction: column;
     position:relative;
     @include xl(){
-        border-top: 10px solid $color3;
+        border-top: 15px solid $color3;
         padding-top: 80px;
         margin-top: 40px;
         display: flex;
@@ -40,9 +40,8 @@ footer{
             color:$color1;
             position: absolute;
             left:50%;
-            top:0;
-            transform: translateX(-50%);
-            transform: translateY(-50%);
+            top:-10px;
+            transform: translate(-50%,-50%);
         }
         
 

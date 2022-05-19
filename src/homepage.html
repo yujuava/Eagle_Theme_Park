@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "首頁"
+    })
+</head>
+<body class="homepage">
+    <!-- 共用header -->
+    <!-- @@include('layout/header.html') -->
+    <!-- 共用header end -->
+
+    <!-- 首頁header -->
+    <div class="wrap indexHeader">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="/images/navHome.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navThemePark.png"alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navNew.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navTicket.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navFastfood.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/images/navConversation.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/src/images/navContect.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div class="video">
+            <div class="pic">
+                <img src="/images/coludCar.png" alt="">
+            </div>
+        </div>
+
+        <a href="" class="ticket">
+            <img src="/images/ticket.svg" alt="">
+        </a>
+
+    </div>
+
+    <!-- ===============大票券=============== -->
+    @@include('layout/buyTicket.html')
+
+    <!-- ===============票券以下大區塊=============== -->
+    <div class="bigContainer">
+        <!-- ===============主題園區=============== -->
+        <section class="ThemeArea">
+            @@include('layout/title.html',{
+                "h2TitleTC" : "主題園區",
+                "h2TitleEN": "Theme Area"
+            })
+            <div class="full">
+                <!-- 紐約都會 -->
+                <div class="block newyork">
+                    <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 794 824" style="enable-background:new 0 0 794 824;" >
+                    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" d="M0.113,0.396c0,0,656,69.483,706,228.978
+                        c50,159.496-111.5,354.259,65,354.259s-771,240.033-771,240.033V0.396z"/>
+                    </svg>
+
+                    <div class="info">
+                        <h3>
+                            紐約都會
+                        </h3>
+                        <p>
+                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+                <!-- 西部農莊 -->
+                <div class="block farm">
+                    <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 794 824" style="enable-background:new 0 0 794 824;">
+                    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" d="M793.031,823.796c0,0-656-69.483-706-228.978
+                        c-50-159.496,111.5-354.26-65-354.26c-176.5,0,771-240.033,771-240.033V823.796z"/>
+                    </svg>
+
+                    
+                    <div class="info">
+                        <h3>
+                            西部農莊
+                        </h3>
+                        <p>
+                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                        </p>
+                    </div>
+                    
+                </div>
+                <!-- 印安部落 -->
+                <div class="block indian">
+                    <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 794 824" style="enable-background:new 0 0 794 824;" >
+                    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" d="M0.113,0.396c0,0,656,69.483,706,228.978
+                        c50,159.496-111.5,354.259,65,354.259s-771,240.033-771,240.033V0.396z"/>
+                    </svg>
+
+                    <div class="info">
+                        <h3>
+                            印安部落
+                        </h3>
+                        <p>
+                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- ===============熱門設施=============== -->
+        <section class="">
+
+            @@include('layout/title.html',{
+                "h2TitleTC" : "熱門設施",
+                "h2TitleEN": "Hot Facility"
+            })
+
+            <div class="wrap"></div>
+        </section>
+
+        <!-- ===============所有設施=============== -->
+        <section class="ThrillRide">
+            @@include('layout/title.html',{
+                "h2TitleTC" : "所有設施",
+                "h2TitleEN": "Thrill Ride"
+            })
+            <div class="wrap">
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>雲霄飛車</h4>
+                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===============饗食餐飲=============== -->
+        <section class="">
+            @@include('layout/title.html',{
+                "h2TitleTC" : "饗食餐飲",
+                "h2TitleEN": "Eagle Food"
+            })
+
+   
+            
+            <div class="wrap">
+
+            </div>
+        </section>
+    
+        
+        <!--  ===============map ===============  -->
+        @@include('layout/map.html')
+    <section>
+
+        <div class="wrap">
+  
+        </div>
+    </section>
+
+    </div>
+
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>
