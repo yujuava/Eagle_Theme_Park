@@ -26,33 +26,27 @@
     margin: auto;
     font-weight: $h2-fontWeight;
     position: relative;
-}
-//============h2偽元素裝飾線===================
-@mixin h2Decorate(){
-    content: '';
-    position: absolute;
-    top: 130px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 70vw;
-    height: 13vw;
-    border-top: 0.5rem solid $color5;
-    border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
- }
-//============h2偽元素RWD===================
-@mixin h2DecorateRwd(){
-    @include md(){
-        top: 180px;
-        border-top: 0.5rem solid $color5;
-    };
-    @include lg(){
-        top: 210px;
-        border-top: 0.6rem solid $color5;    
-    };
-    @include xl(){
-        top: 240px;
-        border-top: 0.65rem solid $color5; 
-    };
+    &::before{
+        content: '';
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 40vw;
+        height: 6vw;
+        border-top: 0.5rem solid $color2;
+        border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
+        @include md(){
+            width: 30vw;
+            top: 120px;
+        };
+        @include lg(){
+            top: 130px;
+        };
+        @include xl(){
+            top: 150px;
+        };
+    }
 }
 
 //===================按鈕===================
@@ -74,4 +68,5 @@
         }
     }
 }
+
 

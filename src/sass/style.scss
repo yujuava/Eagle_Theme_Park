@@ -6,12 +6,11 @@
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'layout/header';
 @import 'layout/footer';
-// @import 'page/index';
+@import 'page/index';
 @import 'page/news';
 @import 'layout/buyTicket';
 @import 'page/homepage';
-// @import 'page/about';
-@import './page/index';
+@import'page/ticket';
 
 *{
     padding: 0;
@@ -162,6 +161,15 @@ section{
     img{
         width: 100%;
         margin: auto;
+    }
+}
+//內頁h2
+.title_h2{
+    margin-top :50px;
+    display: flex;
+    flex-direction: column;
+    h2{
+        @include h2Set();
     }
 }
 
