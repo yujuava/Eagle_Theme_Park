@@ -1,14 +1,60 @@
-.ticket{
-    
+.ticket {
+    // .title{
+    //     margin-top :50px;
+    //     display: flex;
+    //     h2{
+    //         @include h2Set();
+    //         &::before{
+    //             @include h2Decorate();
+    //             @include h2DecorateRwd();
+    //         }
+    //     }
+    // }
+    .ticket-table {
+        border: 3px solid$color2;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    tr,
+    td {
+        border-radius: 20px;
+        border: 5px solid$color2;
+        padding: 30px;
+    }
+
+    th {
+        border: 3px solid$color2;
+        background-color: $color2;
+        padding: 30px;
+    }
+
+    /*第一欄第一列：左上*/
+    tr:first-child th:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    /*第一欄最後列：左下*/
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+
+    /*最後欄第一列：右上*/
+    tr:first-child th:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    /*最後欄第一列：右下*/
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
 }
 
 
-@include md(){
-  
-}
-@include lg(){
-   
-}
-@include xl(){
-  
-}
+@include md() {}
+
+@include lg() {}
+
+@include xl() {}
