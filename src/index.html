@@ -7,32 +7,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 </head>
 <body class="index">
-<section>
-    <div class="full">
-        <div class="index__bcg">
-            <img src="./images/index__bcg.jpg" alt="">
-            <img class="index__ballon1" src="./images/index__ballon.png" alt="">
-            <img class="index__ballon2" src="./images/index__ballon.png" alt="">
-            <img class="index__cloud" src="./images/index__cloud2.png" alt="">
 
-            <div class="index__logo">
-                <img src="./images/logo.svg" alt="">
-            </div>
-    
-            <div class="index__entry">
-                <a class="index__front" href="./homepage.html">
-                    <p>前台</p>
-                    <div></div>
-                </a>
-                <a class="index__back" href="#">
-                    <p>後台</p>
-                    <div></div>
-                </a>
-            </div>
+    <div class="index__bcg">
+        <img src="./images/index__bcg.jpg" alt="">
+        <img class="index__ballon1" src="./images/index__ballon.png" alt="">
+        <img class="index__ballon2" src="./images/index__ballon.png" alt="">
+        <img class="index__cloud" src="./images/index__cloud2.png" alt="">
 
+        <div class="index__logo">
+            <img src="./images/logo.svg" alt="">
         </div>
+
+        <div class="index__entry">
+            <a class="index__front" href="./homepage.html">
+                <p>前台</p>
+                <div></div>
+            </a>
+            <a class="index__back" href="#">
+                <p>後台</p>
+                <div></div>
+            </a>
+        </div>
+
     </div>
-</section>
+
+
 <script>
     gsap.to(".index__ballon1",{
         y:50,
@@ -40,7 +39,6 @@
         repeat:-1,
         yoyo:true,
         ease: "power2.inOut",
-
     });
     gsap.to(".index__ballon2",{
         y:50,
@@ -49,7 +47,6 @@
         repeat:-1,
         yoyo:true,
         ease: "power2.inOut",
-
     });
     gsap.to(".index__cloud",{
         x:80,
@@ -57,7 +54,6 @@
         repeat:-1,
         yoyo:true,
         ease: "power2.inOut",
-
     });
 </script>
 </body>

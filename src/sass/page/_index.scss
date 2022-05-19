@@ -1,3 +1,6 @@
+// TODO
+// entry button replace bcg method with pseudo-element. prevent rwd bugs
+
 .index__bcg{
     position: relative;
 }
@@ -56,15 +59,13 @@
     color: $color1;
 }
 .index__entry div{
-    border-radius: 50%;
     width: 150px;
     height: 150px;
+    border-radius: 50%;
     opacity: 0.6;
 }
-
 .index__front div{
     background-color: $color6;
-    
 }
 .index__back div{
     background-color: $color5;
