@@ -171,10 +171,6 @@ section{
     flex-direction: column;
     h2{
         @include h2Set();
-        &::before{
-            @include h2Decorate();
-            @include h2DecorateRwd();
-        }
     }
 }
 
