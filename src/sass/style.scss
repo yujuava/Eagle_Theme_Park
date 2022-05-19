@@ -66,21 +66,21 @@ body{
 
 //固定容器
 .wrap{
-    // border: 3px dashed gray;
+    border: 3px dashed gray;
     width: 88%;
     margin: auto;
     @include md(){
         //平板
-        // border: 3px dashed red;
+        border: 3px dashed red;
         width: calc(720 / 768 * 100%);
     }
     @include lg(){
         //平板橫
-        // border: 3px dashed blue;
+        border: 3px dashed blue;
         width: calc(880 / 960 * 100%);
     }
     @include xl(){
-        // border: 3px dashed pink;
+        border: 3px dashed pink;
         width: calc(1100 / 1200 * 100%);
     }
     
@@ -93,8 +93,20 @@ body{
 section{
     margin-top: 50px;
     margin-bottom: 60px;
+    @include md(){
+        margin-top: 60px;
+        margin-bottom: 80px;
+    }
+    @include lg(){
+        margin-top: 70px;
+        margin-bottom: 100px;
+    }
+    @include xl(){
+        margin-top: 80px;
+        margin-bottom: 120px;
+    }
+    
 }
-
 //黃色月亮標題
 .moon-title{
     // border: 1px solid blue;
@@ -118,7 +130,7 @@ section{
         text-align: center;
         color:$color5;
         font-family: $family2;
-        font-weight: 500;
+        font-weight: 600;
     }
   
     p:nth-of-type(2){
@@ -155,9 +167,21 @@ section{
         }
     }
 }
-
 //地圖
 .map{
+    margin-bottom: 40px;
+    @include md(){
+        margin-bottom: 80px;
+    }
+    @include lg(){
+        margin-bottom: 100px;
+    }
+    @include xl(){
+        margin-bottom: 120px;
+    }
+    
+    
+    
     img{
         width: 100%;
         margin: auto;
@@ -172,9 +196,7 @@ section{
         @include h2Set();
     }
 }
-
 //top
-
 .top-bottom{
     width: 40px;
     height: 40px;
@@ -226,8 +248,20 @@ section{
     &:hover{
         cursor: pointer;
     }
+    @include xl(){
+        bottom:80px;
+        width: 50px;
+        height: 50px;
+    }
 }
 
+//show | hide
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
 
 
 
