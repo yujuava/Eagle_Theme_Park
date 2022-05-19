@@ -143,11 +143,18 @@ footer{
     }
     .pic{
         width: 100%;
-        min-height: 140px;
+        min-height: 180px;
         margin-bottom: -20px;
         overflow: hidden;
         position: relative;
         bottom:10px;
+        @include md(){
+            min-height: 250px;
+        }
+        @include lg(){
+            min-height: 350px;
+        }
+        
         @include xl(){
             width: 100%;
             min-height: 350px;

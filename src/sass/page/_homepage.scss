@@ -4,14 +4,11 @@
     }
     //首頁才有的header
     .indexHeader{
-        border: 2px solid red;
         width: 100%;
         height: 100vh;
         @include xl(){
-            border: 1px solid #000;
             display: flex;
             nav{
-                // border: 3px solid #000;
                 width:4%;
                 padding: 0 5px;
                 background-color: $color3;
@@ -66,11 +63,6 @@
                                 content:'遊客體驗';
                             }
                         }
-                        &:nth-of-type(7){
-                            &:hover ::after{
-                                content:'聯絡我們';
-                            }
-                        }
                         img{
                             // border: 1px solid #000;
                             width: 100%;
@@ -122,16 +114,46 @@
     
                
     }
-
+    //===============大票券===============
+    .buy-ticket{
+        // border: 2px solid #000;
+        padding:30px 0px;
+        width: 100%;
+        background-color: $color2;
+        @include lg(){
+            background-color: $color3;
+        }
+        
+        @include md(){
+            padding:70px 0px;
+        }
+        h2,.info{
+            text-align: center;
+            margin: auto;
+            color:$color5;
+        }
+        h2{
+            font-size: $big-fzsize;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .info{
+            width: 80%;
+            font-size: $word-fzSize;
+            margin-bottom: 40px;
+        }
+    }
     //===============大容器===============
     .bigContainer{
         @include xl(){
-
+            border: 01px solid $color3; //不可刪除
             min-height: 100vh;
             border-top: 1px solid $color3;
             border-left: 20px solid $color3;
             border-right:20px solid $color3 ;
         }
+
+
         //=============主題園區=============
         section.ThemeArea{
             .full{
@@ -147,12 +169,13 @@
                         width: 50%;
                         @include xl(){
                             padding: 0 40px;
-
                         }
                         h4{
                             padding-top: 0;
-                            font-size: $h4-fzSize;
+                            font-size: $h5-fzSize;
                             text-align: right;
+                            color:$color5;
+                            font-weight: 500;
                             @include md(){
                                 margin-top: 100px;
                             }
@@ -161,6 +184,7 @@
                             }  
                         }
                     }
+          
                 }
                 svg{
                     width: 50%;
@@ -178,7 +202,10 @@
                     }
                     .info{
                         margin-top: 60px;
-                        text-align: left;
+                        h4{
+                            text-align: left;
+                            
+                        }
                     }
                 }
                 .indian{
@@ -213,8 +240,13 @@
             }
 
             //按鈕
-            @include btn(area,$color2,$color3,white);
-            //checkboz
+            @include btn1(area){
+                // border: 1px solid #000;
+                @include md(){
+                    margin: 0 20px;
+                }   
+            }
+            //checkbox
             .filter{
                 .option{
                     display: flex;
@@ -255,13 +287,12 @@
                     gap:30px;
 
                 }
-                
                 .card{
                     width: calc(50% - 5px);
                     // border: 1px solid #000;
                     margin-bottom: 10px;
                     @include md(){
-                        width: calc(33.333% - 6.6667px);
+                        width: calc(33.333% - 13.33px);
                         margin-bottom: 20px;
                     }
                     @include xl(){
@@ -365,6 +396,7 @@
     }
 
     //only for首頁的footer微調整
+
     footer{
         @include xl(){
             border-left: 20px solid $color3;

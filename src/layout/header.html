@@ -1,8 +1,7 @@
 <!-- @@include('login.html') -->
 <h1>EAGLE THEME PARK</h1>
-<header id="hbg">
+<header  id="header">
     <div class="left-back">
-
     </div>
     <!-- HEADER MAIN 開始 -->
     <div class="wrap">
@@ -21,32 +20,41 @@
             </div>
             <ul>
                 <li>
-                    <a href="">
-                        主題園區
-                    </a>
+                    <div>
+                        <a href="" class="main-nav">
+                            主題園區
+                        </a>
+                    </div>
+                    <div class="sec-nav">
+                        <a href="">紐約都會</a>
+                    
+                        <a href="">西部農莊</a>
+                 
+                        <a href="">印安部落</a>
+                    </div>             
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         最新消息
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         園區資訊
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         伊果商城
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         饗食餐飲
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         遊客體驗
                     </a>
                 </li>
@@ -57,7 +65,7 @@
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
         <!-- 手機板nav漢堡 -->
-        <label class="hbg" @click="isShow = false">
+        <label class="hbg" v-on:click="show = !show">
             <span></span>
             <span></span>
             <span></span>
@@ -65,9 +73,10 @@
     </div>
 
     <!-- 手機板選單 -->
-    <nav class="mobile-nav" v-show="isShow">
+    <nav class="mobile-nav" v-if="show">
         <div class="top-block">
-            <div class="close">
+            <img src="../images/logo.svg" alt="">
+            <div class="close" v-on:click="show = !show">
                 <span></span>
                 <span></span>
             </div>
@@ -112,7 +121,7 @@
             </li>
         </ul>
     </nav>
-
+    <!-- 小票券 -->
     <a href="" class="ticket">
         <img src="/images/ticket.svg" alt="">
     </a>
@@ -121,23 +130,48 @@
     </div>
 </header>
 
-
-
 <!-- vue -->
 <script>
 
     new Vue({
-        el: '#hbg',
+        el: '#header',
         data: {     // 變數放這裡!
-            message: '',
+            show: false,
         },
-        methods: {  // 函數大部分放這裡!
-           
+        methods: {  // 函數大部分放這裡! 
         },
         computed: { 
         },
         mounted(){
 
         }
+    });
+</script>
+
+<!-- js 電腦版導覽列滾輪 -->
+<script>
+    window.addEventListener("load",function(){  
+        
+        let screenWidth = screen.width;
+
+        if (window.innerWidth > 996){
+            document.addEventListener("scroll",function(){
+                let ScrollNum = document.documentElement.scrollTop;
+                let header = document.getElementById("header");
+                // alert(window.innerWidth)
+                console.log(ScrollNum)
+                    if(ScrollNum>1200){
+                        header.classList.remove("hide");
+                        header.classList.add("show");
+                    }else{
+                        header.classList.remove("show");
+                        header.classList.add("hide");
+                    }
+
+
+            }, false);
+        };
+
+
     });
 </script>

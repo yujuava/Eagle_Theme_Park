@@ -10,7 +10,7 @@
     @@include('layout/header.html')
     <!-- 共用header end -->
 
-    <!-- 首頁header -->
+    <!-- 首頁才有的header -->
     <div class="wrap indexHeader">
         <nav>
             <ul>
@@ -44,11 +44,6 @@
                         <img src="/images/navConversation.svg" alt="">
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <img src="/images/navContect.svg" alt="">
-                    </a>
-                </li>
             </ul>
 
         </nav>
@@ -66,7 +61,15 @@
     </div>
 
     <!-- ===============大票券=============== -->
-    @@include('layout/buyTicket.html')
+
+    <div class="buy-ticket">
+        <div class="wrap">
+            <h2>歡迎來到伊果主題樂園</h2>
+            <p class="info">六福村主題遊樂園」設有國內外知名設施，如全球第二座&亞洲唯一之「笑傲飛鷹」、全國最大人工河道「大峽谷急流泛舟」及「大海盜」、雙重體驗旅程設計之「火山歷險」、國內知名「大怒神」與360度正反向旋轉之「風火輪」，國內唯一刺激設施「3G老油井」等等。除上述刺激設施外，「六福村主題遊樂園」仍舊是臺灣目前最具規模之開放式野生動物園，包括約七十種、近千頭動物，提供遊客近距離觀賞野生動物生態之美。</p>
+            @@include('layout/buyTicket.html')
+        </div>
+    </div>
+
 
     <!-- ===============票券以下大區塊=============== -->
     <div class="bigContainer">
@@ -156,14 +159,14 @@
             })
             <div class="wrap">
                 <div class="all-btn">
-                    <div class="btn-area">
+                    <div class="btn1-area">
                         紐約都會
                     </div>
-                    <div class="btn-area">
+                    <div class="btn1-area">
                         西部農莊
                         
                     </div>
-                    <div class="btn-area">
+                    <div class="btn1-area">
                         印安部落
                     </div>
                 </div>
@@ -301,12 +304,6 @@
         
         <!--  ===============map ===============  -->
         @@include('layout/map.html')
-    <section>
-
-        <div class="wrap">
-  
-        </div>
-    </section>
 
     </div>
 
