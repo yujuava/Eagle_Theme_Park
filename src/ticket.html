@@ -11,9 +11,9 @@
     @@include('layout/header.html')
     <!-- 共用header end -->
     <!-- 購票指南h2 -->
-    <section class="title_h2">
-        <h2>購票指南</h2>
-    </section>
+    @@include('layout/h2Style.html',{
+        "h2Title" : "園區資訊"
+    })
     <!-- 內容 -->
     <section class="ticket">
         <div class="wrap">
@@ -27,22 +27,25 @@
                 <tbody>
                     <tr>
                         <td>成人票</td>
-                        <td>450元</td>
+                        <td>1000元</td>
                     </tr>
-                </tbody>
-                <tbody>
                     <tr>
                         <td>幼童票</td>
-                        <td>350元</td>
+                        <td>500元</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>敬老票</td>
-                        <td>300元</td>
+                        <td>愛心票</td>
+                        <td>400元</td>
                     </tr>
                 </tfoot>
             </table>
+        </div>
+        <div class="notice">
+            <p>1.未滿3歲或身高100cm以下，且有家長陪伴之幼兒可免費入園。</p>
+            <p>2.購買學生票及博愛票(年滿60歲以上，或孕婦、身障朋友)須出示相關證件。</p>
+            <p>3.各項促銷優惠活動恕無法合併使用</p>
         </div>
     </section>
 
