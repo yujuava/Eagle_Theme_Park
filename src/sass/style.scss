@@ -39,13 +39,17 @@ h2,h3,h4,h5,h6{
     letter-spacing: 0.1em;
     text-indent: 0.1em;
     line-height: 1.8em;
+    font-size: $h3-fzSize;
+    font-family: $family1;
 }
 p{
     font-weight: 200;
     color:$color9;
     letter-spacing: 0.08em;
     text-indent: 0.08em;
-    line-height: 1.8em;
+    line-height: 1.5em;
+    font-family: $family1;
+    font-weight: 300;
 }
 
 body{
@@ -97,7 +101,7 @@ section{
 .moon-title{
     // border: 1px solid blue;
     width: 40%;
-    margin: 80px auto 50px ;
+    margin: 80px auto 80px ;
     color:$color4;
     position: relative;
     @include md(){
@@ -112,9 +116,11 @@ section{
         margin: auto;
         width: 100%;
         font-weight: bold;
-        font-size: $h3-fzSize;
+        font-weight: 500;
         text-align: center;
         color:$color5;
+        font-family: $family1;
+        font-weight: 400;
     }
   
     p:nth-of-type(2){

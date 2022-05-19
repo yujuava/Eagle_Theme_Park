@@ -77,8 +77,9 @@
     //===============大容器===============
     .bigContainer{
         @include xl(){
-            border: 1px solid red;
+
             min-height: 100vh;
+            border-top: 1px solid $color3;
             border-left: 20px solid $color3;
             border-right:20px solid $color3 ;
         }
@@ -155,9 +156,117 @@
         //=============所有設施=============
         section.ThrillRide{
             .wrap{
+                // border: 1px solid #000;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap:10px;
+                @include md(){
+                    gap:20px;
+                }
+                @include xl(){
+                    gap:30px;
+
+                }
+                
                 .card{
-                    width: 50%;
-                    border: 1px solid #000;
+                    width: calc(50% - 5px);
+                    // border: 1px solid #000;
+                    margin-bottom: 10px;
+                    @include md(){
+                        width: calc(33.333% - 6.6667px);
+                        margin-bottom: 20px;
+                    }
+                    @include xl(){
+                        width: calc(25% - 22.5px);
+                        margin-bottom: 25px;
+                    }
+                
+                    .pic{
+                        // border: 1px solid #000;
+                        border-radius: 15px;
+                        width: 100%;
+                        aspect-ratio: 4.5 / 3;
+                        margin-bottom: 5px;
+                        position: relative;
+                        overflow: hidden;
+                        .area{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 0 0 15px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            font-size: $h6-fzSize;
+                            font-weight: bold;
+                            letter-spacing: 0.08em;
+                            line-height: 1em;
+                            color:$color4;
+                            background-color: $color1;
+                            @include lg(){
+                                width: 60px;
+                                height: 60px;
+                            }
+                            @include xl(){
+                                width: 70px;
+                                height: 70px;
+                            }
+                            
+                            
+                            &::before{
+                                content:"";
+                                width: 20px;
+                                height: 20px;
+                                position: absolute;
+                                top:0;
+                                right:-6.3px;
+                                background-image: url(../../images/cornerRight.svg);
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                // border: 1px solid #000;
+                            }
+                            &::after{
+                                content:"";
+                                width: 15px;
+                                height: 13.7px;
+                                position: absolute;
+                                bottom:-6px;
+                                left:0px;
+                                background-image: url(../../images/cornerLeft.svg);
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                // border: 1px solid #000;
+
+                            }
+                        }
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .info{
+                        padding: 5px;
+                        h4{
+                            font-size: $h6-fzSize;
+                            color:$color3;
+                            display: flex;
+                            align-items: center;
+                            font-weight: 500;
+                            &::before{
+                                content:"";
+                                display: block;
+                                width: 6px;
+                                height: 6px;
+                                border-radius: 50%;
+                                background-color: $color6;
+                                margin-right: 6px;
+                            }
+                        }
+                    }
                 }
 
             }
