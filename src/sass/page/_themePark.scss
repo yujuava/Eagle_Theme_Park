@@ -1,0 +1,58 @@
+// themePark
+.themePark{
+    // 主題設施
+
+    // 打卡景點
+    .themePark__Attractions{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .col{
+        width: 50%;
+        padding: 30px;
+    }
+    @include md{
+        .col{
+            width: 33.33333%;
+        }
+    }
+    .card{
+        background-color: $color3;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 10px 10px 0 $color5;
+    }
+    .cardImg img{
+        width: 100%;
+        display: block;
+    }
+    .themePark__AttractionsBTN{
+        display: flex;
+        justify-content: center;
+    }
+    .themePark__AttractionsBTN button{
+        background-color: $color7;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 15px;
+        color: $color5;
+        border: none;
+    }
+
+
+    // 遊行表演
+    .themePark__Parades{
+        background-color: $color3;
+        padding: 0 0 15px 0;
+    }
+    .ParadesBorad{
+        display: flex;
+        overflow: hidden;
+    }
+    .ParadesBorad img{
+        width: 100%;
+    }
+}
+
