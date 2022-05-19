@@ -55,5 +55,23 @@
     };
 }
 
-
+//===================按鈕===================
+@mixin btn($style,$color,$hoverColor, $btn_bg) {
+    .btn-#{$style} {
+        border: 2px solid $color;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 5px 10px;
+        font-size: $word-fzSize;
+        font-weight: 600;
+        color:$color;
+        background-color: white;
+        transition: .2s;
+        @content;
+        &:hover{
+            border: 2px solid $hoverColor;
+            cursor: pointer;
+        }
+    }
+}
 

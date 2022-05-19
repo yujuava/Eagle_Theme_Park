@@ -15,37 +15,6 @@ footer{
         flex-direction: column;
         position: relative;
     }
- 
-    // transform: translateX(-1px); //詭異 不能刪除
-    .top-bottom{
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 50px;
-        background-color: $color3;
-        color:$color1;
-        position: absolute;
-        right:100%;
-        left:50%;
-        top:0;
-        transform: translate(-50%,-50%);
-        @include xl(){
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            background-color: $color3;
-            color:$color1;
-            position: absolute;
-            left:50%;
-            top:-10px;
-            transform: translate(-50%,-50%);
-        }
-        
-
-    }
     .container{
         display: flex;
         flex-direction: column;
@@ -72,33 +41,46 @@ footer{
                 text-align: center;
                 @include xl(){
                     text-align: left;
-                }
-                
+                }  
                 img{
                     width: 180px;
                 }
             }
             p{
-                border: 1.5px solid $color8;
-                border-radius: 8px;
                 padding: 5px 10px;
+                margin-bottom: 10px;
+                font-size: $word-fzSize;
                 color:$color9;
                 text-align: center;
                 @include xl(){
-                    border: 1px solid $color9;
-                    border-radius: 5px;
+                    border: 1.5px solid $color8;
+                    border-radius: 10px;
                     padding: 3px 10px;
-                    color:$color9;
+                }
+            }
+
+            .time{
+                border: 1.5px solid $color8;
+                border-radius: 15px;
+                padding: 10px;
+                p:nth-of-type(1){ 
+                    font-size: $h5-fzSize;
+                    color:$color4;
+                    font-weight: 400;
+                }
+                p:nth-of-type(2),p:nth-of-type(3){ 
+                    font-size: $h6-fzSize;
+                }
+                @include xl(){
+                    p{
+                        text-align: left;
+                        border:0;
+                        padding: 0;
+                    }
                 }
                 
             }
-            p:nth-of-type(1){ 
-                border: 0;
-                @include xl(){
-                    border: 0;
-                }
-            
-            }
+
 
         }
         nav{

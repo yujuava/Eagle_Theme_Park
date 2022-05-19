@@ -1,6 +1,6 @@
 <!-- @@include('login.html') -->
 <h1>EAGLE THEME PARK</h1>
-<header>
+<header id="hbg">
     <div class="left-back">
 
     </div>
@@ -32,7 +32,7 @@
                 </li>
                 <li>
                     <a href="">
-                        購票指南
+                        園區資訊
                     </a>
                 </li>
                 <li>
@@ -56,13 +56,63 @@
     </div>
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
-          <!-- 手機板nav漢堡 -->
-        <div class="hbg">
+        <!-- 手機板nav漢堡 -->
+        <label class="hbg" @click="isShow = false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </label>
     </div>
+
+    <!-- 手機板選單 -->
+    <nav class="mobile-nav" v-show="isShow">
+        <div class="top-block">
+            <div class="close">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul>
+
+            <li>
+                <img src="/images/navHome.svg" alt="">
+                <a href="">
+                    主題園區
+                </a>
+            </li>
+            <li>
+                <img src="/images/navThemePark.png"alt="">
+                <a href="">
+                    最新消息
+                </a>
+            </li>
+            <li>
+                <img src="/images/navNew.svg" alt="">
+                <a href="">
+                    園區資訊
+                </a>
+            </li>
+            <li>
+                <img src="/images/navTicket.svg" alt="">
+                <a href="">
+                    伊果商城
+                </a>
+            </li>
+            <li>
+                <img src="/images/navFastfood.svg" alt="">
+                <a href="">
+                    饗食餐飲
+                </a>
+            </li>
+            <li>
+                <img src="/images/navConversation.svg" alt="">
+                <a href="">
+                    遊客體驗
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <a href="" class="ticket">
         <img src="/images/ticket.svg" alt="">
     </a>
@@ -70,3 +120,24 @@
         <div class="bcg-front"></div>
     </div>
 </header>
+
+
+
+<!-- vue -->
+<script>
+
+    new Vue({
+        el: '#hbg',
+        data: {     // 變數放這裡!
+            message: '',
+        },
+        methods: {  // 函數大部分放這裡!
+           
+        },
+        computed: { 
+        },
+        mounted(){
+
+        }
+    });
+</script>

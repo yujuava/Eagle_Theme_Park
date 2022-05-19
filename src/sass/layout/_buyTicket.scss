@@ -3,16 +3,16 @@
         // border: 2px solid #000;
         padding:30px 0px;
         width: 100%;
-        background-color: $color3;
+        background-color: $color2;
         @include md(){
             padding:70px 0px;
         }
-        h3,.info{
+        h2,.info{
             text-align: center;
             margin: auto;
-            color:$color1;
+            color:$color5;
         }
-        h3{
+        h2{
             font-size: $big-fzsize;
             margin-bottom: 25px;
         }

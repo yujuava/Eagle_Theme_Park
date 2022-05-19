@@ -36,13 +36,12 @@ html{
 
 h2,h3,h4,h5,h6{
     font-weight: 400;
-    letter-spacing: 0.1em;
-    text-indent: 0.1em;
+    letter-spacing: 0.08em;
+    text-indent: 0.08em;
     line-height: 1.8em;
     font-size: $h3-fzSize;
-    font-family: $family1;
 }
-p{
+p,label{
     font-weight: 200;
     color:$color9;
     letter-spacing: 0.08em;
@@ -58,7 +57,7 @@ body{
     min-height: 100vh;
     border-left: 15px solid $color3;
     border-right:15px solid $color3 ;
-    
+    position: relative;
     @include md(){
         //平板
         border-left: 20px solid $color3;
@@ -101,7 +100,7 @@ section{
 .moon-title{
     // border: 1px solid blue;
     width: 40%;
-    margin: 80px auto 80px ;
+    margin: 80px auto 60px ;
     color:$color4;
     position: relative;
     @include md(){
@@ -119,12 +118,12 @@ section{
         font-weight: 500;
         text-align: center;
         color:$color5;
-        font-family: $family1;
-        font-weight: 400;
+        font-family: $family2;
+        font-weight: 500;
     }
   
     p:nth-of-type(2){
-        margin-top: -12px;
+        margin-top: -5px;
         font-size: $word-fzSize;;
     }
     &::after{
@@ -166,7 +165,60 @@ section{
     }
 }
 
+//top
 
+.top-bottom{
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: $color7;
+    box-shadow: 1px 1px 2px gray;
+    color:$color1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom:20px;
+    right: 5px;
+    z-index: 2;
+
+    i{
+        font-size: $sm-word-fzSize;
+        color:$color5;
+        font-size: $word-fzSize;
+
+    }
+    p{
+        font-size: $sm-word-fzSize;
+        color:$color5;
+        font-size: $md-word-fzSize;
+        font-weight: 600;
+    }
+    @include xl(){
+        width: 50px;
+        height: 50px;
+    }
+}
+//機器人
+.robot{
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom:65px;
+    right: 5px;
+    z-index: 2;
+    background-color: $color2;
+    img{
+        width:100%;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
 
 
 
