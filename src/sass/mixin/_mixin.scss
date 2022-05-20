@@ -22,6 +22,7 @@
 //============h2設定======================
 @mixin h2Set(){
     font-size: $h2-fzSize; 
+    font-family:$family1;
     color:$color5;
     margin: auto;
     font-weight: $h2-fontWeight;
