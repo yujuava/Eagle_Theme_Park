@@ -1,3 +1,63 @@
+//top
+.top-bottom{
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: $color7;
+    box-shadow: 1px 1px 2px gray;
+    color:$color1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom:20px;
+    right: 5px;
+    z-index: 2;
+
+    i{
+        font-size: $sm-word-fzSize;
+        color:$color5;
+        font-size: $word-fzSize;
+
+    }
+    p{
+        font-size: $sm-word-fzSize;
+        color:$color5;
+        font-size: $md-word-fzSize;
+        font-weight: 600;
+    }
+    @include xl(){
+        width: 50px;
+        height: 50px;
+    }
+}
+//機器人
+.robot{
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom:65px;
+    right: 5px;
+    z-index: 2;
+    background-color: $color2;
+    img{
+        width:100%;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    @include xl(){
+        bottom:80px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
 footer{
     // border: 3px solid #000;
     border-top: 10px solid $color3;
@@ -118,6 +178,7 @@ footer{
                     &:hover::after{
                         content:"";
                         width: 100%;
+                        transform-origin: left;
                     }
               
 
