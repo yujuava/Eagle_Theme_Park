@@ -7,15 +7,15 @@
 </head>
 <body class="homepage">
     <!-- 共用header -->
-    <!-- @@include('layout/header.html') -->
+    @@include('layout/header.html')
     <!-- 共用header end -->
 
-    <!-- 首頁header -->
+    <!-- 首頁才有的header -->
     <div class="wrap indexHeader">
         <nav>
             <ul>
                 <li>
-                    <a href="">
+                    <a href="homepage.html">
                         <img src="/images/navHome.svg" alt="">
                     </a>
                 </li>
@@ -25,28 +25,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="news.html">
                         <img src="/images/navNew.svg" alt="">
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="ticket.html">
                         <img src="/images/navTicket.svg" alt="">
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="food.html">
                         <img src="/images/navFastfood.svg" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="">
                         <img src="/images/navConversation.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/src/images/navContect.svg" alt="">
                     </a>
                 </li>
             </ul>
@@ -66,29 +61,45 @@
     </div>
 
     <!-- ===============大票券=============== -->
-    @@include('layout/buyTicket.html')
+
+    <div class="buy-ticket">
+        <div class="wrap">
+            <h2>歡迎來到伊果主題樂園</h2>
+            <p class="info">六福村主題遊樂園」設有國內外知名設施，如全球第二座&亞洲唯一之「笑傲飛鷹」、全國最大人工河道「大峽谷急流泛舟」及「大海盜」、雙重體驗旅程設計之「火山歷險」、國內知名「大怒神」與360度正反向旋轉之「風火輪」，國內唯一刺激設施「3G老油井」等等。除上述刺激設施外，「六福村主題遊樂園」仍舊是臺灣目前最具規模之開放式野生動物園，包括約七十種、近千頭動物，提供遊客近距離觀賞野生動物生態之美。</p>
+            @@include('layout/buyTicket.html')
+        </div>
+    </div>
+
 
     <!-- ===============票券以下大區塊=============== -->
     <div class="bigContainer">
         <!-- ===============主題園區=============== -->
         <section class="ThemeArea">
             @@include('layout/title.html',{
-                "h2TitleTC" : "主題園區",
-                "h2TitleEN": "Theme Area"
+                "h3TitleTC" : "主題園區",
+                "h3TitleEN": "Theme Area"
             })
             <div class="full">
                 <!-- 紐約都會 -->
                 <div class="block newyork">
-                    <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 794 824" style="enable-background:new 0 0 794 824;" >
-                    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" d="M0.113,0.396c0,0,656,69.483,706,228.978
-                        c50,159.496-111.5,354.259,65,354.259s-771,240.033-771,240.033V0.396z"/>
-                    </svg>
+                    <div class="pic">
+                        <div id="mask1">
+                            <img src="/images/55.jpg" alt="">
+                        </div>
+
+                        <svg width="793" height="824" viewBox="0 0 793 824" border="2px solid red" class="newyork-shape">
+                            <!-- <clipPath id="svgMask1"> -->
+                                 <path d="M0 0C0 0 656 69.4832 706 228.979C756 388.474 594.5 583.238 771 583.238C947.5 583.238 0 823.271 0 823.271V0Z" fill="#C4C4C4"/>
+                            <!-- </clipPath> -->
+                        </svg>
+                    </div>
+                        
+                        
 
                     <div class="info">
-                        <h3>
+                        <h4>
                             紐約都會
-                        </h3>
+                        </h4>
                         <p>
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
@@ -106,9 +117,9 @@
 
                     
                     <div class="info">
-                        <h3>
+                        <h4>
                             西部農莊
-                        </h3>
+                        </h4>
                         <p>
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
@@ -124,9 +135,9 @@
                     </svg>
 
                     <div class="info">
-                        <h3>
+                        <h4>
                             印安部落
-                        </h3>
+                        </h4>
                         <p>
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
@@ -141,8 +152,8 @@
         <section class="">
 
             @@include('layout/title.html',{
-                "h2TitleTC" : "熱門設施",
-                "h2TitleEN": "Hot Facility"
+                "h3TitleTC" : "熱門設施",
+                "h3TitleEN": "Hot Facility"
             })
 
             <div class="wrap"></div>
@@ -151,67 +162,136 @@
         <!-- ===============所有設施=============== -->
         <section class="ThrillRide">
             @@include('layout/title.html',{
-                "h2TitleTC" : "所有設施",
-                "h2TitleEN": "Thrill Ride"
+                "h3TitleTC" : "所有設施",
+                "h3TitleEN": "Thrill Ride"
             })
             <div class="wrap">
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
+                <div class="all-btn">
+                    <div class="btn1-area">
+                        紐約都會
                     </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    <div class="btn1-area">
+                        西部農莊
+                        
                     </div>
-                </div>
-
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
-                    </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    <div class="btn1-area">
+                        印安部落
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
+                <div class="filter">
+                    <div class="option">
+                        <input type="checkbox" value="">
+                        <label for="">不受雨天影響</label>
                     </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    <div class="option">
+                        <input type="checkbox" value="">
+                        <label for="">孕婦可乘</label>
                     </div>
-                </div>
-
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
-                    </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    <div class="option">
+                        <input type="checkbox" value="">
+                        <label for="">輪椅可乘</label>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
-                    </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
-                    </div>
+                
+                <div class="all-facility">
+                    <p>轟浪</p>
+                    <p>轟浪</p>
+                    <p>轟浪</p>
+                    <p>轟浪</p>
                 </div>
 
-                <div class="card">
-                    <div class="pic">
-                        <img src="" alt="">
+                <div class="all-card">
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
                     </div>
-                    <div class="info">
-                        <h4>雲霄飛車</h4>
-                        <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="pic">
+                            <img src="./images/cloud.jpg" alt="">
+                            <div class="area">
+                                紐約<br>
+                                都會
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>伊果飛車</h4>
+                            <p>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。</p>
+                        </div>
                     </div>
                 </div>
 
@@ -221,12 +301,9 @@
         <!-- ===============饗食餐飲=============== -->
         <section class="">
             @@include('layout/title.html',{
-                "h2TitleTC" : "饗食餐飲",
-                "h2TitleEN": "Eagle Food"
+                "h3TitleTC" : "饗食餐飲",
+                "h3TitleEN": "Eagle Food"
             })
-
-   
-            
             <div class="wrap">
 
             </div>
@@ -235,12 +312,6 @@
         
         <!--  ===============map ===============  -->
         @@include('layout/map.html')
-    <section>
-
-        <div class="wrap">
-  
-        </div>
-    </section>
 
     </div>
 
@@ -248,3 +319,31 @@
     @@include('layout/footer.html')
 </body>
 </html>
+
+<!-- js 電腦版導覽列滾輪 -->
+<script>
+    window.addEventListener("load",function(){  
+        
+        let screenWidth = screen.width;
+
+        if (window.innerWidth > 996){
+            document.addEventListener("scroll",function(){
+                let ScrollNum = document.documentElement.scrollTop;
+                let header = document.getElementById("header");
+                // alert(window.innerWidth)
+                console.log(ScrollNum)
+                    if(ScrollNum>1200){
+                        header.classList.remove("hide");
+                        header.classList.add("show");
+                    }else{
+                        header.classList.remove("show");
+                        header.classList.add("hide");
+                    }
+
+
+            }, false);
+        };
+
+
+    });
+</script>

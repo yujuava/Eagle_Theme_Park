@@ -1,0 +1,89 @@
+.ticket {
+    .ticket-table {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        @include md() {
+            padding: 30px;
+        }
+
+        @include lg() {
+            padding: 50px;
+        }
+        th{
+            background-color: $color2;
+            padding: 30px;
+            color: $color5;
+            font-size: $h5-fzSize;
+            font-family: $family1;
+        }
+        td{
+            border: 2px solid lighten($color2,10%);
+            color: $color5;
+            font-size: $h5-fzSize;
+            font-family: $family1;
+        }
+        // /*第一欄第一列：左上*/
+        tr:first-child th:first-child {
+            border-top-left-radius: 30px;
+        }
+        border-collapse:separate;
+        /*最後欄第一列：右上*/
+        tr:first-child th:last-child {
+            border-top-right-radius: 30px;
+        }
+
+        tr th:first-child,
+        tr td:first-child {
+            /*設定table左邊邊框*/
+            border-left: 2px solid $color2;
+        }
+
+        tr th:last-child,
+        tr td:last-child {
+            /*設定table右邊邊框*/
+            border-right: 2px solid$color2;
+        }
+
+        tr td:first-child,
+        tr td:nth-child(2),
+        tr td:nth-child(3),
+        tr td:last-child {
+            /*設定table表格每列底部邊框*/
+            border-bottom: 2px solid lighten($color2,10%);
+            padding: 30px;
+        }
+
+        tr:last-child td:first-child,
+        tr:last-child td:nth-child(2),
+        tr:last-child td:nth-child(3),
+        tr:last-child td:last-child {
+            ///!*設定table表格最後一列底部邊框*!/
+            border-bottom: 2px solid$color2;
+            padding: 30px;
+        }
+    }
+    .notice{
+        margin: auto;
+        width: 70%;
+        border-radius: 20px;
+        padding: 20px;
+        background-color: $color2;
+        padding: 40px;
+        li{
+            font-size: $h6-fzSize;
+            color: $color5;
+            line-height: 1.5;
+            text-indent: -1em;
+        }
+    }
+}
+
+
+
+@include md() {}
+
+@include lg() {}
+
+@include xl() {}

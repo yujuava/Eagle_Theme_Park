@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', {
+    "title" : "首頁"
+    })
+</head>
+<!-- 改body class名稱 -->
+
+<body class="food">
+    <!-- 共用header -->
+    @@include('layout/header.html')
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+    "h2Title" : "饗食餐飲"
+    })
+    <!-- 小標使用這個 -->
+    <section class="new_york">
+        @@include('layout/title.html',{
+        "h3TitleTC" : "紐約都會",
+        "h3TitleEN": "New York"
+        })
+        <div class="wrap">
+
+        </div>
+    </section>
+
+    <section class="wild_west">
+        @@include('layout/title.html',{
+        "h3TitleTC" : "西部農莊",
+        "h3TitleEN": "Wild West"
+        })
+    </section>
+    <div class="wrap">
+        <img src="https://picsum.photos/300/200/?random=10">
+    </div>
+
+    <section class="native_usa">
+        @@include('layout/title.html',{
+        "h3TitleTC" : "印安部落",
+        "h3TitleEN": "Native American"
+        })
+        <div class="wrap">
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+
+</html>

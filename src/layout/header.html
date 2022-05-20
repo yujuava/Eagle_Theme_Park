@@ -1,13 +1,15 @@
 <!-- @@include('login.html') -->
 <h1>EAGLE THEME PARK</h1>
-<header>
+<header  id="header">
     <div class="left-back">
-
     </div>
     <!-- HEADER MAIN 開始 -->
     <div class="wrap">
         <div class="logo">
-            <img src="/images/logo.svg" alt="">
+            <a href="/homepage.html">
+                <img src="/images/logo.svg" alt="">
+            </a>
+
         </div>
         <!-- 電腦版nav -->
         <nav class="pc-nav">
@@ -21,32 +23,41 @@
             </div>
             <ul>
                 <li>
-                    <a href="">
-                        主題園區
-                    </a>
+                    <div>
+                        <a href="" class="main-nav">
+                            主題園區
+                        </a>
+                    </div>
+                    <div class="sec-nav">
+                        <a href="">紐約都會</a>
+                    
+                        <a href="">西部農莊</a>
+                 
+                        <a href="">印安部落</a>
+                    </div>             
                 </li>
                 <li>
-                    <a href="">
+                    <a href="news.html" class="main-nav">
                         最新消息
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        購票指南
+                    <a href="ticket.html" class="main-nav">
+                        園區資訊
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         伊果商城
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="food.html" class="main-nav">
                         饗食餐飲
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="main-nav">
                         遊客體驗
                     </a>
                 </li>
@@ -56,13 +67,64 @@
     </div>
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
-          <!-- 手機板nav漢堡 -->
-        <div class="hbg">
+        <!-- 手機板nav漢堡 -->
+        <label class="hbg" v-on:click="show = !show">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </label>
     </div>
+
+    <!-- 手機板選單 -->
+    <nav class="mobile-nav" v-if="show">
+        <div class="top-block">
+            <img src="../images/logo.svg" alt="">
+            <div class="close" v-on:click="show = !show">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul>
+
+            <li>
+                <img src="/images/navHome.svg" alt="">
+                <a href="">
+                    主題園區
+                </a>
+            </li>
+            <li>
+                <img src="/images/navThemePark.png"alt="">
+                <a href="">
+                    最新消息
+                </a>
+            </li>
+            <li>
+                <img src="/images/navNew.svg" alt="">
+                <a href="">
+                    園區資訊
+                </a>
+            </li>
+            <li>
+                <img src="/images/navTicket.svg" alt="">
+                <a href="">
+                    伊果商城
+                </a>
+            </li>
+            <li>
+                <img src="/images/navFastfood.svg" alt="">
+                <a href="">
+                    饗食餐飲
+                </a>
+            </li>
+            <li>
+                <img src="/images/navConversation.svg" alt="">
+                <a href="">
+                    遊客體驗
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- 小票券 -->
     <a href="" class="ticket">
         <img src="/images/ticket.svg" alt="">
     </a>
@@ -70,3 +132,22 @@
         <div class="bcg-front"></div>
     </div>
 </header>
+
+<!-- vue -->
+<script>
+
+    new Vue({
+        el: '#header',
+        data: {     // 變數放這裡!
+            show: false,
+        },
+        methods: {  // 函數大部分放這裡! 
+        },
+        computed: { 
+        },
+        mounted(){
+
+        }
+    });
+</script>
+

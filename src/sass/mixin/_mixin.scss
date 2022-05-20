@@ -22,38 +22,81 @@
 //============h2設定======================
 @mixin h2Set(){
     font-size: $h2-fzSize; 
+    font-family:$family1;
     color:$color5;
     margin: auto;
     font-weight: $h2-fontWeight;
     position: relative;
-}
-//============h2偽元素裝飾線===================
-@mixin h2Decorate(){
-    content: '';
-    position: absolute;
-    top: 130px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 70vw;
-    height: 13vw;
-    border-top: 0.5rem solid $color5;
-    border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
- }
-//============h2偽元素RWD===================
-@mixin h2DecorateRwd(){
-    @include md(){
-        top: 180px;
-        border-top: 0.5rem solid $color5;
-    };
-    @include lg(){
-        top: 195px;
-        border-top: 0.6rem solid $color5;    
-    };
-    @include xl(){
-        top: 220px;
-        border-top: 0.65rem solid $color5; 
-    };
+    &::before{
+        content: '';
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 40vw;
+        height: 6vw;
+        border-top: 0.5rem solid $color2;
+        border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
+        @include md(){
+            width: 30vw;
+            top: 120px;
+        };
+        @include lg(){
+            top: 130px;
+        };
+        @include xl(){
+            top: 150px;
+        };
+    }
 }
 
+//===================有border按鈕===================
+@mixin btn1($style,$bdcolor:$color2,$bgcolor:white){
+    .btn1-#{$style} {
+        border-radius: 8px;
+        display: inline-block;
+        margin: 0 10px;
+        padding: 5px 10px;
+        font-weight: 600;
+        transition: .2s;
+        font-size: $h6-fzSize;
+        border: 2px solid $bdcolor;
+        color:$bdcolor;
+        background-color: $bgcolor;
+        @content;
+        &:hover{
+            border: 2px solid darken($bdcolor, 30);
+            cursor: pointer;
+        }
+        @include lg(){
+            border-radius: 12px;
+            padding: 8px 20px;
+        }
+    }
+}
+//===================無border按鈕===================
+@mixin btn2($style,$fcolor:$color1,$bgcolor:$color6){
+    .btn2-#{$style} {
+        border:0;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 0 10px;
+        padding: 5px 10px;
+        font-weight: 600;
+        transition: .2s;
+        font-size: $h6-fzSize;
+        color:$fcolor;
+        background-color: $bgcolor;
+        @content;
+        &:hover{
+            background-color: darken($bgcolor, 5);
+            cursor: pointer;
+        }
+        @include lg(){
+            border-radius: 12px;
+            padding: 8px 20px;
+        }
+    }
+}
 
 

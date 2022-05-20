@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "購票頁面"
+    })
+</head>
+<body class="ticket">
+
+    <!-- 共用header -->
+    @@include('layout/header.html')
+    <!-- 共用header end -->
+    <!-- 購票指南h2 -->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "園區資訊"
+    })
+    <!-- 內容 -->
+    <section class="ticket">
+        <div class="wrap">
+            <table class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>票種</th>
+                        <th>票價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>成人票</td>
+                        <td>1000元</td>
+                    </tr>
+                    <tr>
+                        <td>幼童票</td>
+                        <td>500元</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>愛心票</td>
+                        <td>400元</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="notice">
+            <ul>
+                <li>1.未滿3歲或身高100cm以下，且有家長陪伴之幼兒可免費入園。</li>
+                <li>2.購買學生票及博愛票(年滿60歲以上，或孕婦、身障朋友)須出示相關證件。</li>
+                <li>3.各項促銷優惠活動恕無法合併使用。</li>
+            </ul>
+        </div>
+    </section>
+    <section class="traffic"> 
+        @@include('layout/title.html',{
+            "h3TitleTC" : "交通指南",
+            "h3TitleEN": "Traffic"
+        })
+    </section>
+
+
+
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>
