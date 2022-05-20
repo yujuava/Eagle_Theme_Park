@@ -2,6 +2,13 @@
     @include xl(){
         border:0px;
     }
+    //首頁要微調共用header
+    header{
+        @include xl(){
+            border-left: 20px solid $color3;
+            border-right:20px solid $color3 ;
+        }
+    }
     //首頁才有的header
     .indexHeader{
         width: 100%;
@@ -188,6 +195,24 @@
                 }
                 svg{
                     width: 50%;
+                }
+
+                .newyork{
+                    .pic{
+                        display: block;
+                        border: 1px solid #000;
+                    }
+                    .newyork-shape{
+                        width: 100%;
+                    }
+                    #mask1{
+                        border: 1px solid #000;
+                        clip-path: url(#svgMask1);
+                        img{
+                            width: 100%;
+                            height: 600px;
+                        }
+                    }
                 }
                 .farm{
                     // border: 1px solid #000;
