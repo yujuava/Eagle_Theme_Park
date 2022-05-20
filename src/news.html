@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('layout/meta.html', {
-        "title" : "首頁"
+        "title" : "最新消息"
     })
 </head>
 <body class="news">
@@ -92,15 +92,16 @@
             "h3TitleTC" : "遊行活動",
             "h3TitleEN": "Theme Area"
         })
-        <div class="wrap">
+        <div class="wrap"></div>
 
     </section>
-    @@include('layout/title.html',{
-        "h3TitleTC" : "設備維護",
-        "h3TitleEN": "Theme Area"
-    })
-
-    
+    <section class="equipment">
+        @@include('layout/title.html',{
+            "h3TitleTC" : "設備維護",
+            "h3TitleEN": "Theme Area"
+        })
+        <div class="wrap"></div>
+    </section>
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
