@@ -97,11 +97,30 @@ footer{
                 }
                 
                 >a{
-                    border-bottom: 1px solid $color9;
+                    // border-bottom: 1px solid $color9;
                     color:$color9;
                     display: block  ;
                     margin-bottom: 15px;
                     padding-bottom: 5px;
+                    position: relative;
+                    &::after{
+                        // border: 1px solid #000;
+                        content:"";
+                        width: 0%;
+                        height: .7px;
+                        background-color: $color9;
+                        position: absolute;
+                        bottom:0;
+                        left: 0;
+                        right: 0;
+                        transition: .5s;
+                    }
+                    &:hover::after{
+                        content:"";
+                        width: 100%;
+                    }
+              
+
                     @include xl(){
                         color:$color9;
                         display: block  ;

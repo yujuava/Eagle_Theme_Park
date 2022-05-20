@@ -6,7 +6,10 @@
     <!-- HEADER MAIN 開始 -->
     <div class="wrap">
         <div class="logo">
-            <img src="/images/logo.svg" alt="">
+            <a href="/homepage.html">
+                <img src="/images/logo.svg" alt="">
+            </a>
+
         </div>
         <!-- 電腦版nav -->
         <nav class="pc-nav">
@@ -34,12 +37,12 @@
                     </div>             
                 </li>
                 <li>
-                    <a href="" class="main-nav">
+                    <a href="news.html" class="main-nav">
                         最新消息
                     </a>
                 </li>
                 <li>
-                    <a href="" class="main-nav">
+                    <a href="ticket.html" class="main-nav">
                         園區資訊
                     </a>
                 </li>
@@ -49,7 +52,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="main-nav">
+                    <a href="food.html" class="main-nav">
                         饗食餐飲
                     </a>
                 </li>
@@ -148,30 +151,3 @@
     });
 </script>
 
-<!-- js 電腦版導覽列滾輪 -->
-<script>
-    window.addEventListener("load",function(){  
-        
-        let screenWidth = screen.width;
-
-        if (window.innerWidth > 996){
-            document.addEventListener("scroll",function(){
-                let ScrollNum = document.documentElement.scrollTop;
-                let header = document.getElementById("header");
-                // alert(window.innerWidth)
-                console.log(ScrollNum)
-                    if(ScrollNum>1200){
-                        header.classList.remove("hide");
-                        header.classList.add("show");
-                    }else{
-                        header.classList.remove("show");
-                        header.classList.add("hide");
-                    }
-
-
-            }, false);
-        };
-
-
-    });
-</script>

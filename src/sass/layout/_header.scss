@@ -13,10 +13,7 @@ header{
       height: 75px;
       border-top:16px solid $color3;
   }
-  @include xl(){
-      border-left: 20px solid $color3;
-      border-right:20px solid $color3 ;
-  }
+
   
   .left-back,.right-back{
       position: absolute;

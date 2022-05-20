@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="">
+                    <a href="homepage.html">
                         <img src="/images/navHome.svg" alt="">
                     </a>
                 </li>
@@ -25,17 +25,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="news.html">
                         <img src="/images/navNew.svg" alt="">
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="ticket.html">
                         <img src="/images/navTicket.svg" alt="">
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="food.html">
                         <img src="/images/navFastfood.svg" alt="">
                     </a>
                 </li>
@@ -82,11 +82,19 @@
             <div class="full">
                 <!-- 紐約都會 -->
                 <div class="block newyork">
-                    <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 794 824" style="enable-background:new 0 0 794 824;" >
-                    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" d="M0.113,0.396c0,0,656,69.483,706,228.978
-                        c50,159.496-111.5,354.259,65,354.259s-771,240.033-771,240.033V0.396z"/>
-                    </svg>
+                    <div class="pic">
+                        <div id="mask1">
+                            <img src="/images/55.jpg" alt="">
+                        </div>
+
+                        <svg width="793" height="824" viewBox="0 0 793 824" border="2px solid red" class="newyork-shape">
+                            <!-- <clipPath id="svgMask1"> -->
+                                 <path d="M0 0C0 0 656 69.4832 706 228.979C756 388.474 594.5 583.238 771 583.238C947.5 583.238 0 823.271 0 823.271V0Z" fill="#C4C4C4"/>
+                            <!-- </clipPath> -->
+                        </svg>
+                    </div>
+                        
+                        
 
                     <div class="info">
                         <h4>
@@ -311,3 +319,31 @@
     @@include('layout/footer.html')
 </body>
 </html>
+
+<!-- js 電腦版導覽列滾輪 -->
+<script>
+    window.addEventListener("load",function(){  
+        
+        let screenWidth = screen.width;
+
+        if (window.innerWidth > 996){
+            document.addEventListener("scroll",function(){
+                let ScrollNum = document.documentElement.scrollTop;
+                let header = document.getElementById("header");
+                // alert(window.innerWidth)
+                console.log(ScrollNum)
+                    if(ScrollNum>1200){
+                        header.classList.remove("hide");
+                        header.classList.add("show");
+                    }else{
+                        header.classList.remove("show");
+                        header.classList.add("hide");
+                    }
+
+
+            }, false);
+        };
+
+
+    });
+</script>
