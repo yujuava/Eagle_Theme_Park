@@ -58,6 +58,7 @@ body{
     border-left: 15px solid $color3;
     border-right:15px solid $color3 ;
     position: relative;
+    overflow-x: hidden;
     @include md(){
         //平板
         border-left: 20px solid $color3;
