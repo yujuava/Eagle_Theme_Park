@@ -68,21 +68,21 @@ body{
 
 //固定容器
 .wrap{
-    // border: 3px dashed gray;
+    border: 3px dashed gray;
     width: 88%;
     margin: auto;
     @include md(){
         //平板
-        // border: 3px dashed red;
+        border: 3px dashed red;
         width: calc(720 / 768 * 100%);
     }
     @include lg(){
         //平板橫
-        // border: 3px dashed blue;
+        border: 3px dashed blue;
         width: calc(880 / 960 * 100%);
     }
     @include xl(){
-        // border: 3px dashed pink;
+        border: 3px dashed pink;
         width: calc(1100 / 1200 * 100%);
     }
     
