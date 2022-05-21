@@ -35,7 +35,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="newspaper_item">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
@@ -45,7 +45,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="newspaper_item">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
@@ -55,7 +55,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="newspaper_item">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
@@ -65,7 +65,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="newspaper_item">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
@@ -75,7 +75,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="newspaper_item">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
@@ -177,31 +177,40 @@
 //開消息燈箱
 
     Vue.component('item',{
+        methods: {
+            close: function(todo){
+                document.getElementById('news_inner').style.display='none';
+            },
+        },
         template:`
-        <div class="news_inner">
-            <h4>防疫公告</h4>
-            <div class="inner">
-                <div class="inner_picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_artical">
-                    <p>因疫情影響，六福村秉持著高規格
+        <div id="news_inner">
+            <div class="inner_total">
+                
+                <h4>防疫公告</h4>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <div class="inner">
+                    <div class="inner_picture">
+                        <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
+                    </div>
+                    <div class="inner_artical">
+                        <p>因疫情影響，六福村秉持著高規格
 
-                        配合政府防疫措施，將園區防疫標準提高！
-                        
-                        以下為《防疫調整公告》
-                        Q：入園是否要預約？
-                        A：入園不需要預約，配合政府防疫指示，取消觀光遊樂業人數降載規定
-                        請依照現場服務人員的指示入園即可。
-                        Q：設施搭乘相關規定？
-                        A：設施不用預約及梅花座。
-                        若人數較多請使用Line up設施APP預約設施
-                        詳細教學請參考此篇連結
-                        Q：場域消毒相關守則？
-                        A：每日消毒8次。
-                        疫情防治，我們一起努力！</p>
+                            配合政府防疫措施，將園區防疫標準提高！<br>
+                            
+                            以下為《防疫調整公告》<br>
+                            Q：入園是否要預約？<br>
+                            A：入園不需要預約，配合政府防疫指示，取消觀光遊樂業人數降載規定<br>
+                            請依照現場服務人員的指示入園即可。
+                            Q：設施搭乘相關規定？<br>
+                            A：設施不用預約及梅花座。<br>
+                            若人數較多請使用Line up設施APP預約設施<br>
+                            詳細教學請參考此篇連結<br>
+                            Q：場域消毒相關守則？<br>
+                            A：每日消毒8次。<br>
+                            疫情防治，我們一起努力！</p>
+                    </div>
                 </div>
-            </div>            
+            </div>    
         </div>
         `,
     })
@@ -210,5 +219,10 @@
         data:{
             content:'',
         },
+        methods: {
+            
+     
+        },
     })
+
 </script>
