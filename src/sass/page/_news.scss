@@ -1,4 +1,8 @@
 .news {
+    #airplane{
+        display: block;
+        margin-left: auto;
+    }
     .newspapers {
         .wrap {
             @include md() {
