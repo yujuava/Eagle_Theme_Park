@@ -271,7 +271,6 @@
                 "h3TitleTC" : "熱門設施",
                 "h3TitleEN": "Hot Facility"
             })
-
             <div class="full">
                 <div class="word">
                     <p>TOP1</p>
@@ -279,9 +278,20 @@
                     <P>TOP3</P>
                 </div>
                 <!-- 摩天輪 -->
-                <svg id="wheels" data-name="wheels" viewBox="0 0 1807 1906">
+                <svg id="wheels" data-name="wheels" viewBox="0 -90 1807 2000">
                     <defs>
-                        <style>.cls-1,.cls-2,.cls-3,.cls-4{fill:none;}.cls-1{stroke:#8c8c8c;}.cls-1,.cls-2,.cls-5{stroke-width:40px;}.cls-2,.cls-3,.cls-4{stroke:#c4c4c4;}.cls-3{stroke-width:40px;}.cls-4{stroke-width:40px;}.cls-5,.cls-7{fill:#fff;}.cls-5{stroke:#707070;}.cls-6{fill:#398590;}.cls-8{fill:#a7d4d3;}.cls-9{fill:#707070;}
+                        <style>.cls-1,.cls-2,.cls-3,.cls-4{fill:none;}
+                            .cls-1{stroke:#8c8c8c;}
+                            .cls-1{stroke-width:45px;}
+                            .cls-2,.cls-5{stroke-width:40px;}
+                            .cls-2,.cls-3,.cls-4{stroke:#c4c4c4;}
+                            .cls-3{stroke-width:40px;}
+                            .cls-4{stroke-width:40px;}
+                            .cls-5,.cls-7{fill:#fff;}
+                            .cls-5{stroke:#707070;}
+                            .cls-6{fill:#398590;}
+                            .cls-8{fill:#a7d4d3;}
+                            .cls-9{fill:#707070;}
 
                         .cls-10,.cls-11{
                             font-size:45px;
@@ -294,119 +304,150 @@
 
                         </style>
                     </defs>
-                    <!-- 大圓圈外框 -->
-                    <circle class="cls-1" id="big-circle" cx="904.51" cy="919.48" r="713.77" transform = "rotate(-45 903.5 953)"/>
-                    <!-- 輪框 -->
-                    <path class="cls-2" d="M908.27,200V1627.57"/>
-                    <line class="cls-3" x1="1412.71" y1="399.37" x2="403.29" y2="1408.79"/>
-                    <line class="cls-2" x1="190.75" y1="899.48" x2="1618.28" y2="899.48"/>
-                    <line class="cls-4" x1="413.55" y1="400.2" x2="1422.96" y2="1409.63"/>
+                    
                     <!-- 底座三角形 -->
                     <path class="cls-1" d="M908.26,1053.08l388.16,791.6H520.1Z"/>
+                    <!-- 輪框 -->
+                    <g id="circle-frame">
+                        <path class="cls-2" d="M908.27,200V1627.57"/>
+                        <line class="cls-3" x1="1412.71" y1="399.37" x2="403.29" y2="1408.79"/>
+                        <line class="cls-2" x1="190.75" y1="899.48" x2="1618.28" y2="899.48"/>
+                        <line class="cls-4" x1="413.55" y1="400.2" x2="1422.96" y2="1409.63"/>
+                    </g>
+                    <!-- 大圓圈外框 -->
+                    <circle class="cls-1" id="big-circle" cx="904.51" cy="919.48" r="713.77" transform = "rotate(-45 903.5 953)"/>
+                    <!-- 所有車廂 -->
+                    <g id="all-cabin">
+                        <!-- 車廂1 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-8" cx="908" cy="177.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car1" >
+                                    <path class="cls-7" d="M1064.79,172.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08S750.37,87.92,750.37,169.15c0,1.15,0,2.3.06,3.44h-.18v33.49H1065V172.59Z"/>        
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car1)" x="600" y="0" width="500"/>
+
+                            <!-- 車廂果果 -->
+                            <image xlink:href="./images/eagle-shock-half.png" x="780" y="-50"width="230"/>
+
+                            <!-- <text class="cls-10" transform="translate(818.5 267.64)">雲霄飛車</text>      -->
+                            
+                        </g>
+                        <!-- 車廂2 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-6" cx="395" cy="377.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car2">
+                                    <path class="cls-7" d="M551.77,372.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S237.37,287.92,237.37,369.15c0,1.15,0,2.3.06,3.44h-.18v33.49H552V372.59Z"/>
+                                </clipPath>
+        
+                                <text class="cls-12" transform="translate(198.11 340.15)">
+                                    <tspan class="cls-11">雲霄飛車</tspan><tspan x="59.99" y="0">OP1</tspan>
+                                </text><text class="cls-12" transform="translate(0 838.22)">
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car2)" x="200" y="200" width="500"/>
+
+                            <text class="cls-11" transform="translate(297.93 477.79)">雲霄飛車</text>
+                
+                        </g>
+                    
+                        <!-- 車廂3 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-8" cx="190" cy="853.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car3">
+                                    <path class="cls-8" d="M346.77,848.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S32.37,763.92,32.37,845.15c0,1.15,0,2.3.06,3.44h-.18v33.49H347V848.59Z"/>        
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car3)" x="0" y="650" width="500"/>
+
+                            <text class="cls-10" transform="translate(94.05 953)">雲霄飛車</text>
+                    
+                        </g>
+                        <!-- 車廂4 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-6" cx="395" cy="1381.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car4">
+                                    <path class="cls-7" d="M551.77,1376.59c0-1.14.07-2.28.07-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H552v-33.49Z"/>        
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car4)" x="200" y="1200" width="500"/>
+
+                            <text class="cls-11" transform="translate(297.93 1488.66)">雲霄飛車</text>
+                            
+                        </g>
+                        <!-- 車廂5 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-8" cx="910" cy="1614.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car5">
+                                    <path class="cls-7" d="M1066.79,1609.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H1067v-33.49Z"/>
+                                    
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car5)" x="700" y="1400" width="500"/>  
+                            <text class="cls-10" transform="translate(818.5 1716.69)">雲霄飛車</text>
+                    
+                        </g>
+                        <!-- 車廂6 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-6" cx="1447" cy="1383.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car6">
+                                    
+                                    <path class="cls-7" d="M1603.79,1378.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49h314.8v-33.49Z"/>
+                                    
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car6)" x="1200" y="1200" width="500"/>
+                            
+                        </g>
+                        <!-- 車廂7 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-8" cx="1617" cy="853.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car7">            
+                                    <path class="cls-7" d="M1773.79,848.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V848.59Z"/>
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car7)" x="1400" y="700" width="500"/>
+                            
+                        </g>
+                        <!-- 車廂8 -->
+                        <g class="cabin">
+                            
+                            <ellipse class="cls-6" cx="1408" cy="377.74" rx="190" ry="177.74"/>
+                            <defs>
+                                <clipPath id="car8">
+                                    <path class="cls-7" d="M1564.79,372.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V372.59Z"/>        
+                                </clipPath>
+                            </defs>
+                            <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car8)" x="1200" y="200" width="500"/>
+                            
+                        </g>
+                        
+                    </g>
                     <!-- 中心 -->
                     <circle class="cls-5" cx="905" cy="922.07" r="132"/>
-                    
-                    <!-- 車廂1 -->
-                    <ellipse class="cls-8" cx="908" cy="177.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car1" >
-                            <path class="cls-7" d="M1064.79,172.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08S750.37,87.92,750.37,169.15c0,1.15,0,2.3.06,3.44h-.18v33.49H1065V172.59Z"/>        
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car1)" x="600" y="0" width="500"/>
-                    
-                    <!-- 車廂2 -->
-                    <ellipse class="cls-6" cx="395" cy="377.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car2">
-                            <path class="cls-7" d="M551.77,372.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S237.37,287.92,237.37,369.15c0,1.15,0,2.3.06,3.44h-.18v33.49H552V372.59Z"/>
-                        </clipPath>
-
-                        <text class="cls-12" transform="translate(198.11 340.15)">
-                            <tspan class="cls-11">雲霄飛車</tspan><tspan x="59.99" y="0">OP1</tspan>
-                        </text><text class="cls-12" transform="translate(0 838.22)">
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car2)" x="200" y="200" width="500"/>
-      
-               
-                    <!-- 車廂3 -->
-                    <ellipse class="cls-8" cx="190" cy="853.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car3">
-                            <path class="cls-8" d="M346.77,848.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S32.37,763.92,32.37,845.15c0,1.15,0,2.3.06,3.44h-.18v33.49H347V848.59Z"/>        
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car3)" x="0" y="650" width="500"/>
-            
-                    <!-- 車廂4 -->
-                    <ellipse class="cls-6" cx="395" cy="1381.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car4">
-                            <path class="cls-7" d="M551.77,1376.59c0-1.14.07-2.28.07-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H552v-33.49Z"/>        
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car4)" x="200" y="1200" width="500"/>
-                    
-                    <!-- 車廂5 -->
-                    <ellipse class="cls-8" cx="910" cy="1614.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car5">
-                            <path class="cls-7" d="M1066.79,1609.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H1067v-33.49Z"/>
-                            
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car5)" x="700" y="1400" width="500"/>  
-            
-                    <!-- 車廂6 -->
-                    <ellipse class="cls-6" cx="1447" cy="1383.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car6">
-                            
-                            <path class="cls-7" d="M1603.79,1378.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49h314.8v-33.49Z"/>
-                            
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car6)" x="1200" y="1200" width="500"/>
-                    
-                    <!-- 車廂7 -->
-                    <ellipse class="cls-8" cx="1617" cy="853.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car7">            
-                            <path class="cls-7" d="M1773.79,848.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V848.59Z"/>
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car7)" x="1400" y="700" width="500"/>
-                    
-                    <!-- 車廂8 -->
-                    <ellipse class="cls-6" cx="1408" cy="377.74" rx="190" ry="177.74"/>
-                    <defs>
-                        <clipPath id="car8">
-                            <path class="cls-7" d="M1564.79,372.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V372.59Z"/>        
-                        </clipPath>
-                    </defs>
-                    <image xlink:href="https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2018/05/Cardu20170726_14502011-Copy.jpg" clip-path="url(#car8)" x="1200" y="200" width="500"/>
-                    
                     <!-- 底座 -->
                     <rect class="cls-9" x="475" y="1819" width="860" height="87" rx="10"/>
-
+                
                     <!-- 文字 -->
-                    <text class="cls-10" transform="translate(818.5 267.64)">雲霄飛車</text>
-
-                  
-                    <text class="cls-10" transform="translate(818.5 1716.69)">雲霄飛車</text>
-
-                    <text class="cls-11" transform="translate(297.93 477.79)">雲霄飛車</text>
-
                     <text class="cls-11" transform="translate(1311.83 481.09)">雲霄飛車</text>
-
                     <text class="cls-10" transform="translate(1548.49 953)">雲霄飛車</text>
-
-                    <text class="cls-10" transform="translate(94.05 953)">雲霄飛車</text>
-
-                    <text class="cls-11" transform="translate(297.93 1488.66)">雲霄飛車</text><ellipse class="cls-10" cx="1447" cy="1383.74" rx="190" ry="177.74"/>
+                    <text class="cls-11" transform="translate(1358.83 1491.95)">雲霄飛車</text>               
+                    <!-- <ellipse class="cls-10" cx="1447" cy="1383.74" rx="190" ry="177.74"/> -->
 
 
-                    <text class="cls-11" transform="translate(1358.83 1491.95)">雲霄飛車</text>
                 </svg>
 
 
@@ -623,21 +664,3 @@
     });
 </script>
 
-<!-- 小綠人svg -->
-<!-- <script>
-    MorphSVGPlugin.convertToPath("circle");
-
-    let tl = gsap.timeline({
-    repeat: -1,
-    yoyo: true,
-    repeatDelay: 0.3,
-    defaults: {
-        duration: 3
-    }
-    })
-
-    tl
-    .to("#origin", { morphSVG: "#change" })
-    .timeScale(3);
-
-</script> -->

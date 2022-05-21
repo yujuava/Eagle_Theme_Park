@@ -400,6 +400,61 @@
                 // border: 1px solid red;
                 overflow: hidden;
                 position: relative;
+           
+                // 摩天輪輪框旋轉svg
+                #circle-frame{
+                    animation: frame-rotate 5s linear infinite;
+                    transform-origin: center;
+                    transform-box: fill-box;
+
+                }
+                @keyframes  frame-rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    50%{
+                        transform: rotate(15deg)
+                    }
+                    100% {
+                        transform: rotate(0deg)
+                    }
+                }
+                // 所有車廂旋轉svg
+                #all-cabin{
+                    animation: cabin-transit 5s linear infinite;
+                    transform-origin: center;
+                    transform-box: fill-box;
+                }
+
+                @keyframes cabin-transit {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    50%{
+                        transform: rotate(15deg)
+                    }
+                    100% {
+                        transform: rotate(0deg)
+                    }
+                }
+                .cabin {
+                    animation: cabin-transform 2s linear infinite;
+                    transform-origin: center;
+                    transform-box: fill-box;
+                }
+                @keyframes cabin-transform {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    50%{
+                        transform: rotate(-15deg)
+                    }
+                    100% {
+                        transform: rotate(0deg)
+                    }
+                }
+
+
                 .word{
                     p{
                         position: absolute;
@@ -407,19 +462,20 @@
                         font-weight: 600;
                         color:$color6;
                         font-size: $big-fzsize;
+                        z-index: 2;
                     }
                     :nth-child(1){
-                        left: 45%;
-                        top:3%;
+                        left: 36%;
+                        top:8%;
                     }
                     :nth-child(2){
-                        left: 30%;
-                        top:29%;
+                        left: 20%;
+                        top:35%;
                      
                     }
                     :nth-child(3){
-                        left: 33%;
-                        top:64%;
+                        left: 26%;
+                        top:65%;
                     }
                 }
                 
