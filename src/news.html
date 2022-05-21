@@ -23,15 +23,16 @@
             "h3TitleTC" : "伊果快報",
             "h3TitleEN": "Theme Area"
         })
-        <div class="wrap">
-            <div class="newspaper_item">
+
+        <div id="app" class="wrap">
+            <div @click="content='item' "class="newspaper_item">
                 <h4>休園公告</h4>
                 <div class="picture">
                     <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
                 </div>
                 <div class="inner_text">
                     <p>1本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i></a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             <div class="newspaper_item">
@@ -41,8 +42,7 @@
                 </div>
                 <div class="inner_text">
                     <p>2本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             <div class="newspaper_item">
@@ -52,8 +52,7 @@
                 </div>
                 <div class="inner_text">
                     <p>3本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             <div class="newspaper_item">
@@ -63,8 +62,7 @@
                 </div>
                 <div class="inner_text">
                     <p>4本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             <div class="newspaper_item">
@@ -74,8 +72,7 @@
                 </div>
                 <div class="inner_text">
                     <p>5本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             <div class="newspaper_item">
@@ -85,18 +82,31 @@
                 </div>
                 <div class="inner_text">
                     <p>6本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <a href=""><i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
+            <keep-alive>
+                <component :is="content"></component>
+            </keep-alive>
         </div>
+
     </section>
+
     <section class="parade">
         @@include('layout/title.html',{
             "h3TitleTC" : "遊行活動",
             "h3TitleEN": "Theme Area"
         })
-        <div class="wrap"></div>
+        <div class="wrap">
+            <div class="before_after">
+                <div class="before">
+                    
+                </div>
+                <div class="after">
+                    
+                </div>
+            </div>
+        </div>
 
     </section>
     <section class="facility">
@@ -141,24 +151,64 @@
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-    <script>        
-        let fly = gsap.fromTo("#airplane",{
-            x:0,
-        },{
-            x:-1650,
-            duration:11,
-            yoyo:true,
-            ease: "power2.inOut", 
-        });
-        gsap.fromTo("#airplane",{
-            y:50,
-        },{
-            y:80,
-            duration:1,
-            repeat:-1,
-            yoyo:true,
-            ease: "power2.inOut",
-        });
-    </script>
+
 </body>
 </html>
+<!-- 最上面的小飛機 -->
+<script>        
+    let fly = gsap.fromTo("#airplane",{
+        x:0,
+    },{
+        x:-1650,
+        duration:11,
+        yoyo:true,
+        ease: "power2.inOut", 
+    });
+    gsap.fromTo("#airplane",{
+        y:50,
+    },{
+        y:80,
+        duration:1,
+        repeat:-1,
+        yoyo:true,
+        ease: "power2.inOut",
+    });
+
+//開消息燈箱
+
+    Vue.component('item',{
+        template:`
+        <div class="news_inner">
+            <h4>防疫公告</h4>
+            <div class="inner">
+                <div class="inner_picture">
+                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
+                </div>
+                <div class="inner_artical">
+                    <p>因疫情影響，六福村秉持著高規格
+
+                        配合政府防疫措施，將園區防疫標準提高！
+                        
+                        以下為《防疫調整公告》
+                        Q：入園是否要預約？
+                        A：入園不需要預約，配合政府防疫指示，取消觀光遊樂業人數降載規定
+                        請依照現場服務人員的指示入園即可。
+                        Q：設施搭乘相關規定？
+                        A：設施不用預約及梅花座。
+                        若人數較多請使用Line up設施APP預約設施
+                        詳細教學請參考此篇連結
+                        Q：場域消毒相關守則？
+                        A：每日消毒8次。
+                        疫情防治，我們一起努力！</p>
+                </div>
+            </div>            
+        </div>
+        `,
+    })
+    new Vue({
+        el:'#app',
+        data:{
+            content:'',
+        },
+    })
+</script>
