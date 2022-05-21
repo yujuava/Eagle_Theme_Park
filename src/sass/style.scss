@@ -2,6 +2,7 @@
 // _告訴scss 不要編譯 
 @import 'base/var';
 @import 'base/reset';
+@import 'base/grid';
 @import 'mixin/mixin';
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'layout/header';
@@ -84,7 +85,7 @@ body{
         // border: 3px dashed pink;
         width: calc(1100 / 1200 * 100%);
     }
-    
+
 }
 //滿版容器
 .full{
