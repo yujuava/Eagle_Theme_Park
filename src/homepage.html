@@ -154,6 +154,11 @@
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
                     </div>
+                    <div class="cloud-1">
+                        <img src="./images/index__cloud2.png" alt="">
+                        <img src="./images/index__cloud.png" alt="">
+                    </div>
+                
                     
                     
                 </div>
@@ -181,7 +186,6 @@
                         <image xlink:href="images/themepark2.jpg" clip-path="url(#svgMask2)"/>
                     </svg>
 
-                    
                     <div class="info">
                         <h4>
                             西部農莊
@@ -189,6 +193,9 @@
                         <p>
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
+                    </div>
+                    <div class="cloud-2">
+                        <img src="./images/index__cloud2.png" alt="">
                     </div>
                     
                 </div>
@@ -258,6 +265,10 @@
                             介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
                         </p>
                     </div>
+
+                    <div class="cloud-3">
+                        <img src="./images/index__cloud2.png" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -280,7 +291,7 @@
                 <!-- 摩天輪 -->
                 <svg id="wheels" data-name="wheels" viewBox="0 -90 1807 2000">
                     <defs>
-                        <style>.cls-1,.cls-2,.cls-3,.cls-4{fill:none;}
+                        <style>.cls-1,.cls-2,.cls-3,.cls-4,.cls-12{fill:none;}
                             .cls-1{stroke:#8c8c8c;}
                             .cls-1{stroke-width:45px;}
                             .cls-2,.cls-5{stroke-width:40px;}
@@ -292,6 +303,8 @@
                             .cls-6{fill:#398590;}
                             .cls-8{fill:#a7d4d3;}
                             .cls-9{fill:#707070;}
+                            .cls-12{stroke:#c4c4c4;}
+                            .cls-12{stroke-width:25px;}
 
                         .cls-10,.cls-11{
                             font-size:45px;
@@ -316,6 +329,7 @@
                     </g>
                     <!-- 大圓圈外框 -->
                     <circle class="cls-1" id="big-circle" cx="904.51" cy="919.48" r="713.77" transform = "rotate(-45 903.5 953)"/>
+                    <circle class="cls-12" id="big-circle" cx="930.51" cy="919.48" r="419.8" transform = "rotate(-45 903.5 953)"/>
                     <!-- 所有車廂 -->
                     <g id="all-cabin">
                         <!-- 車廂1 -->
@@ -451,25 +465,24 @@
                 </svg>
 
 
-                <div class="game-enter">
-                    <a href="">
+                <a href="" class="game-enter">
+                    <div class="eagle-pic">
                         <img src="./images/elglfly.png" alt="">
-                        <div class="talk">
-                            <img src="./images/talk.svg" alt="">
-                            <p>快來點擊果果玩遊戲
-                                <br>
-                                換取優惠券哦!
-                            </p>
-                        </div>
-                    </a>
-
-                </div>
+                    </div>
+                    <div class="talk">
+                        <img src="./images/talk.svg" alt="">
+                        <p>快來點擊果果玩遊戲
+                            <br>
+                            換取優惠券哦!
+                        </p>
+                    </div>
+                </a>
                 <div class="ballon">
                     <img src="./images/ballon.png" alt="">
                 </div>
                 <div class="cloud">
-                    <img src="./images/index__cloud.png" alt="">
                     <img src="./images/index__cloud2.png" alt="">
+                    <img src="./images/index__cloud.png" alt="">
                 </div>
             
             </div>
@@ -662,5 +675,70 @@
 
 
     });
+</script>
+
+<!-- gsap -->
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.to(".ballon",{
+        scrollTrigger:{
+       trigger:".cloud",
+       toggleActions:"restart none reverse pause",
+        },
+       x:20,
+       y:-200,
+       duration:5,
+   });
+
+    gsap.to(".cloud",{
+        scrollTrigger:{
+       trigger:".cloud",
+       start:"100px 50%",
+       toggleActions:"restart none reverse pause",
+        },
+       x:400,
+       duration:2
+   });
+
+    gsap.to(".game-enter",{
+        scrollTrigger:{
+       trigger:".game-enter",
+       toggleActions:"restart none reverse pause",
+        },
+       x:180,
+       duration:2
+   });
+
+    gsap.to(".cloud-1",{
+        scrollTrigger:{
+       trigger:".cloud-1",
+       toggleActions:"restart none reverse pause",
+        },
+       x:-300,
+       duration:2
+   });
+
+    gsap.to(".cloud-2",{
+        scrollTrigger:{
+       trigger:".cloud-2",
+       toggleActions:"restart none reverse pause",
+        },
+       x:180,
+       duration:2
+   });
+
+    gsap.to(".cloud-3",{
+        scrollTrigger:{
+       trigger:".cloud-3",
+       toggleActions:"restart none reverse pause",
+        },
+       x:-120,
+       duration:2
+   });
+
+
+
+
 </script>
 
