@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "購票頁面"
+    "title" : "購票頁面"
     })
 </head>
+
 <body class="ticket">
 
     <!-- 共用header -->
@@ -12,7 +14,7 @@
     <!-- 共用header end -->
     <!-- 購票指南h2 -->
     @@include('layout/h2Style.html',{
-        "h2Title" : "園區資訊"
+    "h2Title" : "園區資訊"
     })
     <!-- 內容 -->
     <section class="ticket">
@@ -41,20 +43,92 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
-        <div class="notice">
-            <ul>
-                <li>1.未滿3歲或身高100cm以下，且有家長陪伴之幼兒可免費入園。</li>
-                <li>2.購買學生票及博愛票(年滿60歲以上，或孕婦、身障朋友)須出示相關證件。</li>
-                <li>3.各項促銷優惠活動恕無法合併使用。</li>
-            </ul>
+            <div class="notice">
+                <ul>
+                    <li>1.未滿3歲或身高100cm以下，且有家長陪伴之幼兒可免費入園。</li>
+                    <li>2.購買學生票及博愛票(年滿60歲以上，或孕婦、身障朋友)須出示相關證件。</li>
+                    <li>3.各項促銷優惠活動恕無法合併使用。</li>
+                </ul>
+            </div>
         </div>
     </section>
-    <section class="traffic"> 
+    @@include('layout/buyTicket.html')
+
+    <section class="traffic">
         @@include('layout/title.html',{
-            "h3TitleTC" : "交通指南",
-            "h3TitleEN": "Traffic"
+        "h3TitleTC" : "交通指南",
+        "h3TitleEN": "Traffic"
         })
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="#drive"><i class="fa-solid fa-car"></i></i></a>
+                    <div class="transportation"><a href="#drive">自行開車</a></div>
+                </div>
+                <div class="col-4">
+                    <a href="#subway"><i class="fa-solid fa-train-subway"></i></a>
+                    <div class="transportation"><a href="#subway">台鐵高鐵</a></div>
+                </div>
+                <div class="col-4">
+                    <a href="#bus"><i class="fa-solid fa-bus"></i></a>
+                    <div class="transportation"><a href="#bus">巴士客運</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226.07807363725126!2d121.22474911468044!3d24.957635500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1653120846477!5m2!1szh-TW!2stw"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p>依果樂園座落於桃園中壢，無論乘坐大眾運輸工具、巴士、或自行駕車，十分方便。</p>
+        </div>
+        <div class="wrap">
+            <div id="drive">
+                <div class="title">自行開車</div>
+                <p>走國道一號(中山高)</p>
+                <ul>
+                    <li>開車南下於52K機場系統交流道往國道二號往桃園鶯歌方向接國道三號南下，
+                        並從73K高原交流道下，沿指標行駛約2.1公里抵達「依果樂園」。</li>
+                    <li>開車北上於99新竹系統交流道接國道三號，往北從73K高原交流道下，
+                        沿指標行駛約2.1公里前往「依果樂園」。</li>
+                </ul>
+                <p>走國道三號(北二高)</p>
+                <ul>
+                    <li>開車南下，請由73K高原交流道下，沿指標行駛約2.1公里抵達「依果樂園」。</li>
+                    <li>開車北上，請由73K高原交流道下，沿指標行駛約2.1公里抵達「依果樂園」。</li>
+                </ul>
+            </div>
+            <div id="subway">
+                <div class="title">台鐵高鐵</div>
+                <p>搭乘台鐵</p>
+                <ul>
+                    <li>可於台鐵中壢車站下車，並由前站出口至對面的新竹客運中壢北站，搭乘新竹客運5653線巴士，車程約50分鐘，即可抵達「伊果樂園」。</li>
+                    <li>新竹客運5653線時刻表</li>
+                </ul>
+                <p>桃園高鐵站</p>
+                <ul>
+                    <li>即日起停駛至2022/6/30</li>
+                    <li>起可於高鐵桃園站下車，並從車站大廳5號出口前往客運轉運站9號公車月台，轉搭乘六福村桃園接駁公車(限假日行駛)；或車站大廳4 號出口搭乘計程車前往「伊果樂園」。</li>
+                    <li>六福村桃園接駁公車為免費搭乘。</li>
+                    <li>乘車座位以線上預約名單為主，請先至預約系統填寫資料。</li>
+                </ul>
+            </div>
+            <div id="bus">
+                <div class="title">巴士客運</div>
+                <p>台聯客運5350(直達)</p>
+                <ul>
+                    <li>乘車路線：松山機場(建議搭車點)＞南京敦化路口＞捷運忠孝敦化站＞成功國宅＞公館＞秀朗國小＞智光商職＞捷運景安站＞＞＞伊果樂園</li>
+                    <li>台聯客運5350乘車資訊及時刻表</li>
+                    <li>可使用投幣或悠遊卡付費(加班車除外)，或上車後至龍潭總站補購車票。</li>
+                </ul>
+                <p>台中客運9012(需轉乘)</p>
+                <ul>
+                    <li>乘車路線：台中客運站、朝馬站＞龍潭站＞轉搭計程車＞＞＞伊果樂園</li>
+                    <li>台中客運9012時刻表</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 
@@ -65,4 +139,5 @@
     <!-- footer  -->
     @@include('layout/footer.html')
 </body>
+
 </html>
