@@ -331,14 +331,33 @@
                             }  
                         }
                     }
-          
+                    svg{
+                        // border: 1px solid #000;
+                        width: 50%;
+                        height: auto;
+                        image{
+                            min-width: 100%;
+                            height: 100%;
+                            transform-origin: right;
+                            
+                        }
+                
+                    }
+                
+                 
                 }
-
                 .farm{
                     // border: 1px solid #000;
                     flex-direction: row-reverse;
                     padding-right: 0;
                     padding-left: 6%;
+                    svg{
+                        image{
+                            transform: translateX(8px);
+                        }
+                
+                    }
+
                     @include md(){
                         margin-top: -100px;
                     }
@@ -368,12 +387,113 @@
                         
                         
                     }
-                }  
+                }
             }
    
         }
 
         //=============熱門設施=============
+        section.HotFacility{
+            // border: 1px solid blue;
+            
+            .full{
+                // border: 1px solid red;
+                overflow: hidden;
+                position: relative;
+                .word{
+                    p{
+                        position: absolute;
+                        font-family: $family1;
+                        font-weight: 600;
+                        color:$color6;
+                        font-size: $big-fzsize;
+                    }
+                    :nth-child(1){
+                        left: 45%;
+                        top:3%;
+                    }
+                    :nth-child(2){
+                        left: 30%;
+                        top:29%;
+                     
+                    }
+                    :nth-child(3){
+                        left: 33%;
+                        top:64%;
+                    }
+                }
+                
+                #wheels{
+                    width: 100%;
+                    right: -500px;
+                    transform: translateX(37%);
+                }
+                .game-enter{
+                    // border: 1px solid #000;
+                    position: absolute;
+                    left: -80px;
+                    bottom:0;
+                    z-index: 2;
+                    img{
+                        // border: 1px solid #000;
+                        width: 490px;
+                    }
+                    .talk{
+                        // border: 1px solid #000;
+                        display: inline-block;
+                        width: 300px;
+                        position: absolute;
+                        bottom:45px;
+                        right: -240px;
+                        img{
+                            width: 100%;
+                        }
+                        p{
+                            width: 100%;
+                            text-align: center;
+                            position: absolute;
+                            left: 50%;
+                            top:50%;
+                            transform: translate(-50%,-50%);
+                            font-size: $word-fzSize;
+
+                  
+                        }
+
+                    }
+                }
+                .ballon{
+                    position: absolute;
+                    left:-80px;
+                    bottom:300px;
+                    img{
+                        width: 550px;
+                    }
+                }
+                .cloud{
+                    // border: 1px solid #000;
+                    position: absolute;
+                    left: -150px;
+                    top:0;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    img{
+                        // border: 1px solid #000;
+                        width: 240px;
+                        margin-left: 100px;
+
+                    }
+                    img:nth-of-type(2){
+                        width: 650px;
+
+                    }
+
+                    
+                }
+            }
+  
+        }
+
 
         //=============所有設施=============
         section.ThrillRide{
