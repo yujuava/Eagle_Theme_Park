@@ -1,6 +1,82 @@
 // themePark
 .themePark{
     // 主題設施
+    // facilities RWD
+    .themePark__facilities {
+        display: grid;
+        align-items: center;
+    }
+    // grid mobile
+    .themePark__facilities {
+        grid-template-rows: repeat(2, 50%);
+        grid-template-columns: repeat(2, 50%);
+    }
+    .faLarge1{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .faLarge2{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .faMedium{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;        
+    }
+    @include md{
+        .themePark__facilities {
+            grid-template-rows: 100%;
+            grid-template-columns: repeat(3, calc(100% / 3));
+        }
+        .faLarge1{
+            transform: translateY(-13%);
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .faLarge2{
+            transform: translateY(13%);
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        .faMedium{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;        
+        }
+    }
+    .facilitesBox{
+        padding: 15px;
+    }
+    .facilitesContent{
+        background-color: $color3;
+        border-radius: 15px;
+    }
+    .facilitesContent p{
+        text-align: center;
+    }
+    .facilitiesImg{
+        padding: 15px;
+    }
+    .facilitiesImg img{
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+    // Facility introduction effect not finished yet
+    .facilitesContent p{
+        display: none;
+    }
 
     // 打卡景點
     .themePark__Attractions{
