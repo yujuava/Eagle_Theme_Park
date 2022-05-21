@@ -3,6 +3,9 @@
         display: block;
         margin-left: auto;
     }
+    // .news_inner{
+
+    // }
     .newspapers {
         .wrap {
             @include md() {
@@ -11,7 +14,7 @@
                 flex-direction: row-reverse;
                 justify-content: space-around;
             }
-
+            
             .newspaper_item {
                 background-color: $color2;
                 margin-bottom: 20px;
@@ -62,7 +65,7 @@
                     display: flex;
                     flex-direction: column;
 
-                    a {
+                    i {
                         color: $color1;
                         font-size: $h4-fzSize;
                         margin-left: auto;
