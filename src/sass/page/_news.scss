@@ -3,68 +3,79 @@
     background-repeat: no-repeat;
     background-position: 20% 25%;
     background-size: 95% 42%;
-    #airplane{
+
+    #airplane {
         display: block;
         margin-left: auto;
     }
+
     .newspapers {
         .wrap {
-            #news_inner{
+            #news_inner {
                 width: 100%;
                 height: 100%;
-                position:fixed;
+                position: fixed;
                 top: 0;
                 background-color: rgba(0, 0, 0, 0.199);
                 z-index: 99;
                 display: flex;
                 overflow-y: auto;
-                .inner_total{
-                    padding: 70px 30px 30px 30px; 
+
+                .inner_total {
+                    padding: 70px 30px 30px 30px;
                     width: 80%;
                     background-color: $color1;
                     margin: auto;
                     border-radius: 10px;
                     border: 4px solid $color2;
                     position: relative;
+
                     @include md() {
                         width: 80%;
                     }
+
                     @include lg() {
                         width: 70%;
                     }
+
                     @include xl() {
                         width: 50%;
                     }
-                    i{
-                        font-size:$h5_fzSize;
-                        color:$color9;
-                        position:absolute;
+
+                    i {
+                        font-size: $h5_fzSize;
+                        color: $color9;
+                        position: absolute;
                         right: 10px;
                         top: 100px;
                     }
-                    h4{
+
+                    h4 {
                         text-align: center;
                         background-image: url(/images/news_inner_h4.png);
                         background-size: 50%;
                         background-repeat: no-repeat;
-                        background-position:50% 50%;
-                        margin: 30px 0 20px 0; 
+                        background-position: 50% 50%;
+                        margin: 30px 0 20px 0;
                     }
-                    .inner_picture{
+
+                    .inner_picture {
                         width: 100%;
-                        img{
+
+                        img {
                             width: 100%;
                         }
                     }
                 }
             }
+
             @include md() {
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row-reverse;
                 justify-content: space-around;
             }
-            
+
             .newspaper_item {
                 background-color: $color2;
                 margin-bottom: 20px;
@@ -168,27 +179,32 @@
             }
         }
     }
-    .parade{
-        .before_after{
+
+    .parade {
+        .before_after {
             position: relative;
             left: 0;
-            .before{
-                img{
-                    aspect-ratio: 1439 / 481;
-                    width: 100%;
-                }
-             }
-            .after{
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                img{
+
+            .before {
+                img {
                     aspect-ratio: 1439 / 481;
                     width: 100%;
                 }
             }
-            .center_area{
+
+            .after {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+
+                img {
+                    aspect-ratio: 1439 / 481;
+                    width: 100%;
+                }
+            }
+
+            .center_area {
                 position: absolute;
                 height: 100%;
                 left: 50%;
@@ -196,7 +212,8 @@
                 width: 10px;
                 margin-left: -5px;
                 background-color: $color1;
-                .center{
+
+                .center {
                     position: absolute;
                     top: 50%;
                     margin-top: -25px;
@@ -209,7 +226,8 @@
                     text-align: center;
                     display: flex;
                     border: 5px solid $color6;
-                    i{
+
+                    i {
                         margin: auto;
                         font-size: 25px;
                         color: $color7;
@@ -218,6 +236,7 @@
             }
         }
     }
+
     .facility {
         .wrap {
             table {
@@ -234,33 +253,38 @@
                         background-color: $color3;
                         border-radius: 10px;
                         border: 2px dashed #ffffff;
+
                         i {
                             animation: circle infinite 3s;
-                            animation-timing-function:linear;
+                            animation-timing-function: linear;
                             display: none;
+
                             @include md() {
                                 display: inline-block;
                             }
+
                             @keyframes circle {
-                                from{
+                                from {
                                     transform: rotate(0deg);
                                 }
-                                to{
+
+                                to {
                                     transform: rotate(360deg);
                                 }
                             }
 
                         }
                     }
+                    td {
+                        background-color: $color2;
+                        border-radius: 10px;
+                        border: 2px dashed #ffffff;
+                        color: $color5;
+                        font-size: $word-fzSize;
+                    }
+    
                 }
 
-                td {
-                    background-color: $color2;
-                    border-radius: 10px;
-                    border: 2px dashed #ffffff;
-                    color: $color5;
-                    font-size: $word-fzSize;
-                }
             }
         }
 
