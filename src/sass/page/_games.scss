@@ -1,0 +1,58 @@
+.games{
+    .games__row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @include md{
+        .games__col{
+            width: 50%;
+        } 
+    }
+    @include lg{
+        .games__col{
+            max-width: 500px;
+        } 
+    }
+    .gamesCard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $color2;
+        border-radius: 15px;
+    }
+    .gamesCard p{
+        padding: 15px;
+    }
+    .gamesImg img{
+        width: 100%;
+    }
+    .gamesCard button{
+        padding: 3px 15px 3px 15px;
+        margin-bottom: 15px;
+        background-color: $color6;
+        color: $color5;
+        border: none;
+        border-radius: 100px;
+        box-shadow: 3px 3px 0 $color5;
+    }
+    .gamesCard button:hover{
+        cursor: pointer;
+        animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    @keyframes shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
+        }
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+}
