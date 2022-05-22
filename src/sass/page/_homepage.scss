@@ -19,10 +19,10 @@
                 display: block;
             }
         }
-
         @include xl(){
             height: calc(100vh + 80px);
             display: flex;
+            // 左側選單
             nav{
                 // border: 1px solid #000;
                 display: block;
@@ -40,7 +40,6 @@
                         &:hover ::after{
                             content:'首頁';
                             padding-left: 5px;
-                            // border: 1px solid #000;
                             text-align: center;
                             line-height: 23px;
                             width: 62px;
@@ -48,7 +47,7 @@
                             position: absolute;
                             top:50%;
                             left:50px;
-                            // font-size: $sm-word-fzSize;
+                            font-size: $sm-word-fzSize;
                             transform: translateY(-50%);
                             background-image: url(../../images/label.svg);
                             background-repeat: no-repeat;
@@ -91,14 +90,12 @@
         }
         //影片區
         .video{
-            // border: 4px solid blue;
             width: 100%;
             height: 100vh;
             position: relative;
             overflow: hidden;   
             @include md(){
-            }
-                     
+            }       
             @include xl(){
                 width: 100%;
                 height: calc(100vh + 80px);
@@ -121,6 +118,7 @@
                     bottom:0px;
                     left: 0;
                     right: 0;
+                    z-index: -1;
                 }
                 @include xl(){
                     width: 100%;
@@ -140,7 +138,7 @@
                     position: absolute;
                     bottom:-570px;
                     left:-2.1%;
-                    z-index: 1;
+                    z-index: 10;
                 }
                 img{
                     // border: 1px solid #000;
@@ -154,58 +152,44 @@
             }
             //背景圖
             .bcg{
-                // border: 3px solid #000;
-                width: 100%;
-                position: absolute;
-                bottom:40px;
-                left:0;
-                right: 0;
-                z-index: 0;
-                img{
-                    position: absolute;
+                display: none;
+                @include lg(){
+                    display: block;
                     width: 100%;
-                    bottom:10vh;
-                    left: 0;
+                    height: 100%;
+                    position: absolute;
+                    bottom:0px;
+                    left:0;
                     right: 0;
-                     @include xl(){
-                         bottom:150px;
+                    z-index: 0;
+                    z-index: 1;
+                    img{
+                        position: absolute;
+                        width: 100%;
+                        bottom:0;
+                        left: 0;
+                        right: 0;
                      }
-                 }
-                &::after{
-                    content:"";
-                    // border: 1px solid #000;
-                    width: 100%;
-                    height: 110px;
-                    background-image:  linear-gradient(rgba($color3,1)50%,rgba($color2,1));
-                    position: absolute;
-                    bottom:-40px;
-                    @include lg(){
-                        background-image: none;
-                        background-color: $color3;
-                    }
-                    @include xl(){
-                        content: "";
-                        height: 90px;
-                        // border: 3px solid red;
-                        height: 200px;
-                        bottom: -50px;
-
-                    }
                 }
                 
-         
             }
         }
         //黃色票
         .ticket{
             display:none;
             @include xl(){
-                // border: 1px solid #000;
                 display: block;
                 position: absolute;
-                right:5%
+                right:5%;
+                top:-30px;
+                transform: 1s;
+                z-index: 10;
             }
-            
+            &:hover{
+                @include xl(){
+                    top:-10px;
+                }
+            }
         }
         //logo
         #index-top-logo{
@@ -303,6 +287,7 @@
 
         //=============主題園區=============
         section.ThemeArea{
+            overflow: hidden;
             .full{
                 .block{
                     width: 100%;
@@ -509,8 +494,11 @@
                         font-family: $family1;
                         font-weight: 600;
                         color:$color6;
-                        font-size: $h2-fzSize;
+                        font-size: $h5-fzSize;
                         z-index: 2;
+                        @include md(){
+                            font-size: $h2-fzSize;
+                        }
                         @include lg(){
                             font-size: $big-fzsize;
                         }
@@ -566,7 +554,7 @@
                             left: 50%;
                             top:50%;
                             transform: translate(-50%,-50%);
-                            // font-size: $sm-word-fzSize;
+                            font-size: $sm-word-fzSize;
                         }
 
                     }
