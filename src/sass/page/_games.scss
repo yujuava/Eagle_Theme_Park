@@ -4,6 +4,9 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    .games__col{
+        padding: 15px;
+    } 
     @include md{
         .games__col{
             width: 50%;
@@ -23,6 +26,9 @@
         border-radius: 15px;
     }
     .gamesCard p{
+        padding: 15px;
+    }
+    .gamesImg{
         padding: 15px;
     }
     .gamesImg img{

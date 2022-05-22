@@ -213,7 +213,7 @@
     }
     .paradesContent{
         height: 100%;
-        border: 2px solid $color1;
+        border: 4px solid $color1;
         border-radius: 15px;
     }
     .paradesContent{
@@ -232,14 +232,19 @@
     .paradesTypeDate span{
         align-self: center;
         height: 15px;
-        width: 1px;
+        width: 2px;
         margin: 0 10px 0 10px;
         background-color: $color1;
     }
     .videoBox{
-        border-top: 2px solid $color1;
-        border-bottom: 2px solid $color1;
+        border-top: 4px solid $color1;
+        border-bottom: 4px solid $color1;
         padding: 15px;
+        overflow: hidden;
+    }
+    .videoBox video{
+        width: 100%;
+        aspect-ratio: 960/540;
     }
     .paradesBox:first-child .videoBox{
         flex-grow: 1;
