@@ -12,6 +12,7 @@ function DoFirst(){
           
     function resizeCanvas() {
         // minus padding value within html/css
+        console.log('resize detected');
         canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
         canvas.height = canvas.width;
        
