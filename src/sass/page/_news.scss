@@ -164,7 +164,61 @@
             }
         }
     }
-
+    .parade{
+        .before_after{
+            position: relative;
+            left: 0;
+            .before{
+                img{
+                    aspect-ratio: 1439 / 481;
+                    width: 100%;
+                }
+             }
+            .after{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                img{
+                    aspect-ratio: 1439 / 481;
+                    width: 100%;
+                }
+            }
+            .center_area{
+                position: absolute;
+                height: 100%;
+                left: 50%;
+                top: 0%;
+                width: 10px;
+                margin-left: -5px;
+                // margin-top: -25px;
+                // bottom: 0;
+                // margin-left: auto;
+                // margin-right: auto;
+                // margin: auto;
+                background-color: $color1;
+                .center{
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -25px;
+                    margin-left: -20px;
+                    border-radius: 100%;
+                    width: 50px;
+                    height: 50px;
+                    background-color: $color1;
+                    z-index: 99;
+                    text-align: center;
+                    display: flex;
+                    border: 5px solid $color6;
+                    i{
+                        margin: auto;
+                        font-size: 25px;
+                        color: $color7;
+                    }
+                }
+            }
+        }
+    }
     .facility {
         .wrap {
             table {
