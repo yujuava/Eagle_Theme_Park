@@ -1,7 +1,7 @@
 .ticket {
     .ticket-table {
         width: 100%;
-        margin: auto;
+        margin: -50px auto;   
         text-align: center;
         padding: 10px;
         @include md() {
@@ -92,6 +92,7 @@
 }
 
 .traffic {
+    margin: 50px;
     .fa-car,
     .fa-train-subway,
     .fa-bus {
@@ -135,13 +136,13 @@
     .wrap {
         display: block;
         scroll-behavior: smooth;
-        width: 100%;
-        min-height: 200px;
+        // width: 100%;
+        // min-height: 200px;
         @include lg(){
             width: 65%;
         }
         .scroll-page{
-            height: 30vh;
+            // height: 30vh;
         }
         .title {
             font-family: $family2;
