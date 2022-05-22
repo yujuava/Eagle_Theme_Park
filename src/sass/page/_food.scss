@@ -63,7 +63,90 @@
         margin:auto;
     }
     .wrap .text{
-        width: 45%;
+        width: 40%;
+        border-radius: 15px;
+        background: linear-gradient($color4, $color3, $color1);
+    }
+    .wrap .text h2{
+        color: $color1;
+        margin: 1em;
+    }
+    .wrap .text p{
+        color: $color1;
+        margin: 0 2em;
+    }
+    .carousel{
+        // height: 100vh;
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        perspective: 100em;
+    }
+    .carousel_cards, .carousel_cards2, .carousel_cards3{
+        position: relative;
+        width: 25rem;
+        height: 25rem;
+        transform-style: preserve-3d;
+        transform: translateZ(-30rem);
+        transition: transform 0.3s ease-in;
+    }
+    .carousel_img{
+        width: 100%;
+        height: 100%;
+        display: inline-block; 
+        -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgb(0,0,0,.12));
+    }
+    .carousel_card{
+        width:100%;
+        height: 100%;
+        position: absolute;
+        border: 2px solid $color1;
+        border-radius: 0.2rem;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    .carousel_card:nth-child(1){
+        transform: rotateY(0deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(2){
+        transform: rotateY(45deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(3){
+        transform: rotateY(90deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(4){
+        transform: rotateY(135deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(5){
+        transform: rotateY(180deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(6){
+        transform: rotateY(225deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(7){
+        transform: rotateY(270deg) translateZ(30rem);
+    }
+    .carousel_card:nth-child(8){
+        transform: rotateY(315deg) translateZ(30rem);
+    }
+    .carousel_btn{
+        outline: none;
+        border: none;
+        border-radius: 50%;
+        background-color: $color6;
+        padding: 0.5rem;
+        color: $color1;
+        font-size: 1rem;
+        // margin-top: 20rem;
+        margin: 1rem 5rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .carousel_btn:hover{
+        // transform: scale(1.02);
+        background: $color7;
     }
     .wrap .pic{
         width: 55%;
