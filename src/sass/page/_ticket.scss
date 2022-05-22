@@ -73,7 +73,7 @@
     }
     //注意事項
     .notice {
-        margin: auto;
+        margin: 50px auto ;
         width: 95%;
         border-radius: 20px;
         padding: 20px;
@@ -92,7 +92,6 @@
 }
 
 .traffic {
-
     .fa-car,
     .fa-train-subway,
     .fa-bus {
@@ -114,13 +113,16 @@
         font-size: $word-fzSize;
         text-align: center;
         margin: 10px;
-
+        &:hover{
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+    }
         a {
             color: $color2;
             font-family: $family2;
         }
     }
-
+    
     .map {
         p {
             padding: 15px;
@@ -130,12 +132,16 @@
             font-size: $word-fzSize;
         }
     }
-
     .wrap {
         display: block;
         scroll-behavior: smooth;
+        width: 100%;
+        min-height: 200px;
         @include lg(){
             width: 65%;
+        }
+        .scroll-page{
+            height: 30vh;
         }
         .title {
             font-family: $family2;

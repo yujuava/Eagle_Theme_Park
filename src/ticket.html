@@ -50,10 +50,9 @@
                     <li>3.各項促銷優惠活動恕無法合併使用。</li>
                 </ul>
             </div>
+            @@include('layout/buyTicket.html')
         </div>
     </section>
-    @@include('layout/buyTicket.html')
-
     <section class="traffic">
         @@include('layout/title.html',{
         "h3TitleTC" : "交通指南",
@@ -84,7 +83,7 @@
             <p>依果樂園座落於桃園中壢，無論乘坐大眾運輸工具、巴士、或自行駕車，十分方便。</p>
         </div>
         <div class="wrap">
-            <div id="drive">
+            <div class="scroll-page" id="drive">
                 <div class="title">自行開車</div>
                 <p>走國道一號(中山高)</p>
                 <ul>
@@ -99,7 +98,7 @@
                     <li>開車北上，請由73K高原交流道下，沿指標行駛約2.1公里抵達「依果樂園」。</li>
                 </ul>
             </div>
-            <div id="subway">
+            <div class="scroll-page" id="subway">
                 <div class="title">台鐵高鐵</div>
                 <p>搭乘台鐵</p>
                 <ul>
@@ -114,7 +113,7 @@
                     <li>乘車座位以線上預約名單為主，請先至預約系統填寫資料。</li>
                 </ul>
             </div>
-            <div id="bus">
+            <div class="scroll-page" id="bus">
                 <div class="title">巴士客運</div>
                 <p>台聯客運5350(直達)</p>
                 <ul>
