@@ -288,3 +288,71 @@ footer{
     }
 }
 
+//SVG
+
+// 摩天輪單一車廂
+.ft-car{
+    animation: ft-car 5s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+
+}
+@keyframes  ft-car {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg)
+    }
+}
+
+// 旋轉木馬
+
+#horse1{
+    animation: horse1 2s linear infinite;
+}
+
+@keyframes  horse1 {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform:translateY(10%)
+    }
+    100% {
+        transform:translateY(0%)
+    }
+}
+
+#horse2{
+    animation: horse2 3s linear infinite;
+}
+
+@keyframes  horse2 {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform:translateY(5%)
+    }
+    100% {
+        transform:translateY(0%)
+    }
+}
+
+#horse3{
+    animation: horse1 2.5s linear infinite;
+}
+
+@keyframes  horse3 {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform:translateY(8%)
+    }
+    100% {
+        transform:translateY(0%)
+    }
+}
+
