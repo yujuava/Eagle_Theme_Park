@@ -181,6 +181,10 @@
     }
 
     .parade {
+        .full{
+            position: relative;//沒效果
+            left: 0;//沒效果
+        }
         .before_after {
             position: relative;
             left: 0;
@@ -188,7 +192,7 @@
             .before {
                 img {
                     aspect-ratio: 1439 / 481;
-                    width: 100%;
+                    width: 100vw;
                 }
             }
 
@@ -197,10 +201,12 @@
                 left: 0;
                 right: 0;
                 top: 0;
+                overflow: hidden;
+                width: 50vw;
 
                 img {
                     aspect-ratio: 1439 / 481;
-                    width: 100%;
+                    width: 100vw;
                 }
             }
 
@@ -212,7 +218,7 @@
                 width: 10px;
                 margin-left: -5px;
                 background-color: $color1;
-                animation: change 3s linear 2s infinite ;
+                animation: change 3s linear 2s 5 ;
                 transition: ease;
                 @keyframes change {
                     0%{
