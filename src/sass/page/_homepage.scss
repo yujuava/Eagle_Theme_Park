@@ -48,7 +48,7 @@
                             position: absolute;
                             top:50%;
                             left:50px;
-                            font-size: $sm-word-fzSize;
+                            // font-size: $sm-word-fzSize;
                             transform: translateY(-50%);
                             background-image: url(../../images/label.svg);
                             background-repeat: no-repeat;
@@ -443,59 +443,59 @@
                 position: relative;
            
                 // 摩天輪輪框旋轉svg
-                svg{
+                #wheels{
                     
-                #circle-frame{
-                    animation: frame-rotate 5s linear infinite;
-                    transform-origin: center;
-                    transform-box: fill-box;
+                    #circle-frame{
+                        animation: frame-rotate 5s linear infinite;
+                        transform-origin: center;
+                        transform-box: fill-box;
 
-                }
-                @keyframes  frame-rotate {
-                    0% {
-                        transform: rotate(0deg);
                     }
-                    50%{
-                        transform: rotate(15deg)
+                    @keyframes  frame-rotate {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        50%{
+                            transform: rotate(15deg)
+                        }
+                        100% {
+                            transform: rotate(0deg)
+                        }
                     }
-                    100% {
-                        transform: rotate(0deg)
+                    // 所有車廂旋轉svg
+                    #all-cabin{
+                        animation: cabin-transit 5s linear infinite;
+                        transform-origin: center;
+                        transform-box: fill-box;
                     }
-                }
-                // 所有車廂旋轉svg
-                #all-cabin{
-                    animation: cabin-transit 5s linear infinite;
-                    transform-origin: center;
-                    transform-box: fill-box;
-                }
 
-                @keyframes cabin-transit {
-                    0% {
-                        transform: rotate(0deg);
+                    @keyframes cabin-transit {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        50%{
+                            transform: rotate(15deg)
+                        }
+                        100% {
+                            transform: rotate(0deg)
+                        }
                     }
-                    50%{
-                        transform: rotate(15deg)
+                    .cabin {
+                        animation: cabin-transform 2s linear infinite;
+                        transform-origin: center;
+                        transform-box: fill-box;
                     }
-                    100% {
-                        transform: rotate(0deg)
+                    @keyframes cabin-transform {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        50%{
+                            transform: rotate(-15deg)
+                        }
+                        100% {
+                            transform: rotate(0deg)
+                        }
                     }
-                }
-                .cabin {
-                    animation: cabin-transform 2s linear infinite;
-                    transform-origin: center;
-                    transform-box: fill-box;
-                }
-                @keyframes cabin-transform {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-                    50%{
-                        transform: rotate(-15deg)
-                    }
-                    100% {
-                        transform: rotate(0deg)
-                    }
-                }
 
                 }
                 #wheels{
@@ -529,15 +529,17 @@
                         left: 26%;
                         top:65%;
                     }
-                }
-                
-           
+                }     
                 .game-enter{
                     width: 35%;
                     position: absolute;
                     left: -16%;
                     bottom:0;
                     z-index: 2;
+                    @include lg(){
+                        width: 28%;
+                    }
+                    
                     .eagle-pic{
                         img{
                             width: 100%;
@@ -564,11 +566,7 @@
                             left: 50%;
                             top:50%;
                             transform: translate(-50%,-50%);
-                            font-size: $sm-word-fzSize;
-                            @include md(){
-                                font-size: $word-fzSize;
-                            }
-                            
+                            // font-size: $sm-word-fzSize;
                         }
 
                     }
@@ -578,6 +576,10 @@
                     position: absolute;
                     left: -15%;
                     bottom:15%;
+                    @include lg(){
+                        bottom:-20px;
+                    }
+                    
                     img{
                         width: 550px;
                         width: 100%;
@@ -589,6 +591,7 @@
                     width: 45%;
                     left: -15%;
                     top:0;
+                    z-index: -1;
                     img{
                         width: 100%;
                     }
@@ -596,8 +599,6 @@
                         width: 90%;
                         padding-right: 60px;
                     }
-
-                    
                 }
             }
   
