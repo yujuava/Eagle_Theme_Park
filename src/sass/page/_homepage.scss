@@ -56,7 +56,7 @@
                         }
                         &:nth-of-type(2){
                             &:hover ::after{
-                                content:'設施';
+                                content:'主題園區';
                             }
                         }
                         &:nth-of-type(3){
@@ -137,7 +137,7 @@
                     // border: 2px solid red;
                     position: absolute;
                     bottom:-570px;
-                    left:-2.1%;
+                    left:-2.7%;
                     z-index: 10;
                 }
                 img{
@@ -268,7 +268,6 @@
         }
         
         @include xl(){
-            border: 1px solid $color3; //不可刪除
             border-radius: 0;
             min-height: 100vh;
             border-top: 1px solid $color3;
