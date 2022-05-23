@@ -11,12 +11,14 @@
 
     .newspapers {
         .wrap {
-            #news_inner {
+            .news_inner {
                 padding-top: 100px;
                 width: 100%;
                 height: 100%;
                 position: fixed;
                 top: 0;
+                left: 0;
+                right: 0;
                 background-color: rgba(0, 0, 0, 0.199);
                 z-index: 99;
                 display: flex;
@@ -30,6 +32,7 @@
                     border-radius: 10px;
                     border: 4px solid $color2;
                     position: relative;
+                    overflow-y: auto;
                     @include md() {
                         width: 80%;
                     }
@@ -179,7 +182,9 @@
             }
         }
     }
-
+    #test{
+        display: none;
+    }
     .parade {
         .full{
             position: relative;//沒效果

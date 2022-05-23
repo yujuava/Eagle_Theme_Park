@@ -6,6 +6,9 @@
     })
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
+    <style>
+    
+    </style>
 </head>
 <body class="news">
     <!-- 共用header -->
@@ -186,13 +189,17 @@
     Vue.component('item',{
         methods: {
             close: function(todo){
-                document.getElementById('news_inner').style.display='none';
+                document.querySelector('.news_inner').setAttribute("id","test");
+                document.querySelector('.news_inner').setAttribute("id","test");
+
+                // document.getElementById('news_inner').destory();
+                // document.querySelector('.news_inner').css;
+
             },
         },
         template:`
-        <div id="news_inner">
+        <div id="test "class="news_inner">
             <div class="inner_total">
-                
                 <h4>防疫公告</h4>
                 <i @click="close" id="close" class="fa-solid fa-xmark"></i>
                 <div class="inner">
@@ -227,7 +234,7 @@
             content:'',
         },
         methods: {
-            
+
      
         },
     })
