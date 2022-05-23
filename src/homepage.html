@@ -8,7 +8,7 @@
 
 <body class="homepage">
     <!-- 共用header -->
-    @@include('layout/header.html')
+    @@include('layout/header-onlyfor-home.html')
     <!-- 共用header end -->
 
     <!-- 首頁才有的header -->
@@ -51,7 +51,7 @@
 
         <div class="video">
             <div class="video-frame">
-                <video muted src="/images/bigmovie4-2.mp4" autoplay loop playsinline></video>
+                <video muted src="/images/movie7.mp4" autoplay loop playsinline></video>
             </div>
 
             <div class="pic">
@@ -75,8 +75,12 @@
     <!-- ===============大票券=============== -->
     <div class="buy-ticket">
         <div class="wrap">
-            <h2>歡迎來到伊果主題樂園</h2>
-            <p class="info">六福村主題遊樂園」設有國內外知名設施，如全球第二座&亞洲唯一之「笑傲飛鷹」、全國最大人工河道「大峽谷急流泛舟」及「大海盜」、雙重體驗旅程設計之「火山歷險」、國內知名「大怒神」與360度正反向旋轉之「風火輪」，國內唯一刺激設施「3G老油井」等等。除上述刺激設施外，「六福村主題遊樂園」仍舊是臺灣目前最具規模之開放式野生動物園，包括約七十種、近千頭動物，提供遊客近距離觀賞野生動物生態之美。</p>
+            <h2>歡迎來到伊果樂園</h2>
+            <p class="info">伊果樂園有三大園區：紐約都會、西部農莊，印安部落
+                建議各用一天時間遊玩。每個區域都各具特色。
+                <br>
+                快來伊果樂園在不同園區，與你喜愛的果果共度美好時光！<br>
+                2022年5月22日正式啟程！</p>
             @@include('layout/buyTicket.html')
         </div>
     </div>
@@ -141,18 +145,21 @@
                             </clipPath >
                         </defs>
                  
-                        <image xlink:href="images/themepark.jpg" clip-path="url(#svgMask1)" class="path"/>
+                        <image xlink:href="images/themepark.jpg" clip-path="url(#svgMask1)"  -webkit-clip-path="url(#svgMask1)" class="path"/>
+                       
                     </svg>
                     <div class="info">
                         <h4>
                             紐約都會
                         </h4>
                         <p>
-                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                            踏入紐約都會區，
+                            乘上世界最高的伊果摩天輪，
+                            俯瞰美國紐約場景，
+                            展開時尚的美國夢幻之旅
                         </p>
                     </div>
                     <div class="cloud-1">
-                        <img src="./images/index__cloud3.png" alt="">
                         <img src="./images/index__cloud3.png" alt="">
                     </div>
                 
@@ -180,7 +187,7 @@
                                 </path>
                             </clipPath >
                         </defs>
-                        <image xlink:href="images/themepark2.jpg" clip-path="url(#svgMask2)"/>
+                        <image xlink:href="images/themepark2.jpg" clip-path="url(#svgMask2)" -webkit-clip-path="url(#svgMask2)"/>
                     </svg>
 
                     <div class="info">
@@ -188,7 +195,8 @@
                             西部農莊
                         </h4>
                         <p>
-                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                            兒時憧憬的美國西部場景，此刻真真切切的出現在你眼前，坐在牛仔快車
+                            一起進入西部農莊的世界！
                         </p>
                     </div>
                     <div class="cloud-2">
@@ -249,7 +257,7 @@
                             </clipPath >
                         </defs>
 
-                        <image xlink:href="images/facilities7.jpg" clip-path="url(#svgMask3)"/>
+                        <image xlink:href="images/facilities7.jpg" clip-path="url(#svgMask3)" clip-path="url(#svgMask3)" />
                         <!-- <animateMotion path="M0 0C0 0 700 80 600 250 200 600 700 750 400.5 500 780 0 600V0Z" begin="4s" dur="2s"></animateMotion> -->
                      
                     </svg>
@@ -259,7 +267,11 @@
                             印安部落
                         </h4>
                         <p>
-                            介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹
+                            印安部落，
+                            除了刺激的設施，
+                            還有印安民族特色美食，
+                            將給你最美妙的遊玩體驗
+
                         </p>
                     </div>
 
@@ -345,62 +357,75 @@
                             
                         </g>
                         <!-- 車廂2 -->
-                        <g class="cabin">
-                            
-                            <ellipse class="cls-6" cx="395" cy="377.74" rx="190" ry="177.74"/>
-                            <defs>
-                                <clipPath id="car2">
-                                    <path class="cls-7" d="M551.77,372.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S237.37,287.92,237.37,369.15c0,1.15,0,2.3.06,3.44h-.18v33.49H552V372.59Z"/>
-                                </clipPath>
-                            </defs>
-                            <image xlink:href="./images/facilities8 (20).jpg" clip-path="url(#car2)" x="200" y="220" width="350"/>
+                        <a href="themePark_NewYork.html">
+                            <g class="cabin">
+                                
+                                <ellipse class="cls-6" cx="395" cy="377.74" rx="190" ry="177.74"/>
+                                <defs>
+                                    <clipPath id="car2">
+                                        <path class="cls-7" d="M551.77,372.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S237.37,287.92,237.37,369.15c0,1.15,0,2.3.06,3.44h-.18v33.49H552V372.59Z"/>
+                                    </clipPath>
+                                </defs>
+                                <image xlink:href="./images/facilities8 (20).jpg" clip-path="url(#car2)" x="200" y="220" width="350"/>
+    
+                                <text class="cls-11" transform="translate(297.93 477.79)">極速飛鷹</text>
+                    
+                            </g>
 
-                            <text class="cls-11" transform="translate(297.93 477.79)">極速飛鷹</text>
-                
-                        </g>
+                        </a>
                     
                         <!-- 車廂3 -->
-                        <g class="cabin">
-                            
-                            <ellipse class="cls-8" cx="190" cy="853.74" rx="190" ry="177.74"/>
-                            <defs>
-                                <clipPath id="car3">
-                                    <path class="cls-8" d="M346.77,848.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S32.37,763.92,32.37,845.15c0,1.15,0,2.3.06,3.44h-.18v33.49H347V848.59Z"/>        
-                                </clipPath>
-                            </defs>
-                            <image xlink:href="./images/facilities8 (2).png" clip-path="url(#car3)" x="0" y="650" width="400"/>
+                        <a href="themePark_Indian.html">
+                            <g class="cabin">
+                                
+                                <ellipse class="cls-8" cx="190" cy="853.74" rx="190" ry="177.74"/>
+                                <defs>
+                                    <clipPath id="car3">
+                                        <path class="cls-8" d="M346.77,848.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S32.37,763.92,32.37,845.15c0,1.15,0,2.3.06,3.44h-.18v33.49H347V848.59Z"/>        
+                                    </clipPath>
+                                </defs>
+                                <image xlink:href="./images/facilities8 (2).png" clip-path="url(#car3)" x="0" y="650" width="400"/>
+    
+                                <text class="cls-10" transform="translate(94.05 953)">自由落體</text>
+                        
+                            </g>
 
-                            <text class="cls-10" transform="translate(94.05 953)">自由落體</text>
-                    
-                        </g>
+                        </a>
                         <!-- 車廂4 -->
-                        <g class="cabin">
-                            
-                            <ellipse class="cls-6" cx="395" cy="1381.74" rx="190" ry="177.74"/>
-                            <defs>
-                                <clipPath id="car4">
-                                    <path class="cls-7" d="M551.77,1376.59c0-1.14.07-2.28.07-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H552v-33.49Z"/>        
-                                </clipPath>
-                            </defs>
-                            <image xlink:href="./images/facilities8 (24).jpg" clip-path="url(#car4)" x="200" y="1200" width="500"/>
+                        <a href="themePark_West.html">
 
-                            <text class="cls-11" transform="translate(297.93 1488.66)">仙女散花</text>
-                            
-                        </g>
+                            <g class="cabin">
+                                
+                                <ellipse class="cls-6" cx="395" cy="1381.74" rx="190" ry="177.74"/>
+                                <defs>
+                                    <clipPath id="car4">
+                                        <path class="cls-7" d="M551.77,1376.59c0-1.14.07-2.28.07-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H552v-33.49Z"/>        
+                                    </clipPath>
+                                </defs>
+                                <image xlink:href="./images/facilities8 (24).jpg" clip-path="url(#car4)" x="200" y="1200" width="500"/>
+    
+                                <text class="cls-11" transform="translate(297.93 1488.66)">仙女散花</text>
+                                
+                            </g>
+
+                        </a>
                         <!-- 車廂5 -->
-                        <g class="cabin">
+                        <a href="themePark_West.html">
+                            <g class="cabin">
                             
-                            <ellipse class="cls-8" cx="910" cy="1614.74" rx="190" ry="177.74"/>
-                            <defs>
-                                <clipPath id="car5">
-                                    <path class="cls-7" d="M1066.79,1609.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H1067v-33.49Z"/>
-                                    
-                                </clipPath>
-                            </defs>
-                            <image xlink:href="./images/facilities8 (18).jpg" clip-path="url(#car5)" x="600" y="1450" width="500"/>  
-                            <text class="cls-10" transform="translate(818.5 1716.69)">空中UFO</text>
-                    
-                        </g>
+                                <ellipse class="cls-8" cx="910" cy="1614.74" rx="190" ry="177.74"/>
+                                <defs>
+                                    <clipPath id="car5">
+                                        <path class="cls-7" d="M1066.79,1609.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H1067v-33.49Z"/>
+                                        
+                                    </clipPath>
+                                </defs>
+                                <image xlink:href="./images/facilities8 (18).jpg" clip-path="url(#car5)" x="600" y="1450" width="500"/>  
+                                <text class="cls-10" transform="translate(818.5 1716.69)">空中UFO</text>
+                        
+                            </g>
+                        </a>
+                      
                         <!-- 車廂6 -->
                         <g class="cabin">
                             
@@ -456,7 +481,7 @@
                 </svg>
 
 
-                <a href="" class="game-enter">
+                <a href="games.html" class="game-enter">
                     <div class="eagle-pic">
                         <img src="./images/elglfly.png" alt="">
                     </div>
@@ -522,6 +547,7 @@
                         <card-component v-for="item in cards" :item="item" :key="item.id"/>
                     </transition-group>
                 </div>
+
 
             </div>
         </section>
@@ -592,11 +618,11 @@
     },
     {
         id:5,
-        name:'無敵海盜船',
+        name:'大海盜',
         area1:"印安",
         area2:"部落",
         img: './images/facilities8 (2).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"大海盜在搖動擺盪時，您可體驗庫克船長當年乘風破浪、冒險犯難的感受，一顆心隨著船起伏，驚險又刺激，可說是一種挑戰極限的設施。",
     },
     {
         id:6,
@@ -604,7 +630,7 @@
         area1:"西部",
         area2:"農莊",
         img: './images/facilities8 (18).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。",
     },
     {
         id:7,
@@ -612,7 +638,7 @@
         area1:"紐約",
         area2:"都會",
         img: './images/facilities8 (1).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。",
     },
     {
         id:8,
@@ -620,7 +646,7 @@
         area1:"紐約",
         area2:"都會",
         img: './images/facilities8 (20).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。",
     },
     {
         id:9,
@@ -628,7 +654,7 @@
         area1:"印安",
         area2:"部落",
         img: './images/facilities8 (23).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"伊果山車是專為幼齡兒童設計的遊樂設施，個個造型可愛、色彩鮮明，坐在裡面就像是小火車般地繞行一周，是小朋友們的最愛。",
     },
     {
         id:10,
@@ -644,15 +670,15 @@
         area1:"印安",
         area2:"部落",
         img: './images/facilities8 (2).png',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。",
     },
     {
         id:12,
         name:'急流泛舟',
-        area1:"印安",
-        area2:"部落",
+        area1:"西部",
+        area2:"農莊",
         img: './images/water.jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"這是美國大西部內最大型的遊樂設施，亦是目前國內最大型的人工泛舟河道，水道全長七百四十公尺，每艘圓型橡膠船可乘坐二至九人，全程約七分鐘。",
     },
     {
         id:13,
@@ -660,7 +686,7 @@
         area1:"印安",
         area2:"部落",
         img: './images/facilities8 (4).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+        info:"從火山口三層樓高的急流處瞬間俯衝而下，剎那間驚險的讓您來不及尖叫，剌激的感覺就在那一瞬間，最適合心臟強、膽子夠大、並且愛刺激的朋友前往冒險。",
     },
 ]
 

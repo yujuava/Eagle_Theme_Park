@@ -1,6 +1,4 @@
 <!-- @@include('login.html') -->
-<h1>EAGLE THEME PARK</h1>
-<header  id="header">
     <div class="left-back">
     </div>
     <!-- HEADER MAIN 開始 -->
@@ -12,7 +10,7 @@
 
         </div>
         <!-- 電腦版nav -->
-        <nav class="pc-nav">
+        <nav class="pc-nav" id="pc-nav">
             <div class="icon">
                 <a href="">
                     <img src="/images/Vector.svg" alt="">
@@ -31,9 +29,9 @@
                     <div class="sec-nav">
                         <a href="themePark_NewYork.html">紐約都會</a>
                     
-                        <a href="">西部農莊</a>
+                        <a href="themePark_West.html">西部農莊</a>
                  
-                        <a href="">印安部落</a>
+                        <a href="themePark_Indian.html">印安部落</a>
                     </div>             
                 </li>
                 <li>
@@ -74,7 +72,6 @@
             <span></span>
         </label>
     </div>
-
     <!-- 手機板選單 -->
     <nav class="mobile-nav" v-if="show">
         <div class="top-block">
@@ -131,23 +128,4 @@
     <div class="bottom-back">
         <div class="bcg-front"></div>
     </div>
-</header>
-
-<!-- vue -->
-<script>
-
-    new Vue({
-        el: '#header',
-        data: {     // 變數放這裡!
-            show: false,
-        },
-        methods: {  // 函數大部分放這裡! 
-        },
-        computed: { 
-        },
-        mounted(){
-
-        }
-    });
-</script>
 
