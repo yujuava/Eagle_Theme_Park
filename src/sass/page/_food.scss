@@ -3,36 +3,61 @@
         display: flex;
         margin: auto;
         justify-content: center;
-        margin-top: 100px;
-        // overflow: hidden;
+        overflow: hidden;
     }
     .full img {
         width: 100%;
         vertical-align: bottom;
-        box-shadow: 0 0 80px white inset;
+        // box-shadow: 0 0 80px white inset;
+        @include md(){
+            
+        }
+        @include lg(){
+        }
+        @include xl(){
+        }
     }
 
     .vapour {
         position: absolute;
         display: flex;
         z-index: 1;
-        padding: 0 20px;
-        margin-left: 35%;
+        
+        @include md(){
+            padding: 0 5px;
+            margin-left: 30%;
+        }
+        @include lg(){
+            padding: 0 10px;
+            margin-left: 33%;
+        }
+        @include xl(){
+            padding: 0 20px;
+            margin-left: 35%;
+        }
     }
 
     .vapour span {
         position: relative;
-        bottom: 270px;
         display: block;
-        margin: 0 10px;
-        min-width: 10px;
-        height: 120px;
         background: #fff;
         border-radius: 50%;
         animation: animate 5s linear infinite;
         opacity: 0;
         filter: blur(15px);
         animation-delay: calc(var(--i) * -0.5s);
+        @include md(){
+            
+        }
+        @include lg(){
+
+        }
+        @include xl(){
+            bottom: 300px;
+            margin: 0 10px;
+            min-width: 10px;
+            height: 120px;
+        }
     }
 
     @keyframes animate {
@@ -61,9 +86,10 @@
     .wrap{
         display:flex;
         margin:auto;
+        justify-content: space-between;
     }
     .wrap .text{
-        width: 40%;
+        width: 55%;
         border-radius: 15px;
         background: linear-gradient($color4, $color3, $color1);
     }
@@ -89,7 +115,7 @@
         width: 25rem;
         height: 25rem;
         transform-style: preserve-3d;
-        transform: translateZ(-30rem);
+        transform: translateZ(-25rem);
         transition: transform 0.3s ease-in;
     }
     .carousel_img{
