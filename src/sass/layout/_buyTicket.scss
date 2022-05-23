@@ -22,20 +22,27 @@
             }
         }
         .rightOrBottom{
-            // border: 1px solid #000;
+            border: 1px solid #000;
             width: 88%;
+            height: 48%;
             margin: 0 auto;
-            padding: 10px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             @include md(){
                 // border: 1px solid #000;
                 width: 66%;
+                height: 100%;
+                padding: 10px;
                 margin: 0;
+                display: block;
+                position: relative;
             }
             h4{
+                border: 1px solid #000;
                 margin: auto;
                 text-align: center;
-                margin-top:10px;
                 font-size: $h4-fzSize;
                 font-weight:600;
                 color:$color4;
@@ -43,14 +50,6 @@
                     margin-bottom: 0px;
                     text-align: left;
                 }
-                @include lg(){
-                    margin-bottom: 10px;
-                }
-                
-                @include xl(){
-                    margin-bottom: 20px;
-                }
-                
             }
             form{
                 // border: 1px solid #000;
@@ -148,8 +147,8 @@
                 }
                 //按鈕
                 @include btn2(book){
+   
                     @include md(){
-                        // border: 1px solid #000;
                         position: absolute;
                         bottom:20px;
                         right:30px;

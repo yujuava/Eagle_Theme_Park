@@ -1,7 +1,7 @@
 // 電腦版導覽列滾輪
 
 window.addEventListener("load",function(){  
-    
+
     let screenWidth = screen.width;
 
     if (window.innerWidth > 996){
@@ -17,10 +17,9 @@ window.addEventListener("load",function(){
                     header.classList.remove("show");
                     header.classList.add("hide");
                 }
-
-
         }, false);
+    }else{
+        header.classList.remove("hide");
     };
-
 
 });

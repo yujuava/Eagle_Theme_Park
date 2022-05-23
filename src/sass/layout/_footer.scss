@@ -259,17 +259,17 @@ footer{
     animation: ft-car 5s linear infinite;
     transform-origin: center;
     transform-box: fill-box;
-
+    -webkit-transform-origin: center;
+    -webkit-transform-box: fill-box;
 }
 @keyframes  ft-car {
     0% {
         transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
     }
-    // 50% {
-    //     transform: rotate(-0deg)
-    // }
     100% {
-        transform: rotate(-360deg)
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
     }
 }
 
