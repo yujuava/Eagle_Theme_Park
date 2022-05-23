@@ -1,6 +1,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 gsap.to(".ballon",{
     scrollTrigger:{
     trigger:".cloud",

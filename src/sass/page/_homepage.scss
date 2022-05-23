@@ -90,7 +90,7 @@
         //影片區
         .video{
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 65px);
             position: relative;
             overflow: hidden;   
             @include md(){
@@ -308,25 +308,60 @@
                         }
                     }
                     svg{
-                        border: 1px solid #000;
+                        // border: 1px solid #000;
                         width: 55%;
                         height: auto;
                         image{
                             min-width: 100%;
                             height: 100%;
-                            transform-origin: right;
-                            
+                            transform-origin: right;                  
                         }
-                
+                        .newyork-svg{
+                            animation: newyorkSvg 2s  infinite ease-in-out; 
+                        }
+                        @keyframes newyorkSvg{
+                            0% {
+                                clip-path: path( "M0,0,C0,0,656,69.4832,706,228.979,C756,388.474,594.5,583.238,771,583.238,C947.5,583.238,0,823.271,0,823.271V0Z")
+                                };
+                            34% {
+                                clip-path: path( " M0,0C0,0,629.5,65.0044,,679.5,224.5C729.5,383.996,592,606,768.5,606C945,606,0,823.271,0,823.271V0Z")
+                                };
+                                
+                            67% {
+                                clip-path: path( "M0,0C0,0,635.612,84.5,679.5,224.5C723.388,364.5,611.5,531,768.5,606C925.5,681,0,823.271,0,823.271V0Z")
+                                };
+                            100% {
+                                clip-path: path("M0,0,C0,0,656,69.4832,706,228.979,C756,388.474,594.5,583.238,771,583.238,C947.5,583.238,0,823.271,0,823.271V0Z")
+                                };
+                            }
+                        
+                        .farm-svg{
+                            animation: farmSvg 2s  infinite ease-in-out; 
+                        }
+                        @keyframes farmSvg{
+                            0% {
+                                clip-path: path( "M792.92,823.27s-656-69.48-706-229S198.42,240,21.92,240s771-240,771-240Z")
+                                };
+                            34% {
+                                clip-path: path( "M786.47,823.27S150.86,738.77,107,598.77s68-306.5-89-381.5S786.47,0,786.47,0Z")
+                                };
+                                
+                            67% {
+                                clip-path: path( "M790.47,823.27S161,758.27,111,598.77s87.5-381.5-89-381.5S790.47,0,790.47,0Z")
+                                };
+                            100% {
+                                clip-path: path("M792.92,823.27s-656-69.48-706-229S198.42,240,21.92,240s771-240,771-240Z")
+                                
+                                };
+                            }
+
                     }
                     .cloud-1,.cloud-2,.cloud-3{
-                        border: 1px solid blue;
                         width: 40%;
                         aspect-ratio: 2 / 1 ;
                         position: absolute;
                         z-index: -1;
                         img{
-                            border: 1px solid #000;
                             width: 100%;
                             height: 100%;
                             position: absolute;
@@ -402,9 +437,7 @@
             }
         }
         //=============熱門設施=============
-        section.HotFacility{
-            border: 1px solid blue;
-            
+        section.HotFacility{          
             .full{
                 // border: 1px solid red;
                 overflow: hidden;
@@ -566,9 +599,9 @@
                     }
                 }
                 .ballon{
-                    width: 45%;
+                    width: 35%;
                     position: absolute;
-                    left: -15%;
+                    left: -10%;
                     bottom:15%;
                     @include lg(){
                         bottom:-20px;
