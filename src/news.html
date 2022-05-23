@@ -21,78 +21,19 @@
     <img id="airplane" src="./images/airplane.png" alt="">
 
 
-    <section class="newspapers">
+    <section id="all_news" class="newspapers">
         @@include('layout/title.html',{
             "h3TitleTC" : "伊果快報",
             "h3TitleEN": "Theme Area"
         })
-
-        <div id="app" class="wrap">
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>1本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>2本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>3本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>4本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>5本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <div @click="content='item' "class="newspaper_item">
-                <h4>休園公告</h4>
-                <div class="picture">
-                    <img src="./images/closed_Ferris-wheel_eagle.gif" alt="">
-                </div>
-                <div class="inner_text">
-                    <p>6本園區於5/10（二）、5/11（三）休園 不便之處，敬請見諒。</p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-            <keep-alive>
+        <div class="wrap">
+            <transition-group name="cards" tag="div" class="all-card">
+                <card-component v-for="item in cards" :item="item" :key="item.id"/>
+            </transition-group>
+            <!-- <keep-alive>
                 <component :is="content"></component>
-            </keep-alive>
+            </keep-alive> -->
         </div>
-
     </section>
 
     <section class="parade">
@@ -186,14 +127,75 @@
 
 //開消息燈箱
 
+
+    // new Vue({
+    //     el:'#app',
+    //     data:{
+    //         content:'',
+    //     },
+    //     methods: {
+
+     
+    //     },
+    // })
+
+    const cards=[{
+        id:1,
+        name:'優惠快訊',
+        img: './images/facilities.jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+    {
+        id:2,
+        name:'活動快報',
+        img: './images/facilities8 (24).jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+    {   
+        id:3,
+        name:'休園公告',
+        img: './images/facilities8 (8).jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+    {
+        id:4,
+        name:'防疫須知',
+        img: './images/facilities2.jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+    {
+        id:5,
+        name:'活動快報',
+        img: './images/facilities8 (2).jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+    {
+        id:6,
+        name:'休園公告',
+        img: './images/facilities8 (18).jpg',
+        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    },
+]
+    Vue.component('card-component',{
+        template:`
+        <div @click="content='item' "class="newspaper_item">
+                <h4>{{item.name}}</h4>
+                <div class="picture">
+                    <img :src="item.img" alt="Image">
+                </div>
+                <div class="inner_text">
+                    {{item.info}}
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+        </div>
+        `,
+        props:{
+            item:Object
+        }
+    });
     Vue.component('item',{
         methods: {
             close: function(todo){
-                document.querySelector('.news_inner').setAttribute("id","test");
-                document.querySelector('.news_inner').setAttribute("id","test");
-
-                // document.getElementById('news_inner').destory();
-                // document.querySelector('.news_inner').css;
 
             },
         },
@@ -207,51 +209,20 @@
                         <img src="./images/facilities8 (6).jpg" alt="">
                     </div>
                     <div class="inner_artical">
-                        <p>因疫情影響，六福村秉持著高規格
-
-                            配合政府防疫措施，將園區防疫標準提高！<br>
-                            
-                            以下為《防疫調整公告》<br>
-                            Q：入園是否要預約？<br>
-                            A：入園不需要預約，配合政府防疫指示，取消觀光遊樂業人數降載規定<br>
-                            請依照現場服務人員的指示入園即可。
-                            Q：設施搭乘相關規定？<br>
-                            A：設施不用預約及梅花座。<br>
-                            若人數較多請使用Line up設施APP預約設施<br>
-                            詳細教學請參考此篇連結<br>
-                            Q：場域消毒相關守則？<br>
-                            A：每日消毒8次。<br>
-                            疫情防治，我們一起努力！</p>
-                            <p>因疫情影響，六福村秉持著高規格
-
-                            配合政府防疫措施，將園區防疫標準提高！<br>
-                            
-                            以下為《防疫調整公告》<br>
-                            Q：入園是否要預約？<br>
-                            A：入園不需要預約，配合政府防疫指示，取消觀光遊樂業人數降載規定<br>
-                            請依照現場服務人員的指示入園即可。
-                            Q：設施搭乘相關規定？<br>
-                            A：設施不用預約及梅花座。<br>
-                            若人數較多請使用Line up設施APP預約設施<br>
-                            詳細教學請參考此篇連結<br>
-                            Q：場域消毒相關守則？<br>
-                            A：每日消毒8次。<br>
-                            疫情防治，我們一起努力！</p>
                     </div>
                 </div>
             </div>    
         </div>
         `,
     })
-    new Vue({
-        el:'#app',
-        data:{
-            content:'',
-        },
-        methods: {
 
-     
+
+    new Vue({
+        data:{
+            cards,
         },
+        el:'#all_news',
+
     })
 
 </script>
