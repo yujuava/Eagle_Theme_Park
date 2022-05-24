@@ -6,17 +6,10 @@
         overflow: hidden;
     }
     .full img {
-        width: 100%;
+        width: 140%;
         vertical-align: bottom;
-        // box-shadow: 0 0 80px white inset;
-        @include md(){
-            
-        }
-        @include lg(){
-
-        }
         @include xl(){
-            
+            width: 100%;
         }
     }
 
@@ -24,6 +17,8 @@
         position: absolute;
         display: flex;
         z-index: 1;
+        padding: 0 5px;
+        margin-left:30%;
         
         @include md(){
             padding: 0 5px;
@@ -48,14 +43,24 @@
         opacity: 0;
         filter: blur(15px);
         animation-delay: calc(var(--i) * -0.5s);
+        bottom: 260px;
+        margin: 0 5px;
+        min-width: 6px;
+        height: 100px;
         @include md(){
-            
+            bottom: 400px;
+            margin: 0 7px;
+            min-width: 8px;
+            height: 150px;
         }
         @include lg(){
-
+            bottom: 420px;
+            margin: 0 8px;
+            min-width: 10px;
+            height: 150px;
         }
         @include xl(){
-            bottom: 400px;
+            bottom: 500px;
             margin: 0 10px;
             min-width: 10px;
             height: 150px;
