@@ -1,11 +1,21 @@
 .food-wrap{
     display:flex;
+    flex-direction: column;
     margin:auto;
-    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    @include xl(){
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
     .text{
-        width: 55%;
+        width: 100%;
         border-radius: 15px;
         background: linear-gradient($color4, $color3, $color1);
+        @include xl(){
+            width:35%;
+        }
         h2{
             color: $color1;
             margin: 1em;
@@ -13,6 +23,7 @@
         p{
             color: $color1;
             margin: 0 2em;
+            padding-bottom: 7em;
         }
     }
     .carousel{
