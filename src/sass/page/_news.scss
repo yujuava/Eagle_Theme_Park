@@ -19,7 +19,7 @@
                     justify-content: space-between;
                 }
             }
-            .news_inner {
+            .news_inner{
                 padding-top: 100px;
                 width: 100%;
                 height: 100%;
@@ -29,7 +29,10 @@
                 right: 0;
                 background-color: rgba(0, 0, 0, 0.199);
                 z-index: 99;
-                display: flex;
+                display: none;
+                .test{
+                    display: flex;
+                }
                 .inner_total {
                     padding: 20px 30px 30px 30px;
                     width:90%;
@@ -208,9 +211,7 @@
             }
         }
     }
-    #test{
-        display: none;
-    }
+    
     .parade {
         .full{
             overflow: hidden;
