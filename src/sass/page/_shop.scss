@@ -3,15 +3,11 @@
 
 // 引用RWD 方式
 @include md{
-    .box{
-        background-color: red;
-    }
+   
 }
 
 @include lg{
-    .box{
-        background-color: cyan;
-    }
+    
 }
 
 // 引用公版顏色變數
