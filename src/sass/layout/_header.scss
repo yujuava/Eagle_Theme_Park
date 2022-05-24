@@ -1,6 +1,92 @@
 h1{
     display: none;
 }
+
+//每頁導覽列變化
+
+header .pc-nav ul li{
+  position: relative;
+}
+
+.themePark header .pc-nav ul li:nth-of-type(1) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+.themePark header .pc-nav ul #nav-nw::before{
+  content:"";
+  width: 0px;
+  height: 0px;
+}
+
+.news header .pc-nav ul li:nth-of-type(2) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.ticket header .pc-nav ul li:nth-of-type(3) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.shop header .pc-nav ul li:nth-of-type(4) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.food header .pc-nav ul li:nth-of-type(5) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.visitor_experience header .pc-nav ul li:nth-of-type(6) a:nth-of-type(1)::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $color6;
+  position: absolute;
+  left: -10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+
+
 header{
   border-top:10px solid $color3;
   width: 100%;
@@ -21,11 +107,30 @@ header{
       bottom:0;
   }
   .left-back{
-    //   border: 1px solid #000;
+      // border: 1px solid #000;
       width: 85%;
       border-radius: 15px 15px 0 0;
       left:0;
       background-color: $color1;
+      .mobile-icon{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: 10px;
+        @include lg(){
+          display: none;
+        }
+        
+        a:nth-of-type(1) img{
+            width: 34px;
+            margin-right: 10px;
+        };
+        a:nth-of-type(2) img{
+            width: 32px;
+            margin-right: 20px;
+        };
+        
+      }
       &::before{
           content: "";
           width: 120%;
@@ -100,10 +205,17 @@ header{
       height: 100%;
       display: flex;
       justify-content: space-between;
+      // border: 1px solid #000;
       .logo{
+        // border: 1px solid #000;
           margin-top: 5px;
+          margin-left: -3%;
           background-color: $color1;
           z-index: 1;
+          @include md(){
+            margin-left: 0%;
+          }
+          
           @include lg(){
               margin-top: 5px;
           }
@@ -116,53 +228,53 @@ header{
       }
       //電腦版nav
       .pc-nav{
+        // border: 1px solid #000;
           border-radius: 0 0 0 15px;
           width: 75%;
           z-index: 2;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: flex-start;
           @include lg(){
               border-radius: 0 0 0 30px;
           }
           .icon{
               display: none;
               @include lg(){
+                // border: 1px solid #000;
                   display: flex;
                   justify-content: end;
                   align-items: center;
+                  margin-left: 5%;
                   a:nth-of-type(1) img{
-                      width: 22px;
-                      margin-right: 10px;
+                      width: 32px;
+                      margin-right: 15px;
                   };
                   a:nth-of-type(2) img{
-                      width: 24px;
+                      width: 34px;
                   };
               }
           }
           ul{
               display: none;  
               @include lg(){
-                  margin-top: 6px;
+                  // border: 1px solid #000;
                   display: flex;
                   justify-content: end;
                   li{
-                    //   border: 1px solid blue;
-                      @include md(){
-                        margin-left: 30px;
+                      @include lg(){
+                        margin-left: 20px;
                       }
+                      
                       @include xl(){
-                        margin-left: 55px;
+                        margin-left: 35px;
                       }
                       &:hover .sec-nav{
                           display: flex;
                         }
-                      
-
                   }
-                  li .main-nav{
-                    //   border: 1px solid #000;
-                      display: block;
-                      margin-bottom: 8px;
-                      color:$color1;
-                      font-weight: bold;
+                  li{
                       position: relative;
                       &::before{
                         content:"";
@@ -180,17 +292,26 @@ header{
                           content:"";
                           width: 100%;
                       }
+                      a{
+                        font-size: $word-fzSize;
+                        color:$color1;
+                        font-weight: bold;
+                        display: block;
+
+
+                      }
                       
                   }
                   .sec-nav{
-                    //   border: 1px solid #000;
-                        padding: 10px 0;
+                      padding: 10px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
                         background-color: $color2;
+                        position: absolute;
                         display: none;
+                        
                       a{
 
                           font-size: $sm-word-fzSize;
@@ -304,14 +425,14 @@ header{
   .ticket{
       position: absolute;
       top:-30px;
-      left:60%;
+      left:30%;
       z-index: 2;
       &:hover{
         top:-10px;
       }
       @include lg(){
           top:-30px;
-          left:30%;
+          left:22%;
           z-index: 2;
           &:hover{
             top:-16px;
@@ -365,3 +486,4 @@ header{
   
   }
 }
+
