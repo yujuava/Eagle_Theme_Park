@@ -1,9 +1,9 @@
-// @include btn1(post) {
-//     margin-left: auto;
-//     margin-right: 0;
-//     display: block;
-//     margin-bottom: 20px;
-// }
+@include bgBtn(post) {
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 20px;
+}
 
 .light-box{
 position: fixed;
@@ -25,7 +25,7 @@ display: none;
         z-index: 100;
         background-color: #fff;
         margin: auto;
-        border-radius: 20px;
+        // border-radius: 20px;
         .fa-x{
             position: absolute;
             right: 0;
@@ -45,7 +45,7 @@ display: none;
     .card {
         border-radius: 10px;
         background-color: #fff;
-        box-shadow: 5px 5px $color4;
+        box-shadow: $card-shadow1;
 
         .card-header {
             border-top-left-radius: 10px;
@@ -76,12 +76,10 @@ display: none;
             .mem {
                 display: flex;
                 width: 100%;
-                position: absolute;
-                left: 10px;
-                bottom: 10px;
                 align-items: center;
                 font-weight: bold;
                 font-size: $word-fzSize;
+                padding: 10px;
 
                 img {
                     aspect-ratio: 1/1;
@@ -97,13 +95,6 @@ display: none;
 
         }
         .card-body {
-            .fa-regular{
-                padding-left: 20px;
-                font-size: 20px;
-            }
-            .fa-share-nodes{
-                padding: 10px 10px;
-            }
             p {
                 padding: 10px ;
                 font-size: $word-fzSize;
