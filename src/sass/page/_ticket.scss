@@ -1,34 +1,41 @@
 .ticket {
     .ticket-table {
-        width: 80%;
-        margin: auto;
+        width: 100%;
+        margin: -50px auto;   
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         @include md() {
             padding: 30px;
+            width: 90%;
         }
 
         @include lg() {
             padding: 50px;
+            width: 70%;
         }
-        th{
+
+        th {
             background-color: $color2;
             padding: 30px;
             color: $color5;
-            font-size: $h5-fzSize;
+            font-size: $h6-fzSize;
             font-family: $family1;
         }
-        td{
-            border: 2px solid lighten($color2,10%);
+
+        td {
+            border: 2px solid lighten($color2, 10%);
             color: $color5;
-            font-size: $h5-fzSize;
+            font-size: $h6-fzSize;
             font-family: $family1;
         }
+
         // /*第一欄第一列：左上*/
         tr:first-child th:first-child {
             border-top-left-radius: 30px;
         }
+
         border-collapse:separate;
+
         /*最後欄第一列：右上*/
         tr:first-child th:last-child {
             border-top-right-radius: 30px;
@@ -51,7 +58,7 @@
         tr td:nth-child(3),
         tr td:last-child {
             /*設定table表格每列底部邊框*/
-            border-bottom: 2px solid lighten($color2,10%);
+            border-bottom: 2px solid lighten($color2, 10%);
             padding: 30px;
         }
 
@@ -64,14 +71,18 @@
             padding: 30px;
         }
     }
-    .notice{
-        margin: auto;
-        width: 70%;
+    //注意事項
+    .notice {
+        margin: 50px auto ;
+        width: 95%;
         border-radius: 20px;
         padding: 20px;
         background-color: $color2;
         padding: 40px;
-        li{
+        @include lg(){
+            width: 65%;
+        }
+        li {
             font-size: $h6-fzSize;
             color: $color5;
             line-height: 1.5;
@@ -80,10 +91,85 @@
     }
 }
 
+.traffic {
+    margin: 50px;
+    .fa-car,
+    .fa-train-subway,
+    .fa-bus {
+        margin: auto;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        padding: 20px;
+        background: $color2;
+        color: $color1;
+        display: block;
+        font-size: $h3-fzSize;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .transportation {
+        font-size: $word-fzSize;
+        text-align: center;
+        margin: 10px;
+        &:hover{
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+    }
+        a {
+            color: $color2;
+            font-family: $family2;
+        }
+    }
+    
+    .map {
+        p {
+            padding: 15px;
+            text-align: center;
+            color: $color9;
+            font-family: $family2;
+            font-size: $word-fzSize;
+        }
+    }
+    .wrap {
+        display: block;
+        scroll-behavior: smooth;
+        // width: 100%;
+        // min-height: 200px;
+        @include lg(){
+            width: 65%;
+        }
+        .scroll-page{
+            // height: 30vh;
+        }
+        .title {
+            font-family: $family2;
+            border-top: 1px solid$color8;
+            color: $color2;
+            margin: 10px 0;
+            padding: 30px 0;
+            font-size: $h5-fzSize;
+        }
 
-@include md() {}
+        p {
+            font-size: $h6-fzSize;
+            font-family: $family2;
+            color: $color9;
+            margin: 10px 0;
+            font-weight: bold;
+        }
 
-@include lg() {}
-
-@include xl() {}
+        ul li {
+            list-style-type: disc;
+            font-size: $word-fzSize;
+            line-height: 2;
+            color: $color9;
+            font-family: $family2;
+        }
+        .title{
+            border-top: 1px solid$color8;
+        }
+    }
+}

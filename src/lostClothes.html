@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "果果換衣服"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="lostClothes">
+    <!-- 共用header -->
+    @@include('layout/header-for-all.html')
+    <!-- 共用header end -->
+
+    <!-- 小標使用這個 -->
+    @@include('layout/title.html',{
+        "h3TitleTC" : "果果換衣服",
+        "h3TitleEN": "Eagle Lost Clothes"
+    })
+
+    <section>
+        <div class="wrap">
+            <div class="gameRow">
+                <div class="gameCol">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="gameCol">
+                    <div class="clothType">
+                        <button id="typeTop">帽子</button>
+                        <button id="typeMiddle">衣著</button>
+                        <button id="typeBottom">褲子</button>
+                    </div>
+                    <div class="closet">
+                        <div id="closetTop" class="closetTop">
+                            <ul>
+                                <li><img src="images/games__clothesTop-1.png"></li>
+                                <li><img src="images/games__clothesTop-2.png"></li>
+                                <li><img src="images/games__clothesTop-3.png"></li>
+                            </ul>
+                        </div>
+                        <div id="closetMiddle" class="closetMiddle">
+                            <ul>
+                                <li><img src="images/games__clothesMiddle-1.png"></li>
+                                <li><img src="images/games__clothesMiddle-2.png"></li>
+                                <li><img src="images/games__clothesMiddle-3.png"></li>
+                            </ul>
+                        </div>
+                        <div id="closetBottom" class="closetBottom">
+                            <ul>
+                                <li><img src="images/games__clothesBottom-1.png"></li>
+                                <li><img src="images/games__clothesBottom-2.png"></li>
+                                <li><img src="images/games__clothesBottom-3.png"></li>
+                            </ul>
+                        </div>
+                        <button id="btnClear">CLEAR</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <script src="js/lostClothes.js"></script>
+
+</body>
+</html>

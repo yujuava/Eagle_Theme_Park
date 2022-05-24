@@ -12,25 +12,33 @@
     //首頁才有的header
     .indexHeader{
         width: 100%;
-        height: 100vh;
+        position: relative;
+        nav{
+            display: none;
+            @include xl(){
+                display: block;
+            }
+        }
+
         @include xl(){
+            height: calc(100vh + 80px);
             display: flex;
+            // 左側選單
             nav{
+                display: block;
                 width:4%;
-                padding: 0 5px;
+                padding: 20px 5px;
                 background-color: $color3;
-                z-index: 2;
+                z-index: 3;
                 ul{
                     display: flex;
                     flex-direction: column;
                     li{
-                        // border: 1px solid #000;
                         margin-bottom: 16px;
                         position: relative;
                         &:hover ::after{
                             content:'首頁';
                             padding-left: 5px;
-                            // border: 1px solid #000;
                             text-align: center;
                             line-height: 23px;
                             width: 62px;
@@ -47,7 +55,7 @@
                         }
                         &:nth-of-type(2){
                             &:hover ::after{
-                                content:'設施';
+                                content:'主題園區';
                             }
                         }
                         &:nth-of-type(3){
@@ -79,68 +87,135 @@
                 }
             }         
         }
+        //影片區
         .video{
+            width: 100%;
+            height: calc(100vh - 65px);
+            position: relative;
+            overflow: hidden;   
+            @include md(){
+            }       
             @include xl(){
-                // border: 1px solid #000;
-                width: 96%;
-                background-image: url(../../images/indexTopBcg.svg);
-                background-size: 100%;
-                background-position: bottom;
-                background-repeat: no-repeat;
-                position: relative;
+                width: 100%;
+                height: calc(100vh + 80px);
+                overflow: none;
             }
+            .video-frame{
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                video{
+                    width: 100%;
+                    height: 100vh;
+                    object-fit: cover;
+                    position: absolute;
+                    bottom:0px;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                }
+                @include xl(){
+                    width: 100%;
+                    video{
+                        width: 100%;
+                        min-height: 800px;
+                        position: absolute;
+                        bottom:-80px;
+                    }
+                }
+            }
+            //雲霄飛車圖
             .pic{
                 @include xl(){
-                    // border: 1px solid #000;
                     position: absolute;
-                    bottom:-650px;
-                    left:-60px;
-                    background-image: none;
+                    bottom:-570px;
+                    left:-2.7%;
+                    z-index: 2;
                 }
                 img{
-                    // border: 1px solid #000;
                     display: none;
                     @include xl(){
                         display: block;
-                        width: 77%;
+                        width: 77%;      
                     }   
                 }
             }
-            
+            //背景圖
+            .bcg{
+                display: none;
+                @include lg(){
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    bottom:0px;
+                    left:0;
+                    right: 0;
+                    z-index: 0;
+                    z-index: 1;
+                    img{
+                        position: absolute;
+                        width: 100%;
+                        bottom:0;
+                        left: 0;
+                        right: 0;
+                     }
+                }
+                
+            }
         }
+        //黃色票
         .ticket{
             display:none;
-            // @include xl(){
-            //     border: 1px solid #000;
-            //     display: block;
-            //     position: absolute;
-            //     right:5%
-            // }
-            
+            @include xl(){
+                display: block;
+                position: absolute;
+                right:5%;
+                top:-30px;
+                transform: 1s;
+                z-index: 10;
+            }
+            &:hover{
+                @include xl(){
+                    top:-10px;
+                }
+            }
+        }
+        //logo
+        #index-top-logo{
+            display: none;
+            @include lg(){
+            display: block;               
+            position: absolute;
+            top:15px;
+            left: 80px;
+            }
         }
     
                
     }
     //===============大票券===============
     .buy-ticket{
-        // border: 2px solid #000;
         padding:30px 0px;
         width: 100%;
         background-color: $color2;
         @include lg(){
             background-color: $color3;
         }
-        
         @include md(){
-            padding:70px 0px;
+            padding:20px 0px 100px 0;
         }
+        @include xl(){
+            padding:20px 0px 150px 0;
+        }
+        
         h2,.info{
             text-align: center;
             margin: auto;
             color:$color5;
         }
         h2{
-            font-size: $big-fzsize;
+            font-size: $h2-fzSize;
             margin-bottom: 25px;
             font-weight: 600;
         }
@@ -150,30 +225,71 @@
             margin-bottom: 40px;
         }
     }
-    //===============大容器===============
+    //===============大容器 大票券以下的區塊===============
     .bigContainer{
+        @include lg(){
+            border: 1px solid $color3; //不可刪除
+            border-radius: 50px 50px 0 0 ;
+            position: relative;
+            &::before{
+                content:"";
+                width: 100%;
+                height: 45px;
+                position: absolute;
+                top:0;
+                left: 0;
+                right: 0;
+                background-color: $color3;              
+            }
+            &::after{
+                content:"";
+                width: 100%;
+                border-radius: 50px 50px 0 0 ;
+                height: 45px;
+                position: absolute;
+                top:0;
+                left: 0;
+                right: 0;
+                background-color: $color1;
+            }
+        }
+        
         @include xl(){
-            border: 01px solid $color3; //不可刪除
+            border-radius: 0;
             min-height: 100vh;
             border-top: 1px solid $color3;
             border-left: 20px solid $color3;
             border-right:20px solid $color3 ;
+            &::before{
+                content:"";
+                display: none;
+            }
+            &::after{
+                content:"";
+                display: none;
+            }
         }
-
-
         //=============主題園區=============
         section.ThemeArea{
+            overflow: hidden;
             .full{
-                // border: 4px solid #000;
                 .block{
-                    // border: 2px solid red;
                     width: 100%;
                     padding-right: 6%;
                     display: flex;
                     flex-direction: row;
+                    position: relative;
+                    align-items: center;
+                    @include lg(){
+                        align-items: flex-start;
+                    }
+                    
                     .info{
-                        // border: 2px solid blue;
-                        width: 50%;
+                        width: 45%;
+                        @include lg(){
+                            padding: 50px 40px;
+                        }
+                        
                         @include xl(){
                             padding: 0 40px;
                         }
@@ -191,34 +307,88 @@
                             }  
                         }
                     }
-          
-                }
-                svg{
-                    width: 50%;
-                }
+                    svg{
+                        // border: 1px solid #000;
+                        width: 55%;
+                        height: auto;
+                        image{
+                            min-width: 100%;
+                            height: 100%;
+                            transform-origin: right;                  
+                        }
+                        .newyork-svg{
+                            animation: newyorkSvg 2s  infinite ease-in-out; 
+                        }
+                        @keyframes newyorkSvg{
+                            0% {
+                                clip-path: path( "M0,0,C0,0,656,69.4832,706,228.979,C756,388.474,594.5,583.238,771,583.238,C947.5,583.238,0,823.271,0,823.271V0Z")
+                                };
+                            34% {
+                                clip-path: path( " M0,0C0,0,629.5,65.0044,,679.5,224.5C729.5,383.996,592,606,768.5,606C945,606,0,823.271,0,823.271V0Z")
+                                };
+                                
+                            67% {
+                                clip-path: path( "M0,0C0,0,635.612,84.5,679.5,224.5C723.388,364.5,611.5,531,768.5,606C925.5,681,0,823.271,0,823.271V0Z")
+                                };
+                            100% {
+                                clip-path: path("M0,0,C0,0,656,69.4832,706,228.979,C756,388.474,594.5,583.238,771,583.238,C947.5,583.238,0,823.271,0,823.271V0Z")
+                                };
+                            }
+                        
+                        .farm-svg{
+                            animation: farmSvg 2s  infinite ease-in-out; 
+                        }
+                        @keyframes farmSvg{
+                            0% {
+                                clip-path: path( "M792.92,823.27s-656-69.48-706-229S198.42,240,21.92,240s771-240,771-240Z")
+                                };
+                            34% {
+                                clip-path: path( "M786.47,823.27S150.86,738.77,107,598.77s68-306.5-89-381.5S786.47,0,786.47,0Z")
+                                };
+                                
+                            67% {
+                                clip-path: path( "M790.47,823.27S161,758.27,111,598.77s87.5-381.5-89-381.5S790.47,0,790.47,0Z")
+                                };
+                            100% {
+                                clip-path: path("M792.92,823.27s-656-69.48-706-229S198.42,240,21.92,240s771-240,771-240Z")
+                                
+                                };
+                            }
 
-                .newyork{
-                    .pic{
-                        display: block;
-                        border: 1px solid #000;
                     }
-                    .newyork-shape{
-                        width: 100%;
-                    }
-                    #mask1{
-                        border: 1px solid #000;
-                        clip-path: url(#svgMask1);
+                    .cloud-1,.cloud-2,.cloud-3{
+                        width: 40%;
+                        aspect-ratio: 2 / 1 ;
+                        position: absolute;
+                        z-index: -1;
                         img{
                             width: 100%;
-                            height: 600px;
+                            height: 100%;
+                            position: absolute;
                         }
                     }
+                }
+                .newyork{
+                    .cloud-1{
+                        right: -300px;
+                        top:0px;
+                        @include lg(){
+                            top:30px;
+                        }
+                    }
+
                 }
                 .farm{
                     // border: 1px solid #000;
                     flex-direction: row-reverse;
                     padding-right: 0;
                     padding-left: 6%;
+                    svg{
+                        image{
+                            transform: translateX(8px);
+                        }
+                
+                    }
                     @include md(){
                         margin-top: -100px;
                     }
@@ -226,11 +396,24 @@
                         margin-top: -260px;
                     }
                     .info{
-                        margin-top: 60px;
+                      
+                        @include lg(){
+                            margin-top: 60px;
+                        }
+                        
                         h4{
                             text-align: left;
                             
                         }
+                    }
+                    .cloud-2{
+                        left: -200px;
+                        bottom:0px;
+                        @include lg(){
+                            left: -400px;
+                            bottom:90px;
+                        }
+                        
                     }
                 }
                 .indian{
@@ -244,29 +427,222 @@
                     .info{
                         @include xl(){
                             margin-top: 60px;
+                        }                   
+                    }
+                    .cloud-3{
+                        right: -200px;
+                        bottom:0px;
+                    }
+                }
+            }
+        }
+        //=============熱門設施=============
+        section.HotFacility{          
+            .full{
+                // border: 1px solid red;
+                overflow: hidden;
+                position: relative;
+           
+                // 摩天輪輪框旋轉svg
+                #wheels{
+                    // border: 1px solid #000;
+                    width: 140%;
+                    transform: translateX(10%);
+                    @include md(){
+                        width: 100%;
+                        transform: translateX(37%);
+                    }
+                
+                    #circle-frame{
+                        animation: frame-rotate 5s linear infinite;
+                        transform-origin: center;
+                        transform-box: fill-box;
+
+                    }
+                    @keyframes  frame-rotate {
+                        0% {
+                            transform: rotate(0deg);
                         }
-                        
+                        50%{
+                            transform: rotate(15deg)
+                        }
+                        100% {
+                            transform: rotate(0deg)
+                        }
+                    }
+                    // 所有車廂旋轉svg
+                    #all-cabin{
+                        animation: cabin-transit 5s linear infinite;
+                        transform-origin: center;
+                        -webkit-transform-origin: center;
+                        transform-box: fill-box;
+                        -webkit-transform-box: fill-box;
+                    }
+
+                    @keyframes cabin-transit {
+                        0% {
+                            transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg);
+                        }
+                        50%{
+                            transform: rotate(15deg);
+                            -webkit-transform: rotate(15deg);
+                        }
+                        100% {
+                            transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg);
+                        }
+                    }
+                    .cabin {
+                        animation: cabin-transform 2s linear infinite;
+                        transform-origin: center;
+                        -webkit-transform-origin: center;
+                        transform-box: fill-box;
+                        -webkit-transform-box: fill-box;
                         
                     }
-                }  
+                    @keyframes cabin-transform {
+                        0% {
+                            transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg);
+                        }
+                        50%{
+                            transform: rotate(-15deg);
+                            -webkit-transform: rotate(-15deg);
+                        }
+                        100% {
+                            transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg);
+                        }
+                    }
+
+                }
+
+                .word{
+                    p{
+                        position: absolute;
+                        font-family: $family1;
+                        font-weight: 600;
+                        color:$color6;
+                        font-size: $h5-fzSize;
+                        z-index: 2;
+                        @include md(){
+                            font-size: $h2-fzSize;
+                        }
+                        @include lg(){
+                            font-size: $big-fzsize;
+                        }
+                    }
+                    :nth-child(1){
+                        left: 21%;
+                        top:10%;   
+                        @include md(){
+                            left: 36%;
+                        top:8%;   
+                        }                
+                    }
+                    :nth-child(2){
+                        left: 8%;
+                        top:26%;
+                        @include md(){
+                            left: 20%;
+                        }
+                    }
+                    :nth-child(3){
+                        left: 5%;
+                        top:55%;
+                        @include md(){
+                            left: 26%;
+                            top:65%;
+                        }
+                    }
+                }     
+                .game-enter{
+                    width: 35%;
+                    position: absolute;
+                    left: -16%;
+                    bottom:0;
+                    z-index: 2;
+                    @include lg(){
+                        width: 28%;
+                    }
+                    
+                    .eagle-pic{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .talk{
+                        display: inline-block;
+                        width: 150px;
+                        position: absolute;
+                        right: -140px;
+                        bottom:0;
+                        @include md(){
+                            width: 75%;
+                            bottom:10%;
+                            right: -65%;
+                        }
+                        img{
+                            width: 100%;
+                        }
+                        p{
+                            width: 100%;
+                            text-align: center;
+                            position: absolute;
+                            left: 50%;
+                            top:50%;
+                            transform: translate(-50%,-50%);
+                            font-size: $sm-word-fzSize;
+                        }
+
+                    }
+                }
+                .ballon{
+                    width: 35%;
+                    position: absolute;
+                    left: -10%;
+                    bottom:15%;
+                    @include lg(){
+                        bottom:-20px;
+                    }
+                    
+                    img{
+                        width: 550px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .cloud{
+                    position: absolute;
+                    width: 45%;
+                    left: -15%;
+                    top:0;
+                    z-index: -1;
+                    img{
+                        width: 100%;
+                    }
+                    img:nth-of-type(2){
+                        width: 90%;
+                        padding-right: 60px;
+                    }
+                }
             }
-   
+  
         }
 
-        //=============熱門設施=============
 
         //=============所有設施=============
         section.ThrillRide{
-            .all-btn,.filter,.all-facility{
+            .all-btn,.filter,.facility-list{
                 // border: 1px solid #000;
                 display: flex;
                 justify-content: center;
                 margin-bottom: 15px;
             }
-
             //按鈕
             @include btn1(area){
-                // border: 1px solid #000;
+                margin: 0 5px;
                 @include md(){
                     margin: 0 20px;
                 }   
@@ -276,53 +652,76 @@
                 .option{
                     display: flex;
                     align-items: center;
-                    margin: 0 16px;
+                    margin: 0 5px;
                     input{
                         margin-right: 5px;
                     }
+                    @include md(){
+                        margin: 0 16px;
+                    }
+                    
                 }
             }
-            .all-facility{
+            .facility-list{
                 border: 1.5px solid $color8;
                 border-radius: 10px;
-                padding: 20px;
-                p{
-                    margin: 0 5px;
+                padding: 10px 20px;
+                display: flex;
+                flex-wrap: wrap; 
+                @include lg(){
+                    padding: 20px 100px;
                 }
-                p+p{
+                
+                li{
+                    margin: 5px 5px;
+                    color:$color9;
+                    @include md(){
+                        margin: 10px 5px;
+                    }
+                    
+                }
+                li+li{
                     &::before{
-                        // border: 1px solid #000;
                         content:"|";
-                        margin-right: 5px;
+                        margin-right: 10px;
                     }
                 }
 
             }
             .all-card{
-                // border: 1px solid #000;
                 display: flex;
                 margin-top: 40px;
                 flex-wrap: wrap;
                 justify-content: flex-start;
-                gap:10px;
-                @include md(){
-                    gap:20px;
-                }
+                gap:20px;
                 @include xl(){
                     gap:30px;
 
                 }
                 .card{
-                    width: calc(50% - 5px);
-                    // border: 1px solid #000;
+                    width: calc(50% - 10px);
+                    border-radius: 15px;
                     margin-bottom: 10px;
+                    box-shadow: 2px 2px 0px $color2;
+                    &:hover img{
+                        transform: scale(1.1);
+                    }
                     @include md(){
-                        width: calc(33.333% - 13.33px);
                         margin-bottom: 20px;
                     }
                     @include xl(){
                         width: calc(25% - 22.5px);
                         margin-bottom: 25px;
+                        box-shadow: 5px 5px 0px $color2;
+                        p{
+                            display: inline;
+                            background: linear-gradient(rgba($color7,0.8),rgba($color7,0.8)) 0 100%/0 10px no-repeat;
+                            transition: background 1s;
+                        }
+                        &:hover p{
+                            background-size: 100% 10px;
+                        }
+    
                     }
                 
                     .pic{
@@ -389,10 +788,11 @@
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
+                            transition: .7s;
                         }
                     }
                     .info{
-                        padding: 5px;
+                        padding: 5px 10px 10px 10px;
                         h4{
                             font-size: $h6-fzSize;
                             color:$color3;
@@ -409,6 +809,9 @@
                                 margin-right: 6px;
                             }
                         }
+                        p{
+                            position: relative;
+                        }
                     }
                 }
 
@@ -421,7 +824,6 @@
     }
 
     //only for首頁的footer微調整
-
     footer{
         @include xl(){
             border-left: 20px solid $color3;
@@ -432,8 +834,6 @@
         }
         
     }
-
-     
 }
 
 

@@ -1,72 +1,144 @@
 // TODO
 // entry button replace bcg method with pseudo-element. prevent rwd bugs
+.index{
+    // mobile static background image
+    background-image: url("../../images/index__bcg.jpg");
+    background-size: cover;
+    background-position: center;
+    
+    .index__bcgImg, .index__ballon1, .index__ballon2, .index__cloud{
+        display: none;
+    }
+    
+    
+    @include md{
+        // cancel static background image
+        background-image: url("");
 
-.index__bcg{
-    position: relative;
-}
-.index__bcg img:first-child{
-    width: 100%;
-}
-.index__ballon1, .index__ballon2, .index__cloud{
-    position: absolute;
-}
-.index__ballon1{
-    width: 12%;
-    left: 25%;
-    top: 10%;
-}
-.index__ballon2{
-    width: 8%;
-    left: 70%;
-    top: 8%;
-}
-.index__cloud{
-    width: 15%;
-    left: 60%;
-    top: 8%;
-}
+        // active dynamic backgroud
+        .index__bcgImg, .index__ballon1, .index__ballon2, .index__cloud{
+            display: block;
+        }
+        .index__bcg{
+            position: relative;
+        }
+        .index__bcgImg{
+            width: 100%;
+        }
+        .index__ballon1, .index__ballon2, .index__cloud{
+            position: absolute;
+        }
+        .index__ballon1{
+            z-index: 4;
+            width: 12%;
+            left: 25%;
+            top: 10%;
+        }
+        .index__ballon2{
+            z-index: 2;
+            width: 8%;
+            left: 70%;
+            top: 8%;
+        }
+        .index__cloud{
+            z-index: 3;
+            width: 15%;
+            left: 60%;
+            top: 8%;
+        }
+    }
+    
+    
+    .index__logo{
+        position: absolute;
+        z-index: 5;
+        width: 80%;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .index__logo img{
+        width: 100%;
+        display: block;
+    }
+    @include md{
+        .index__logo{
+            top: 10%;
+            width: 35%;
+        }
+    }
+    @include lg{
+        .index__logo{
+            top: 13%;
+            width: 40%;
+        }
+    }
 
-.index__logo{
-    position: absolute;
-    width: 40%;
-    top: 10%;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-.index__entry{
-    position: absolute;
-    top: 40%;
-    left: 0;
-    right: 0;
-    margin: auto;
 
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-}
-.index__entry a{
-    position: relative;
-}
-.index__entry p{
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    top: 50%;
-    text-align: center;
-    transform: translateY(-50%);
-    font-size: $big-fzsize;
-    color: $color1;
-}
-.index__entry div{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    opacity: 0.6;
-}
-.index__front div{
-    background-color: $color6;
-}
-.index__back div{
-    background-color: $color5;
+    .index__entry{
+        position: absolute;
+        z-index: 5;
+        top: 35%;
+        bottom: 15%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @include md{
+        .index__entry{
+        top: 45%;
+        bottom: unset;
+        width: 55%;
+        flex-direction: row;
+        }
+    }
+    .index__entry button{
+        border: none;
+        font-size: $big-fzsize;
+        color: $color1;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        transition: .3s;
+    }
+    @include md{
+        .index__entry button{
+            width: 150px;
+            height: 150px;
+        }
+    }
+    @include lg{
+        .index__entry button{
+            width: 200px;
+            height: 200px;
+        }
+    }
+    @include xl{
+        .index__entry button{
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    // hex color apply opacity
+    .index__front button{
+        background-color: $color6 + cc;
+    }
+    .index__front button:hover{
+        background-color: $color6;
+        cursor: pointer;
+    }   
+    .index__back button{
+        background-color: $color4 + cc;
+    }
+    .index__back button:hover{
+        background-color: $color4;
+        cursor: pointer;
+    }
+
 }

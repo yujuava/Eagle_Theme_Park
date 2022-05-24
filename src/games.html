@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "小遊戲"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="games">
+    <!-- 共用header -->
+    @@include('layout/header-for-all.html')
+    <!-- 共用header end -->
+
+    <!-- 小標使用這個 -->
+    @@include('layout/title.html',{
+        "h3TitleTC" : "小遊戲",
+        "h3TitleEN": "Games"
+    })
+ 
+    <section>
+        <div class="wrap games__row">
+            <div class="games__col">
+                <div class="gamesCard">
+                    <p>接漢堡</p>
+                    <div class="gamesImg">
+                        <img src="images/games__catchBurger.jpg">
+                    </div>
+                    <p>紐約時代廣場降下漢堡雨，有吃有喝還等什麼？</p>
+                    <a href="catchBurger.html">
+                        <button>開始遊戲</button>
+                    </a>
+                </div>
+            </div>
+            <div class="games__col">
+                <div class="gamesCard">
+                    <p>換衣服</p>
+                    <div class="gamesImg">
+                        <img src="images/games__changeClothes.jpg">
+                    </div>
+                    <p>果果衣服被扒光，快來幫果果穿衣服</p>
+                    <a href="lostClothes.html">
+                        <button>開始遊戲</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>

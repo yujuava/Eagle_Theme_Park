@@ -1,6 +1,4 @@
 <!-- @@include('login.html') -->
-<h1>EAGLE THEME PARK</h1>
-<header  id="header">
     <div class="left-back">
     </div>
     <!-- HEADER MAIN 開始 -->
@@ -12,7 +10,7 @@
 
         </div>
         <!-- 電腦版nav -->
-        <nav class="pc-nav">
+        <nav class="pc-nav" id="pc-nav">
             <div class="icon">
                 <a href="">
                     <img src="/images/Vector.svg" alt="">
@@ -24,16 +22,16 @@
             <ul>
                 <li>
                     <div>
-                        <a href="" class="main-nav">
+                        <a href="themePark_NewYork.html" class="main-nav">
                             主題園區
                         </a>
                     </div>
                     <div class="sec-nav">
-                        <a href="">紐約都會</a>
+                        <a href="themePark_NewYork.html">紐約都會</a>
                     
-                        <a href="">西部農莊</a>
+                        <a href="themePark_West.html">西部農莊</a>
                  
-                        <a href="">印安部落</a>
+                        <a href="themePark_Indian.html">印安部落</a>
                     </div>             
                 </li>
                 <li>
@@ -57,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="main-nav">
+                    <a href="visitor_experience.html" class="main-nav">
                         遊客體驗
                     </a>
                 </li>
@@ -74,7 +72,6 @@
             <span></span>
         </label>
     </div>
-
     <!-- 手機板選單 -->
     <nav class="mobile-nav" v-if="show">
         <div class="top-block">
@@ -88,19 +85,19 @@
 
             <li>
                 <img src="/images/navHome.svg" alt="">
-                <a href="">
+                <a href="./themePark_NewYork.html">
                     主題園區
                 </a>
             </li>
             <li>
                 <img src="/images/navThemePark.png"alt="">
-                <a href="">
+                <a href="./news.html">
                     最新消息
                 </a>
             </li>
             <li>
                 <img src="/images/navNew.svg" alt="">
-                <a href="">
+                <a href="./ticket.html">
                     園區資訊
                 </a>
             </li>
@@ -112,7 +109,7 @@
             </li>
             <li>
                 <img src="/images/navFastfood.svg" alt="">
-                <a href="">
+                <a href="./food.html">
                     饗食餐飲
                 </a>
             </li>
@@ -125,29 +122,10 @@
         </ul>
     </nav>
     <!-- 小票券 -->
-    <a href="" class="ticket">
+    <a href="ticket.html" class="ticket">
         <img src="/images/ticket.svg" alt="">
     </a>
     <div class="bottom-back">
         <div class="bcg-front"></div>
     </div>
-</header>
-
-<!-- vue -->
-<script>
-
-    new Vue({
-        el: '#header',
-        data: {     // 變數放這裡!
-            show: false,
-        },
-        methods: {  // 函數大部分放這裡! 
-        },
-        computed: { 
-        },
-        mounted(){
-
-        }
-    });
-</script>
 

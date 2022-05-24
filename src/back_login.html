@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "後台登入頁面"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="back_login">
+    <!-- 共用header -->
+    @@include('layout/header.html')
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "首頁"
+    })
+    <!-- 小標使用這個 -->
+    @@include('layout/title.html',{
+        "h3TitleTC" : "主題園區",
+        "h3TitleEN": "Theme Area"
+    })
+    
+
+
+
+
+
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>

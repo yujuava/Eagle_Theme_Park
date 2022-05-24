@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "接漢堡"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="123">
+    <!-- 共用header -->
+    @@include('layout/header-for-all.html')
+    <!-- 共用header end -->
+    <!-- 小標使用這個 -->
+    @@include('layout/title.html',{
+        "h3TitleTC" : "接漢堡",
+        "h3TitleEN": "Catch Hamburger"
+    })
+
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>

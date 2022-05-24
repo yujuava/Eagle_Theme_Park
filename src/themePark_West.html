@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "西部農莊"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="themePark">
+    <!-- 共用header -->
+    @@include('layout/header-for-all.html')
+    <!-- 共用header end -->
+
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "西部農莊"
+    })
+
+    <section>
+        @@include('layout/title.html',{
+            "h3TitleTC" : "主題設施",
+            "h3TitleEN": "Facilities"
+        })
+        <div class="wrap">
+            <div class="themePark__facilities">
+                <div class="faLarge1 delayed-section" data-scrub="0.8">
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesLg-1.jpg">
+                            </div>
+                            <p>設施名稱 4/3-1</p>
+                        </div>
+                    </div>
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesLg-2.jpg">
+                            </div>
+                            <p>設施名稱 4/3-2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faLarge2 delayed-section" data-scrub="0.5">
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesLg-3.jpg">
+                            </div>
+                            <p>設施名稱 4/3</p>
+                        </div>
+                    </div>
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesLg-4.jpg">
+                            </div>
+                            <p>設施名稱 4/3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faMedium delayed-section" data-scrub="0.3">
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesMd-1.jpg">
+                            </div>
+                            <p>設施名稱 1/1</p>
+                        </div>
+                    </div>
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesMd-2.jpg">
+                            </div>
+                            <p>設施名稱 1/1</p>
+                        </div>
+                    </div>
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesMd-3.jpg">
+                            </div>
+                            <p>設施名稱 1/1</p>
+                        </div>
+                    </div>
+                    <div class="facilitesBox innerContainer">
+                        <div class="facilitesContent">
+                            <div class="facilitiesImg">
+                                <img src="./images/themePark__facilitiesMd-4.jpg">
+                            </div>
+                            <p>設施名稱 1/1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 小標使用這個 -->
+
+    <!-- 主題樂園 打卡景點 -->
+    <section>
+        @@include('layout/title.html',{
+            "h3TitleTC" : "打卡景點",
+            "h3TitleEN": "Attractions"
+        })
+        <div class="wrap">
+            <div class="themePark__Attractions">
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="https://picsum.photos/300/200/?random=10">
+                        </div>
+                        <p>印地安圖騰</p>
+                        <p>印地安人的信仰相信萬物有靈，認為最高神的存在，而最高神將神聖的力量灌注在萬物之中。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="themePark__AttractionsBTN">
+                <button><<</button>
+                <button>>></button>
+            </div>
+        </div>
+    </section>
+    <span class="gradientTail"></span>
+
+    <!-- 主題樂園 遊行表演 -->
+    <section>
+        <div class="full themePark__Parades">
+            <div class="wrap">
+                @@include('layout/title.html',{
+                    "h3TitleTC" : "遊行表演",
+                    "h3TitleEN": "Parades"
+                })
+                <div class="paradesBoard">
+                    <!-- 第一個展示動態影片格 -->
+                    <div class="paradesBox">
+                        <div class="paradesContent">
+                            <div class="paradesTypeDate">
+                                <p>遊行</p>
+                                <span></span>
+                                <p>每日上午 0700 - 0800</p>
+                            </div>
+                            <div class="videoBox">
+                                <video src="images/themePark__WestVideo-1.mp4" autoplay="" loop="" playsinline="" muted></video>
+                            </div>
+                            <p class="paradesTitle">伊果明星大遊行</p>
+                        </div>
+                    </div>
+                    <!-- 四個影片櫥窗 -->
+                    <div class="paradesBox">
+                        <div class="paradesContent">
+                            <div class="paradesTypeDate">
+                                <p>遊行</p>
+                                <span></span>
+                                <p>每日上午 0700 - 0800</p>
+                            </div>
+                            <div class="videoBox">
+                                <video src="images/themePark__WestVideo-1.mp4"></video>
+                            </div>
+                            <p class="paradesTitle">伊果明星大遊行 </p>
+                        </div>
+                    </div>
+                    <div class="paradesBox">
+                        <div class="paradesContent">
+                            <div class="paradesTypeDate">
+                                <p>活動</p>
+                                <span></span>
+                                <p>每日上午 1030 - 1200</p>
+                            </div>
+                            <div class="videoBox">
+                                <video src="images/themePark__WestVideo-2.mp4"></video>
+                            </div>
+                            <p class="paradesTitle">果果捉迷藏</p>
+                        </div>
+                    </div>
+                    <div class="paradesBox">
+                        <div class="paradesContent">
+                            <div class="paradesTypeDate">
+                                <p>表演</p>
+                                <span></span>
+                                <p>每日下午 0300 - 0430</p>
+                            </div>
+                            <div class="videoBox">
+                                <video src="images/themePark__WestVideo-3.mp4"></video>
+                            </div>
+                            <p class="paradesTitle">印地安音樂舞蹈表演</p>
+                        </div>
+                    </div>
+                    <div class="paradesBox">
+                        <div class="paradesContent">
+                            <div class="paradesTypeDate">
+                                <p>活動</p>
+                                <span></span>
+                                <p>每日下午 0500 - 0600</p>
+                            </div>
+                            <div class="videoBox">
+                                <video src="images/themePark__WestVideo-4.mp4"></video>
+                            </div>
+                            <p class="paradesTitle">印地安化妝彩繪</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="js/themePark_scollPic.js"></script>
+</body>
+</html>

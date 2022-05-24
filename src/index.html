@@ -4,12 +4,12 @@
     @@include('layout/meta.html', {
         "title" : "伊果樂園"
     })
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
 </head>
 <body class="index">
 
     <div class="index__bcg">
-        <img src="./images/index__bcg.jpg" alt="">
+        <img class="index__bcgImg" src="./images/index__bcg.jpg" alt="">
         <img class="index__ballon1" src="./images/index__ballon.png" alt="">
         <img class="index__ballon2" src="./images/index__ballon.png" alt="">
         <img class="index__cloud" src="./images/index__cloud2.png" alt="">
@@ -20,41 +20,16 @@
 
         <div class="index__entry">
             <a class="index__front" href="./homepage.html">
-                <p>前台</p>
-                <div></div>
+                <button>前台</button>
             </a>
             <a class="index__back" href="#">
-                <p>後台</p>
-                <div></div>
+                <button>後台</button>
             </a>
         </div>
 
     </div>
 
-
-<script>
-    gsap.to(".index__ballon1",{
-        y:50,
-        duration:3,
-        repeat:-1,
-        yoyo:true,
-        ease: "power2.inOut",
-    });
-    gsap.to(".index__ballon2",{
-        y:50,
-        delay: 1,
-        duration:5,
-        repeat:-1,
-        yoyo:true,
-        ease: "power2.inOut",
-    });
-    gsap.to(".index__cloud",{
-        x:80,
-        duration:5,
-        repeat:-1,
-        yoyo:true,
-        ease: "power2.inOut",
-    });
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="./js/indexAnimation.js"></script>
 </body>
 </html>

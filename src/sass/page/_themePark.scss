@@ -1,6 +1,82 @@
 // themePark
 .themePark{
     // 主題設施
+    // facilities RWD
+    .themePark__facilities {
+        display: grid;
+        align-items: center;
+    }
+    // grid mobile
+    .themePark__facilities {
+        grid-template-rows: repeat(2, 50%);
+        grid-template-columns: repeat(2, 50%);
+    }
+    .faLarge1{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .faLarge2{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .faMedium{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;        
+    }
+    @include md{
+        .themePark__facilities {
+            grid-template-rows: 100%;
+            grid-template-columns: repeat(3, calc(100% / 3));
+        }
+        .faLarge1{
+            transform: translateY(-13%);
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .faLarge2{
+            transform: translateY(13%);
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        .faMedium{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;        
+        }
+    }
+    .facilitesBox{
+        padding: 15px;
+    }
+    .facilitesContent{
+        background-color: $color3;
+        border-radius: 15px;
+    }
+    .facilitesContent p{
+        text-align: center;
+    }
+    .facilitiesImg{
+        padding: 15px;
+    }
+    .facilitiesImg img{
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+    // Facility introduction effect not finished yet
+    .facilitesContent p{
+        display: none;
+    }
 
     // 打卡景點
     .themePark__Attractions{
@@ -40,19 +116,160 @@
         color: $color5;
         border: none;
     }
-
+    // 標題會產生重疊?? 
+    .gradientTail{
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        background: rgb(255,251,239);
+        background: linear-gradient(180deg, rgba(255,251,239,1) 0%, rgba(255,255,255,0) 60%);  
+        
+    }
 
     // 遊行表演
     .themePark__Parades{
+        // 標題會與上方產生重疊 目前先以透明框線讓位置能讀到
+        border: 1px solid rgba($color: #000000, $alpha: 0);
         background-color: $color3;
         padding: 0 0 15px 0;
     }
-    .ParadesBorad{
+    .paradesBoard{
+        display: grid;
+        align-items: center;
+    }
+    // grid RWD mobile
+    .paradesBoard{
+        grid-template-rows: 50% 25% 25%;
+        grid-template-columns: 50% 50%;
+    }
+    .paradesBox:first-child{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .paradesBox:nth-child(2){
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .paradesBox:nth-child(3){
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .paradesBox:nth-child(4){
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .paradesBox:nth-child(5){
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    // grid RWD regular
+    @include md{
+        .paradesBoard{
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 50% 25% 25%;
+        }
+        .paradesBox:first-child{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .paradesBox:nth-child(2){
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        .paradesBox:nth-child(3){
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        .paradesBox:nth-child(4){
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        .paradesBox:nth-child(5){
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+    }
+    // parades content 
+    .paradesBoard img{
+        width: 100%;
+        border-radius: 15px;
+    }
+    .paradesBox:first-child{
+        height: 100%;
+        padding: 15px;
+    }
+    .paradesBox:nth-child(n+2){
+        padding: 15px;
+    }
+    .paradesContent{
+        height: 100%;
+        border: 4px solid $color1;
+        border-radius: 15px;
+    }
+    .paradesContent{
         display: flex;
+        flex-direction: column;
+    }
+    .paradesTypeDate{
+        display: flex;
+    }
+    .paradesBox:first-child .paradesTypeDate{
+        padding: 10px;
+    }
+    .paradesBox:nth-child(n+2) .paradesTypeDate{
+        padding: 3px;
+    }
+    .paradesTypeDate span{
+        align-self: center;
+        height: 15px;
+        width: 2px;
+        margin: 0 10px 0 10px;
+        background-color: $color1;
+    }
+    .videoBox{
+        border-top: 4px solid $color1;
+        border-bottom: 4px solid $color1;
+        padding: 15px;
         overflow: hidden;
     }
-    .ParadesBorad img{
+    .videoBox video{
         width: 100%;
+        aspect-ratio: 960/540;
     }
+    .paradesBox:first-child .videoBox{
+        flex-grow: 1;
+        // center inside imgage
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .paradesBox:first-child .paradesTitle{
+        padding: 10px;
+    }
+    .paradesBox:nth-child(n+2) .paradesTitle{
+        padding: 3px 3px 3px 5px;
+    }
+
 }
 
