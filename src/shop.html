@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "伊果商城"
+    })
+</head>
+    
+<body class="shop">
+    <!-- 共用header -->
+    @@include('layout/header.html')
+    <!-- 共用header end -->
+    
+    <section>
+<!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "伊果商城"
+    })
+
+        <div class="wrap">
+<!-- 明信片圖片 -->
+            <div class="pic">
+               
+            </div>
+
+            <div class="picitem">
+                <button></button>
+                <button></button>
+            </div>
+<!-- 明信片內容 -->
+            <div class="postcard">
+            
+            </div>
+<!-- 明信片貼紙 -->
+            <ul class="sticker">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="stickeritem">
+                <button></button>
+                <button></button>
+            </div>
+<!-- 寄送按鈕 -->
+            <button>寄送</button>
+        </div>
+    </section>
+<!-- 小標使用這個 -->
+    <section>
+    @@include('layout/title.html',{
+        "h3TitleTC" : "商品",
+        "h3TitleEN": "Theme Area"
+    })
+    <ul class="product">
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+        <li>
+            <img src="" alt="">
+            <span>商品名稱</span>
+            <p>價格</p>
+        </li>
+    </ul>
+    </section>
+
+
+
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>

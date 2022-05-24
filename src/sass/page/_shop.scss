@@ -1,0 +1,16 @@
+// shop css
+
+
+// 引用RWD 方式
+@include md{
+   
+}
+
+@include lg{
+    
+}
+
+// 引用公版顏色變數
+.homepage p{
+    color: $color6;
+}
