@@ -19,38 +19,10 @@
     }
      
 };
-//============h2設定======================
-// @mixin h2Set(){
-//     font-size: $h2-fzSize; 
-//     font-family:$family1;
-//     color:$color5;
-//     margin: auto;
-//     position: relative;
-//     &::before{
-//         content: '';
-//         position: absolute;
-//         top: 100px;
-//         left: 50%;
-//         transform: translate(-50%,-50%);
-//         width: 40vw;
-//         height: 6vw;
-//         border-top: 0.5rem solid $color2;
-//         border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
-//         @include md(){
-//             width: 30vw;
-//             top: 120px;
-//         };
-//         @include lg(){
-//             top: 130px;
-//         };
-//         @include xl(){
-//             top: 150px;
-//         };
-//     }
-// }
 
 //============h2設定======================
 @mixin h2Set(){
+    border: 1px solid blue;
     h2{
         font-size: $h2-fzSize; 
         font-family:$family1;
@@ -60,58 +32,79 @@
     .title_h2_round{
         width: 40vw;
         height: 6vw;
-        border-top: 0.5rem solid $color2;
+        border-top: 0.5rem solid $color4;
         border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
     }
 }
 
-//===================有border按鈕===================
-@mixin btn1($style,$bdcolor:$color2,$bgcolor:white){
-    .btn1-#{$style} {
-        border-radius: 8px;
+
+// 有要border或是背景色或是hover自行增加
+//===================按鈕 小===================
+@mixin smBtn($name,$bgcolor:$color6){
+    .smBtn-#{$name} {
+        border: 1px solid transparent;
+        border-radius: 3px;
         display: inline-block;
         margin: 0 10px;
-        padding: 5px 10px;
-        font-weight: 600;
-        transition: .2s;
-        font-size: $h6-fzSize;
-        border: 2px solid $bdcolor;
-        color:$bdcolor;
+        padding: 2px 8px;
+        font-size: $sm-word-fzSize;
+        color:$color1;
         background-color: $bgcolor;
+        transition: .2s;
         @content;
         &:hover{
-            border: 2px solid darken($bdcolor, 30);
             cursor: pointer;
         }
         @include lg(){
-            border-radius: 12px;
-            padding: 8px 20px;
-        }
-    }
-}
-//===================無border按鈕===================
-@mixin btn2($style,$fcolor:$color1,$bgcolor:$color6){
-    .btn2-#{$style} {
-        border:0;
-        border-radius: 8px;
-        display: inline-block;
-        margin: 0 10px;
-        padding: 5px 10px;
-        font-weight: 600;
-        transition: .2s;
-        font-size: $h6-fzSize;
-        color:$fcolor;
-        background-color: $bgcolor;
-        @content;
-        &:hover{
-            background-color: darken($bgcolor, 5);
-            cursor: pointer;
-        }
-        @include lg(){
-            border-radius: 12px;
-            padding: 8px 20px;
+            border-radius: 6px;
+            padding: 5px 14px;
         }
     }
 }
 
-
+//===================按鈕 中===================
+@mixin mdBtn($name,$bgcolor:$color6){
+    .mdBtn-#{$name} {
+        border: 1px solid transparent;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 10px;
+        padding: 3px 10px;
+        font-weight: 600;
+        font-size: $md-word-fzSize;
+        color:$color1;
+        background-color: $bgcolor;
+        transition: .2s;
+        @content;
+        &:hover{
+            cursor: pointer;
+        }
+        @include lg(){
+            border-radius: 6px;
+            padding: 4px 14px;
+        }
+    }
+}
+//===================按鈕 大===================
+@mixin bgBtn($name,$bgcolor:$color6){
+    .bgBtn-#{$name} {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 0 10px;
+        padding: 2px 18px;
+        font-weight: 600;
+        font-size: $h6-fzSize;
+        color:$color1;
+        background-color: $bgcolor;
+        transition: .2s;
+        @content;
+        &:hover{
+            cursor: pointer;
+        }
+        @include lg(){
+            border-radius: 8px;
+            padding: 6px 24px;
+        }
+    }
+}
