@@ -32,11 +32,10 @@
     .title_h2_round{
         width: 40vw;
         height: 6vw;
-        border-top: 0.5rem solid $color4;
+        border-top: 0.5rem solid $color2;
         border-radius: 48% 52% 51% 49% / 50% 50% 50% 50%;
     }
 }
-
 
 // 有要border或是背景色或是hover自行增加
 //===================按鈕 小===================
@@ -92,7 +91,7 @@
         border-radius: 5px;
         display: inline-block;
         margin: 0 10px;
-        padding: 2px 18px;
+        padding: 5px 18px;
         font-weight: 600;
         font-size: $h6-fzSize;
         color:$color1;
@@ -104,7 +103,8 @@
         }
         @include lg(){
             border-radius: 8px;
-            padding: 6px 24px;
+            padding: 8px 24px;
+            font-size: $h6-fzSize;
         }
     }
 }

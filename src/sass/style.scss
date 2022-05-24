@@ -30,9 +30,9 @@
 }
 
 html{
-    font-size:11.5px;
+    font-size:12px;
     @include md(){
-        font-size:13.5px;
+        font-size:14px;
     }
     @include lg(){
         font-size:14.5px;
@@ -54,7 +54,7 @@ p,label{
     color:$color9;
     letter-spacing: 0.1em;
     text-indent: 0.1em;
-    line-height: 1.8em;
+    line-height: 1.6em;
     font-family: $family1;
     font-weight: 300;
 }
@@ -123,7 +123,6 @@ section{
 }
 //黃色月亮標題
 .moon-title{
-    // border: 1px solid blue;
     width: 40%;
     margin: 20px auto 60px ;
     color:$color4;
@@ -143,7 +142,7 @@ section{
         text-align: center;
         color:$color5;
         font-family: $family2;
-        font-weight: 600;
+        font-weight: 400;
     }
     p:nth-of-type(2){
         margin-top: -5px;
@@ -157,14 +156,14 @@ section{
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        right: 10%;
-        bottom:-14px;
+        right: 3%;
+        bottom:33px;
         z-index: 10;
         @include md(){
             width: 140px;
             height: 65px;
             right: 15%;
-            bottom:-30px;
+            bottom:35px;
         }
         @include lg(){
             width: 160px;
@@ -174,7 +173,7 @@ section{
         @include xl(){  
             width: 180px;
             right: 20%;
-            bottom:-20px;
+            bottom:45px;
         }
     }
 }
@@ -208,7 +207,7 @@ section{
 }
 
 //border-radius
-.bdr{
+.card-bdr{
     border-radius: 10px;
     @include md(){
         border-radius: 12px;
@@ -217,6 +216,7 @@ section{
         border-radius: 15px;
     }
 }
+
 
 //show | hide
 .show{
