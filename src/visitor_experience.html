@@ -27,7 +27,7 @@
                 </div>
                 <!-- 關按鈕+傳文章 -->
                 <div class='light-box'>
-                    <div class="bdr text-box">
+                    <div class="bdr test-box">
                         <p v-on:click="closeBox"><i class="fa-solid fa-x"></i></p>
                         <p>{{Post}}</p>
                     </div>
@@ -269,16 +269,17 @@
     <script>
         var box = new Vue({
             el: '#app',
-
+    
+        // Vue.component('.test-box',{
             data: {
                 message: 'show-lightbox',
                 Post: '我要發文',
             },
-
-            // template: `
-                
-            // `,
-
+            
+            template:`
+            <div>{{post}}</div>
+            `,
+            
             methods: {
                 openBox: function () {
                     let lightbox = document.querySelector('.light-box');
@@ -289,8 +290,9 @@
                     lightbox.classList.remove('show-Lightbox');
                 },
             },
-        })
-    </script>
+        // })
+    })
+        </script>
 
 
 
