@@ -20,11 +20,17 @@
 
         .card-pic {
             position: relative;
+            overflow: hidden;
 
             img {
-                // aspect-ratio: 1.5/1;
+                aspect-ratio: 1.5/1;
                 object-fit: cover;
                 width: 100%;
+                transform: scale(1,1);
+                transition: all 0.5 ease;
+                &:hover{
+                    transform: scale(1.2,1.2);
+                }
             }
 
             .mem {
@@ -50,15 +56,13 @@
             }
 
             .card-body {
-                padding: 20px;
-                .icon {
-                    // display: flex;
-                    .i.fa-regular.fa-heart::before{
-                        margin-left: 20px;
-                        font-size: 150px;
-                    }
+                .fa-regular.fa-heart::before {
+                    margin-left: 20px;
+                    font-size: 150px;
                 }
                 p{
+                    padding: 20px;
+
                 }
             }
         }
