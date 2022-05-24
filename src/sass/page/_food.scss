@@ -13,8 +13,10 @@
             
         }
         @include lg(){
+
         }
         @include xl(){
+            
         }
     }
 
@@ -53,10 +55,10 @@
 
         }
         @include xl(){
-            bottom: 300px;
+            bottom: 400px;
             margin: 0 10px;
             min-width: 10px;
-            height: 120px;
+            height: 150px;
         }
     }
 
