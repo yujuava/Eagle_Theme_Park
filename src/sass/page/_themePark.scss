@@ -117,13 +117,16 @@
         color: $color5;
         border: none;
     }
-    // 標題會產生重疊?? 
+
     .gradientTail{
+        --tailHeight: 80px;
         position: absolute;
+        transform: translateY( calc( var(--tailHeight )*-1 ));
         width: 100%;
-        height: 100px;
-        background: rgb(255,251,239);
-        background: linear-gradient(180deg, rgba(255,251,239,1) 0%, rgba(255,255,255,0) 60%);  
+        height: var(--tailHeight);
+
+        background: linear-gradient(180deg, #FEF5D8 0.78%, #FFFBED 33.3%, #D4CDB6 76.36%);
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
         
     }
 

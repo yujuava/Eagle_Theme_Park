@@ -141,7 +141,7 @@
             </div>
         </div>
     </section>
-    <span class="gradientTail"></span>
+    <span class="gradientTail Ani_SlideIn"></span>
 
     <!-- 主題樂園 遊行表演 -->
     <section>
@@ -234,5 +234,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <script src="js/themePark_scollPic.js"></script>
+
+<!-- 
+    <style>
+                   .Ani_SlideIn{
+        position: relative;
+        transform: translateY(0);
+        opacity: 1;
+        transition: 2s all ease;
+        }
+        .Ani_SlideIn.active{
+            transform: translateY(-350px);
+            opacity: 0;
+        }
+    </style> -->
+<script>
+    window.addEventListener('load', function(){
+    
+        // 滾動時觸發事件
+        window.addEventListener("scroll", SlideIn);
+
+        // 滑入動畫
+        function SlideIn(){
+            // 抓取螢幕內部高度
+            let VW_Distance = window.innerHeight;
+
+            // 物件距離螢幕 多少百分比觸發, 此案例為0.8 (80%)
+            let RWD_Percentage = 0.6;
+
+            // 有動畫標籤的物件先抓到陣列裡
+            let Animation_Items = new Array();
+            let Animation = document.querySelectorAll(".Ani_SlideIn");
+
+            // 所有物件加入事件觸發判斷條件
+            for (let i = 0; i < Animation.length; i++){
+
+                // 每個物件偵測距離螢幕狀態
+                Animation_Items[i]=Animation[i].getBoundingClientRect();
+
+                // Animation_Items[i].y 抓取Y軸距離
+                if (Animation_Items[i].y < VW_Distance*RWD_Percentage) {
+                    // 為觸發的物件加入active標籤 觸發CSS動畫
+                    Animation[i].classList.add("active");
+                } else {
+
+                    // 為觸發的物件移除active標籤 觸發CSS動畫
+                    Animation[i].classList.remove("active");
+                }
+            }
+        }
+
+});
+</script>
 </body>
 </html>
