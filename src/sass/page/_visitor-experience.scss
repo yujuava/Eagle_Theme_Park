@@ -14,7 +14,7 @@ height: 100%;
 background-color: rgba(0,0,0,.5);
 z-index: 100;
 display: none;
-.text-box{
+.test-box{
     position: absolute;
     top: 200px;
         left: 0;
@@ -96,7 +96,7 @@ display: none;
         }
         .card-body {
             p {
-                padding: 10px ;
+                padding: 50px 15px;
                 font-size: $word-fzSize;
                 font-family: $family1;
             }
