@@ -135,14 +135,13 @@
     }
     .wrap {
         display: block;
-        scroll-behavior: smooth;
         // width: 100%;
         // min-height: 200px;
         @include lg(){
             width: 65%;
         }
         .scroll-page{
-            // height: 30vh;
+            scroll-margin-top: 80px;
         }
         .title {
             font-family: $family2;
