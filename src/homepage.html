@@ -440,7 +440,7 @@
                     </div>
                 </div>
                 
-                <ul class="facility-list bdr">
+                <ul class="facility-list card-bdr">
                     <li v-for="item in nameList">{{item}}</li>
                 </ul>
 
@@ -459,9 +459,19 @@
             @@include('layout/h2Style.html',{
                 "h2Title" : "饗食餐飲"
             })
-            <div class="wrap">
-
-            </div>
+            
+            @@include('layout/showFood.html',{
+                "foodTitleh2" : "紐約客漢堡",
+                "foodContp" : "1827年全世界第一間紐約客漢堡在紐約市曼哈頓誕生，口感特別的醃製醬料，配上生菜、蕃茄以及新鮮手打肉，咬下一口，瞬間置身於忙碌又美麗的紐約大都會。",
+                "foodimg1" : "./images/burger1.jpg",
+                "foodimg2" : "./images/burger2.jpg",
+                "foodimg3" : "./images/burger3.jpg",
+                "foodimg4" : "./images/burger4.jpg",
+                "foodimg5" : "./images/burger5.jpg",
+                "foodimg6" : "./images/burger6.jpg",
+                "foodimg7" : "./images/burger7.jpg",
+                "foodimg8" : "./images/burger8.jpg",
+            })
         </section>
     
         
@@ -593,8 +603,8 @@
 
     Vue.component('card-component',{
         template:`
-        <div class="card bdr">
-            <div class="pic bdr">
+        <div class="card card-bdr">
+            <div class="pic card-bdr">
                 <img :src="item.img" alt="Image">
                 <div class="area">
                     {{item.area1}}<br>
@@ -622,4 +632,8 @@
 
     })
 
+</script>
+
+<!-- food -->
+<script src="js/food.js">
 </script>
