@@ -1,0 +1,92 @@
+
+.map{
+    position: relative;
+    
+    .map-nw-area,.map-indian-area,.map-farm-area{
+        transition:1s;
+        .map-cls-7,.map-cls-9,.map-cls-11{
+            transition:1s;
+        }
+        &:hover .map-cls-7{
+            cursor: pointer;
+            fill: $color3;
+            stroke-width:5px;
+            stroke:white;
+        }
+        &:hover .map-cls-9{
+            cursor: pointer;
+            fill: $color5;
+            stroke-width:5px;
+            stroke:white;
+        }
+        &:hover .map-cls-11{
+            cursor: pointer;
+            fill: $color4;
+            stroke-width:5px;
+            stroke:white;
+        }
+        &:hover image{
+            display: block;
+        }
+    
+        .farm-location,.indian-location,.nw-location{
+            animation: shakeY 2s infinite;
+        }
+    }
+    
+    .map-click{
+        fill: $color6 !important;
+    }
+    
+    .box{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 400px;
+        .pic{
+            width: 400px;
+            aspect-ratio: 2 / 1;
+            overflow: hidden;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                object-fit: cover;
+            }
+        }
+        .info{
+            background-color:rgba(77, 77, 77, 0.9);
+            h5{
+                background-color: $color4;
+                color:white;
+                text-align: center;
+                font-weight: bold;
+            }
+            p{
+                color:white;
+                padding: 20px;
+            }
+            
+        }
+    }
+    .hide{
+        display: none;
+    }
+    
+    .nwbox{
+        left: 0;
+        top: 0;
+    }
+    .farmbox{
+        right: 0;
+        top:0;
+    }
+    
+    .indianbox{
+        right: 20%;
+        bottom:0;
+    }
+
+    
+}
