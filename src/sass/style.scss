@@ -19,6 +19,7 @@
 @import 'page/lostClothes';
 @import 'page/visitor-experience';
 @import 'layout/showFood';
+@import 'page/test';
 
 *{
     padding: 0;
@@ -43,17 +44,17 @@ html{
 
 h2,h3,h4,h5,h6{
     font-weight: 400;
-    letter-spacing: 0.08em;
-    text-indent: 0.08em;
-    line-height: 1.8em;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    line-height: 2em;
     font-size: $h3-fzSize;
 }
 p,label{
     font-weight: 200;
     color:$color9;
-    letter-spacing: 0.08em;
-    text-indent: 0.08em;
-    line-height: 1.5em;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    line-height: 1.8em;
     font-family: $family1;
     font-weight: 300;
 }
@@ -100,18 +101,22 @@ body{
 }
 //區塊
 section{
-    margin-top: 50px;
+    border: 1px solid #000;
+    margin-top: 25px;
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap:5%;
     @include md(){
-        margin-top: 60px;
+        margin-top: 35px;
         margin-bottom: 80px;
     }
     @include lg(){
-        margin-top: 70px;
+        margin-top: 40px;
         margin-bottom: 100px;
     }
     @include xl(){
-        margin-top: 80px;
+        margin-top: 50px;
         margin-bottom: 120px;
     }
     
@@ -120,7 +125,7 @@ section{
 .moon-title{
     // border: 1px solid blue;
     width: 40%;
-    margin: 80px auto 60px ;
+    margin: 20px auto 60px ;
     color:$color4;
     position: relative;
     @include md(){
@@ -200,6 +205,17 @@ section{
     justify-content: center;
     align-items: center;
     @include h2Set();
+}
+
+//border-radius
+.bdr{
+    border-radius: 10px;
+    @include md(){
+        border-radius: 12px;
+    }
+    @include lg(){
+        border-radius: 15px;
+    }
 }
 
 //show | hide

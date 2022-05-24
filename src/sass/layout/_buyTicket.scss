@@ -146,8 +146,7 @@
                     }
                 }
                 //按鈕
-                @include btn2(book){
-   
+                @include bgBtn(book){
                     @include md(){
                         position: absolute;
                         bottom:20px;

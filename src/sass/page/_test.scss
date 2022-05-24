@@ -1,0 +1,46 @@
+
+.test{
+    border:10px solid red;
+}
+
+.map-nw-area,.map-indian-area,.map-fram-area{
+    transition:1s;
+    &:hover .map-cls-7{
+        cursor: pointer;
+        fill: $color3;
+        stroke-width:5px;
+        stroke:white;
+    }
+    &:hover .map-cls-9{
+        cursor: pointer;
+        fill: $color6;
+        stroke-width:5px;
+        stroke:white;
+    }
+    &:hover .map-cls-11{
+        cursor: pointer;
+        fill: $color4;
+        stroke-width:5px;
+        stroke:white;
+    }
+    &:hover image{
+        display: block;
+    }
+
+    farm-location,indian-location,nw-location{
+        animation: shakeY 2s infinite;
+    }
+}
+
+
+
+
+// 按鈕
+@include smBtn(test){
+}
+
+@include mdBtn(test){
+}
+
+@include bgBtn(test){
+}
