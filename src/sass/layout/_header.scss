@@ -292,7 +292,6 @@ header{
                           width: 100%;
                       }
                       a{
-                        // border: 1px solid #000;
                         font-size: $word-fzSize;
                         color:$color1;
                         font-weight: bold;
@@ -400,7 +399,7 @@ header{
                 transform: scale(.7);
             }
             a{
-                // border: 1px solid #000;
+                border: 2px solid #000;
                 color:$color1;
             }
           }
