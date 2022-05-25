@@ -14,14 +14,16 @@
         border-radius: 15px;
         background: linear-gradient($color4, $color3, $color1);
         @include xl(){
-            width:40%;
+            width:50%;
         }
         h2{
             color: $color1;
+            font-size: $h2-fzSize;
             margin: 1em;
         }
         p{
             color: $color1;
+            font-size: $word-fzSize;
             margin: 0 2em;
             padding-bottom: 7em;
         }
