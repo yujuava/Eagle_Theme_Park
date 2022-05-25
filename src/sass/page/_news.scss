@@ -263,17 +263,17 @@
                     background-color: $color1;
                     animation: change 3s linear 2s 3 ;
                     transition: ease;
-                    @keyframes change {
-                        0%{
-                            left: 49vw;
-                        }
-                        50%{
-                            left: 51vw;
-                        }
-                        100%{
-                            left: 49vw;
-                        }
-                    }
+                    // @keyframes change {
+                    //     0%{
+                    //         left: 49%;
+                    //     }
+                    //     50%{
+                    //         left: 51%;
+                    //     }
+                    //     100%{
+                    //         left: 49%;
+                    //     }
+                    // }
                     .center {
                         position: absolute;
                         top: 50%;
