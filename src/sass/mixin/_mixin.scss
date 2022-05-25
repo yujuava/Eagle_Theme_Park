@@ -1,3 +1,5 @@
+@import url('../base/_var.scss');
+
 //===========斷點設計-平板直以上===========
 @mixin md(){
     @media screen and (min-width: $md_breakpoint){
@@ -70,7 +72,7 @@
         margin: 0 10px;
         padding: 3px 10px;
         font-weight: 600;
-        font-size: $md-word-fzSize;
+        font-size: $btnMd-fzSize;
         color:$color1;
         background-color: $bgcolor;
         transition: .2s;
