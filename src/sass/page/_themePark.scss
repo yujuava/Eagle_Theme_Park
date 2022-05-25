@@ -61,7 +61,6 @@
     }
     .facilitesContent{
         background-color: $color3;
-        border-radius: 15px;
     }
     .facilitesContent p{
         text-align: center;
@@ -72,7 +71,7 @@
     .facilitiesImg img{
         width: 100%;
         display: block;
-        border-radius: 10px;
+        border-radius: 5px;
     }
     // Facility introduction effect not finished yet
     .facilitesContent p{
@@ -97,12 +96,23 @@
     .card{
         background-color: $color3;
         padding: 15px;
-        border-radius: 15px;
-        box-shadow: 10px 10px 0 $color5;
+        box-shadow: $card-shadow2;
     }
     .cardImg img{
         width: 100%;
         display: block;
+    }
+    .card p:nth-of-type(1){
+        font-size: $h6-fzSize;
+        padding: 10px 0 10px 0;
+    }
+    .card p:nth-of-type(2){
+        font-size: $md-word-fzSize;
+    }
+    @include md{
+        .card p:nth-of-type(2){
+            font-size: $word2-fzSize;
+        }        
     }
     .themePark__AttractionsBTN{
         display: flex;
@@ -215,10 +225,6 @@
         }
     }
     // parades content 
-    .paradesBoard img{
-        width: 100%;
-        border-radius: 15px;
-    }
     .paradesBox:first-child{
         height: 100%;
         padding: 15px;
@@ -227,16 +233,48 @@
         padding: 15px;
     }
     .paradesContent{
-        height: 100%;
-        border: 4px solid $color1;
-        border-radius: 15px;
-    }
-    .paradesContent{
         display: flex;
         flex-direction: column;
+        height: 100%;
+        border: 4px solid $color1;
     }
+
+    // 文字大小尚未修正完畢
     .paradesTypeDate{
         display: flex;
+    }
+    .paradesTypeDate p:nth-of-type(1){
+        font-size: $sm-word-fzSize;
+    }
+    .paradesTypeDate p:nth-of-type(2){
+        font-size: $sm-word-fzSize;
+    }
+    .paradesTitle{
+        font-size: $sm-word-fzSize;
+    }
+    @include md{
+        .paradesTypeDate p:nth-of-type(1){
+            font-size: $md-word-fzSize;
+        }
+        .paradesTypeDate p:nth-of-type(2){
+            font-size: $md-word-fzSize;
+        }
+        .paradesTitle{
+            font-size: $md-word-fzSize;
+        } 
+    }
+    @include lg{
+        @include md{
+            .paradesTypeDate p:nth-of-type(1){
+                font-size: $sm-word-fzSize;
+            }
+            .paradesTypeDate p:nth-of-type(2){
+                font-size: $sm-word-fzSize;
+            }
+            .paradesTitle{
+                font-size: $word-fzSize;
+            } 
+        }
     }
     .paradesBox:first-child .paradesTypeDate{
         padding: 10px;
