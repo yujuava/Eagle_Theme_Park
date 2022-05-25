@@ -7,7 +7,7 @@
     })
 </head>
 
-<body>
+<body class="visitor_experience">
     <!-- 共用header -->
     @@include('layout/header-for-all.html')
     <!-- 大標使用這個-->
@@ -18,18 +18,27 @@
 
 
 
-    <section visitor_experience>
+    <section class="Visitor_experience">
         <div class="container">
-            <div id="app">
-                <!-- 開燈箱 -->
-                <div v-on:click='openBox'>
-                    <button class="bgBtn-post">我要發文</button>
-                </div>
-                <!-- 關按鈕+傳文章 -->
-                <div class='light-box'>
-                    <div class="bdr test-box">
-                        <p v-on:click="closeBox"><i class="fa-solid fa-x"></i></p>
-                        <p>{{Post}}</p>
+            <!-- <div id="app"> -->
+            <!-- 開燈箱 -->
+            <!-- <div v-on:click='openBox'> -->
+            <!-- <button class="bgBtn-post">我要發文</button> -->
+            <!-- </div> -->
+            <!-- 關按鈕+傳文章 -->
+            <div class='light-box'>
+                <div class="card-bdr forum-box ">
+                    <input type="text" placeholder="標題" width="100%">
+                    <label for="Insert picture" class="smBtn-insert-pic" onchange="readURL(this);">
+                        <img src="http://placehold.it/180" alt="your image">
+                        <i class="fa-regular fa-image"></i>插入圖片
+                    </label>
+                    <input id="Insert picture" type="file" accept="image/*">
+                    <textarea class="txt-field" cols="70" rows="15"></textarea>
+                    <p>發表需注意網路禮節!</p>
+                    <div class="btn">
+                        <button class="smBtn-cancel">取消</button>
+                        <button type="submit" class="smBtn-submit">發表文章</button>
                     </div>
                 </div>
             </div>
@@ -56,7 +65,8 @@
                         <div class="card-header"></div>
                         <div class="card-pic">
                             <div class="pic"><a href="#"><img src="./images/themePark__facilitiesMd-3.jpg"
-                                        alt="感覺很恐怖"></a></div>
+                                        alt="感覺很恐怖"></a>
+                            </div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
@@ -267,32 +277,35 @@
     </section>
 
     <script>
-        var box = new Vue({
-            el: '#app',
-    
+
         // Vue.component('.test-box',{
+
+        //     template:`
+        //     <p v-on:click="closeBox">
+        //         <i class="fa-solid fa-x"></i>
+        //     </p>
+        //     <p>{{Post}}</p>
+        //     `,
+
+        //     methods: {
+        //         openBox: function () {
+        //             let lightbox = document.querySelector('.light-box');
+        //             // lightbox.classList.add('show-Lightbox');
+        //         },
+        //         closeBox: function () {
+        //             let lightbox = document.querySelector('.light-box');
+        //             // lightbox.classList.remove('show-Lightbox');
+        //         },
+        //     },
+        // })
+
+        new Vue({
+            el: '#app',
             data: {
-                message: 'show-lightbox',
                 Post: '我要發文',
             },
-            
-            template:`
-            <div>{{post}}</div>
-            `,
-            
-            methods: {
-                openBox: function () {
-                    let lightbox = document.querySelector('.light-box');
-                    lightbox.classList.add('show-Lightbox');
-                },
-                closeBox: function () {
-                    let lightbox = document.querySelector('.light-box');
-                    lightbox.classList.remove('show-Lightbox');
-                },
-            },
-        // })
-    })
-        </script>
+        })
+    </script>
 
 
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* bgBtn(post) {
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 20px;
+} */
+
+.light-box{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,.5);
+z-index: 100;
+ display: none;
+}
+
+.test-box{
+    position: absolute;
+    top: 200px;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        width: 50%;
+        height: 50%;
+        z-index: 100;
+        background-color: #fff;
+        margin: auto;}
+
+        /* border-radius: 20px; */
+        .fa-x{
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 25px;
+            /* &:hover{
+                cursor: pointer;
+            } */
+        }
+    
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 開燈箱 -->
+        <div v-on:click='openBox'>
+            <button class="post">我要發文</button>
+        </div>
+        <!-- 關按鈕+傳文章 -->
+
+        <div class='light-box'>
+            <div class="test-box bdr">
+                <p>
+                    <i class="fa-solid fa-x"></i>
+                </p>
+                <p>{{POST}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* Vue.component('.test-box',{
+            
+             template:`
+            <p v-on:click="closeBox">
+                <i class="fa-solid fa-x"></i>
+             </p>
+            <p>{{Post}}</p> */
+         /* `, */
+         new Vue({
+             el: '#app',
+             data: {
+                 POST:'我要發文',
+             },
+            methods: {
+                openBox: function () {
+                     let lightbox = document.querySelector('.light-box');
+                      lightbox.classList.add('show-Lightbox');
+                },
+                closeBox: function () {
+                    let lightbox = document.querySelector('.light-box');
+                     lightbox.classList.remove('show-Lightbox');
+                 },
+             },
+         })
+
+                /* Post: '我要發文',
+            },
+        }) */
+    </script>
+</body>
+</html>
