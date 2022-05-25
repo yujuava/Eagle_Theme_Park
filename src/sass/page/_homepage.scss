@@ -4,6 +4,7 @@
     }
     //首頁要微調共用header
     header{
+
         @include xl(){
             border-left: 20px solid $color3;
             border-right:20px solid $color3 ;
@@ -716,6 +717,7 @@
                         margin-bottom: 20px;
                     }
                     @include xl(){
+                        // border: 1px solid #000;
                         width: calc(25% - 22.5px);
                         margin-bottom: 25px;
     
@@ -727,11 +729,13 @@
                         margin-bottom: 5px;
                         position: relative;
                         overflow: hidden;
-                        
                         @include md(){
-
                             aspect-ratio: 4.5 / 3;
                         }
+                        @include xl(){
+                            aspect-ratio: 4 / 3;
+                        }
+                        
                         
                         .area{
                             width: 80px;
@@ -758,6 +762,7 @@
                                 height: 60px;
                             }
                             @include xl(){
+                                font-size: $h5-fzSize;
                                 width: 70px;
                                 height: 70px;
                             }
