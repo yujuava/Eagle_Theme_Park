@@ -1,0 +1,36 @@
+.shoppingcart{
+    .shopcar{
+        display: table;
+        table{
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+            text-align: center;
+            font-family:$family2 ;
+
+            th{
+                font-size: $h6-fzSize;
+                background-color: $color2;
+                color:$color5;
+                line-height:$th-line-height;
+            }
+            td{
+                vertical-align:middle;
+                font-size: $h6-fzSize;
+                @include mdBtn(delete){}
+                .count{
+                    display: flex;
+                    justify-content: center;
+                    input{
+                        width: 50px;
+                    }
+                }
+            }
+            img{
+                width: 150px;
+            }
+
+        }
+    }
+}

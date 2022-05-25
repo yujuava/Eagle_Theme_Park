@@ -7,6 +7,9 @@
     #airplane {
         display: block;
         margin-left: auto;
+        position: absolute;
+        right: 0;
+        z-index: 999;
     }
 
     .newspapers {
@@ -304,10 +307,9 @@
             table {
                 width: 100%;
                 text-align: center;
-                line-height: 30px;
                 border-collapse: collapse;
                 table-layout: fixed;
-
+                line-height:$th-line-height;
                 tr {
                     th {
                         font-family: $family1;
