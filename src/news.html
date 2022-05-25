@@ -20,7 +20,6 @@
     })
     <img id="airplane" src="./images/airplane.png" alt="">
 
-
     <section id="all_news" class="newspapers">
         @@include('layout/title.html',{
             "h3TitleTC" : "伊果快報",
@@ -36,7 +35,6 @@
                     class="fa-solid fa-xmark"></i>
                     <transition-group name="aa" tag="div" class="bb">
                         <news-component v-for="item in cards" :item="item" :key="item.id"/>
-                        <!-- <app-lightbox :close="closeBox" :imgsource="currentPic" v-if="lightBoxToggle"></app-lightbox> -->
                     </transition-group>
                 </div>    
             </div>
@@ -48,22 +46,7 @@
             "h3TitleTC" : "遊行活動",
             "h3TitleEN": "Theme Area"
         })
-        <!-- <div class="full">
-            <div class="before_after">
-                <div class="before">
-                    <img src="./images/news_night.png" alt="">
-                </div>
-                <div class="after box">
-                    <img src="./images/news_morning.png" alt="">
-                </div>
-                <div class="center_area">
-                    <button class="center">
-                        <i class="fa-solid fa-caret-left"></i>
-                        <i class="fa-solid fa-caret-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div> -->
+
         <div class="full">
             <div class="before_after aaa">
                 <button class="center_area">

@@ -25,6 +25,7 @@
                     input{
                         width: 50px;
                         text-align: center;
+                        margin: 0 5px;
                     }
                 }
             }
@@ -33,5 +34,30 @@
             }
 
         }
+    }
+    .total{
+        .wrap{
+            padding: 30px;
+            background-color: $color2;
+            border-radius: 24px;
+            font-size: $h6-fzSize;
+            div{
+                margin: auto;
+
+                .discount{
+                    display: flex;
+                    justify-content: end;
+                    @include mdBtn(gogogo){}
+                    label{
+                        margin-left: 10px;
+                    }
+                    .coupon{
+                        background-image: url(/images/coupon.png);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }    
     }
 }
