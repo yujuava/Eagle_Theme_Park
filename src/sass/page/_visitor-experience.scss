@@ -3,6 +3,9 @@
     margin-right: 0;
     display: block;
     margin-bottom: 20px;
+    color: $color4;
+    background-color: #fff;
+    border: 1px solid$color4;
 }
 
 
@@ -14,8 +17,8 @@
     height: 100%;
     background-color: rgba(0, 0, 0, .5);
     z-index: 100;
-
-    // display: none;
+    display: none;
+    
     .forum-box {
         position: absolute;
         top: 200px;
@@ -27,69 +30,89 @@
         z-index: 100;
         background-color: #fff;
         margin: auto;
-        padding: 10px;
+        padding-bottom: 80px;
         // border-radius: 20px;
-    }
-
-    input[type="text"] {
-        width: 50%;
-        height: 50px;
-        // margin: 20px 10px;
-        border: 2px solid$color4;
-        border-radius: 10px;
-        font-size: 30px;
-    }
-
-    input[type="file"] {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-    }
-
-    @include smBtn(insert-pic) {
-        color: $color4;
-        background-color: #fff;
-        display: block;
-        margin: 20px;
-        font-size: $h6-fzSize;
-        border: 2px solid$color4;
-        text-align: center;
-        width: 170px;
-
-        &:hover {
-            background-color: $color3;
-            color: #fff;
+        .box-header{
+            padding: 20px;
+            background-color: $color4;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
         }
-    }
-
-    .txt-field {
-        width: 100%;
+        input[type="text"] {
+            width: 50%;
+            height: 50px;
+            margin: 20px 10px;
+            border: 2px solid$color4;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+    
+        input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    
+        @include smBtn(insert-pic) {
+            color: $color4;
+            background-color: #fff;
+            display: block;
+            margin: 20px;
+            font-size: $h6-fzSize;
+            border: 2px solid$color4;
+            text-align: center;
+            width: 170px;
+            margin-right: 180px;
+            &:hover {
+                background-color: $color3;
+                color: #fff;
+            }
+        }
+        .image-Preview{
+            display: flex;
+            .img{
+                border: 1px solid$color4;
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $color8;
+                .blah{
+                    display: none;
+                    width: 100%;
+                }
+            }
+        }
+        .txt-field {
+            width: 100%;
+            margin-top: 40px;
+        }
         img{
             max-width: 180px;
         }
-    }
-
-    p {
-        text-align: center;
-    }
-
-    .btn {
-        text-align: center;
-
-        @include smBtn(cancel) {
-            background-color: #fff;
-            border: 2px solid$color4;
-            color: $color4;
+    
+        p {
+            text-align: center;
         }
-
-        @include smBtn(submit) {
-            background-color: $color4;
-            color: #fff;
+    
+        .btn {
+            text-align: center;
+    
+            @include smBtn(cancel) {
+                background-color: #fff;
+                border: 2px solid$color4;
+                color: $color4;
+            }
+    
+            @include smBtn(submit) {
+                background-color: $color4;
+                color: #fff;
+            }
         }
     }
 }
