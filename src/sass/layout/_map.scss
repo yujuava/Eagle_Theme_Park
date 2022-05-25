@@ -2,7 +2,7 @@
 .map{
     position: relative;
     
-    .map-nw-area,.map-indian-area,.map-farm-area{
+    .map-nw-area,.map-indian-area,.map-farm-area,.map-shop-area{
         transition:1s;
         .map-cls-7,.map-cls-9,.map-cls-11{
             transition:1s;
@@ -25,26 +25,37 @@
             stroke-width:5px;
             stroke:white;
         }
+        &:hover .map-cls-7{
+            cursor: pointer;
+            fill: $color4;
+            stroke-width:5px;
+            stroke:white;
+        }
+
         &:hover image{
             display: block;
         }
     
-        .farm-location,.indian-location,.nw-location{
-            animation: shakeY 2s infinite;
+        .farm-location,.indian-location,.nw-location,.shop-location{
+            animation: shakeY 3s infinite;
         }
+
     }
     
     .map-click{
         fill: $color6 !important;
+        stroke-width:5px;
+        stroke:white;
     }
     
     .box{
         display: flex;
         flex-direction: column;
         position: absolute;
-        width: 400px;
+        width: 20%;
+        box-shadow: $card-shadow1;
         .pic{
-            width: 400px;
+            width: 100%;
             aspect-ratio: 2 / 1;
             overflow: hidden;
             position: relative;
@@ -62,6 +73,7 @@
                 color:white;
                 text-align: center;
                 font-weight: bold;
+                font-size: $h5-fzSize;
             }
             p{
                 color:white;
@@ -86,6 +98,12 @@
     .indianbox{
         right: 20%;
         bottom:0;
+    }
+
+    .shopbox{
+        right: 28%;
+        bottom:0;
+
     }
 
     
