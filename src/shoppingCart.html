@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', {
+    "title" : "購物車"
+    })
+</head>
+<!-- 改body class名稱 -->
+
+<body class="shoppingcart">
+    <!-- 共用header -->
+    @@include('layout/header-final.html')
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    <!-- @@include('layout/h2Style.html',{
+        "h2Title" : "購物車"
+    }) -->
+    <!-- 小標使用這個 -->
+    @@include('layout/title.html',{
+    "h3TitleTC" : "購物車",
+    "h3TitleEN": "Theme Area"
+    })
+    <section class="shopcar">
+        <div class="wrap">
+            <table>
+                <tr>
+                    <th>圖片</th>
+                    <th>名稱</th>
+                    <th>售價</th>
+                    <th>數量</th>
+                    <th>合計</th>
+                    <th>刪除</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/shop_cup.png ">
+                    </td>
+                    <td>伊果口罩</td>
+                    <td>$200</td>
+                    <td>
+                        <div class="count">
+                            <div class="minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <input type="text" class="num" min="0" value="0" disabled>
+                            <div class="plus">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </td>
+                    <td>$200</td>
+                    <td>
+                        <button class="mdBtn-delete">刪除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/shop_raincoat.png" alt="">
+                    </td>
+                    <td>伊果雨衣</td>
+                    <td>$400</td>
+                    <td>
+                        <div class="count">
+                            <div class="minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <input type="text" class="num" min="0" value="0" disabled>
+                            <div class="plus">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </td>
+                    <td>$400</td>
+                    <td>
+                        <button class="mdBtn-delete">刪除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./images/shop_cap.png" alt="">
+                    </td>
+                    <td>伊果雨衣</td>
+                    <td>$400</td>
+                    <td>
+                        <div class="count">
+                            <div class="minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <input type="text" class="num" min="0" value="0" disabled>
+                            <div class="plus">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </td>
+                    <td>$400</td>
+                    <td>
+                        <button class="mdBtn-delete">刪除</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="total">
+        <div class="wrap">
+            <div>
+                <div class="discount">
+                    <button class="
+                    coupon">
+                    點選優惠券</button>
+                    <label for="">折扣:</label>
+                    <input type="text">
+                    <label for="">總金額:</label>
+                    <input type="text">
+                    <button class="mdBtn-gogogo">前往結帳</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!--  ===============map ===============  -->
+    <!-- @@include('layout/map.html') -->
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+
+</html>
+<script src="./js/buyTicketadd.js"></script>

@@ -22,7 +22,6 @@
             }
         }
         .rightOrBottom{
-            border: 1px solid #000;
             width: 88%;
             height: 48%;
             margin: 0 auto;
@@ -31,7 +30,6 @@
             flex-direction: column;
             justify-content: space-between;
             @include md(){
-                // border: 1px solid #000;
                 width: 66%;
                 height: 100%;
                 padding: 10px;
@@ -40,7 +38,6 @@
                 position: relative;
             }
             h4{
-                border: 1px solid #000;
                 margin: auto;
                 text-align: center;
                 font-size: $h4-fzSize;
@@ -49,10 +46,14 @@
                 @include md(){
                     margin-bottom: 0px;
                     text-align: left;
+                    font-size: $h2-fzSize;
                 }
+                @include xl(){
+                    margin-bottom: 50px;
+                }
+                
             }
             form{
-                // border: 1px solid #000;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -105,6 +106,7 @@
                             font-size: $h6-fzSize;
                             
                             @include md(){
+                                font-size: $h5-fzSize;
                                 width: auto;
                                 margin-right: 0px;
 
@@ -114,6 +116,10 @@
                         p:nth-of-type(2){
                             color:$color9;
                             font-size: $word-fzSize;
+                            @include md(){
+                                font-size: $h6-fzSize;
+                            }
+                            
                         }
                     }
                     .count{
@@ -146,8 +152,7 @@
                     }
                 }
                 //按鈕
-                @include btn2(book){
-   
+                @include bgBtn(book){
                     @include md(){
                         position: absolute;
                         bottom:20px;

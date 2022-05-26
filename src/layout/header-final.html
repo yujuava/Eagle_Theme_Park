@@ -1,10 +1,22 @@
-<!-- @@include('login.html') -->
+
+<h1>EAGLE THEME PARK</h1>
+<header  id="header" class="@@class">
     <div class="left-back">
+        <!-- 手機板上方 -->
+        <div class="mobile-icon">
+            <div class="member-enter">
+                <img src="/images/Vector2.svg" alt="">
+            </div>
+            <a href="shoppingCart.html">
+                <img src="/images/Basket2.png" alt="">
+            </a>
+        </div>
+
     </div>
     <!-- HEADER MAIN 開始 -->
     <div class="wrap">
         <div class="logo">
-            <a href="/homepage.html">
+            <a href="homepage.html">
                 <img src="/images/logo.svg" alt="">
             </a>
 
@@ -12,10 +24,10 @@
         <!-- 電腦版nav -->
         <nav class="pc-nav" id="pc-nav">
             <div class="icon">
-                <a href="">
+                <div class="member-enter">
                     <img src="/images/Vector.svg" alt="">
-                </a>
-                <a href="">
+                </div>
+                <a href="shoppingCart.html" >
                     <img src="/images/Basket.svg" alt="">
                 </a>
             </div>
@@ -27,10 +39,10 @@
                         </a>
                     </div>
                     <div class="sec-nav">
-                        <a href="themePark_NewYork.html">紐約都會</a>
+                        <a href="themePark_NewYork.html" id="nav-nw">紐約都會</a>
                     
-                        <a href="themePark_West.html">西部農莊</a>
-                 
+                        <a href="themePark_West.html" >西部農莊</a>
+                
                         <a href="themePark_Indian.html">印安部落</a>
                     </div>             
                 </li>
@@ -45,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="main-nav">
+                    <a href="shop.html" class="main-nav">
                         伊果商城
                     </a>
                 </li>
@@ -61,7 +73,7 @@
                 </li>
             </ul>
         </nav>
-      
+    
     </div>
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
@@ -73,7 +85,7 @@
         </label>
     </div>
     <!-- 手機板選單 -->
-    <nav class="mobile-nav" v-if="show">
+    <nav class="mobile-nav"  v-if="show">
         <div class="top-block">
             <img src="../images/logo.svg" alt="">
             <div class="close" v-on:click="show = !show">
@@ -82,40 +94,54 @@
             </div>
         </div>
         <ul>
-
-            <li>
+            <li class="mobile-nav-li bd">
                 <img src="/images/navHome.svg" alt="">
-                <a href="./themePark_NewYork.html">
-                    主題園區
+                <a href="homepage.html">
+                    伊果樂園
                 </a>
             </li>
-            <li>
-                <img src="/images/navThemePark.png"alt="">
-                <a href="./news.html">
+
+            <div class="mobile-nav-li mobile_nav_themePark">
+                <li class="mobile-nav-li">
+                    <img src="/images/navThemePark.svg" alt="">
+                    <div>
+                        主題園區
+                    </div>
+                </li>
+                <li class="mobile-nav-second">
+                    <a href="themePark_NewYork.html">紐約都會</a>
+                    <a href="themePark_West.html">西部農莊</a>
+                    <a href="themePark_Indian.html">印安部落</a>
+                </li>
+            </div>
+
+            <li class="mobile-nav-li">
+                <img src="/images/navNew.svg"alt="">
+                <a href="news.html">
                     最新消息
                 </a>
             </li>
-            <li>
-                <img src="/images/navNew.svg" alt="">
+            <li class="mobile-nav-li">
+                <img src="/images/navTicket.svg" alt="">
                 <a href="./ticket.html">
                     園區資訊
                 </a>
             </li>
-            <li>
-                <img src="/images/navTicket.svg" alt="">
-                <a href="">
+            <li class="mobile-nav-li">
+                <img src="/images/Shopify.svg" alt="">
+                <a href="shop.html">
                     伊果商城
                 </a>
             </li>
-            <li>
+            <li class="mobile-nav-li">
                 <img src="/images/navFastfood.svg" alt="">
-                <a href="./food.html">
+                <a href="food.html">
                     饗食餐飲
                 </a>
             </li>
-            <li>
+            <li class="mobile-nav-li">
                 <img src="/images/navConversation.svg" alt="">
-                <a href="">
+                <a href="visitor_experience.html">
                     遊客體驗
                 </a>
             </li>
@@ -129,3 +155,13 @@
         <div class="bcg-front"></div>
     </div>
 
+</header>
+
+
+<!-- 兩個燈箱 -->
+@@include('loginLightbox.html')
+@@include('registerLightbox.html')
+
+<!-- header js -->
+<script src="../js/hbgAndLightbox.show.js">
+</script>

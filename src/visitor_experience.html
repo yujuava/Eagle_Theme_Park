@@ -7,32 +7,62 @@
     })
 </head>
 
-<body>
+<body class="visitor_experience">
     <!-- 共用header -->
-    @@include('layout/header.html')
+    @@include('layout/header-final.html')
     <!-- 大標使用這個-->
     @@include('layout/h2Style.html',{
     "h2Title" : "遊客體驗"
     })
-    <section visitor_experience>
+
+
+
+
+    <section class="Visitor_experience">
         <div class="container">
-            <button class="btn1-post">我要發文</button>
+            <div id="app">
+                <!-- 開燈箱 -->
+                <div @click='openBox'>
+                    <button class="bgBtn-post">我要發文</button>
+                </div>
+                <!-- 關按鈕+傳文章 -->
+                <div class='light-box'>
+                    <div class="card-bdr forum-box ">
+                        <div class="box-header"></div>
+                        <input type="text" placeholder="標題">
+                        <input type="file" id="InsertPicture" accept="image/*">
+                        <div class="image-Preview" id="imagePreview">
+                            <label for="InsertPicture" class="smBtn-insert-pic">
+                                <i class="fa-regular fa-image"></i>插入圖片
+                            </label>
+                            <div class="img" id="img">
+                                <img src="" alt="your Image" class="blah">
+                                <span class="image-preview__default-text"><i class="fa-regular fa-image"></i></span>
+                            </div>
+                        </div>
+
+                        <textarea class="txt-field" cols="50" rows="5" maxlength="300"></textarea>
+                        <p>發表需注意網路禮節!</p>
+                        <div class="btn">
+                            <button @click="closeBox" class="smBtn-cancel">取消</button>
+                            <button type="submit" class="smBtn-submit">發表文章</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-12 col-lg-4">
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities3.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities3.jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem">
                                 <img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -42,16 +72,14 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/themePark__facilitiesMd-3.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/themePark__facilitiesMd-3.jpg"
+                                        alt="感覺很恐怖"></a>
+                            </div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -61,16 +89,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/newyork.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/newyork.jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -80,16 +104,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/indian.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/indian.jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -99,16 +119,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (30).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (30).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -118,16 +134,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (25).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (25).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -137,16 +149,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities4.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities4.jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -156,16 +164,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities7.jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities7.jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -175,16 +179,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (1).jpeg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (1).jpeg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -194,16 +194,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (1).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (1).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -213,16 +209,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (2).png" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (2).png" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -232,16 +224,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (3).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (3).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -251,16 +239,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (4).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (4).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -270,16 +254,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (21).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (21).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -289,16 +269,12 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-pic">
-                            <img src="./images/facilities8 (22).jpg" alt="感覺很恐怖">
+                            <div class="pic"><a href="#"><img src="./images/facilities8 (22).jpg" alt="感覺很恐怖"></a></div>
                             <div class="mem"><img src="./images/mem.png" alt="小郭">
                                 <div class="mem-name">小郭</div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="icon">
-                                <i class="fa-regular fa-heart"></i>
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </div>
                             <p>內文內文內文內文....</p>
                         </div>
                         <div class="card-footer"></div>
@@ -308,7 +284,61 @@
         </div>
     </section>
 
+    <script>
 
+        // Vue.component('.test-box',{
+
+        //     template:`
+        //     <p v-on:click="closeBox">
+        //         <i class="fa-solid fa-x"></i>
+        //     </p>
+        //     <p>{{Post}}</p>
+        //     `,
+        
+        new Vue({
+            el: '#app',
+            data: {
+                Post: '我要發文',
+            },
+            methods: {
+                openBox: function () {
+                    let lightbox = document.querySelector('.light-box');
+                    lightbox.classList.add('show-Lightbox');
+                },
+                closeBox: function () {
+                    let lightbox = document.querySelector('.light-box');
+                    lightbox.classList.remove('show-Lightbox');
+                },
+            },
+        })
+
+        const InsertPicture = document.getElementById("InsertPicture");
+        const previewContainer = document.getElementById("img");
+        const previewImage = previewContainer.querySelector(".blah")
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+        InsertPicture.addEventListener("change", function () {
+            const file = this.files[0];
+            // console.log(file);
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function () {
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                })
+                reader.readAsDataURL(file);
+            } else {
+                previewDefaultText.style.display = null;
+                previewImage.style.display = null;
+                previewImage.setAttribute("src", "");
+            }
+        });
+    </script>
 
 
 

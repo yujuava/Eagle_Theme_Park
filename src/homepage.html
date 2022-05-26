@@ -8,7 +8,9 @@
 
 <body class="homepage">
     <!-- 共用header -->
-    @@include('layout/header-onlyfor-home.html')
+    @@include('layout/header-final.html', {
+      "class" : "hide"
+    })
     <!-- 共用header end -->
 
     <!-- 首頁才有的header -->
@@ -33,6 +35,11 @@
                 <li>
                     <a href="ticket.html">
                         <img src="/images/navTicket.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html">
+                        <img src="/images/Shopify.svg" alt="">
                     </a>
                 </li>
                 <li>
@@ -212,7 +219,7 @@
                             .cls-8{fill:#a7d4d3;}
                             .cls-9{fill:#707070;}
                             .cls-12{stroke:#c4c4c4;}
-                            .cls-12{stroke-width:25px;}
+                            .cls-12{stroke-width:30px;}
 
                         .cls-10,.cls-11{
                             font-size:45px;
@@ -235,15 +242,16 @@
                         <line class="cls-2" x1="190.75" y1="899.48" x2="1618.28" y2="899.48"/>
                         <line class="cls-4" x1="413.55" y1="400.2" x2="1422.96" y2="1409.63"/>
                     </g>
+                    
                     <!-- 大圓圈外框 -->
                     <circle class="cls-1" id="big-circle" cx="904.51" cy="919.48" r="713.77" transform = "rotate(-45 903.5 953)"/>
-                    <circle class="cls-12" id="big-circle" cx="930.51" cy="919.48" r="419.8" transform = "rotate(-45 903.5 953)"/>
+                    <circle class="cls-12" id="big-circle" cx="930.51" cy="919.48" r="360" transform = "rotate(-45 903.5 953)"/>
                     <!-- 所有車廂 -->
                     <g id="all-cabin">
                         <!-- 車廂1 -->
                         <g class="cabin">
                             
-                            <ellipse class="cls-8" cx="908" cy="177.74" rx="190" ry="177.74"/>
+                            <ellipse class="cls-8" cx="908" cy="177.74" rx="195" ry="195"/>
                             <defs>
                                 <clipPath id="car1" >
                                     <path class="cls-7" d="M1064.79,172.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08S750.37,87.92,750.37,169.15c0,1.15,0,2.3.06,3.44h-.18v33.49H1065V172.59Z"/>        
@@ -261,13 +269,13 @@
                         <a href="themePark_NewYork.html">
                             <g class="cabin">
                                 
-                                <ellipse class="cls-6" cx="395" cy="377.74" rx="190" ry="177.74"/>
+                                <ellipse class="cls-6" cx="395" cy="377.74" rx="195" ry="195"/>
                                 <defs>
                                     <clipPath id="car2">
                                         <path class="cls-7" d="M551.77,372.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S237.37,287.92,237.37,369.15c0,1.15,0,2.3.06,3.44h-.18v33.49H552V372.59Z"/>
                                     </clipPath>
                                 </defs>
-                                <image xlink:href="./images/facilities8 (20).jpg" clip-path="url(#car2)" x="200" y="220" width="350"/>
+                                <image xlink:href="./images/facilities8 (20).jpg" clip-path="url(#car2)" x="195" y="220" width="350"/>
     
                                 <text class="cls-11" transform="translate(297.93 477.79)">極速飛鷹</text>
                     
@@ -279,7 +287,7 @@
                         <a href="themePark_Indian.html">
                             <g class="cabin">
                                 
-                                <ellipse class="cls-8" cx="190" cy="853.74" rx="190" ry="177.74"/>
+                                <ellipse class="cls-8" cx="190" cy="853.74" rx="195" ry="195"/>
                                 <defs>
                                     <clipPath id="car3">
                                         <path class="cls-8" d="M346.77,848.59c0-1.14.07-2.29.07-3.44,0-81.23-70.4-147.08-157.24-147.08S32.37,763.92,32.37,845.15c0,1.15,0,2.3.06,3.44h-.18v33.49H347V848.59Z"/>        
@@ -297,13 +305,13 @@
 
                             <g class="cabin">
                                 
-                                <ellipse class="cls-6" cx="395" cy="1381.74" rx="190" ry="177.74"/>
+                                <ellipse class="cls-6" cx="395" cy="1381.74" rx="195" ry="195"/>
                                 <defs>
                                     <clipPath id="car4">
                                         <path class="cls-7" d="M551.77,1376.59c0-1.14.07-2.28.07-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H552v-33.49Z"/>        
                                     </clipPath>
                                 </defs>
-                                <image xlink:href="./images/facilities8 (24).jpg" clip-path="url(#car4)" x="200" y="1200" width="500"/>
+                                <image xlink:href="./images/facilities8 (24).jpg" clip-path="url(#car4)" x="195" y="1200" width="500"/>
     
                                 <text class="cls-11" transform="translate(297.93 1488.66)">仙女散花</text>
                                 
@@ -314,7 +322,7 @@
                         <a href="themePark_West.html">
                             <g class="cabin">
                             
-                                <ellipse class="cls-8" cx="910" cy="1614.74" rx="190" ry="177.74"/>
+                                <ellipse class="cls-8" cx="910" cy="1614.74" rx="195" ry="195"/>
                                 <defs>
                                     <clipPath id="car5">
                                         <path class="cls-7" d="M1066.79,1609.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.16,0,2.3.06,3.44h-.18v33.49H1067v-33.49Z"/>
@@ -330,7 +338,7 @@
                         <!-- 車廂6 -->
                         <g class="cabin">
                             
-                            <ellipse class="cls-6" cx="1447" cy="1383.74" rx="190" ry="177.74"/>
+                            <ellipse class="cls-6" cx="1447" cy="1383.74" rx="195" ry="195"/>
                             <defs>
                                 <clipPath id="car6">
                                     
@@ -344,7 +352,7 @@
                         <!-- 車廂7 -->
                         <g class="cabin">
                             
-                            <ellipse class="cls-8" cx="1617" cy="853.74" rx="190" ry="177.74"/>
+                            <ellipse class="cls-8" cx="1617" cy="853.74" rx="195" ry="195"/>
                             <defs>
                                 <clipPath id="car7">            
                                     <path class="cls-7" d="M1773.79,848.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V848.59Z"/>
@@ -356,7 +364,7 @@
                         <!-- 車廂8 -->
                         <g class="cabin">
                             
-                            <ellipse class="cls-6" cx="1408" cy="377.74" rx="190" ry="177.74"/>
+                            <ellipse class="cls-6" cx="1408" cy="377.74" rx="195" ry="195"/>
                             <defs>
                                 <clipPath id="car8">
                                     <path class="cls-7" d="M1564.79,372.59c0-1.14,0-2.29,0-3.44,0-81.23-70.4-147.08-157.24-147.08s-157.23,65.85-157.23,147.08c0,1.15,0,2.3.06,3.44h-.18v33.49h314.8V372.59Z"/>        
@@ -387,10 +395,10 @@
                         <img src="./images/elglfly.png" alt="">
                     </div>
                     <div class="talk">
-                        <img src="./images/talk.svg" alt="">
-                        <p>快來點擊果果玩遊戲
+                        <!-- <img src="./images/talk.svg" alt=""> -->
+                        <p class="mdBtn-game">點擊果果玩遊戲
                             <br>
-                            換取優惠券哦!
+                            換取優惠券
                         </p>
                     </div>
                 </a>
@@ -412,14 +420,14 @@
             })
             <div class="wrap"  id="all-thrill-ride" >
                 <div class="all-btn">
-                    <div class="btn1-area">
+                    <div class="bgBtn-area">
                         紐約都會
                     </div>
-                    <div class="btn1-area">
+                    <div class="bgBtn-area">
                         西部農莊
                         
                     </div>
-                    <div class="btn1-area">
+                    <div class="bgBtn-area">
                         印安部落
                     </div>
                 </div>
@@ -439,7 +447,7 @@
                     </div>
                 </div>
                 
-                <ul class="facility-list">
+                <ul class="facility-list card-bdr">
                     <li v-for="item in nameList">{{item}}</li>
                 </ul>
 
@@ -458,12 +466,21 @@
             @@include('layout/h2Style.html',{
                 "h2Title" : "饗食餐飲"
             })
-            <div class="wrap">
-
-            </div>
+            
+            @@include('layout/showFood.html',{
+                "foodTitleh2" : "三大主題餐廳",
+                "foodContp" : "肚子餓了嗎？別擔心，依果樂園提供了最美味的佳餚讓你補充體力。從可口嫩爽的紐約客牛排再到鮮嫩多汁的印安風味烤雞，絕對讓你讚不絕口，好吃又好玩！",
+                "foodimg1" : "./images/burger1.jpg",
+                "foodimg2" : "./images/stk3.jpg",
+                "foodimg3" : "./images/chick6.jpg",
+                "foodimg4" : "./images/burger4.jpg",
+                "foodimg5" : "./images/stk5.jpg",
+                "foodimg6" : "./images/chick3.jpg",
+                "foodimg7" : "./images/burger7.jpg",
+                "foodimg8" : "./images/chick1.jpg",
+            })
         </section>
     
-        
         <!--  ===============map ===============  -->
         @@include('layout/map.html')
 
@@ -475,151 +492,13 @@
 </html>
 
 <!-- 電腦版導覽列滾輪事件 -->
-<script src="./js/homepage-nav-scroll.js"></script>
-
-<!-- gsap -->
-<script src="./js/homepage-gsap.js"></script>
-
+<script src="js/homepage-nav-scroll.js"></script>
 
 <!-- vue -->
-<script>
+<script src="js/homepage-allFacility.js"></script>
 
+<!-- gsap -->
+<script src="js/homepage-gsap.js"></script>
 
-    const cards=[{
-        id:1,
-        name:'伊果飛車',
-        area1:"紐約",
-        area2:"都會",
-        img: './images/facilities.jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
-    },
-    {
-        id:2,
-        name:'仙女散花',
-        area1:"印安",
-        area2:"部落",
-        img: './images/facilities8 (24).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {   
-        id:3,
-        name:'天旋地轉',
-        area1:"紐約",
-        area2:"都會",
-        img: './images/facilities8 (8).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
-    },
-    {
-        id:4,
-        name:'摩天輪',
-        area1:"西部",
-        area2:"農莊",
-        img: './images/facilities2.jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
-    },
-    {
-        id:5,
-        name:'大海盜',
-        area1:"印安",
-        area2:"部落",
-        img: './images/facilities8 (2).jpg',
-        info:"大海盜在搖動擺盪時，您可體驗庫克船長當年乘風破浪、冒險犯難的感受，一顆心隨著船起伏，驚險又刺激，可說是一種挑戰極限的設施。",
-    },
-    {
-        id:6,
-        name:'空中UFO',
-        area1:"西部",
-        area2:"農莊",
-        img: './images/facilities8 (18).jpg',
-        info:"以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。",
-    },
-    {
-        id:7,
-        name:'旋轉木馬',
-        area1:"紐約",
-        area2:"都會",
-        img: './images/facilities8 (1).jpg',
-        info:"在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。",
-    },
-    {
-        id:8,
-        name:'極速飛鷹',
-        area1:"紐約",
-        area2:"都會",
-        img: './images/facilities8 (20).jpg',
-        info:"在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。",
-    },
-    {
-        id:9,
-        name:'伊果山車',
-        area1:"印安",
-        area2:"部落",
-        img: './images/facilities8 (23).jpg',
-        info:"伊果山車是專為幼齡兒童設計的遊樂設施，個個造型可愛、色彩鮮明，坐在裡面就像是小火車般地繞行一周，是小朋友們的最愛。",
-    },
-    {
-        id:10,
-        name:'伊飛沖天',
-        area1:"西部",
-        area2:"農莊",
-        img: './images/facilities8 (3).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
-    },
-    {
-        id:11,
-        name:'自由落體',
-        area1:"印安",
-        area2:"部落",
-        img: './images/facilities8 (2).png',
-        info:"搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。",
-    },
-    {
-        id:12,
-        name:'急流泛舟',
-        area1:"西部",
-        area2:"農莊",
-        img: './images/water.jpg',
-        info:"這是美國大西部內最大型的遊樂設施，亦是目前國內最大型的人工泛舟河道，水道全長七百四十公尺，每艘圓型橡膠船可乘坐二至九人，全程約七分鐘。",
-    },
-    {
-        id:13,
-        name:'飛鷹歷險',
-        area1:"印安",
-        area2:"部落",
-        img: './images/facilities8 (4).jpg',
-        info:"從火山口三層樓高的急流處瞬間俯衝而下，剎那間驚險的讓您來不及尖叫，剌激的感覺就在那一瞬間，最適合心臟強、膽子夠大、並且愛刺激的朋友前往冒險。",
-    },
-]
-
-    Vue.component('card-component',{
-        template:`
-        <div class="card">
-            <div class="pic">
-                <img :src="item.img" alt="Image">
-                <div class="area">
-                    {{item.area1}}<br>
-                    {{item.area2}}
-                </div>
-            </div>
-            <div class="info">
-                <h4>{{item.name}}</h4>
-                <p>{{item.info}}</p>
-            </div>
-        </div>
-
-        `,
-        props:{
-            item:Object
-        }
-    });
-
-    new Vue({
-        data:{
-            cards,
-            nameList: ['伊果飛車','仙女散花',"天旋地轉",'摩天輪',"無敵海盜船",'空中UFO','旋轉木馬','極速飛鷹','伊果山車','伊飛沖天','自由落體','急流泛舟','飛鷹歷險'],
-        },
-        el:'#all-thrill-ride',
-
-    })
-
-</script>
+<!-- food -->
+<script src="js/food.js"></script>

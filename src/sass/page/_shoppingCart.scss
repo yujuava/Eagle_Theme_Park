@@ -1,0 +1,83 @@
+.shoppingcart{
+    .shopcar{
+        display: table;
+        table{
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+            text-align: center;
+            font-family:$family2 ;
+            th{
+                font-size: $h6-fzSize;
+                background-color: $color2;
+                color:$color5;
+                line-height:$th-line-height;
+            }
+            td{
+                vertical-align:middle;
+                font-size: $h6-fzSize;
+                img{
+                    width: 13vw;
+                    @include md(){
+                        width: 10vw;
+                    }
+                }
+                @include mdBtn(delete){}
+                .count{
+                    display: flex;
+                    justify-content: center;
+                    input{
+                        width: 50px;
+                        text-align: center;
+                        margin: 0 5px;
+                    }
+                }
+            }
+            img{
+                width: 150px;
+            }
+
+        }
+    }
+    .total{
+        .wrap{
+            padding: 20px;
+            background-color: $color2;
+            border-radius: 24px;
+            font-size:12px;
+            @include md(){
+                font-size: $h6-fzSize;
+            }
+            div{
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: column;
+                @include lg(){
+                    flex-direction: row;
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+                .discount{
+                    display: flex;
+                    justify-content: space-around;
+                    @include mdBtn(gogogo){}
+                    
+                    .coupon{
+                        font-size: $h6-fzSize;
+                        color: $color1;
+                        background-image: url(/images/coupon.png);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        border: none;
+                        padding-left:25px;
+                        padding-right: 10px;
+                        background-color:$color2;
+                        cursor:pointer;
+                    }
+                }
+            }
+        }    
+    }
+}

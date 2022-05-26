@@ -7,11 +7,31 @@
     #airplane {
         display: block;
         margin-left: auto;
+        position: absolute;
+        right: 0;
+        z-index: 999;
+        width: 50vw;
+
+        @include md() {
+            width: 40vw;
+        }
+
+        @include lg() {
+            width: 35vw;
+
+        }
+
+        @include xl() {
+            width: 30vw;
+
+        }
+
+
     }
 
     .newspapers {
         .wrap {
-            .all-card{
+            .all-card {
                 @include md() {
                     display: flex;
                     flex-wrap: wrap;
@@ -19,6 +39,7 @@
                     justify-content: space-between;
                 }
             }
+
             .news_inner {
                 padding-top: 100px;
                 width: 100%;
@@ -29,10 +50,15 @@
                 right: 0;
                 background-color: rgba(0, 0, 0, 0.199);
                 z-index: 99;
-                display: flex;
+                display: none;
+
+                .test {
+                    display: flex;
+                }
+
                 .inner_total {
                     padding: 20px 30px 30px 30px;
-                    width:90%;
+                    width: 90%;
                     background-color: $color1;
                     margin: auto;
                     border-radius: 10px;
@@ -40,19 +66,17 @@
                     position: relative;
                     overflow-y: auto;
                     height: 90%;
+
                     @include md() {
                         width: 80%;
-                        // height: 30vw;
                     }
 
                     @include lg() {
                         width: 70%;
-                        // height: 35vw;
                     }
 
                     @include xl() {
                         width: 70%;
-                        // height: 35vw;
 
                     }
 
@@ -71,21 +95,27 @@
                         background-repeat: no-repeat;
                         background-position: 50% 50%;
                         margin: 30px 0 20px 0;
+                        color: $color5;
+                        font-family: $family1;
                     }
-                    .inner{
-                     
+
+                    .inner {
+
                         @include md() {
                             display: flex;
-    
+
                         }
+
                         .inner_picture {
                             width: 60%;
                             top: 0;
+
                             img {
                                 width: 100%;
                             }
                         }
-                        .inner_artical{
+
+                        .inner_artical {
                             margin: 0 10px;
                         }
                     }
@@ -103,12 +133,14 @@
                 position: relative;
                 border-radius: 24px;
                 aspect-ratio: 4/2;
-                box-shadow: 3px 3px 2px $color7;
-                border:3px solid #ffffff;
+                box-shadow: $card-shadow3;
+                border: 3px solid #ffffff;
+
                 @include md() {
                     aspect-ratio: 9/5;
                     width: 45%;
                     padding: 15px 20px 15px 20px;
+
                     &:hover img {
                         transform: scale(1.10);
                     }
@@ -126,23 +158,22 @@
                     top: 10%;
                     font-size: $h6-fzSize;
                     background-size: cover;
+                    color: $color5;
+                    font-family: $family1;
                 }
 
                 .picture {
                     width: 70%;
-                    // transform: rotate(-2deg);
                     overflow: hidden;
                     aspect-ratio: 4.5/3;
                     object-fit: cover;
+
                     img {
-                        width: 100%;
-                        height: 100%;
+                        width: 155%;
                         transition: ease 0.3s;
                     }
 
-                    @include md() {
-                        // transform: rotate(0deg);
-                    }
+                    @include md() {}
                 }
 
                 .inner_text {
@@ -153,19 +184,20 @@
                     display: flex;
                     flex-direction: column;
                     position: relative;
+
                     @include md() {
                         padding: 10px 10px 0px 10px;
                     }
+
                     i {
                         color: $color1;
                         font-size: $h4-fzSize;
                         position: absolute;
                         bottom: 0;
                         right: 10px;
-                        // display: block;
+
                         @include md() {
                             right: 0px;
-                            // padding: 15px 10px 5px 10px;
                         }
                     }
                 }
@@ -197,88 +229,84 @@
 
                     .picture {
                         order: 1;
-                        // transform: rotate(2deg);
 
                         @include md() {
                             order: 0;
-                            // transform: rotate(0deg);
                         }
                     }
                 }
             }
         }
     }
-    #test{
-        display: none;
-    }
+
     .parade {
-        .full{
+        position: relative;
+
+        .full {
             overflow: hidden;
-        }
-        img{
-            aspect-ratio: 1439 / 481;
-            width: 200vw;
-            @include md() {
-                width: 100vw;
-            }
-        }
-        .before_after {
             position: relative;
-            width:100vw;
-            left: -15px;
-            @include md() {
-                width: -20vw;
-            }
-            .before {
+
+
+
+            .before_after {
+                position: relative;
                 width: 100vw;
-            }
+                left: -15px;
 
-            .after {
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                width: 50vw;
-            }
+                img {
+                    aspect-ratio: 1439 / 481;
+                    width: 200vw;
 
-            .center_area {
-                position: absolute;
-                height: 100%;
-                left: 50vw;
-                top: 0%;
-                width: 10px;
-                margin-left: -5px;
-                background-color: $color1;
-                animation: change 3s linear 2s 3 ;
-                transition: ease;
-                @keyframes change {
-                    0%{
-                        left: 49vw;
-                    }
-                    50%{
-                        left: 51vw;
-                    }
-                    100%{
-                        left: 49vw;
+                    @include md() {
+                        width: 100vw;
                     }
                 }
-                .center {
-                    position: absolute;
-                    top: 50%;
-                    margin-top: -25px;
-                    margin-left: -20px;
-                    border-radius: 100%;
-                    width: 50px;
-                    height: 50px;
-                    background-color: $color1;
-                    z-index: 99;
-                    text-align: center;
-                    display: flex;
-                    border: 5px solid $color6;
 
-                    i {
-                        margin: auto;
-                        font-size: 25px;
-                        color: $color7;
+                @include md() {
+                    width: -20vw;
+                }
+
+                .before {
+                    width: 100vw;
+                }
+
+                .after {
+                    // transition: ease 0.5s;
+                    position: absolute;
+                    top: 0;
+                    overflow: hidden;
+                    width: 50vw;
+                }
+
+                .center_area {
+                    position: absolute;
+                    height: 100%;
+                    left: 50vw;
+                    top: 0%;
+                    width: 10px;
+                    margin-left: -5px;
+                    background-color: $color1;
+                    animation: change 3s linear 2s 3;
+
+                    .center {
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -25px;
+                        margin-left: -20px;
+                        border-radius: 100%;
+                        width: 50px;
+                        height: 50px;
+                        background-color: $color1;
+                        z-index: 99;
+                        text-align: center;
+                        display: flex;
+                        border: 5px solid $color6;
+
+                        i {
+                            margin: auto;
+                            font-size: 25px;
+                            color: $color7;
+                        }
                     }
                 }
             }
@@ -290,9 +318,9 @@
             table {
                 width: 100%;
                 text-align: center;
-                line-height: 30px;
                 border-collapse: collapse;
                 table-layout: fixed;
+                line-height: $th-line-height;
 
                 tr {
                     th {
@@ -323,6 +351,7 @@
 
                         }
                     }
+
                     td {
                         background-color: $color2;
                         border-radius: 10px;
@@ -330,7 +359,7 @@
                         color: $color5;
                         font-size: $word-fzSize;
                     }
-    
+
                 }
 
             }
@@ -341,4 +370,8 @@
             color: $color5;
         }
     }
+}
+
+.ease {
+    transition: ease 0.5s;
 }

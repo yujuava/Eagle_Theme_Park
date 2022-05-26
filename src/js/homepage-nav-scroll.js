@@ -9,8 +9,8 @@ window.addEventListener("load",function(){
             let ScrollNum = document.documentElement.scrollTop;
             let header = document.getElementById("header");
             // alert(window.innerWidth)
-            console.log(ScrollNum)
-                if(ScrollNum>1400){
+            // console.log(ScrollNum)
+                if(ScrollNum>1300){
                     header.classList.remove("hide");
                     header.classList.add("show");
                 }else{

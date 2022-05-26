@@ -12,7 +12,7 @@
 <!-- footer -->
 <footer>
     <!-- 地址&資訊 -->
-    <div class="container wrap">
+    <div class="footer-container wrap">
         <div class="inf">
             <div class="logo">
                 <img src="/images/logo.svg" alt="">
@@ -60,7 +60,7 @@
                 </li>
             </ul>
             <ul>
-                <a href="">伊果商城</a>
+                <a href="shop.html">伊果商城</a>
             </ul>
             <ul>
                 <a href="food.html">饗食餐廳</a>
@@ -75,7 +75,7 @@
                 </li>
             </ul>
             <ul>
-                <a href="">遊客體驗</a>
+                <a href="visitor_experience.html">遊客體驗</a>
             </ul>
         </nav>
 
@@ -401,73 +401,11 @@
     <!-- 最後文字 -->
       <div class="final">
           <p>© EAGLE THEME PARK</p>
+          <p>本網站為緯育TibaMe前端設計工程師班學員專題作品，僅供學習、展示之用。若有侵權疑慮，您可以私訊 TibaMe-前端設計工程師養成班 ，後續會由專人協助處理。</p>
       </div>
     </div>
 
 </footer>
 
 
-<!-- js 電腦版導覽列滾輪 機器人&top -->
-<script>
-    window.addEventListener("load",function(){  
-
-        document.addEventListener("scroll",function(){
-            let ScrollNum = document.documentElement.scrollTop;
-            let screenHeight = screen.height;
-            console.log(screenHeight)
-            let robot = document.getElementById("robot");
-            let top = document.getElementById("top");
-
-            console.log(ScrollNum)
-                if(ScrollNum>screenHeight){
-                    robot.classList.remove("hide");
-                    robot.classList.add("flex");
-                    top.classList.remove("hide");
-                    top.classList.add("flex");
-                }else{
-                    robot.classList.remove("flex");
-                    robot.classList.add("hide");
-                    top.classList.remove("flex");
-                    top.classList.add("hide");
-                }
-
-
-        }, false);
-
-    });
-</script>
-
-
-
-<!-- gsap footer氣球 -->
-
-<script>
-
-    gsap.to(".ft-ballon1",{
-       x:100,
-       y:-20,
-       duration:2,
-       repeat:-1,
-       ease: "power2.inOut",
-   });
-   
-   gsap.to(".ft-ballon2",{
-       x:160,
-       y:-40,
-       duration:2,
-       repeat:-1,
-       ease: "power2.inOut",
-   });
-
-   gsap.to(".ft-ballon3",{
-       x:140,
-       y:-30,
-       duration:2,
-       repeat:-1,
-       ease: "power2.inOut",
-   });
-
-
-
-
-</script>
+<script src="js/footer-scroll-robot.js"></script>

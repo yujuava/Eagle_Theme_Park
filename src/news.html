@@ -12,14 +12,13 @@
 </head>
 <body class="news">
     <!-- 共用header -->
-    @@include('layout/header-for-all.html')
+    @@include('layout/header-final.html')
     <!-- 共用header end -->
     <!-- 最新消息h2 -->
     @@include('layout/h2Style.html',{
         "h2Title" : "最新消息"
     })
-    <img id="airplane" src="./images/airplane.png" alt="">
-
+    <img id="airplane" src="./images/airplane.svg" alt="">
 
     <section id="all_news" class="newspapers">
         @@include('layout/title.html',{
@@ -30,9 +29,15 @@
             <transition-group name="cards" tag="div" class="all-card">
                 <card-component v-for="item in cards" :item="item" :key="item.id"/>
             </transition-group>
-            <!-- <keep-alive>
-                <component :is="content"></component>
-            </keep-alive> -->
+            <div id="newsinner "class="news_inner">
+                <div class="inner_total">
+                    <i @click="close" id="close" 
+                    class="fa-solid fa-xmark"></i>
+                    <transition-group name="aa" tag="div" class="bb">
+                        <news-component v-for="item in cards" :item="item" :key="item.id"/>
+                    </transition-group>
+                </div>    
+            </div>
         </div>
     </section>
 
@@ -41,20 +46,24 @@
             "h3TitleTC" : "遊行活動",
             "h3TitleEN": "Theme Area"
         })
+
         <div class="full">
-            <div class="before_after">
-                <div class="before">
-                    <img src="./images/news_night.png" alt="">
-                </div>
-                <div class="after">
-                    <img src="./images/news_morning.png" alt="">
-                </div>
-                <div class="center_area">
+            <div class="before_after aaa">
+                <button class="center_area">
                     <div class="center">
                         <i class="fa-solid fa-caret-left"></i>
                         <i class="fa-solid fa-caret-right"></i>
                     </div>
+                </button>
+                <div class="before">
+                    <img src="./images/news_night.png" alt="">
                 </div>
+                <main class="after box">
+                    <img src="./images/news_morning.png" alt="">
+
+
+                </main>
+
             </div>
         </div>
    
@@ -177,44 +186,71 @@
     },
 ]
     Vue.component('card-component',{
+        methods: {
+            openNews:function(todo){
+                document.querySelector('.news_inner').style.display="flex";
+            }
+        },
         template:`
-        <div @click="content='item' "class="newspaper_item">
-                <h4>{{item.name}}</h4>
-                <div class="picture">
-                    <img :src="item.img" alt="Image">
-                </div>
-                <div class="inner_text">
-                    {{item.info}}
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
+        <div @click="openNews" class="newspaper_item">
+            <h4>{{item.name}}</h4>
+            <div class="picture">
+                <img :src="item.img" alt="Image">
+            </div>
+            <div class="inner_text">
+                <p>{{item.info}}</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
         </div>
         `,
         props:{
             item:Object
         }
     });
-    Vue.component('item',{
-        methods: {
-            close: function(todo){
 
-            },
+    Vue.component('news-component',{
+        methods: {
+            // function(d) {
+            // this.currentPic = d;
+            // this.lightBoxToggle = !this.lightBoxToggle;
+            // },
         },
         template:`
-        <div id="test "class="news_inner">
-            <div class="inner_total">
-                <h4>防疫公告</h4>
-                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
-                <div class="inner">
-                    <div class="inner_picture">
-                        <img src="./images/facilities8 (6).jpg" alt="">
-                    </div>
-                    <div class="inner_artical">
-                    </div>
+        <div class="change_inner">
+            <h4>{{item.name}}</h4>
+            <div class="inner">
+                <div class="inner_picture">
+                    <img :src="item.img" alt="Image">
                 </div>
-            </div>    
+                <div class="inner_artical">
+                    <p>{{item.info}}</p>
+                </div>
+            </div>
         </div>
         `,
-    })
+        props:{
+            item:Object,
+            newsSource:Object,
+        }
+    });
+    // Vue.component('item',{
+    //     methods: {
+
+    //     },
+    //     template:`
+    //     <div class="change_inner">
+    //         <h4>{{item.name}}</h4>
+    //         <div class="inner">
+    //             <div class="inner_picture">
+    //                 <img :src="item.img" alt="Image">
+    //             </div>
+    //             <div class="inner_artical">
+    //                 {{item.info}}
+    //             </div>
+    //         </div>
+    //     </div>
+    //     `,
+    // })
 
 
     new Vue({
@@ -222,7 +258,13 @@
             cards,
         },
         el:'#all_news',
+        methods: {
+            close:function(todo){
+                document.querySelector('.news_inner').style.display="none";
+            }
+        },
 
     })
 
 </script>
+<script src="js/MNevents.js"></script>

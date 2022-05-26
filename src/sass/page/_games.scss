@@ -5,6 +5,7 @@
         justify-content: center;
     }
     .games__col{
+        width: 100%;
         padding: 15px;
     } 
     @include md{
@@ -24,6 +25,7 @@
         align-items: center;
         background-color: $color2;
         border-radius: 15px;
+        aspect-ratio: 1/1;
     }
     .gamesCard p{
         padding: 15px;
@@ -34,6 +36,25 @@
     .gamesImg img{
         width: 100%;
     }
+
+    // @include bgBtn(area){
+    //     margin: 0 5px;
+    //     font-size: 13px;
+    //     @include md(){
+    //         margin: 0 20px;
+    //         font-size: $md-word-fzSize;
+    //     }   
+    // }
+    @include bgBtn(games){
+
+        font-size: 13px;
+        @include md(){
+            margin: 0 20px;
+            font-size: $md-word-fzSize;
+        }   
+    }
+
+
     .gamesCard button{
         padding: 3px 15px 3px 15px;
         margin-bottom: 15px;
@@ -47,6 +68,8 @@
         cursor: pointer;
         animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
     }
+
+
     @keyframes shake {
         10%, 90% {
           transform: translate3d(-1px, 0, 0);

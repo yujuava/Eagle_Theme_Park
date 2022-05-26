@@ -18,6 +18,11 @@
 @import 'page/games';
 @import 'page/lostClothes';
 @import 'page/visitor-experience';
+@import 'layout/showFood';
+@import 'page/test';
+@import 'layout/map';
+@import 'page/shoppingCart';
+@import 'layout/loginLightbox';
 
 *{
     padding: 0;
@@ -25,35 +30,36 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 
 html{
-    font-size:11.5px;
+    font-size:11px;
     @include md(){
-        font-size:13.5px;
+        font-size:12px;
     }
     @include lg(){
-        font-size:14.5px;
+        font-size:12.5px;
     }
     @include xl(){
-        font-size:16px;
+        font-size:13px;
     }
 }
 
 h2,h3,h4,h5,h6{
     font-weight: 400;
-    letter-spacing: 0.08em;
-    text-indent: 0.08em;
-    line-height: 1.8em;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    line-height: 2em;
     font-size: $h3-fzSize;
 }
 p,label{
     font-weight: 200;
     color:$color9;
-    letter-spacing: 0.08em;
-    text-indent: 0.08em;
-    line-height: 1.5em;
-    font-family: $family1;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+    line-height: 1.6em;
+    font-family: $family2;
     font-weight: 300;
 }
 
@@ -99,27 +105,30 @@ body{
 }
 //區塊
 section{
-    margin-top: 50px;
+
+    margin-top: 25px;
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap:5%;
     @include md(){
-        margin-top: 60px;
+        margin-top: 35px;
         margin-bottom: 80px;
     }
     @include lg(){
-        margin-top: 70px;
+        margin-top: 40px;
         margin-bottom: 100px;
     }
     @include xl(){
-        margin-top: 80px;
+        margin-top: 50px;
         margin-bottom: 120px;
     }
     
 }
 //黃色月亮標題
 .moon-title{
-    // border: 1px solid blue;
     width: 40%;
-    margin: 80px auto 60px ;
+    margin: 20px auto 60px ;
     color:$color4;
     position: relative;
     @include md(){
@@ -137,7 +146,7 @@ section{
         text-align: center;
         color:$color5;
         font-family: $family2;
-        font-weight: 600;
+        font-weight: 400;
     }
     p:nth-of-type(2){
         margin-top: -5px;
@@ -151,14 +160,14 @@ section{
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        right: 10%;
-        bottom:-14px;
+        right: 3%;
+        bottom:33px;
         z-index: 10;
         @include md(){
             width: 140px;
             height: 65px;
             right: 15%;
-            bottom:-30px;
+            bottom:35px;
         }
         @include lg(){
             width: 160px;
@@ -168,7 +177,7 @@ section{
         @include xl(){  
             width: 180px;
             right: 20%;
-            bottom:-20px;
+            bottom:45px;
         }
     }
 }
@@ -201,6 +210,50 @@ section{
     @include h2Set();
 }
 
+
+//border-radius
+.card-bdr{
+    border-radius: 10px;
+    @include md(){
+        border-radius: 12px;
+    }
+    @include lg(){
+        border-radius: 15px;
+    }
+}
+.lightbox-bdr{
+    border-radius: 20px;
+    @include md(){
+        border-radius: 25px;
+    }
+    @include lg(){
+        border-radius: 40px;
+    }
+}
+.lightbox-bdr-up{
+    border-radius: 20px 20px 0 0 ;
+    @include md(){
+        border-radius: 25px 25px 0 0;
+    }
+    @include lg(){
+        border-radius: 40px 40px 0 0;
+    }
+
+}
+
+.lightbox-bdr-down{
+    border-radius: 0 0 20px 20px;
+    @include md(){
+        border-radius: 0 0 25px 25px;
+    }
+    @include lg(){
+        border-radius: 0 0 40px 40px;
+    }
+
+}
+
+
+
 //show | hide
 .show{
     display: block;
@@ -211,11 +264,6 @@ section{
 .hide{
     display: none;
 }
-
-
-
-
-
 
 
 
