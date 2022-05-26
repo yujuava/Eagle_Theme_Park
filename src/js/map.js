@@ -1,3 +1,5 @@
+//all
+
 let area = document.querySelectorAll(".area");
 let box =  document.querySelectorAll(".box");
 let allpath = document.querySelectorAll(".area path"); //所有色塊
@@ -36,3 +38,24 @@ for(let i=0;i<area.length;i++){
     })
 }
 
+
+// gsap
+let mapAirplane = gsap.fromTo("#map-airplane",{
+    x:0,
+},{
+    x:-200,
+    duration:3,
+    repeat:-1,
+    yoyo:true,
+    ease: "power2.inOut", 
+});
+gsap.fromTo("#map-airplane",{
+    y:50,
+},
+{
+    y:10,
+    duration:4,
+    repeat:-1,
+    yoyo:true,
+    ease: "power2.inOut",
+});

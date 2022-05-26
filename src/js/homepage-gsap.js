@@ -66,6 +66,79 @@ ScrollTrigger.matchMedia({
   
     // medium 平板
     "(min-width: 768px) and (max-width: 996px)": function() {
+        
+        gsap.to(".ballon",{
+            scrollTrigger:{
+            trigger:".ballon",
+            toggleActions:"restart none reverse none",
+            },
+            y:-280,
+            duration:3,
+            yoyo:true,
+            ease: "none", 
+        });
+        gsap.to(".ballon",{
+            scrollTrigger:{
+            trigger:".ballon",
+            toggleActions:"restart none reverse none",
+            },
+            x:50,
+            duration:2,
+            yoyo:true,
+        });
+        gsap.to(".cloud",{
+            scrollTrigger:{
+            trigger:".cloud",
+            toggleActions:"restart none reverse pause",
+            },
+            x:110,
+            duration:2
+        });
+
+        gsap.to(".eagle-pic",{
+            scrollTrigger:{
+            trigger:".eagle-pic",
+            toggleActions:"restart none reverse pause",
+            },
+            x:40,
+            delay:.4,
+            duration:1
+        });
+        gsap.to(".eagle-pic",{
+            scrollTrigger:{
+            trigger:".eagle-pic",
+            toggleActions:"restart none reverse pause",
+            },
+            y:-70,
+            delay:.4,
+            duration:1
+        });
+        gsap.to(".cloud-1",{
+            scrollTrigger:{
+            trigger:".cloud-1",
+            toggleActions:"restart none reverse pause",
+            },
+            x:-300,
+            duration:2
+        });
+
+        gsap.to(".cloud-2",{
+            scrollTrigger:{
+            trigger:".cloud-2",
+            toggleActions:"restart none reverse pause",
+            },
+            x:180,
+            duration:2
+        });
+
+        gsap.to(".cloud-3",{
+            scrollTrigger:{
+            trigger:".cloud-3",
+            toggleActions:"restart none reverse pause",
+            },
+            x:-120,
+            duration:2
+        });
        
         
         
@@ -78,22 +151,75 @@ ScrollTrigger.matchMedia({
         gsap.to(".ballon",{
             scrollTrigger:{
             trigger:".ballon",
-            toggleActions:"restart none reverse pause",
+            toggleActions:"restart none reverse none",
             },
             y:-280,
-            duration:2,
+            duration:3,
             yoyo:true,
-            repeat:-1,
+            ease: "none", 
         });
         gsap.to(".ballon",{
             scrollTrigger:{
             trigger:".ballon",
-            toggleActions:"restart none reverse pause",
+            toggleActions:"restart none reverse none",
             },
-            x:70,
+            x:50,
             duration:2,
             yoyo:true,
-            repeat:-1,
+        });
+        gsap.to(".cloud",{
+            scrollTrigger:{
+            trigger:".cloud",
+            toggleActions:"restart none reverse pause",
+            },
+            x:110,
+            duration:2
+        });
+
+        gsap.to(".eagle-pic",{
+            scrollTrigger:{
+            trigger:".eagle-pic",
+            toggleActions:"restart none reverse pause",
+            },
+            x:40,
+            delay:.4,
+            duration:1
+        });
+        gsap.to(".eagle-pic",{
+            scrollTrigger:{
+            trigger:".eagle-pic",
+            toggleActions:"restart none reverse pause",
+            },
+            y:-50,
+            delay:.4,
+            duration:1
+        });
+
+        gsap.to(".cloud-1",{
+            scrollTrigger:{
+            trigger:".cloud-1",
+            toggleActions:"restart none reverse pause",
+            },
+            x:-300,
+            duration:2
+        });
+
+        gsap.to(".cloud-2",{
+            scrollTrigger:{
+            trigger:".cloud-1",
+            toggleActions:"restart none reverse pause",
+            },
+            x:180,
+            duration:2
+        });
+
+        gsap.to(".cloud-3",{
+            scrollTrigger:{
+            trigger:".cloud-2",
+            toggleActions:"restart none reverse pause",
+            },
+            x:-120,
+            duration:2
         });
     
 

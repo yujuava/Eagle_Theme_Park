@@ -7,6 +7,11 @@
 </head>
 
 <body class="homepage">
+
+    <!-- 兩個燈箱 -->
+    @@include('layout/loginLightbox.html')
+    @@include('layout/registerLightbox.html')
+
     <!-- 共用header -->
     @@include('layout/header-final.html', {
       "class" : "hide"
@@ -395,10 +400,10 @@
                         <img src="./images/elglfly.png" alt="">
                     </div>
                     <div class="talk">
-                        <img src="./images/talk.svg" alt="">
-                        <p>快來點擊果果玩遊戲
+                        <!-- <img src="./images/talk.svg" alt=""> -->
+                        <p class="mdBtn-game">點擊果果玩遊戲
                             <br>
-                            換取優惠券哦!
+                            換取優惠券
                         </p>
                     </div>
                 </a>
