@@ -297,14 +297,22 @@
                         width: 45%;
                         h4{
                             padding-top: 0;
-                            font-size: $h2-fzSize;
+                            font-size: $h3-fzSize;
                             text-align: right;
                             color:$color5;
                             font-weight: 500;
                             font-family: $family1;
+                            @include md(){
+                                font-size: $h2-fzSize;
+                            }
+                            
                         }
                         p{
-                            font-size: $h6-fzSize;
+                            font-size: $word-fzSize;
+                            @include md(){
+                                font-size: $h6-fzSize;
+                            }
+                            
                         }
                     }
                     svg{
@@ -477,6 +485,18 @@
                         -webkit-transform-origin: center;
                         transform-box: fill-box;
                         -webkit-transform-box: fill-box;
+                        .cls-6{
+                            transition: .5s ;
+                            &:hover{
+                                fill:lighten($color4, 20%);
+                            }
+                        }
+                        .cls-8{
+                            transition: .5s;
+                            &:hover{
+                                fill:darken($color2, 20%);
+                            }
+                        }
                     }
 
                     @keyframes cabin-transit {
@@ -659,6 +679,7 @@
                     display: flex;
                     align-items: center;
                     margin: 0 5px;
+                    font-size: $word-fzSize;
                     input{
                         margin-right: 5px;
                     }
@@ -680,6 +701,7 @@
                 li{
                     margin: 5px 5px;
                     color:$color9;
+                    font-size: $h6-fzSize;
                     @include md(){
                         margin: 10px 5px;
                     }

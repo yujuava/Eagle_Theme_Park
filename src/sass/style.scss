@@ -22,6 +22,8 @@
 @import 'page/test';
 @import 'layout/map';
 @import 'page/shoppingCart';
+// @import 'layout/loginLightbox.scss';
+@import 'page/loginLightbox';
 
 *{
     padding: 0;
@@ -33,7 +35,7 @@
 }
 
 html{
-    font-size:11.5px;
+    font-size:11px;
     @include md(){
         font-size:12px;
     }
@@ -220,6 +222,37 @@ section{
         border-radius: 15px;
     }
 }
+.lightbox-bdr{
+    border-radius: 20px;
+    @include md(){
+        border-radius: 25px;
+    }
+    @include lg(){
+        border-radius: 40px;
+    }
+}
+.lightbox-bdr-up{
+    border-radius: 20px 20px 0 0 ;
+    @include md(){
+        border-radius: 25px 25px 0 0;
+    }
+    @include lg(){
+        border-radius: 40px 40px 0 0;
+    }
+
+}
+
+.lightbox-bdr-down{
+    border-radius: 0 0 20px 20px;
+    @include md(){
+        border-radius: 0 0 25px 25px;
+    }
+    @include lg(){
+        border-radius: 0 0 40px 40px;
+    }
+
+}
+
 
 
 //show | hide
@@ -232,11 +265,6 @@ section{
 .hide{
     display: none;
 }
-
-
-
-
-
 
 
 
