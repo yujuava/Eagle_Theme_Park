@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "遊客體驗"
+        })
+</head>
+<body class="visitor_experience_page">
+    <!-- 共用header -->
+    @@include('layout/header-for-all.html')
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+    "h2Title" : "遊客體驗"
+    })
+
+
+    <section class="visitor-Experience-Page"> 
+        <div class="wrap">
+            <div class="card">
+                <div class="card-header"></div>
+                <div class="card-pic">
+                    <div class="pic"><a href="#"><img src="./images/facilities3.jpg" alt="感覺很恐怖"></a></div>
+                    <div class="mem">
+                        <img src="./images/mem.png" alt="小郭">
+                        <div class="mem-name">小郭</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>內文內文內文內文....</p>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+            <div class="message-area">
+                
+            </div>
+        </div>
+    </section>
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+</html>
