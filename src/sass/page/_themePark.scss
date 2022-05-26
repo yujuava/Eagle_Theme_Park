@@ -58,12 +58,69 @@
     }
     .facilitesBox{
         margin-bottom: 15px;
+        position: relative;
     }
     .facilitesContent{
         background-color: $color3;
+        & .facilitiesInfo{
+            height: fit-content;
+            background-color: $color6;
+            border-radius: 10px;
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.4s ease-in-out;
+            text-align: center;
+            opacity: 1;
+            bottom: 30px;
+        }
+
     }
-    .facilitesContent p{
-        text-align: center;
+
+
+    @include md{
+        .facilitesBox{
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .facilitesContent{
+            background-color: $color3;
+            &:hover{
+                transition: 0.4s ease-in-out;
+                box-shadow: $card-shadow2;
+            }
+            & .facilitiesInfo{
+                height: fit-content;
+                opacity: 0;
+                background-color: $color6;
+                border-radius: 10px;
+                padding: 5px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin-top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: 0.4s ease-in-out;
+                text-align: center;
+            }
+            &:hover .facilitiesInfo{
+                opacity: 1;
+                bottom: 30px;
+            }
+        }
+    }
+    .facilitiesInfo p:first-child{
+        color: $color5;
+        font-size: $word-fzSize;
+    }
+    .facilitiesInfo p:last-child{
+        color: $color4;
+        font-size: $md-word-fzSize;
     }
     .facilitiesImg{
         padding: 15px;
@@ -73,10 +130,7 @@
         display: block;
         border-radius: 5px;
     }
-    // Facility introduction effect not finished yet
-    .facilitesContent p{
-        display: none;
-    }
+
 
     // 打卡景點
     .themePark__Attractions{
