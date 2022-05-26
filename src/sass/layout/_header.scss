@@ -120,11 +120,11 @@ header{
           display: none;
         }
         
-        a:nth-of-type(1) img{
+        div img{
             width: 28px;
             margin-right: 7px;
         };
-        a:nth-of-type(2) img{
+        a img{
             width: 30px;
             margin-right: 20px;
         };
@@ -246,11 +246,14 @@ header{
                   justify-content: end;
                   align-items: center;
                   margin-left: 5%;
-                  a:nth-of-type(1) img{
-                      width: 32px;
+                  div img{
+                      width: 30px;
                       margin-right: 15px;
+                      &:hover{
+                        cursor:pointer;
+                      }
                   };
-                  a:nth-of-type(2) img{
+                  a img{
                       width: 34px;
                   };
               }

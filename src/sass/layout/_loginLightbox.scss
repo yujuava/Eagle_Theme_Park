@@ -10,6 +10,7 @@
     transform: translate(-50%,-50%);
     margin:  100px 0;
     overflow: hidden;
+    z-index: 100;
     @include md(){
         aspect-ratio: 1.5 / 1;
         top:60%;

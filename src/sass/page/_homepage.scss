@@ -677,10 +677,8 @@
             //按鈕
             @include bgBtn(area){
                 margin: 0 5px;
-                font-size: 13px;
                 @include md(){
                     margin: 0 20px;
-                    font-size: $md-word-fzSize;
                 }   
             }
             //checkbox
