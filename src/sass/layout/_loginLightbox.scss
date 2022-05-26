@@ -4,16 +4,15 @@
     aspect-ratio: 2 / 3.2;
     max-height: 70vh;
     margin:auto;
-    position: absolute;
+    position: fixed;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
     margin:  100px 0;
-    overflow: hidden;
     z-index: 100;
     @include md(){
         aspect-ratio: 1.5 / 1;
-        top:60%;
+        top:45%;
         left: 50%;
         transform: translate(-50%,-50%);
     }
@@ -49,7 +48,8 @@
      
     .eagle{
         position: absolute;
-        display: none;
+        // display: none;
+        z-index: -1;
     }
     .lightbox-container{
         border: 1px solid #000;
@@ -132,6 +132,7 @@
                         border-radius: $sm-word-fzSize;
                         border:0;
                         height: 25px;
+                        padding: 10px;
                         box-shadow:$button-shadow;
                     } 
                 }
@@ -145,14 +146,20 @@
                     display: flex;
                     align-items: center;
                     margin-top: 20px;
-                    a,p{
+                    span{
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        margin-top: 0;
+
+                    }
+                    a,p,span{
                         font-size: $word-fzSize;
                         color:$color4;
                     }
                     p{
                         margin: 5px;
                     }
-                  
                 }
             }
         }
@@ -173,7 +180,10 @@
             i{
                 font-size: $h3-fzSize;
                 color:$color4;
-                }
+            }
+            &:hover{
+                cursor: pointer;
+            }
         } 
     }
 

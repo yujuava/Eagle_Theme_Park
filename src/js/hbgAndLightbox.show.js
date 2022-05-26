@@ -14,12 +14,26 @@ new Vue({
 
 let memberBtn = document.querySelectorAll(".member-enter");
 let login = document.getElementById("login-lightbox");
+let closeBtn = document.querySelectorAll(".close");
+let registerBtn = document.getElementById("register-btn");
+let register = document.getElementById("register-lightbox");
+
+
 
 for(let i=0 ;i<memberBtn.length ; i++){
     memberBtn[i].addEventListener("click",function(){
-        alert("按了")
         login.classList.toggle("hide"); 
         console.log(login);
+    })
+    for(let j=0 ; j<closeBtn.length ;j++){
+        closeBtn[j].addEventListener("click",function(){
+            login.classList.add("hide"); 
+        })
+    }
+    registerBtn.addEventListener("click",function(){
+        login.classList.add("hide"); 
+        register.classList.remove("hide"); 
+
     })
 
 }
