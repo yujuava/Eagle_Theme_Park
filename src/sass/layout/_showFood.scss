@@ -8,13 +8,15 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        overflow: visible;
+        gap:5em;
     }
     .text{
         width: 100%;
         border-radius: 15px;
         background: linear-gradient($color4, $color3, $color1);
         @include xl(){
-            width:50%;
+            width:55%;
         }
         h2{
             color: $color1;
@@ -25,7 +27,10 @@
             color: $color1;
             font-size: $word-fzSize;
             margin: 0 2em;
-            padding-bottom: 7em;
+            padding-bottom: 5em;
+            @include xl(){
+                padding-bottom: 10em;
+            }
         }
     }
     .carousel{
@@ -38,8 +43,8 @@
     perspective: 100em;
         .carousel_cards{
         position: relative;
-        width: 25rem;
-        height: 25rem;
+        width: 30rem;
+        height: 30rem;
         transform-style: preserve-3d;
         transform: translateZ(-25rem);
         transition: transform 0.3s ease-in;
@@ -48,41 +53,40 @@
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                border: 5px solid $color1;
-                font-size: 3rem;
+                border: 8px solid $color1;
                 font-weight: 700;
             }
 
             .carousel_card:nth-child(1) {
-                transform: rotateY(0deg) translateZ(30rem);
+                transform: rotateY(0deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(2) {
-                transform: rotateY(45deg) translateZ(30rem);
+                transform: rotateY(45deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(3) {
-                transform: rotateY(90deg) translateZ(30rem);
+                transform: rotateY(90deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(4) {
-                transform: rotateY(135deg) translateZ(30rem);
+                transform: rotateY(135deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(5) {
-                transform: rotateY(180deg) translateZ(30rem);
+                transform: rotateY(180deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(6) {
-                transform: rotateY(225deg) translateZ(30rem);
+                transform: rotateY(225deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(7) {
-                transform: rotateY(270deg) translateZ(30rem);
+                transform: rotateY(270deg) translateZ(35rem);
             }
 
             .carousel_card:nth-child(8) {
-                transform: rotateY(315deg) translateZ(30rem);
+                transform: rotateY(315deg) translateZ(35rem);
             }
                 .carousel_img{
                     width: 100%;
@@ -96,10 +100,10 @@
             border-radius: 50%;
             background-color: $color6;
             color: $color1;
-            font-size: 1rem;
-            height:2rem;
-            width:2rem;
-            margin: 1rem 5rem;
+            font-size: $btnMd-fzSize;
+            height:2.5rem;
+            width:2.5rem;
+            margin: 2rem 5rem;
             font-weight: 500;
             cursor: pointer;
         }
