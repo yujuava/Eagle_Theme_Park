@@ -8,7 +8,6 @@
             margin: auto;
             text-align: center;
             font-family:$family2 ;
-
             th{
                 font-size: $h6-fzSize;
                 background-color: $color2;
@@ -18,6 +17,12 @@
             td{
                 vertical-align:middle;
                 font-size: $h6-fzSize;
+                img{
+                    width: 13vw;
+                    @include md(){
+                        width: 10vw;
+                    }
+                }
                 @include mdBtn(delete){}
                 .count{
                     display: flex;
@@ -37,20 +42,26 @@
     }
     .total{
         .wrap{
-            padding: 30px;
+            padding: 20px;
             background-color: $color2;
             border-radius: 24px;
             font-size: $h6-fzSize;
-            div{
-                margin: auto;
 
+            div{
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: column;
+                @include lg(){
+                    flex-direction: row;
+                    margin-left: auto;
+                    margin-right: 0;
+                }
                 .discount{
                     display: flex;
-                    justify-content: end;
+                    justify-content: space-around;
                     @include mdBtn(gogogo){}
-                    label{
-                        margin-left: 10px;
-                    }
+                    
                     .coupon{
                         font-size: $h6-fzSize;
                         color: $color1;

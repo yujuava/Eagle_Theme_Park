@@ -1,4 +1,5 @@
 (function mnchange() {
+    //圖片拖拉切換
     const aaaWidth = document.querySelector('.aaa').offsetWidth //1536
     const fixedWidth = document.querySelector('main').offsetWidth
     const buttonWidth = document.querySelector('button').offsetWidth
@@ -17,6 +18,7 @@
     document.addEventListener('mouseup', () => {
         document.removeEventListener('mousemove', documentMove)
     });
+    //圖片拉霸動畫
     let timerId;
     window.onscroll=function(){
     window.clearTimeout(timerId)    
