@@ -4,9 +4,9 @@
     <div class="left-back">
         <!-- 手機板上方 -->
         <div class="mobile-icon">
-            <a href="">
+            <div class="member-enter">
                 <img src="/images/Vector2.svg" alt="">
-            </a>
+            </div>
             <a href="shoppingCart.html">
                 <img src="/images/Basket2.png" alt="">
             </a>
@@ -24,10 +24,10 @@
         <!-- 電腦版nav -->
         <nav class="pc-nav" id="pc-nav">
             <div class="icon">
-                <a href="">
+                <div class="member-enter">
                     <img src="/images/Vector.svg" alt="">
-                </a>
-                <a href="shoppingCart.html">
+                </div>
+                <a href="shoppingCart.html" >
                     <img src="/images/Basket.svg" alt="">
                 </a>
             </div>
@@ -42,7 +42,7 @@
                         <a href="themePark_NewYork.html" id="nav-nw">紐約都會</a>
                     
                         <a href="themePark_West.html" >西部農莊</a>
-                 
+                
                         <a href="themePark_Indian.html">印安部落</a>
                     </div>             
                 </li>
@@ -73,7 +73,7 @@
                 </li>
             </ul>
         </nav>
-      
+    
     </div>
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
@@ -85,7 +85,7 @@
         </label>
     </div>
     <!-- 手機板選單 -->
-    <nav class="mobile-nav" v-if="show">
+    <nav class="mobile-nav"  v-if="show">
         <div class="top-block">
             <img src="../images/logo.svg" alt="">
             <div class="close" v-on:click="show = !show">
@@ -155,8 +155,13 @@
         <div class="bcg-front"></div>
     </div>
 
-
-    <script src="../js/hbg.show.js">
-    </script>
-
 </header>
+
+
+<!-- 兩個燈箱 -->
+@@include('loginLightbox.html')
+@@include('registerLightbox.html')
+
+<!-- header js -->
+<script src="../js/hbgAndLightbox.show.js">
+</script>

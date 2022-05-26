@@ -107,16 +107,16 @@
         background-color: $bgcolor;
         transition: .2s;
         @content;
+        @include lg(){
+            border-radius: 8px;
+            padding: 6px 24px;
+            @content;
+        }
         &:hover{
             cursor: pointer;
             background-color: darken($bgcolor, 10%);
             @content;
         }
-        @include lg(){
-            border-radius: 8px;
-            padding: 6px 24px;
-            font-size: $h6-fzSize;
-            @content;
-        }
+     
     }
 }
