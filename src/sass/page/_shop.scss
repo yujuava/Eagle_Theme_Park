@@ -1,16 +1,83 @@
 // shop css
+.shop .postbg{
+    background-color:$color3;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.shop .pic{
+    background-color: #fff;
+    width: 1090px;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.shop .pic img{
+    display: block;
+    margin: auto;
+}
+.shop .postcard{
+    background-color: $color1;
+    width: 1090px;
+    height: 580px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 
+}
+.shop .postcard img{
+    display: block;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.shop .sticker{
+    display: flex;
+   justify-content: center;
+}
+.shop .sticker li{
+    margin: 20px;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop .upload{
+    text-align: center;
+}
+// -------------------------------------------
+.shop .product{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+.shop .product .item{
+    display: block;
+    margin: 50px;
+}
+.shop .product .item .itempic{
+    width: 200px;
+    height: 200px;
+    border: solid 2px green;
+
+}
 
 // 引用RWD 方式
 @include md{
-   
+    
 }
 
 @include lg{
     
+    
 }
 
 // 引用公版顏色變數
-.homepage p{
-    color: $color6;
-}

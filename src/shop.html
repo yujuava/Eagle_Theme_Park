@@ -8,7 +8,7 @@
     
 <body class="shop">
     <!-- 共用header -->
-    @@include('layout/header.html')
+    @@include('layout/header-for-all.html')
     <!-- 共用header end -->
     
     <section>
@@ -16,88 +16,108 @@
     @@include('layout/h2Style.html',{
         "h2Title" : "伊果商城"
     })
-
-        <div class="wrap">
+        
+        <div class="wrap postbg">
 <!-- 明信片圖片 -->
             <div class="pic">
-               
+               <img src="./images/postcard1.jpg" alt="">
             </div>
 
-            <div class="picitem">
-                <button></button>
-                <button></button>
-            </div>
+            
 <!-- 明信片內容 -->
             <div class="postcard">
-            
+                <img src="./images/postcardback.jpg" alt="">
             </div>
+            
 <!-- 明信片貼紙 -->
             <ul class="sticker">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><img src="./images/sticker1.png" alt=""></li>
+                <li><img src="./images/sticker2.png" alt=""></li>
+                <li><img src="./images/sticker3.png" alt=""></li>
+                <li><img src="./images/sticker4.png" alt=""></li>
+                <li><img src="./images/sticker5.png" alt=""></li>
             </ul>
             <div class="stickeritem">
-                <button></button>
-                <button></button>
-            </div>
+               <div></div>
+                <div></div>
+                </div>
 <!-- 寄送按鈕 -->
-            <button>寄送</button>
+                <div class="upload">
+                    <button>寄送</button>
+                </div>
+            </div>
         </div>
     </section>
 <!-- 小標使用這個 -->
     <section>
     @@include('layout/title.html',{
         "h3TitleTC" : "商品",
-        "h3TitleEN": "Theme Area"
+        "h3TitleEN": "Product"
     })
-    <ul class="product">
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-        <li>
-            <img src="" alt="">
-            <span>商品名稱</span>
-            <p>價格</p>
-        </li>
-    </ul>
+        <div class="wrap product">
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+             
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+            <div class="item">
+                <div class="itempic">
+                    <img src="" alt="">
+                </div>
+                <span>產品名稱</span>
+                <p>價格</p>
+            </div>
+        </div>
     </section>
 
 
