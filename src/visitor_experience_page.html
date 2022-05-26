@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "遊客體驗"
-        })
+    "title" : "遊客體驗"
+    })
 </head>
+
 <body class="visitor_experience_page">
     <!-- 共用header -->
     @@include('layout/header-final.html')
@@ -14,7 +16,7 @@
     })
 
 
-    <section class="visitor-Experience-Page"> 
+    <section class="visitor-Experience-Page">
         <div class="wrap">
             <div class="card">
                 <div class="card-header"></div>
@@ -30,8 +32,53 @@
                 </div>
                 <div class="card-footer"></div>
             </div>
+            <!-- 留言區 -->
             <div class="message-area">
-                
+                <div class="item">
+                    <div class="pic">
+                        <img src="./images/eagle-stand-s.png" alt="">
+                    </div>
+                    <div class="item">
+                        <div class="message">
+                            <div class="name" 小鷹></div>
+                            <div class="message-content">
+                                <p>這感覺很酷，我好喜歡</p>
+                                <div class="time"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pic">
+                    <img src="./images/eagle-stand-s.png" alt="">
+                </div>
+                <div class="item">
+                    <div class="message">
+                        <div class="name" 小鷹></div>
+                        <div class="message-content">
+                            <p>有機會要再去一次</p>
+                            <div class="time"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pic">
+                    <img src="./images/eagle-stand-s.png" alt="">
+                </div>
+                <div class="item">
+                    <div class="message">
+                        <div class="name" 小鷹></div>
+                        <div class="message-content">
+                            <p>vue cli好難</p>
+                            <div class="time"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Messare">
+                    <div class="pic">
+                        <img src="./images/eagle-stand-s.png" alt="">
+                    </div>
+                    <input type="text" placeholder="留言">
+                </div>
             </div>
         </div>
     </section>
@@ -41,4 +88,5 @@
     <!-- footer  -->
     @@include('layout/footer.html')
 </body>
+
 </html>
