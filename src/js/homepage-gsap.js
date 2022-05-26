@@ -95,18 +95,18 @@ ScrollTrigger.matchMedia({
             duration:2
         });
 
-        gsap.to(".eagle-pic",{
+        gsap.to(".game-enter",{
             scrollTrigger:{
-            trigger:".eagle-pic",
+            trigger:".game-enter",
             toggleActions:"restart none reverse pause",
             },
-            x:40,
+            x:120,
             delay:.4,
             duration:1
         });
-        gsap.to(".eagle-pic",{
+        gsap.to(".game-enter",{
             scrollTrigger:{
-            trigger:".eagle-pic",
+            trigger:".game-enter",
             toggleActions:"restart none reverse pause",
             },
             y:-70,
@@ -176,18 +176,18 @@ ScrollTrigger.matchMedia({
             duration:2
         });
 
-        gsap.to(".eagle-pic",{
+        gsap.to(".game-enter",{
             scrollTrigger:{
-            trigger:".eagle-pic",
+            trigger:".game-enter",
             toggleActions:"restart none reverse pause",
             },
             x:40,
             delay:.4,
             duration:1
         });
-        gsap.to(".eagle-pic",{
+        gsap.to(".game-enter",{
             scrollTrigger:{
-            trigger:".eagle-pic",
+            trigger:".game-enter",
             toggleActions:"restart none reverse pause",
             },
             y:-50,
