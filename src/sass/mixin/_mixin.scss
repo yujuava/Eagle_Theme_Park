@@ -55,10 +55,14 @@
         @content;
         &:hover{
             cursor: pointer;
+            background-color: darken($bgcolor, 10%);
+            @content;
+            
         }
         @include lg(){
             border-radius: 6px;
             padding: 5px 14px;
+            @content;
         }
     }
 }
@@ -79,10 +83,13 @@
         @content;
         &:hover{
             cursor: pointer;
+            background-color: darken($bgcolor, 10%);
+            @content;
         }
         @include lg(){
             border-radius: 6px;
             padding: 4px 14px;
+            @content;
         }
     }
 }
@@ -102,11 +109,14 @@
         @content;
         &:hover{
             cursor: pointer;
+            background-color: darken($bgcolor, 10%);
+            @content;
         }
         @include lg(){
             border-radius: 8px;
-            padding: 8px 24px;
+            padding: 6px 24px;
             font-size: $h6-fzSize;
+            @content;
         }
     }
 }

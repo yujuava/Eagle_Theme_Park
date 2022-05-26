@@ -1,0 +1,177 @@
+.both-lightbox{
+    // border: 1px solid #000;
+    width: 80vw;
+    aspect-ratio: 2 / 3.2;
+    max-height: 70vh;
+    margin:auto;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    // overflow: hidden;
+    @include md(){
+        aspect-ratio: 1.5 / 1;
+        top:60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    @include lg(){
+        aspect-ratio: 1.8 / 1;
+    }
+    @include xl(){
+        aspect-ratio: 2 / 1.2;
+    }
+    &::before{
+        content: "";
+        // border: 1px solid #000;
+        background-image: url(/images/login-eagle.png);
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        width: 110%;
+        height: 240px;
+        position: absolute;
+        top:-130px;
+        left:50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        @include md(){
+            content: "";
+            width: 110%;
+            height: 440px;
+            top:-160px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        
+
+    }
+     
+    .eagle{
+        position: absolute;
+        display: none;
+    }
+    .lightbox-container{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+  
+        @include md(){
+            flex-direction: row;
+        }
+        
+        .pic-area{
+            background-color: $color2;
+            width: 100%;
+            height:48%;
+            padding: 40px 20px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include md(){
+                border-radius: 25px 0 0 25px;
+                width: 50%;
+                height:100%;
+                @include lg(){
+                    border-radius: 40px 0 0 40px;
+                }
+                
+            }
+            
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                @include md(){
+                    border-radius: 20px;
+                }
+                
+            }
+        }
+        .login{
+            background-color: $color7;
+            padding: 20px;
+            width: 100%;
+            height:52%;
+            @include md(){
+                border-radius: 0px 25px 25px 0;
+                padding: 40px 20px 20px 20px;
+                width: 50%;
+                height:100%;
+                @include lg(){
+                    border-radius: 0px 40px 40px 0;
+                }
+                
+            }
+            
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                @include md(){
+                    padding-top: 80px;
+                    height: 100%;
+                    justify-content: space-between;
+                }
+                
+                div{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    label{
+                        font-size: $h6-fzSize;
+                        color:$color4;
+                        font-weight: 500;
+                    }
+                    input{
+                        border-radius: $sm-word-fzSize;
+                        border:0;
+                        height: 25px;
+                        box-shadow:$button-shadow;
+                    } 
+                }
+                @include bgBtn(login){
+                    background-color: $color4;
+                    &:hover{
+                        background-color:$color3;
+                    }
+                } 
+                span{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 20px;
+                    a,p{
+                        font-size: $word-fzSize;
+                        color:$color4;
+                    }
+                    p{
+                        margin: 5px;
+                    }
+                  
+                }
+            }
+        }
+        .logo,.close{
+            position: absolute;
+        }
+        .logo{
+            width: 100px;
+            left: 5%;
+            top:1%;
+            img{
+                width: 100%;
+            }
+        }
+        .close{
+            right: 5%;
+            top:2%;
+            i{
+                font-size: $h3-fzSize;
+                color:$color4;
+                }
+        } 
+    }
+
+}

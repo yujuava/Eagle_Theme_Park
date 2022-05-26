@@ -3,37 +3,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @@include('layout/meta.html', {
+        "title" : "123"
+    })
 
 </head>
 
-<body class="123">
+<body class="wrap">
 <!-- ===============登入燈箱=============== -->
-<div class="login-lightbox both-lightbox">
+<div class="login-lightbox both-lightbox lightbox-bdr">
     <div class="eagle">
-        <img src="image/login-eagle.svg" alt="">
+        <img src="./images/login-eagle.svg" alt="">
     </div>
-    <div class="container">
-        <div class="pic-area">
-            <img src="" alt="">
+    <div class="lightbox-container">
+        <div class="pic-area lightbox-bdr-up">
+            <img src="./images/cloud.jpg" alt="" class="lightbox-bdr-up">
         </div>
-        <div class="login">
+        <div class="login lightbox-bdr-down">
             <form action="">
-                <label for="">帳號</label>
-                <input type="text">
-                <label for="">密碼</label>
-                <input type="text">
-                <button>登入</button>
                 <div>
+                    <label for="">帳號</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">密碼</label>
+                    <input type="text">
+                </div>
+                <button class="bgBtn-login">登入</button>
+                <span>
                     <a href="">忘記密碼</a>
                     <p>|</p>
                     <a href="">立即註冊</a>
-                </div>
+                </span>
             </form>
         </div>
         <div class="logo">
-            <img src="" alt="">
+            <img src="./images/logo.svg" alt="">
         </div>
         <div class="close">
+            <i id="close" class="fa-solid fa-xmark"></i>
 
         </div>
     </div>
@@ -41,11 +49,11 @@
 
 <!-- ===============註冊燈箱=============== -->
 
-<div class="register-lightbox  both-lightbox">
+<!-- <div class="register-lightbox  both-lightbox lightbox-bdr">
     <div class="eagle">
-        <img src="image/login-eagle.svg" alt="">
+        <img src="./images/login-eagle.svg" alt="">
     </div>
-    <div class="container">
+    <div class="lightbox-container">
         <div class="login">
             <form action="">
                 <label for="">帳號</label>
@@ -71,7 +79,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
 </body>
