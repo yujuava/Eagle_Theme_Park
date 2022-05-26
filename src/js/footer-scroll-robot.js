@@ -26,26 +26,33 @@ window.addEventListener("load",function(){
 
 // gsap footer氣球
 gsap.to(".ft-ballon1",{
-    x:100,
-    y:-20,
-    duration:2,
+    x:30,
+    y:-30,
+    duration:5,
     repeat:-1,
+    yoyo:true,
     ease: "power2.inOut",
 });
+
 
 gsap.to(".ft-ballon2",{
-    x:160,
-    y:-40,
-    duration:2,
+    x:40,
+    y:-35,
+    duration:5,
     repeat:-1,
+    yoyo:true,
     ease: "power2.inOut",
 });
 
+
 gsap.to(".ft-ballon3",{
-    x:140,
-    y:-30,
-    duration:2,
+    x:75,
+    y:-60,
+    duration:5,
     repeat:-1,
+    yoyo:true,
     ease: "power2.inOut",
 });
+
+
 
