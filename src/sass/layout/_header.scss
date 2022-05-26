@@ -24,7 +24,6 @@ header .pc-nav ul li{
   width: 0px;
   height: 0px;
 }
-
 .news header .pc-nav ul li:nth-of-type(2) a:nth-of-type(1)::before{
   content:"";
   width: 7px;
@@ -36,7 +35,6 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
-
 .ticket header .pc-nav ul li:nth-of-type(3) a:nth-of-type(1)::before{
   content:"";
   width: 7px;
@@ -48,7 +46,6 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
-
 .shop header .pc-nav ul li:nth-of-type(4) a:nth-of-type(1)::before{
   content:"";
   width: 7px;
@@ -60,7 +57,6 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
-
 .food header .pc-nav ul li:nth-of-type(5) a:nth-of-type(1)::before{
   content:"";
   width: 7px;
@@ -72,7 +68,6 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
-
 .visitor_experience header .pc-nav ul li:nth-of-type(6) a:nth-of-type(1)::before{
   content:"";
   width: 7px;
@@ -84,9 +79,6 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
-
-
-
 header{
   border-top:10px solid $color3;
   width: 100%;
@@ -116,13 +108,15 @@ header{
         justify-content: flex-end;
         align-items: center;
         margin-top: 10px;
+        &:hover{
+          cursor: pointer;
+        }
         @include lg(){
           display: none;
         }
-        
         div img{
             width: 28px;
-            margin-right: 7px;
+            margin-right: 10px;
         };
         a img{
             width: 30px;
@@ -219,7 +213,10 @@ header{
               margin-top: 5px;
           }
           img{
-              width: 120px;
+              width: 100px;
+              @include md(){
+                width: 120px;
+              }
               @include lg(){
                   width: 170px;
               }
@@ -231,15 +228,16 @@ header{
           border-radius: 0 0 0 15px;
           width: 75%;
           z-index: 2;
-          display: flex;
           flex-direction: row-reverse;
           align-items: center;
           justify-content: flex-start;
+          display: none;
           @include lg(){
+              display: flex;
               border-radius: 0 0 0 30px;
           }
           .icon{
-              display: none;
+
               @include lg(){
                 // border: 1px solid #000;
                   display: flex;
@@ -354,7 +352,6 @@ header{
           justify-content: space-between;
           background-color: $color2;
           img{
-            //   border: 1px solid #000;
               width: 140px;
           }
           .close{
@@ -402,7 +399,6 @@ header{
                 transform: scale(.7);
             }
             a{
-                border: 2px solid #000;
                 color:$color1;
             }
           }
@@ -433,13 +429,15 @@ header{
 
   }
   .ticket{
+      // border: 1px solid #000;
       position: absolute;
-      top:-30px;
-      left:30%;
+      width: 50px;
+      top:-20px;
+      left:26%;
       z-index: 2;
       &:hover{
         top:-10px;
-      }
+      }      
       @include lg(){
           top:-30px;
           left:22%;
@@ -453,7 +451,7 @@ header{
       }
      
       img{
-          width: 140px;
+          width: 120px;
           @include md(){
             width: 180px;
           }
