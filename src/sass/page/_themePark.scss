@@ -64,7 +64,7 @@
         background-color: $color3;
         & .facilitiesInfo{
             height: fit-content;
-            background-color: $color6;
+            background-color: rgba($color6, 0.9);
             border-radius: 10px;
             padding: 5px;
             position: absolute;
@@ -96,7 +96,6 @@
             & .facilitiesInfo{
                 height: fit-content;
                 opacity: 0;
-                background-color: $color6;
                 border-radius: 10px;
                 padding: 5px;
                 position: absolute;
@@ -135,13 +134,71 @@
     // 打卡景點
     .themePark__Attractions{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
+        overflow: hidden;
+        padding-top: 70px;
+        padding-bottom: 100px;
     }
-    .col{
-        width: 50%;
-        padding: 30px;
-    }
+
+    #slider {
+        aspect-ratio: 1/1.2;
+        width: 40vw;
+        position: relative;
+        perspective: 1000px;
+        perspective-origin: center -100%;
+        transform-style: preserve-3d;
+        display: flex;
+      }
+
+      #slider input{
+          position: absolute;
+          left: -1000px;
+      }
+      
+      #slider label {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        cursor: pointer;
+        transition: transform 0.4s ease;
+      }
+      
+        #s1:checked ~ #slide4, #s2:checked ~ #slide5,
+        #s3:checked ~ #slide1, #s4:checked ~ #slide2,
+        #s5:checked ~ #slide3 {
+        transform: translate3d(-150%,0,-300px);
+       
+      }
+      
+      #s1:checked ~ #slide5, #s2:checked ~ #slide1,
+      #s3:checked ~ #slide2, #s4:checked ~ #slide3,
+      #s5:checked ~ #slide4 {
+        transform: translate3d(-85%,0,-200px);
+       top:2%;
+      }
+      
+      #s1:checked ~ #slide1, #s2:checked ~ #slide2,
+      #s3:checked ~ #slide3, #s4:checked ~ #slide4,
+      #s5:checked ~ #slide5 {
+        transform: translate3d(0,0,0);
+        top:6%;
+       
+      }
+      
+      #s1:checked ~ #slide2, #s2:checked ~ #slide3,
+      #s3:checked ~ #slide4, #s4:checked ~ #slide5,
+      #s5:checked ~ #slide1 {
+        transform: translate3d(75%,0,-200px);
+        top:2%;
+      }
+      
+      #s1:checked ~ #slide3, #s2:checked ~ #slide4,
+      #s3:checked ~ #slide5, #s4:checked ~ #slide1,
+      #s5:checked ~ #slide2 {
+        transform: translate3d(150%,0,-300px);
+       
+      }
+      
     @include md{
         .col{
             width: 33.33333%;
