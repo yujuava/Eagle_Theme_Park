@@ -2,7 +2,7 @@
 .shop .postbg{
     background-color:$color3;
     padding: 20px;
-    box-sizing: border-box;
+    
 }
 .shop .pic{
     background-color: #fff;
@@ -66,13 +66,15 @@
 .shop .product .item .itempic{
     width: 200px;
     height: 200px;
-    border: solid 2px green;
-
+    
 }
-
+.shop .product  img{
+    width: 100%;
+  
+}
 // 引用RWD 方式
 @include md{
-    
+   
 }
 
 @include lg{
