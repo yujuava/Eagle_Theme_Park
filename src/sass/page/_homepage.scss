@@ -682,9 +682,11 @@
             }
             //按鈕
             @include bgBtn(area){
+                font-size: $word-fzSize;
                 margin: 0 5px;
                 @include md(){
                     margin: 0 20px;
+                    font-size: $h6-fzSize;
                 }   
             }
             //checkbox
