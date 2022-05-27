@@ -18,35 +18,57 @@
     background-color: rgba(0, 0, 0, .5);
     z-index: 100;
     display: none;
-    
+
     .forum-box {
         position: absolute;
         top: 200px;
         left: 0;
         right: 0;
-        bottom: 100px;
-        width: 50%;
-        height: 70%;
+        bottom: 200px;
         z-index: 100;
         background-color: #fff;
         margin: auto;
         padding-bottom: 80px;
-        // border-radius: 20px;
-        .box-header{
+        width: 70%;
+        height: 50%;
+        @include md() {
+            width: 60%; 
+            height: 35%;
+        }
+        @include lg(){
+            width: 50%;
+            height: 60%;
+        }
+
+        .box-header {
             padding: 20px;
             background-color: $color4;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        @include md(){
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
         }
+        @include lg(){
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
         input[type="text"] {
             width: 50%;
-            height: 50px;
+            height: 20px;
             margin: 20px 10px;
             border: 2px solid$color4;
-            border-radius: 10px;
-            font-size: 30px;
+            outline: none;
+
+            @include md() {
+                height: 50px;
+                border-radius: 10px;
+                font-size: 30px;
+            }
         }
-    
+
         input[type="file"] {
             position: absolute;
             width: 1px;
@@ -57,58 +79,88 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
-    
+
         @include smBtn(insert-pic) {
             color: $color4;
             background-color: #fff;
             display: block;
-            margin: 20px;
-            font-size: $h6-fzSize;
+            font-size: $md-word-fzSize;
             border: 2px solid$color4;
             text-align: center;
-            width: 170px;
-            margin-right: 180px;
-            &:hover {
-                background-color: $color3;
-                color: #fff;
+            width: 50%;
+            
+            @include md() {
+                font-size: $h6-fzSize;
+                width: 170px;
+                
+
+                &:hover {
+                    background-color: $color3;
+                    color: #fff;
+                }
             }
+            @include lg(){
+                margin-right: 180px;
+            }
+
         }
-        .image-Preview{
+
+        .image-Preview {
             display: flex;
-            .img{
+            align-items: center;
+
+            .img {
                 border: 1px solid$color4;
-                width: 40%;
+                border-radius: 5px;
+                width: 60%;
+                margin-right: 15px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: $color8;
-                .blah{
+                .blah {
                     display: none;
                     width: 100%;
                 }
             }
         }
-        .txt-field {
-            width: 100%;
-            margin-top: 40px;
+
+        
+        textarea {
+            width: 90%;
+            margin-top: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid$color4;
+            outline: none;
+            resize: none;
+            border-radius: 10px;
+            @include md() {
+                font-size: $h5-fzSize;
+            }
+            @include lg(){
+                width: 95%;
+            }
         }
-        img{
+
+        img {
             max-width: 180px;
         }
-    
+
         p {
             text-align: center;
         }
-    
+
         .btn {
             text-align: center;
-    
+
             @include smBtn(cancel) {
                 background-color: #fff;
                 border: 2px solid$color4;
                 color: $color4;
             }
-    
+
             @include smBtn(submit) {
                 background-color: $color4;
                 color: #fff;
@@ -123,6 +175,7 @@
 }
 
 .container-grid {
+    width: 90%;
     .card {
         border-radius: 10px;
         background-color: #fff;
