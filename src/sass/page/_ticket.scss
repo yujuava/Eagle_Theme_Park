@@ -111,13 +111,17 @@
     }
 
     .transportation {
-        font-size: $word-fzSize;
+        font-size: $md-word-fzSize;
         text-align: center;
-        margin: 10px;
-        &:hover{
+        // margin: 10px;
+        @include md(){
+            font-size: $word-fzSize;
+           &:hover{
             text-decoration: underline;
             text-decoration-thickness: 2px;
-    }
+            }
+        }
+       
         a {
             color: $color2;
             font-family: $family2;
@@ -135,8 +139,7 @@
     }
     .wrap {
         display: block;
-        // width: 100%;
-        // min-height: 200px;
+        width: 100%;
         @include lg(){
             width: 65%;
         }
