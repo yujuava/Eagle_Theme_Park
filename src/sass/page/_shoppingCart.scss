@@ -16,7 +16,10 @@
             }
             td{
                 vertical-align:middle;
-                font-size: $h6-fzSize;
+                font-size: $word-fzSize;
+                @include md(){
+                    font-size: $h6-fzSize;
+                }
                 img{
                     width: 13vw;
                     @include md(){
@@ -28,9 +31,12 @@
                     display: flex;
                     justify-content: center;
                     input{
-                        width: 50px;
+                        width: 6vw;
                         text-align: center;
                         margin: 0 5px;
+                        @include md(){
+                            width: 50px;
+                        }
                     }
                 }
             }
@@ -62,6 +68,7 @@
                 .discount{
                     display: flex;
                     justify-content: space-around;
+                    align-items: center;
                     @include mdBtn(gogogo){}
                     
                     .coupon{
@@ -79,9 +86,6 @@
                         padding-right: 10px;
                         background-color:$color2;
                         cursor:pointer;
-                    }
-                    .mdBtn-gogogo{
-                        margin-top: 10px;
                     }
                 }
             }

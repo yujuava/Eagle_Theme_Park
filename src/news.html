@@ -27,15 +27,18 @@
         })
         <div class="wrap">
             <transition-group name="cards" tag="div" class="all-card">
-                <card-component v-for="item in cards" :item="item" :key="item.id"/>
+                <card-component v-for="item in cards" :item="item" :key="item.id" @click.native="setFocusId(item.id)"/>
             </transition-group>
             <div id="newsinner "class="news_inner">
                 <div class="inner_total">
                     <i @click="close" id="close" 
                     class="fa-solid fa-xmark"></i>
-                    <transition-group name="aa" tag="div" class="bb">
+                    <!-- <transition-group name="aa" tag="div" class="bb">
                         <news-component v-for="item in cards" :item="item" :key="item.id"/>
-                    </transition-group>
+                    </transition-group> -->
+                    <div class="bb">
+                        <news-component :item="showPopupItem"/>
+                    </div>
                 </div>    
             </div>
         </div>
@@ -254,14 +257,29 @@
 
 
     new Vue({
-        data:{
-            cards,
+        data(){
+            return {
+                cards,
+                focusKey: '',
+            }
         },
         el:'#all_news',
+        computed: {
+            showPopupItem() {
+                return this.cards.find(v => v.id == this.focusKey) ?? this.cards[0];
+            },
+        },
         methods: {
             close:function(todo){
                 document.querySelector('.news_inner').style.display="none";
-            }
+            },
+            setFocusId(id) {
+                console.log(id)
+                this.focusKey = id;
+                this.$nextTick(() => {
+                    console.log(this.showPopupItem)
+                })
+            },
         },
 
     })
