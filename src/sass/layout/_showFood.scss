@@ -8,7 +8,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        overflow: visible;
         gap:5em;
     }
     .text{
@@ -41,6 +40,7 @@
     align-items: center;
     justify-content: space-between;
     perspective: 100em;
+    padding-top:2em;
         .carousel_cards{
         position: relative;
         width: 30rem;
