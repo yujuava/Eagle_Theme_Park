@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "首頁"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="member member-info">
+    <!-- 共用header -->
+    @@include('layout/header-final.html')
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+        "h2Title" : "會員中心"
+    })
+
+    <div class="all-btn">
+        <div class="bgBtn-member">
+            會員資料
+        </div>
+        <div class="bgBtn-member">
+            訂單查詢
+            
+        </div>
+        <div class="bgBtn-member">
+            我的優惠
+        </div>
+    </div>
+    
+    <div class="wrap member-wrap">
+        <div class="personal-information card-bdr">
+            <div class="area-name">
+                <p>王小明</p>
+                <button class="mdBtn-logout">登出</button>
+            </div>
+
+            <div class="area-money">
+                <form action="">
+                    <div class="sum-money">
+                        <label for="">累積消費金額</label>
+                        <label for=""  class="color4" >NT$</label>
+                        <input type="number" value="0" disabled  class="color4">
+                    </div>
+                    <div class="coupon">
+                        <label for="">專屬優惠券</label>
+                        <input type="number" value="0" disabled  class="color4">
+                        <label for="">張</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="hr"></div>
+        
+        <h3>編輯會員資料</h3>
+        <div class="member-detail lightbox-bdr">
+            <div class="col">
+                <div>
+                    <label for="" >名字</label>
+                    <input type="text" placeholder="小明">
+                </div>
+                <div>
+                    <label for="">姓氏</label>
+                    <input type="text" placeholder="王">
+                </div>
+            </div>
+
+            <div class="col">
+                <div>
+                    <label for="">國家/地址</label>
+                    <select name="" id="">
+                        <option value="">台灣</option>
+                        <option value="">中國</option>
+                        <option value="">美國</option>
+                        <option value="">加拿大</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">連絡電話</label>
+                    <input type="text" placeholder="請輸入手機號碼">
+                </div>
+            </div>
+
+            <div class="col f-col">
+                <label for="">電子郵件信箱</label>
+                <input type="mail" placeholder="eagle@gmail.com">
+            </div>
+
+            <div class="col f-col">
+                <label for="">聯絡地址</label>
+                <input type="text">
+            </div>
+            
+            <div class="col f-col">
+                <label for="">修改密碼</label>
+                <input type="text">
+            </div>
+
+            <div class="col">
+                <button class="bgBtn-confirm">確認修改</button>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    
+
+
+</body>
+</html>

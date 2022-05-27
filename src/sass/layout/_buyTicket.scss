@@ -23,6 +23,7 @@
             }
         }
         .rightOrBottom{
+            // border: 1px solid #000;
             width: 88%;
             height: 48%;
             margin: 0 auto;
@@ -68,7 +69,7 @@
                 .col{
                     // border: 1px solid blue;
                     width: 250px;
-                    margin-bottom: 12px;
+                   
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -76,6 +77,7 @@
                     @include md(){
                         // border: 1px solid red;
                         width: 33.333%;
+                        margin-bottom: 12px;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
@@ -139,12 +141,13 @@
                         .num{
                             // border: 1px solid #000;
                             border:0;
-                            width: 20px;
+                            width: 40px;
                             text-align: center;
                             margin: 0 15px;
                             font-size: $h5-fzSize;
                             color:$color3;
                             @include xl(){
+                                width: 60px;
                                 margin: 0 25px;
 
                             }
@@ -154,6 +157,9 @@
                 }
                 //按鈕
                 @include bgBtn(book){
+                    position: absolute;
+                    bottom:-20%;
+                    right:0px;
                     @include md(){
                         position: absolute;
                         bottom:20px;

@@ -24,6 +24,7 @@
 @import 'layout/map';
 @import 'page/shoppingCart';
 @import 'layout/loginLightbox';
+@import 'page/member-info.scss';
 
 *{
     padding: 0;
@@ -64,6 +65,10 @@ p,label{
     font-weight: 300;
 }
 
+input{
+    outline: none;
+    padding: 10px;
+}
 body{
     // border: 1px solid #000;
     background-color: $color1;
