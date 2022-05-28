@@ -80,7 +80,7 @@
                     flex-direction: column;
                     margin-left: auto;
                     margin-right: auto;
-                    @include lg(){
+                    @include md(){
                         flex-direction: row;
                         margin-right: 0;
                     }
@@ -88,7 +88,9 @@
                     .coupon{
                         background-color:$color2;
                     }
-                    
+                    input{
+                        width: 120px;
+                    }
                     .bill{
                         margin-top: 10px;
                         @include md{
@@ -144,8 +146,10 @@
                 right: 10px;
                 font-size: $h6-fzSize;
                 color: $color9;
+                cursor:pointer;
             }
             > div{
+                margin: 10px 0;
                 font-size: $word-fzSize;
                 color: $color5;
                 .coupon{
