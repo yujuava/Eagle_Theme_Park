@@ -1,0 +1,12 @@
+.back_ticket{
+    border-left: none;
+    border-right: none;
+    display:flex;
+    justify-content:flex-start
+}
+.back_content{
+    width:100%;
+    h2{
+        font-size: $h2-fzSize;
+    }
+}
