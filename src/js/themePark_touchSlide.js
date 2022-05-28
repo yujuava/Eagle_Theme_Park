@@ -31,7 +31,6 @@ function DoFirst(){
         let checkedIndex = findChecked(slider);
         let checkedIndexLength = slider.length -1;
 
-
         if( dir > movingDistance){
         // slider to right
             if( checkedIndex == checkedIndexLength){
@@ -60,8 +59,6 @@ function DoFirst(){
             }
         }
     }
-
-
 
 }
 

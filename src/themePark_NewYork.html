@@ -205,19 +205,19 @@
                     <div class="paradesBox">
                         <div class="paradesContent card-bdr">
                             <div class="paradesTypeDate">
-                                <p>遊行</p>
+                                <p id="paradesType">遊行</p>
                                 <span></span>
-                                <p>每日上午 0700 - 0800</p>
+                                <p id="paradesDate">每日上午 0700 - 0800</p>
                             </div>
                             <div class="videoBox">
-                                <video src="images/themePark__NewYorkVideo-1.mp4" autoplay="" loop="" playsinline="" muted></video>
+                                <video id="videoBox" src="images/themePark__NewYorkVideo-1.mp4" autoplay="" loop="" playsinline="" muted></video>
                             </div>
-                            <p class="paradesTitle">伊果明星大遊行</p>
+                            <p id="paradesTitle" class="paradesTitle">伊果明星大遊行</p>
                         </div>
                     </div>
                     <!-- 四個影片櫥窗 -->
                     <div class="paradesBox">
-                        <div class="paradesContent card-bdr">
+                        <div id="video1" class="paradesContent card-bdr">
                             <div class="paradesTypeDate">
                                 <p>遊行</p>
                                 <span></span>
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     <div class="paradesBox">
-                        <div class="paradesContent card-bdr">
+                        <div id="video2" class="paradesContent card-bdr">
                             <div class="paradesTypeDate">
                                 <p>活動</p>
                                 <span></span>
@@ -243,7 +243,7 @@
                         </div>
                     </div>
                     <div class="paradesBox">
-                        <div class="paradesContent card-bdr">
+                        <div id="video3" class="paradesContent card-bdr">
                             <div class="paradesTypeDate">
                                 <p>表演</p>
                                 <span></span>
@@ -256,7 +256,7 @@
                         </div>
                     </div>
                     <div class="paradesBox">
-                        <div class="paradesContent card-bdr">
+                        <div id="video4" class="paradesContent card-bdr">
                             <div class="paradesTypeDate">
                                 <p>活動</p>
                                 <span></span>
@@ -284,5 +284,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <script src="js/themePark_scollPic.js"></script>
     <script src="js/themePark_touchSlide.js"></script>
+    <script src="js/themePark_changeVideoBox.js"></script>
 </body>
 </html>

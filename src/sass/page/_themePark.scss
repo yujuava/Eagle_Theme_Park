@@ -407,8 +407,19 @@
     .videoBox{
         border-top: 4px solid $color1;
         border-bottom: 4px solid $color1;
-        padding: 15px;
+        padding: 10px;
         overflow: hidden;
+    }
+    .paradesBox:nth-child(n+2) .videoBox{
+        padding: 5px;
+    }
+    @include md{
+        .videoBox{
+            padding: 15px;
+        }
+        .paradesBox:nth-child(n+2) .videoBox{
+            padding: 10px;
+        }
     }
     .videoBox video{
         width: 100%;
