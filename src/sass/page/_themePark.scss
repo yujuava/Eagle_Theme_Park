@@ -130,11 +130,14 @@
 
 
     // 打卡景點
+    .themePark__AttrSection{
+        position: relative;
+    }
     .themePark__Attractions{
         display: flex;
         justify-content: center;
         overflow: hidden;
-        padding-top: 50px;
+        padding-top: 80px;
         padding-bottom: 100px;
         height: 70vh;
     }
@@ -238,7 +241,7 @@
 
     .gradientTail{
         --tailHeight: 50px;
-        top:0;
+        --tailHeightMd: 80px;
         position: absolute;
         width: 100%;
         height: var(--tailHeight);
@@ -247,18 +250,12 @@
         background: linear-gradient(180deg, #FEF5D8 0.78%, #FFFBED 33.3%, #D4CDB6 76.36%);
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     }
-    // @include md{
-    //     .gradientTail{
-    //         --tailHeight: 80px;
-    //         position: absolute;
-    //         width: 100%;
-    //         height: var(--tailHeight);
-    //         transform: translateY( calc( var(--tailHeight )*-1 ));
-    
-    //         background: linear-gradient(180deg, #FEF5D8 0.78%, #FFFBED 33.3%, #D4CDB6 76.36%);
-    //         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-    //     }
-    // }
+    @include md{
+        .gradientTail{
+            height: var(--tailHeightMd);
+            transform: translateY( calc( var(--tailHeightMd )*-1 ));
+        }
+    }
 
     // 遊行表演
     .themePark__Parades{
