@@ -108,19 +108,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
+         
     }
 
     .transportation {
-        font-size: $md-word-fzSize;
+        font-size: $word-fzSize;
         text-align: center;
-        // margin: 10px;
+        margin: 10px;
+        width: 85%;
         @include md(){
             font-size: $word-fzSize;
+            width: 90%;
            &:hover{
             text-decoration: underline;
             text-decoration-thickness: 2px;
             }
         }
+        @include lg(){
+            width: 95%;    
+        }
+
        
         a {
             color: $color2;
@@ -128,15 +135,7 @@
         }
     }
     
-    .map {
-        p {
-            padding: 15px;
-            text-align: center;
-            color: $color9;
-            font-family: $family2;
-            font-size: $word-fzSize;
-        }
-    }
+   
     .wrap {
         display: block;
         width: 100%;
@@ -173,5 +172,14 @@
         .title{
             border-top: 1px solid$color8;
         }
+    }
+}
+.map {
+    p {
+        padding: 15px;
+        text-align: center;
+        color: $color9;
+        font-family: $family2;
+        font-size: $word-fzSize;
     }
 }
