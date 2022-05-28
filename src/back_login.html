@@ -22,26 +22,32 @@
         "h3TitleEN": "Theme Area"
     }) -->
 
-    <section>
+    <container>
         <div class="back_header"></div>
-        <img src="./images/eagle-fly.png" alt="">
-        <div class="title_back">
-            <img src="https://picsum.photos/300/200/?random=10">
-            <h2>後台管理系統</h2>
+
+        <div class="eagle_fly_logo">
+            <img src="./images/eagle-fly.png" alt="">
         </div>
-        <form action="">
-            <div>
-                <label for="user_name">帳號：</label>
-                <input type="text" placeholder="請輸入帳號">
+
+        <div class="title_back">
+            <div class="logo_img">
+                <img src="./images/logo.svg" alt="logo"> 
             </div>
-            <div>
-                <label for="user_name">密碼：</label>
-                <input type="password" placeholder="請輸入密碼">
-            </div>
-            <div>
-                <input type="submit" value="登入">
-            </div>
-        </form>
+            <h2>後台管理系統</h2>
+            <form action="">
+                <div>
+                    <label for="user_name">帳號：</label>
+                    <input type="text" placeholder="請輸入帳號" maxlength="15">
+                </div>
+                <div>
+                    <label for="user_name">密碼：</label>
+                    <input type="password" placeholder="請輸入密碼" maxlength="15">
+                </div>
+                <div>
+                    <button>登入</button>
+                </div>
+            </form>
+        </div>
 
         <div class="back_footer">
             <!-- svg -->
@@ -444,16 +450,16 @@
 
 
         <script src="js/footer-scroll-robot.js"></script>
-    </section>
+        </contain>
 
 
 
 
 
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
+        <!--  ===============map ===============  -->
+        <!-- @@include('layout/map.html') -->
+        <!-- footer  -->
+        <!-- @@include('layout/footer.html') -->
 </body>
 
 </html>
