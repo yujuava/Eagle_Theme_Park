@@ -381,9 +381,16 @@
             }
         }
         p{
+            width: 100%;
             text-align: center;
             font-size: $h6-fzSize;
         }
+    }
+
+    //color
+
+    .colorchange{
+        background-color: lighten($color8, 20%);
     }
 
 
