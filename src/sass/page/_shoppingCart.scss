@@ -57,47 +57,38 @@
             }
         }
     }
+
     .total{
+        
         .wrap{
             padding: 20px;
             background-color: $color2;
-            border-radius: 24px;
+            border-radius: 10px;
             font-size:12px;
             @include md(){
                 font-size: $h6-fzSize;
             }
-            div{
+            .total_area{
                 margin-left: auto;
                 margin-right: auto;
                 display: flex;
-                flex-direction: column;
                 @include lg(){
-                    flex-direction: row;
-                    margin-left: auto;
-                    margin-right: 0;
                 }
                 .discount{
                     display: flex;
-                    justify-content: space-around;
                     align-items: center;
-                    @include mdBtn(bill){}
-                    
-                    .coupon{
-                        font-size: $h6-fzSize;
-                        color: $color1;
-                        background-image: url(/images/coupon.png);
-                        background-size: cover;
-                        padding: 5px;
-                        background-image: url(/images/coupon.png);
-                        background-size: 100% 100%;
-                        background-position: 50% 50%;
-                        background-repeat: no-repeat;
-                        border: none;
-                        padding-left:25px;
-                        padding-right: 10px;
-                        background-color:$color2;
-                        cursor:pointer;
+                    flex-direction: column;
+                    margin-left: auto;
+                    margin-right: auto;
+                    @include lg(){
+                        flex-direction: row;
+                        margin-right: 0;
                     }
+                    @include mdBtn(bill){}
+                    .coupon{
+                        background-color:$color2;
+                    }
+                    
                     .bill{
                         margin-top: 10px;
                         @include md{
@@ -107,5 +98,61 @@
                 }
             }
         }    
+    }
+    .coupon{
+        font-size: $h6-fzSize;
+        color: $color1;
+        background-image: url(/images/coupon.png);
+        background-size: cover;
+        padding: 5px;
+        background-image: url(/images/coupon.png);
+        background-size: 100% 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border: none;
+        padding-left:25px;
+        padding-right: 10px;
+        cursor:pointer;
+    }
+    .mycoupons{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0;
+        // padding: 20%;
+        background-color: rgba(0, 0, 0, 0.199);
+        display: flex;
+        z-index: 999;
+        display: none;
+        > div{
+            margin: auto;
+            background-color:$color1;
+            text-align: center;
+            position: relative;
+            border:4px solid $color2;
+            border-radius: 10px;
+            padding: 20px 30px;
+            p{
+                font-size: $h5-fzSize;
+                color: $color5;
+                margin-bottom: 10px;
+            }
+            i{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: $h6-fzSize;
+                color: $color9;
+            }
+            > div{
+                font-size: $word-fzSize;
+                color: $color5;
+                .coupon{
+                    background-color:$color1;
+                }
+
+            }
+        }
     }
 }

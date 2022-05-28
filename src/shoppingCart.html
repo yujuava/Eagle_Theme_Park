@@ -35,7 +35,7 @@
                     <td>
                         <img src="./images/shop_cup.png ">
                     </td>
-                    <td class="td-row">伊果口罩</td>
+                    <td class="td-row">伊果一杯</td>
                     <td class="td-row">$200</td>
                     <td class="td-row">
                         <div class="count">
@@ -97,12 +97,11 @@
             </table>
         </div>
     </section>
-    <section class="total">
+    <section id="shopping" class="total">
         <div class="wrap">
-            <div>
+            <div class="total_area">
                 <div class="discount">
-                    <button class="
-                    coupon">
+                    <button @click="coupons" class="coupon">
                     點選優惠券</button>
                     <label for="">折扣前:</label>
                     <input type="text">
@@ -110,9 +109,20 @@
                     <input type="text">
                     <button class="mdBtn-bill bill">前往結帳</button>
             </div>
+        </div>  
+        <div class="mycoupons">
+            <div>
+                <p>選擇優惠券</p>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <div>
+                    <button class="coupon">折扣150元</button>
+                    <label for="">使用期限:</label>
+                    <span>無期限</span>
+                </div>
+            </div>
         </div>
     </section>
-
+  
 
 
 
@@ -124,4 +134,19 @@
 </body>
 
 </html>
-<script src="./js/buyTicketadd.js"></script>
+<script>
+    new Vue({
+        el:'#shopping',
+        methods: {   
+            coupons:function(todo){
+                document.querySelector('.mycoupons').style.display="flex";
+            },            
+            close:function(todo){
+                document.querySelector('.mycoupons').style.display="none";
+            }    
+        }
+    })
+    // alert('12331')
+</script>
+<script src="js/buyTicketadd.js"></script>
+
