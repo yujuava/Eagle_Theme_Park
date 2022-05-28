@@ -33,9 +33,6 @@
                 <div class="inner_total">
                     <i @click="close" id="close" 
                     class="fa-solid fa-xmark"></i>
-                    <!-- <transition-group name="aa" tag="div" class="bb">
-                        <news-component v-for="item in cards" :item="item" :key="item.id"/>
-                    </transition-group> -->
                     <div class="bb">
                         <news-component :item="showPopupItem"/>
                     </div>
@@ -87,22 +84,25 @@
                 </tr>
                 <tr>
                     <td>
-                        <li>伊果飛車</li>
-                        <li>伊果飛車</li>
-                        <li>伊果飛車</li>
-                    </td>
-                    <td>
-                        <li>伊果飛車</li>
+                        <li>天旋地轉</li>
+                        <li>旋轉木馬</li>
                         <li>伊果飛車</li>
                     </td>
                     <td>
+                        <li>極速飛鷹</li>
                         <li>伊果飛車</li>
                     </td>
                     <td>
-                        <li>伊果飛車</li>
+                        <li>大海盜</li>
+                        <li>空中UFO</li>
+                        <li>極速飛鷹</li>
                     </td>
                     <td>
-                        <li>伊果飛車</li>
+                        <li>自由落體</li>
+                        <li>伊飛沖天</li>
+                    </td>
+                    <td>
+                        <li>仙女散花</li>
                     </td>
                 </tr>
             </table>
@@ -118,39 +118,7 @@
 </html>
 <!-- 最上面的小飛機 -->
 <script>        
-    let fly = gsap.fromTo("#airplane",{
-        x:0,
-    },{
-        x:-1650,
-        duration:11,
-        yoyo:true,
-        ease: "power2.inOut", 
-    });
-    gsap.fromTo("#airplane",{
-        y:50,
-    },
-    {
-        y:80,
-        duration:1,
-        repeat:-1,
-        yoyo:true,
-        ease: "power2.inOut",
-    });
-
 //開消息燈箱
-
-
-    // new Vue({
-    //     el:'#app',
-    //     data:{
-    //         content:'',
-    //     },
-    //     methods: {
-
-     
-    //     },
-    // })
-
     const cards=[{
         id:1,
         name:'優惠快訊',
@@ -213,10 +181,7 @@
 
     Vue.component('news-component',{
         methods: {
-            // function(d) {
-            // this.currentPic = d;
-            // this.lightBoxToggle = !this.lightBoxToggle;
-            // },
+        
         },
         template:`
         <div class="change_inner">
@@ -236,25 +201,6 @@
             newsSource:Object,
         }
     });
-    // Vue.component('item',{
-    //     methods: {
-
-    //     },
-    //     template:`
-    //     <div class="change_inner">
-    //         <h4>{{item.name}}</h4>
-    //         <div class="inner">
-    //             <div class="inner_picture">
-    //                 <img :src="item.img" alt="Image">
-    //             </div>
-    //             <div class="inner_artical">
-    //                 {{item.info}}
-    //             </div>
-    //         </div>
-    //     </div>
-    //     `,
-    // })
-
 
     new Vue({
         data(){
@@ -286,3 +232,4 @@
 
 </script>
 <script src="js/MNevents.js"></script>
+<script src="js/littlefly.js"></script>
