@@ -113,7 +113,7 @@ body{
 }
 //區塊
 section{
-    // border: 5px dashed purple;
+    border: 5px dashed purple;
     margin-top: 25px;
     margin-bottom: 60px;
     display: flex;
@@ -136,9 +136,10 @@ section{
 //黃色月亮標題
 .moon-title{
     margin: 20px auto 60px ;
+    width: 100%;
     color:$color4;
     position: relative;
-
+    display: inline-block;
     p{
         margin: auto;
         font-weight: bold;
@@ -156,18 +157,14 @@ section{
         content: "";
         width: 120px;
         height: 50px;
-        // background-image: url(../images/titleYellowShape.svg);
-        // background-size: 100%;
-        // background-repeat: no-repeat;
         position: absolute;
-        right: -10%;
+        left: 50%;
         bottom:-25%;
-        z-index: 10;
-
         border-bottom: 5px solid $color6;
         border-radius:  50% 50% 50% 50% / 48% 52% 51% 49% ;
-        transform: rotate(-5deg);
-     
+        transform: rotate(-10deg)  translateX(-30%);
+        z-index: 10;
+        
     }
 }
 //地圖
