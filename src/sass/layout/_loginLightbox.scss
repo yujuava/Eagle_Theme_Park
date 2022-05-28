@@ -160,6 +160,8 @@
                 }
                 @include bgBtn(login){
                     background-color: $color4;
+                    border:0;
+                    
                     &:hover{
                         background-color:$color3;
                     }
