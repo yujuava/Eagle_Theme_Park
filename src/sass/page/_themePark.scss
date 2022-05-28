@@ -63,20 +63,19 @@
     .facilitesContent{
         background-color: $color3;
         & .facilitiesInfo{
-            height: fit-content;
+            width: 100%;
             background-color: rgba($color6, 0.9);
             border-radius: 10px;
-            padding: 5px;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin-top: auto;
-            left: 50%;
-            transform: translateX(-50%);
+            padding: 10px;
+            position: relative;
             transition: 0.4s ease-in-out;
-            text-align: center;
             opacity: 1;
-            bottom: 30px;
+        }
+        & .facilitiesInfo p:nth-of-type(1){
+            text-align: center;
+        }
+        & .facilitiesInfo p:nth-of-type(2){
+            text-align: left;
         }
 
     }
@@ -94,6 +93,7 @@
                 box-shadow: $card-shadow2;
             }
             & .facilitiesInfo{
+                width: 100%;
                 height: fit-content;
                 opacity: 0;
                 border-radius: 10px;
@@ -101,15 +101,13 @@
                 position: absolute;
                 top: 0;
                 bottom: 0;
+                left: -100%;
                 margin-top: auto;
-                left: 50%;
-                transform: translateX(-50%);
                 transition: 0.4s ease-in-out;
-                text-align: center;
             }
             &:hover .facilitiesInfo{
                 opacity: 1;
-                bottom: 30px;
+                left: 0;
             }
         }
     }
@@ -136,18 +134,34 @@
         display: flex;
         justify-content: center;
         overflow: hidden;
-        padding-top: 70px;
+        padding-top: 50px;
         padding-bottom: 100px;
+        height: 70vh;
+    }
+    @include md{
+        .themePark__Attractions{
+            padding-top: 100px;
+            height: 80vh;
+        }   
     }
 
+
+    // card slider outer container
     #slider {
-        aspect-ratio: 1/1.2;
-        width: 40vw;
+        aspect-ratio: 1/1;
+        width: 45vw;
         position: relative;
         perspective: 1000px;
         perspective-origin: center -100%;
         transform-style: preserve-3d;
         display: flex;
+      }
+      @include md{
+        #slider {
+            aspect-ratio: 1/1.5;
+            width: 40vw;
+            perspective-origin: center -50%;
+          }
       }
 
       #slider input{
@@ -199,11 +213,7 @@
        
       }
       
-    @include md{
-        .col{
-            width: 33.33333%;
-        }
-    }
+
     .card{
         background-color: $color3;
         padding: 15px;
@@ -225,36 +235,33 @@
             font-size: $word2-fzSize;
         }        
     }
-    .themePark__AttractionsBTN{
-        display: flex;
-        justify-content: center;
-    }
-    .themePark__AttractionsBTN button{
-        background-color: $color7;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        margin: 15px;
-        color: $color5;
-        border: none;
-    }
 
     .gradientTail{
-        --tailHeight: 80px;
+        --tailHeight: 50px;
+        top:0;
         position: absolute;
-        transform: translateY( calc( var(--tailHeight )*-1 ));
         width: 100%;
         height: var(--tailHeight);
+        transform: translateY( calc( var(--tailHeight )*-1 ));
 
         background: linear-gradient(180deg, #FEF5D8 0.78%, #FFFBED 33.3%, #D4CDB6 76.36%);
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-        
     }
+    // @include md{
+    //     .gradientTail{
+    //         --tailHeight: 80px;
+    //         position: absolute;
+    //         width: 100%;
+    //         height: var(--tailHeight);
+    //         transform: translateY( calc( var(--tailHeight )*-1 ));
+    
+    //         background: linear-gradient(180deg, #FEF5D8 0.78%, #FFFBED 33.3%, #D4CDB6 76.36%);
+    //         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    //     }
+    // }
 
     // 遊行表演
     .themePark__Parades{
-        // 標題會與上方產生重疊 目前先以透明框線讓位置能讀到
-        border: 1px solid rgba($color: #000000, $alpha: 0);
         background-color: $color3;
         padding: 0 0 15px 0;
     }
