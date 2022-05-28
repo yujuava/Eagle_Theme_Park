@@ -1,0 +1,46 @@
+.wrap{
+    border: 10px solid deeppink;
+    border-style: dotted ;
+    .one{
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        position: relative;
+        .circular{
+            background-color: lighten($color4,40%);
+            margin: 30px;
+            padding: 15px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:first-child{
+                background-color: $color4;
+            }
+        }
+        .line{
+            background-color: lighten($color4,40%);
+            position: absolute;
+            top: 35%;
+            padding: 15px 90px;
+            z-index: -1;
+            border-radius: 10px;
+        }
+    }
+}
+
+
+// input,select{
+//     border:1.5px solid $color4;
+//     width: 60%;
+//     height: 25px;
+//     border-radius: $sm-word-fzSize;
+//     @include md(){
+//         height: 30px;
+//         margin-bottom: 20px;
+//     }
+//     @include xl(){
+//         height: 35px;
+//     }
+    
+// }
