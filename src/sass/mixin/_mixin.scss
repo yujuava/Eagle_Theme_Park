@@ -1,4 +1,4 @@
-@import url('../base/_var.scss');
+@import url('../base/var');
 
 //===========斷點設計-平板直以上===========
 @mixin md(){
@@ -21,7 +21,6 @@
     }
      
 };
-
 //============h2設定======================
 @mixin h2Set(){
     border: 1px solid blue;

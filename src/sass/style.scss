@@ -26,6 +26,7 @@
 @import 'layout/loginLightbox';
 @import 'page/member-info.scss';
 @import 'page/visitor-experience-page';
+@import 'page/ticket-purchase';
 
 
 *{
@@ -88,21 +89,21 @@ body{
 
 //固定容器
 .wrap{
-    border: 3px dashed gray;
+    // border: 3px dashed gray;
     width: 88%;
     margin: auto;
     @include md(){
         //平板
-        border: 3px dashed red;
+        // border: 3px dashed red;
         width: calc(720 / 768 * 100%);
     }
     @include lg(){
         //平板橫
-        border: 3px dashed blue;
+        // border: 3px dashed blue;
         width: calc(880 / 960 * 100%);
     }
     @include xl(){
-        border: 3px dashed pink;
+        // border: 3px dashed pink;
         width: calc(1100 / 1200 * 100%);
     }
 
@@ -113,7 +114,7 @@ body{
 }
 //區塊
 section{
-
+    border: 5px dashed purple;
     margin-top: 25px;
     margin-bottom: 60px;
     display: flex;
@@ -136,11 +137,12 @@ section{
 //黃色月亮標題
 .moon-title{
     margin: 20px auto 60px ;
+    width: 100%;
     color:$color4;
     position: relative;
+    display: inline-block;
     p{
         margin: auto;
-        // width: 100%;
         font-weight: bold;
         font-weight: 500;
         text-align: center;
@@ -155,14 +157,15 @@ section{
     &::after{
         content: "";
         width: 120px;
-        height: 45px;
-        background-image: url(../images/titleYellowShape.svg);
-        background-size: 100%;
-        background-repeat: no-repeat;
+        height: 50px;
         position: absolute;
-        right: -10%;
-        bottom:-30%;
+        left: 50%;
+        bottom:-25%;
+        border-bottom: 5px solid $color6;
+        border-radius:  50% 50% 50% 50% / 48% 52% 51% 49% ;
+        transform: rotate(-10deg)  translateX(-30%);
         z-index: 10;
+        
     }
 }
 //地圖
@@ -211,7 +214,7 @@ section{
         border-radius: 25px;
     }
     @include lg(){
-        border-radius: 40px;
+        border-radius: 30px;
     }
 }
 .lightbox-bdr-up{

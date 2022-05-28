@@ -329,6 +329,7 @@
                     animation: change 3s linear 2s 3;
 
                     .center {
+                        cursor:grab;
                         position: absolute;
                         top: 50%;
                         margin-top: -25px;
@@ -426,6 +427,7 @@
             color: $color5;
         }
     }
+    
 }
 
 .ease {
