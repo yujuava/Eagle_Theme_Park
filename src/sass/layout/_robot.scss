@@ -98,6 +98,17 @@
             margin: auto;
             display: flex;
             justify-content: end;
+            input{
+                outline: none;
+                border-radius: $sm-word-fzSize;
+                border:0;
+                height: 25px;
+                padding: 10px;
+                box-shadow:$button-shadow;
+                @include lg(){
+                    height: 30px;
+                }
+            }
             @include mdBtn(submit){}
         }
     }
