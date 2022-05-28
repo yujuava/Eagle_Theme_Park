@@ -416,30 +416,30 @@
         <section class="ThrillRide">
             <div class="wrap"  id="all-thrill-ride" >
                 <div class="all-btn">
-                    <div class="bgBtn-area">
+                    <div class="bgBtn-area"  @click="setFilter('紐約')"  ref="A" @click="changeA">
                         紐約都會
                     </div>
-                    <div class="bgBtn-area">
+                    <div class="bgBtn-area" @click="setFilter('西部')"  ref="B" @click="changeB">
                         西部農莊
                         
                     </div>
-                    <div class="bgBtn-area">
+                    <div class="bgBtn-area" @click="setFilter('印安')"  ref="C" @click="changeC">
                         印安部落
                     </div>
                 </div>
 
                 <div class="filter">
                     <div class="option">
-                        <input type="checkbox" value="">
-                        <label for="">不受雨天影響</label>
+                        <input type="checkbox" value="" id="rain">
+                        <label for="rain">不受雨天影響</label>
                     </div>
                     <div class="option">
-                        <input type="checkbox" value="">
-                        <label for="">孕婦可乘</label>
+                        <input type="checkbox" value="" id="pregnant">
+                        <label for="pregnant">孕婦可乘</label>
                     </div>
                     <div class="option">
-                        <input type="checkbox" value="">
-                        <label for="">輪椅可乘</label>
+                        <input type="checkbox" value="" id="wheelchair">
+                        <label for="wheelchair">輪椅可乘</label>
                     </div>
                 </div>
                 
@@ -449,7 +449,7 @@
 
                 <div>
                     <transition-group name="cards" tag="div" class="all-card">
-                        <card-component v-for="item in cards" :item="item" :key="item.id"/>
+                        <card-component v-for="item in cards" :item="item" :key="item.id" v-if="currentFilter === item.area1 || currentFilter === 'ALL'"/>
                     </transition-group>
                 </div>
 
