@@ -8,42 +8,53 @@
             margin: auto;
             text-align: center;
             font-family:$family2 ;
-            th{
-                font-size: $h6-fzSize;
-                background-color: $color2;
-                color:$color5;
-                line-height:$th-line-height;
-            }
-            td{
-                vertical-align:middle;
-                font-size: $word-fzSize;
-                @include md(){
-                    font-size: $h6-fzSize;
-                }
-                img{
-                    width: 13vw;
+            tr{
+                th{
+                    display: none;
                     @include md(){
-                        width: 10vw;
+                        display: table-cell;
+                        font-size: $h6-fzSize;
+                        background-color: $color2;
+                        color:$color5;
+                        line-height:$th-line-height;
+                        }
+                }
+                .td-row{
+                    display: block;
+                    margin: 25px 0;
+                    @include md(){
+                        display: table-cell;
                     }
                 }
-                @include mdBtn(delete){}
-                .count{
-                    display: flex;
-                    justify-content: center;
-                    input{
-                        width: 6vw;
-                        text-align: center;
-                        margin: 0 5px;
+                td{
+                    vertical-align:middle;
+                    font-size: $word-fzSize;
+                    color: $color5;
+                    @include md(){
+                        font-size: $h6-fzSize;
+                    }
+                    img{
+                        width: 25vw;
                         @include md(){
-                            width: 50px;
+                            width: 10vw;
+                        }
+                    }
+                    @include mdBtn(delete){}
+                    .count{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        input{
+                            width: 6vw;
+                            text-align: center;
+                            margin: 0 5px;
+                            @include md(){
+                                width: 50px;
+                            }
                         }
                     }
                 }
             }
-            img{
-                width: 150px;
-            }
-
         }
     }
     .total{
@@ -69,7 +80,7 @@
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
-                    @include mdBtn(gogogo){}
+                    @include mdBtn(bill){}
                     
                     .coupon{
                         font-size: $h6-fzSize;
@@ -86,6 +97,12 @@
                         padding-right: 10px;
                         background-color:$color2;
                         cursor:pointer;
+                    }
+                    .bill{
+                        margin-top: 10px;
+                        @include md{
+                            margin-top: 0;
+                        }
                     }
                 }
             }
