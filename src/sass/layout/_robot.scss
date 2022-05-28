@@ -1,0 +1,115 @@
+.robot_area{
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.644);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;  
+    z-index: 50;  
+    display: none;
+    padding: 100px 0;
+    justify-content: center;
+    p{
+        margin: 10px 0;
+    }
+    img{
+        width: 15%;
+        transform: rotateY(180deg);
+        @include md(){
+            width: 17%;
+        }
+        @include lg(){
+            width: 19%;
+        }
+        @include xl(){
+            width: 15%;
+        }
+    }
+    .robot_inner{
+        margin: auto;
+        background-color:$color1;
+        border: 5px solid $color6;
+        border-radius: 10px;
+        position: relative;
+        padding: 20px 10px;
+        width: 80%;
+        @include md(){
+            width:60%;
+        }
+        @include lg(){
+            width:50%;
+        }
+        @include xl(){
+            width:40%;
+        }
+        i{
+            font-size: $h5_fzSize;
+            color: $color9;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor:pointer;
+        }
+        .robot_talk{
+            .welcome{
+                display: flex;
+                align-items: center;
+                .robot_reply{
+                    padding: 10px;
+                    background-color: $color6;
+                    margin-left: 10px;
+                    border-radius: 10px;
+                    position: relative;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        bottom: 10px;
+                        left: -15px;
+                        border-right: 10px solid $color6;
+                        border-bottom: 10px solid $color6;
+                        border-left: 15px solid $color1;
+                    }
+                }
+            }
+            .dialogue_area{
+                display: flex;
+                flex-direction: column;
+                .message_area{
+                    display: inline-block;
+                    padding: 10px;
+                    background-color: $color2;
+                    margin-left: auto;
+                    margin-right: 20px;
+                    border-radius: 10px;
+                    position: relative;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        bottom: 10px;
+                        right: -15px;
+                        border-left: 10px solid $color2;
+                        border-bottom: 10px solid $color2;
+                        border-right: 15px solid $color1;
+                    } 
+                }
+            }
+        }
+        .input_area{
+            margin: auto;
+            display: flex;
+            justify-content: end;
+            input{
+                outline: none;
+                border-radius: $sm-word-fzSize;
+                border:0;
+                height: 25px;
+                padding: 10px;
+                box-shadow:$button-shadow;
+                @include lg(){
+                    height: 30px;
+                }
+            }
+            @include mdBtn(submit){}
+        }
+    }
+}
