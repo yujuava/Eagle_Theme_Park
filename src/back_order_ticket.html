@@ -3,12 +3,12 @@
 
 <head>
     @@include('layout/meta.html', {
-    "title" : "票券管理"
+    "title" : "票券訂單管理"
     })
 </head>
 <!-- 改body class名稱 -->
 
-<body class="back_ticket back_reset">
+<body class="back_order_ticket back_reset">
     <!-- 共用header -->
     <!-- @@include('layout/header-final.html') -->
     <!-- 共用header end -->
@@ -25,35 +25,24 @@
     @@include('layout/backNav.html')
 
     <div class="back_content">
-        <h2>票券管理</h2>
-        <div>
-            <button @click="show">修改</button>
-        </div>
+        <h2>票券訂單管理</h2>
 
         <table class="box">
             <tr>
-                <th>選取</th>
-                <th>票券名稱</th>
-                <th>售價</th>
-                <th>狀態</th>
+                <th>訂單編號</th>
+                <th>成立時間</th>
+                <th>訂購會員</th>
+                <th>訂單金額</th>
+                <th>票務狀況</th>
+                <th>詳細內容</th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>成人票</td>
+                <td>202205292338</td>
+                <td>2022-05-29</td>
+                <td>19</td>
                 <td>1000元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>幼童票</td>
-                <td>500元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>愛心票</td>
-                <td>400元</td>
-                <td>可購買</td>
+                <td>已出票</td>
+                <td><button>more</button></td>
             </tr>
         </table>
     </div>

@@ -3,12 +3,12 @@
 
 <head>
     @@include('layout/meta.html', {
-    "title" : "票券管理"
+    "title" : "客服小幫手"
     })
 </head>
 <!-- 改body class名稱 -->
 
-<body class="back_ticket back_reset">
+<body class="back_helper back_reset">
     <!-- 共用header -->
     <!-- @@include('layout/header-final.html') -->
     <!-- 共用header end -->
@@ -25,35 +25,24 @@
     @@include('layout/backNav.html')
 
     <div class="back_content">
-        <h2>票券管理</h2>
+        <h2>客服小幫手</h2>
         <div>
+            <button @click="show">新增</button>
             <button @click="show">修改</button>
         </div>
 
         <table class="box">
             <tr>
-                <th>選取</th>
-                <th>票券名稱</th>
-                <th>售價</th>
-                <th>狀態</th>
+                <th>編號</th>
+                <th>關鍵字</th>
+                <th>回答內容</th>
+                <th></th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>成人票</td>
-                <td>1000元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>幼童票</td>
-                <td>500元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>愛心票</td>
-                <td>400元</td>
-                <td>可購買</td>
+                <td>1</td>
+                <td>你好/早安/午安/晚安</td>
+                <td>歡迎蒞臨伊果樂園，我是果果，有什麼需要協助的嗎？</td>
+                <td><button onclick="showAlert();">刪除</button></td>
             </tr>
         </table>
     </div>
@@ -62,6 +51,12 @@
     <!-- @@include('layout/map.html') -->
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
+
+    <script>
+        function showAlert(){
+            window.alert("是否確認刪除?");
+        }
+    </script>
 </body>
 
 </html>

@@ -3,12 +3,12 @@
 
 <head>
     @@include('layout/meta.html', {
-    "title" : "票券管理"
+    "title" : "討論區"
     })
 </head>
 <!-- 改body class名稱 -->
 
-<body class="back_ticket back_reset">
+<body class="back_discuss back_reset">
     <!-- 共用header -->
     <!-- @@include('layout/header-final.html') -->
     <!-- 共用header end -->
@@ -25,35 +25,22 @@
     @@include('layout/backNav.html')
 
     <div class="back_content">
-        <h2>票券管理</h2>
-        <div>
-            <button @click="show">修改</button>
-        </div>
+        <h2>討論區</h2>
 
         <table class="box">
             <tr>
-                <th>選取</th>
-                <th>票券名稱</th>
-                <th>售價</th>
-                <th>狀態</th>
+                <th>文章編號</th>
+                <th>成立時間</th>
+                <th>留言會員</th>
+                <th>標題內容</th>
+                <th></th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>成人票</td>
-                <td>1000元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>幼童票</td>
-                <td>500元</td>
-                <td>可購買</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>愛心票</td>
-                <td>400元</td>
-                <td>可購買</td>
+                <td>1</td>
+                <td>2022-03-15</td>
+                <td>10</td>
+                <td>伊果好好玩</td>
+                <td><button onclick="showAlert();">刪除</button></td>
             </tr>
         </table>
     </div>
@@ -62,6 +49,12 @@
     <!-- @@include('layout/map.html') -->
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
+
+    <script>
+        function showAlert(){
+            window.alert("是否確認刪除?");
+        }
+    </script>
 </body>
 
 </html>
