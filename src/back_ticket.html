@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "後台票券管理"
+    "title" : "後台票券管理"
     })
 </head>
 <!-- 改body class名稱 -->
-<body class="back_ticket">
+
+<body class="back_ticket back_reset">
     <!-- 共用header -->
     <!-- @@include('layout/header-final.html') -->
     <!-- 共用header end -->
@@ -19,13 +21,34 @@
         "h3TitleTC" : "主題園區",
         "h3TitleEN": "Theme Area"
     }) -->
-    
+
     @@include('layout/backNav.html')
 
     <div class="back_content">
         <h2>票券管理</h2>
+        <form class="back_button">
+            <div class="btn_left">
+                <div>
+                    <input type="button" value="新增">
+                </div>
+                <div>
+                    <input type="button" value="刪除">
+                </div>
+                <div>
+                    <input type="button" value="上架">
+                </div>
+                <div>
+                    <input type="button" value="下架">
+                </div>
+            </div>
+            <div class="search_btn">
+                <input type="search">
+            </div>
+        </form>
         <div class="box">
-
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis recusandae totam modi fuga impedit,
+                officiis facere officia magnam sit illo assumenda dolorem eaque a in eveniet ullam excepturi commodi
+                nostrum.</p>
         </div>
     </div>
 
@@ -34,4 +57,5 @@
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
 </body>
+
 </html>

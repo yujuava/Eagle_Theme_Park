@@ -1,3 +1,9 @@
+.back_reset{
+    border-left: none;
+    border-right: none;
+    display:flex;
+    justify-content:flex-start
+}
 .back_nav{
     display:flex;
     flex-direction: column;
