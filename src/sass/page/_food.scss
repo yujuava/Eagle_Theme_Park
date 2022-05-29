@@ -1,16 +1,18 @@
 .food {
-    .full {
+    .food_banner{
+       .full {
         display: flex;
         margin: auto;
         justify-content: center;
         overflow: hidden;
-    }
-    .full img {
-        width: 140%;
-        vertical-align: bottom;
-        @include xl(){
-            width: 100%;
-        }
+        img {
+            width: 140%;
+            vertical-align: bottom;
+            @include xl() {
+                width: 100%;
+            }
+            }
+        } 
     }
 
     .vapour {
@@ -44,7 +46,7 @@
         filter: blur(15px);
         animation-delay: calc(var(--i) * -0.5s);
         bottom: 260px;
-        margin: 0 5px;
+        margin: 0 3px;
         min-width: 6px;
         height: 100px;
         @include md(){
