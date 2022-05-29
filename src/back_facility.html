@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "設施管理"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="back_facility back_reset">
+    <!-- 共用header -->
+    <!-- @@include('layout/header-final.html') -->
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    <!-- @@include('layout/h2Style.html',{
+        "h2Title" : "首頁"
+    }) -->
+    <!-- 小標使用這個 -->
+    <!-- @@include('layout/title.html',{
+        "h3TitleTC" : "主題園區",
+        "h3TitleEN": "Theme Area"
+    }) -->
+    
+    @@include('layout/backNav.html')
+
+    <div class="back_content">
+        <h2>設施管理</h2>
+        <div>
+            <button>新增</button>
+        </div>
+        <table class="box">
+            <tr>
+                <th>序號</th>
+                <th>設施圖片</th>
+                <th>設施名稱</th>
+                <th>園區</th>
+                <th>維護時間</th>
+                <th>雨天影響</th>
+                <th>孕婦乘坐</th>
+                <th>輪椅乘坐</th>
+                <th>排名</th>
+                <th>編輯</th>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td><img src="./images/facilities8 (18).jpg" alt=""></td>
+                <td>伊果飛車</td>
+                <td>西部農莊</td>
+                <td>星期一</td>
+                <td>true</td>
+                <td>false</td>
+                <td>false</td>
+                <td><button>編輯</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--  ===============map ===============  -->
+    <!-- @@include('layout/map.html') -->
+    <!-- footer  -->
+    <!-- @@include('layout/footer.html') -->
+</body>
+</html>

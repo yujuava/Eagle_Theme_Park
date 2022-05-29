@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+        "title" : "最新消息管理"
+    })
+</head>
+<!-- 改body class名稱 -->
+<body class="back_news back_reset">
+    <!-- 共用header -->
+    <!-- @@include('layout/header-final.html') -->
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    <!-- @@include('layout/h2Style.html',{
+        "h2Title" : "首頁"
+    }) -->
+    <!-- 小標使用這個 -->
+    <!-- @@include('layout/title.html',{
+        "h3TitleTC" : "主題園區",
+        "h3TitleEN": "Theme Area"
+    }) -->
+    
+    @@include('layout/backNav.html')
+
+    <div class="back_content">
+        <h2>後台人員管理</h2>
+        <div>
+            <button>新增</button>
+        </div>
+        <table class="box">
+            <tr>
+                <th>序號</th>
+                <th>照片</th>
+                <th>標題</th>
+                <th>文章內容</th>
+                <th>更新日期</th>
+                <th>編輯</th>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td><img src="./images/facilities8 (18).jpg" alt=""></td>
+                <td>防疫公告</td>
+                <td>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。</td>
+                <td>2022/5/29</td>
+                <td><button>編輯</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--  ===============map ===============  -->
+    <!-- @@include('layout/map.html') -->
+    <!-- footer  -->
+    <!-- @@include('layout/footer.html') -->
+</body>
+</html>
