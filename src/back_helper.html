@@ -24,7 +24,7 @@
 
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>客服小幫手</h2>
         <div>
             <button @click="show">新增</button>
@@ -45,6 +45,29 @@
                 <td><button onclick="showAlert();">刪除</button></td>
             </tr>
         </table>
+        <div class="back_lightbox backLightbox">
+            <div>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <table class="innerData">
+                    <tr>
+                        <th>編號</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>關鍵字</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>回答內容</th>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+                <div>
+                    <button>新增</button>
+                    <button>修改確定</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--  ===============map ===============  -->
@@ -58,5 +81,6 @@
         }
     </script>
 </body>
-
 </html>
+<!-- 共用燈箱js -->
+<script src="js/backLightbox.js"></script>
