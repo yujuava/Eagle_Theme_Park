@@ -22,10 +22,10 @@
     
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>後台人員管理</h2>
         <div>
-            <button>新增</button>
+            <button @click="show">新增</button>
         </div>
         <table class="box">
             <tr>
@@ -40,14 +40,49 @@
                 <td>wd02004@tibame.com</td>
                 <td>正常</td>
                 <td>2022/5/29</td>
-                <td>編輯</td>
+                <td><button @click="show">編輯</button></td>
             </tr>
         </table>
+        <div class="back_lightbox backLightbox">
+            <div>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <table class="innerData">
+                    <tr>
+                        <th>員工帳號</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>員工名稱</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>帳號狀態</th>
+                        <td>
+                            <select name="
+                            " id="">
+                        <option value="正常">正常</option>
+                        <option value="凍結">正常</option>
+                    </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>員工名稱</th>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+                <div>
+                    <button>新增</button>
+                    <button>修改確定</button>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
     <!--  ===============map ===============  -->
     <!-- @@include('layout/map.html') -->
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
 </body>
 </html>
+<!-- 共用燈箱js -->
+<script src="js/backLightbox.js"></script>
