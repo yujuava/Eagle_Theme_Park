@@ -1,6 +1,7 @@
 .back_reset{
     //共用table樣式
     .box{
+        width: 100%;
         text-align: center;
         line-height: 30px;
         table-layout : fixed;
@@ -11,6 +12,7 @@
             width: 100%;
             margin: auto;
             display: block;
+            object-fit: cover;
         }
         th{
             background-color: $color2;
