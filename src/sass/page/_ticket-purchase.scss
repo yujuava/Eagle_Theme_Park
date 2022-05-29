@@ -1,46 +1,153 @@
-.wrap{
-    border: 10px solid deeppink;
-    border-style: dotted ;
-    .one{
+// .wrap{
+// border: 10px solid deeppink;
+// border-style: dotted ;
+.one {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+
+    .circular {
+        background-color: lighten($color7, 15%);
+        margin: 30px;
+        padding: 15px;
+        border-radius: 100%;
         display: flex;
+        align-items: center;
         justify-content: center;
-        font-size: 30px;
-        position: relative;
-        .circular{
-            background-color: lighten($color4,40%);
-            margin: 30px;
-            padding: 15px;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &:first-child{
-                background-color: $color4;
-            }
+        color: $color8;
+
+        &:first-child {
+            background-color: $color7;
+            color: $color9;
         }
-        .line{
-            background-color: lighten($color4,40%);
-            position: absolute;
-            top: 35%;
-            padding: 15px 90px;
-            z-index: -1;
-            border-radius: 10px;
-        }
+    }
+
+    .line {
+        background-color: lighten($color7, 15%);
+        position: absolute;
+        top: 35%;
+        padding: 15px 90px;
+        z-index: -1;
+        border-radius: 10px;
     }
 }
 
+.ticket-details {
+    text-align: center;
 
-// input,select{
-//     border:1.5px solid $color4;
-//     width: 60%;
-//     height: 25px;
-//     border-radius: $sm-word-fzSize;
-//     @include md(){
-//         height: 30px;
-//         margin-bottom: 20px;
-//     }
-//     @include xl(){
-//         height: 35px;
-//     }
-    
+    tr {
+        // border: 1px solid#fa0;
+        font-size: $word-fzSize;
+
+        td {
+            padding: 10px;
+
+            p {
+                width: 50px;
+            }
+        }
+    }
+
+}
+
+.ticket-order-tp {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    input {
+        margin: 10px;
+        width: 30%;
+    }
+
+}
+
+.two {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    position: relative;
+
+    .circular {
+        background-color: lighten($color7, 15%);
+        color: $color8;
+        margin: 30px;
+        padding: 15px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(2) {
+            background-color: $color7;
+            color: $color9;
+        }
+    }
+
+    .line {
+        background-color: lighten($color7, 15%);
+        position: absolute;
+        top: 35%;
+        padding: 15px 90px;
+        z-index: -1;
+        border-radius: 10px;
+    }
+}
+
+.orderer-information {
+    margin: auto;
+    td{
+        border: 1px solid#fa0;
+    }
+    p {
+        display: flex;
+        justify-content: flex-start;
+        margin: 5px 10px;
+    }
+    input{
+        width: 100%;
+    }
+
+}
+
+
 // }
+
+//共用
+input {
+    border: 1.5px solid $color4;
+    width: 60%;
+    height: 25px;
+    border-radius: $sm-word-fzSize;
+
+    @include md() {
+        height: 30px;
+        margin-bottom: 20px;
+    }
+
+    @include xl() {
+        height: 35px;
+    }
+
+}
+
+.table-item {
+    background-image: url(../../images/Subtract.svg);
+    background-repeat: round;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    // border: 1px solid#fa0;
+    margin: auto;
+    color: $color9;
+}
+
+h2 {
+    color: $color9;
+    text-align: center;
+}
+
+p {
+    font-size: $word-fzSize;
+}
