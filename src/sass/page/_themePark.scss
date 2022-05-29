@@ -96,18 +96,16 @@
                 width: 100%;
                 height: fit-content;
                 opacity: 0;
-                border-radius: 10px;
+                border-radius: 15px;
                 padding: 5px;
                 position: absolute;
-                top: 0;
-                bottom: 0;
-                left: -100%;
+                bottom: 30%;
                 margin-top: auto;
                 transition: 0.4s ease-in-out;
             }
             &:hover .facilitiesInfo{
                 opacity: 1;
-                left: 0;
+                bottom: 0;
             }
         }
     }
@@ -139,12 +137,12 @@
         overflow: hidden;
         padding-top: 80px;
         padding-bottom: 100px;
-        height: 70vh;
+        height: 80vh;
     }
     @include md{
         .themePark__Attractions{
             padding-top: 100px;
-            height: 80vh;
+            height: 100vh;
         }   
     }
 
