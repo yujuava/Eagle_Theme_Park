@@ -40,8 +40,6 @@
                 }
             }
 
-
-
             //文章外面
             .newspaper_item {
                 background-color: $color2;
@@ -53,7 +51,7 @@
                 aspect-ratio: 4/2;
                 box-shadow: $card-shadow3;
                 border: 3px solid #ffffff;
-
+                align-items: center;
                 @include md() {
                     aspect-ratio: 9/5;
                     width: 45%;
@@ -73,7 +71,6 @@
 
                 @include xl() {
                     aspect-ratio: 3/1.3;
-
                 }
 
                 h4 {
@@ -86,31 +83,46 @@
                 }
 
                 .picture {
-                    width: 70%;
+                    width: 70%; //圖片加文字應該是100%不會是各70%
+                    width: 50%;
+                    height: 100%;
                     overflow: hidden;
-                    aspect-ratio: 4.5/3;
-                    object-fit: cover;
-
+                    aspect-ratio: 4.5/3;    
+                    // object-fit: cover;   //這個是設定在圖片本人
                     img {
-                        width: 155%;
+                        // width: 155%;
+                        width: 100%;    //圖片寬高應該都是100%;
+                        height: 100%;
                         transition: ease 0.3s;
+                        object-fit: cover;
                     }
 
-                    @include md() {}
+                    @include md(){
+                        aspect-ratio: 4.5/3;
+                    }
                 }
 
                 .inner_text {
-                    width: 70%;
-                    height: 70%;
-                    margin-top: auto;
+                    // border: 1px solid #000;
+                    width: 70%; //圖片加文字應該是100%不會是各70%
+                    width: 50%;
+                    // height: 70%;
+                    height: 100%;
+                    // margin-top: auto;
                     padding: 0 10px 0px 10px;
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    align-items: center;
                     position: relative;
-
-                    @include md() {
-                        padding: 10px 10px 0px 10px;
+                    p{
+                        font-size: $md-word-fzSize;
+                        @include md() {
+                            padding: 10px 10px 0px 10px;
+                            font-size: $word-fzSize;
+                        }
                     }
+
+                  
 
                     i {
                         color: $color1;
@@ -149,7 +161,6 @@
                             background-position: 10%;
                         }
                     }
-
                     .picture {
                         order: 1;
 
@@ -159,47 +170,41 @@
                     }
                 }
             }
-                        //文章內頁
+            //文章內頁 燈箱
             .news_inner {
-                padding-top: 100px;
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.199);
-                z-index: 99;
+                // padding-top: 100px;
+                // width: 100%;
+                // height: 100%;
+                // position: fixed;
+                // top: 0;
+                // left: 0;
+                // right: 0;
+                // background-color: rgba(0, 0, 0, 0.199);
+                // z-index: 99;     //燈箱背景統一吃style的 所以這裡註解掉了
                 display: none;
-
                 .test {
                     display: flex;
                 }
-
                 .inner_total {
                     padding: 20px 30px 30px 30px;
-                    width: 90%;
+                    // width: 90%;
                     background-color: $color1;
                     margin: auto;
-                    border-radius: 10px;
-                    border: 4px solid $color2;
+                    // border-radius: 10px;
+                    // border: 4px solid $color2;
                     position: relative;
-                    overflow-y: auto;
-                    height: 70%;
-
+                    // overflow-y: auto;
+                    overflow: hidden;
+                    // height: 70%;
                     @include md() {
-                        width: 80%;
+                        // width: 80%;
                     }
-
                     @include lg() {
-                        width: 70%;
+                        // width: 70%;
                     }
-
                     @include xl() {
-                        width: 60%;
-
+                        // width: 60%;
                     }
-
                     i {
                         font-size: $h5_fzSize;
                         color: $color9;
@@ -207,9 +212,7 @@
                         right: 20px;
                         top: 35px;
                         cursor:pointer;
-
                     }
-
                     h4 {
                         text-align: center;
                         background-image: url(/images/news_inner_h4.png);
@@ -219,7 +222,7 @@
                         line-height: 90px;
                         background-repeat: no-repeat;
                         background-position: 50% 50%;
-                        margin: 8px 0 8px 0;
+                        // margin: 8px 0 8px 0;
                         color: $color5;
                         font-family: $family1;
                         @include md() {
@@ -234,23 +237,31 @@
                     }
 
                     .inner {
-                        
+                        overflow-y: auto;
+                        width: 100%;
                         @include md() {
+                            // border: 1px solid #000;
                             display: flex;
                             justify-content: center;
-
                         }
 
                         .inner_picture {
+                            // border: 1px solid #000;
+                            // width: 100%;
                             width: 100%;
-                            top: 0;
+                            aspect-ratio: 2 / 1.3;
+                            // top: 0;
                             position: relative;
-                            margin-bottom: 15px;
+                            // margin-bottom: 15px;
+                            overflow: hidden;
                             @include md{
-                                width: 30%;
+                                width: 50%;
+                                aspect-ratio: 1.5 / 1;
                             }
                             img {
                                 width: 100%;
+                                // height: 100%;
+                                object-fit: cover;
                             }
                             &::before{
                                 content: '';
@@ -273,142 +284,24 @@
                                 left: -16px;
                                 transform: rotate(40deg);
                                 box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.329);
- 
                             }
                         }
-
                         .inner_artical {
-                            margin: 0 10px;
-                        }
-                    }
-
-                }
-            }
-            //文章內頁
-            .news_inner {
-                padding-top: 100px;
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.199);
-                z-index: 99;
-                display: none;
-
-                .test {
-                    display: flex;
-                }
-
-                .inner_total {
-                    padding: 20px 30px 30px 30px;
-                    width: 90%;
-                    background-color: $color1;
-                    margin: auto;
-                    border-radius: 10px;
-                    border: 4px solid $color2;
-                    position: relative;
-                    overflow-y: auto;
-                    height: 70%;
-
-                    @include md() {
-                        width: 80%;
-                    }
-
-                    @include lg() {
-                        width: 70%;
-                    }
-
-                    @include xl() {
-                        width: 60%;
-
-                    }
-
-                    i {
-                        font-size: $h5_fzSize;
-                        color: $color9;
-                        position: absolute;
-                        right: 20px;
-                        top: 35px;
-                        cursor:pointer;
-
-                    }
-
-                    h4 {
-                        text-align: center;
-                        background-image: url(/images/news_inner_h4.png);
-                        // padding: 10px 0;
-                        background-size: 70% 50%;
-                        // line-height: 60px;
-                        line-height: 90px;
-                        background-repeat: no-repeat;
-                        background-position: 50% 50%;
-                        margin: 8px 0 8px 0;
-                        color: $color5;
-                        font-family: $family1;
-                        @include md() {
-                            line-height: 60px;
-                            background-size: 50%;
-                            margin: 15px 0 15px 0;
-                        }
-                        @include lg() {
-                            background-size: 50%;
-                            margin: 25px 0 25px 0;
-                        }
-                    }
-
-                    .inner {
-                        
-                        @include md() {
-                            display: flex;
-                            justify-content: center;
-
-                        }
-
-                        .inner_picture {
                             width: 100%;
-                            top: 0;
-                            position: relative;
-                            margin-bottom: 15px;
-                            @include md{
-                                width: 30%;
+                            margin-top: 10px;
+                            @include md(){
+                                width: 50%;
+                                margin: 0 10px;
                             }
-                            img {
-                                width: 100%;
+                            
+                            p{
+                                font-size: $word-fzSize;
                             }
-                            &::before{
-                                content: '';
-                                width: 65px;
-                                height: 10px;
-                                background-color: $color2;
-                                position: absolute;
-                                top: 8px;
-                                right: -10px;
-                                transform: rotate(40deg);
-                                box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.329);
-                            }
-                            &::after{
-                                content: '';
-                                width: 65px;
-                                height: 10px;
-                                background-color: $color2;
-                                position: absolute;
-                                bottom: 8px;
-                                left: -16px;
-                                transform: rotate(40deg);
-                                box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.329);
- 
-                            }
-                        }
-
-                        .inner_artical {
-                            margin: 0 10px;
                         }
                     }
 
                 }
-            }           
+            }       
         }
     }
 

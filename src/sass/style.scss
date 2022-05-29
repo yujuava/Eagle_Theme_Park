@@ -93,21 +93,21 @@ body{
 
 //固定容器
 .wrap{
-    // border: 3px dashed gray;
+    border: 3px dashed gray;
     width: 88%;
     margin: auto;
     @include md(){
         //平板
-        // border: 3px dashed red;
+        border: 3px dashed red;
         width: calc(720 / 768 * 100%);
     }
     @include lg(){
         //平板橫
-        // border: 3px dashed blue;
+        border: 3px dashed blue;
         width: calc(880 / 960 * 100%);
     }
     @include xl(){
-        // border: 3px dashed pink;
+        border: 3px dashed pink;
         width: calc(1100 / 1200 * 100%);
     }
 
@@ -212,15 +212,32 @@ section{
         border-radius: 15px;
     }
 }
+
+// 燈箱所有設定
 .lightbox-bdr{
     border-radius: 20px;
+    border:6px solid $color3;
+    // aspect-ratio: 2 / 3.2;
+    max-height:70vh;
+    max-width: 80vw;
+    z-index: 1001;
     @include md(){
         border-radius: 25px;
+        border:8px solid $color3;
+        aspect-ratio: 2 / 1;
     }
     @include lg(){
         border-radius: 30px;
+        border:8px solid $color3;
+        aspect-ratio: 1.8 / 1;
+    }
+    @include xl(){
+        max-height:70vh;
+        aspect-ratio: 2 / 1.2;
     }
 }
+
+
 .lightbox-bdr-up{
     border-radius: 20px 20px 0 0 ;
     @include md(){
@@ -231,7 +248,6 @@ section{
     }
 
 }
-
 .lightbox-bdr-down{
     border-radius: 0 0 20px 20px;
     @include md(){
@@ -240,6 +256,21 @@ section{
     @include lg(){
         border-radius: 0 0 40px 40px;
     }
+
+}
+
+// 燈箱背景
+
+.full-screen{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
 
 }
 

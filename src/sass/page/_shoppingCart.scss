@@ -116,25 +116,28 @@
         padding-right: 10px;
         cursor:pointer;
     }
+    //優惠券燈箱
     .mycoupons{
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0%;
-        left: 0;
+        // position: fixed;
+        // width: 100%;
+        // height: 100%;
+        // top: 0%;
+        // left: 0;
         // padding: 20%;
-        background-color: rgba(0, 0, 0, 0.199);
-        display: flex;
-        z-index: 999;
+        // background-color: rgba(0, 0, 0, 0.199);
+        // display: flex;
+        // z-index: 999;
         display: none;
         > div{
             margin: auto;
             background-color:$color1;
             text-align: center;
             position: relative;
-            border:4px solid $color2;
-            border-radius: 10px;
+            // border:4px solid $color2;
+            // border-radius: 10px;
             padding: 20px 30px;
+            width: auto;
+            height: auto;
             p{
                 font-size: $h5-fzSize;
                 color: $color5;

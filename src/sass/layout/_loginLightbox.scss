@@ -1,14 +1,13 @@
 .both-lightbox{
     width: 80vw;
     aspect-ratio: 2 / 3.2;
-    max-height: 70vh;
+    // max-height: 70vh;
     margin:auto;
     position: fixed;
     top:40%;
     left: 50%;
     transform: translate(-50%,-50%);
     margin:  100px 0;
-    z-index: 1001;
     background-color: $color2;
     @include md(){
         top:45%;
@@ -35,24 +34,15 @@
         top:-180px;
         left:50%;
         transform: translateX(-50%);
-        z-index: -1;
+        z-index: -2;
         @include md(){
             content: "";
-            width: 180%;
+            width: 140%;
             height: 600px;
-            top:-240px;
+            top:-250px;
             left:50%;
             transform: translateX(-50%);
-        }
-        @include lg(){
-            content: "";
-            width: 180%;
-            height: 800px;
-            top:-300px;
-            left:50%;
-            transform: translateX(-50%);
-        }
-        
+        }  
     }
      
     .lightbox-container{
@@ -72,14 +62,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 18px 18px 0 0px;
             @include md(){
                 border-radius: 25px 0 0 25px;
                 width: 50%;
                 height:100%;
                 @include lg(){
-                    border-radius: 40px 0 0 40px;
+                    border-radius: 30px 0 0 30px;
                 }
-                
             }
             
             img{
@@ -100,13 +90,14 @@
             height:65%;
             display: flex;
             align-items: flex-end;
+            border-radius: 0px 0px 18px 18px;
             @include md(){
                 border-radius: 0px 25px 25px 0;
                 padding: 40px 20px 20px 20px;
                 width: 50%;
                 height:100%;
                 @include lg(){
-                    border-radius: 0px 40px 40px 0;
+                    border-radius: 0px 30px 30px 0;
                 }
                 
             }
@@ -277,16 +268,3 @@
     }
 }
 
-.full-screen{
-    border: 1px solid #000;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 1000;
-
-}
