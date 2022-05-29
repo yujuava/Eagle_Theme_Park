@@ -62,6 +62,7 @@
 .shop .product .item{
     display: block;
     margin: 50px;
+
 }
 .shop .product .item .itempic{
     width: 200px;
@@ -70,11 +71,16 @@
 }
 .shop .product  img{
     width: 100%;
-  
+}
+.shop .product .item .card{
+    margin-top: 30px;
+}
+.shop .product .item .card p{
+    color: $color4;
 }
 // 引用RWD 方式
 @include md{
-   
+    
 }
 
 @include lg{
