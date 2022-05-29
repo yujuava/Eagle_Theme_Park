@@ -17,7 +17,7 @@
 
 
     <section class="Ticket-Purchase">
-        <div class="wrap">
+        <!-- <div class="wrap"> -->
             <div class="purchase-process one">
                 <div class="circular">1</div>
                 <div class="circular">2</div>
@@ -26,28 +26,30 @@
             </div>
             <div class="ticket-details">
                 <h2>購票明細</h2>
-                <table>
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th>張數</th>
-                        <th>價格</th>
-                    </tr>
-                    <tr>
-                        <td><label for="">成人票</label></td>
-                        <td><input type="text" id="ticketTotal"></td>
-                        <td><input type="text" id="ticketPrice"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">幼童票</label></td>
-                        <td><input type="text" id="ticketTotal"></td>
-                        <td><input type="text" id="ticketPrice"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">敬老票</label></td>
-                        <td><input type="text" id="ticketTotal"></td>
-                        <td><input type="text" id="ticketPrice"></td>
-                    </tr>
-                </table>
+                <div class="table-item">
+                    <table>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>張數</th>
+                            <th>價格</th>
+                        </tr>
+                        <tr>
+                            <td><p>成人票</p></td>
+                            <td><input type="text" id="ticketTotal"></td>
+                            <td><input type="text" id="ticketPrice"></td>
+                        </tr>
+                        <tr>
+                            <td><p>幼童票</p></td>
+                            <td><input type="text" id="ticketTotal"></td>
+                            <td><input type="text" id="ticketPrice"></td>
+                        </tr>
+                        <tr>
+                            <td><p>敬老票</p></td>
+                            <td><input type="text" id="ticketTotal"></td>
+                            <td><input type="text" id="ticketPrice"></td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="ticket-order-tp">
                     <p>total</p>
                     <input type="text" name="" id="">
@@ -61,36 +63,38 @@
             </div>
             <div class="orderer-information">
                 <h2>訂購人資料</h2>
-                <table>
-                    <tr>
-                        <th><label for="">名字</label></th>
-                        <th><label for="">姓氏</label></th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="name"></td>
-                        <td><input type="text" id="last-name"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">國家/地區</label></td>
-                        <td><label for="">聯絡電話</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="country"></td>
-                        <td><input type="text" id="tel"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">電子郵件信箱</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="email"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">聯絡地址</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="adress"></td>
-                    </tr>
-                </table>
+                <div class="table-item">
+                    <table>
+                        <tr>
+                            <th><p>名字</p></th>
+                            <th><p>姓氏</p></th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="name"></td>
+                            <td><input type="text" id="last-name"></td>
+                        </tr>
+                        <tr>
+                            <td><p>國家/地區</p></td>
+                            <td><p>聯絡電話</p></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="country"></td>
+                            <td><input type="text" id="tel"></td>
+                        </tr>
+                        <tr>
+                            <td><p>電子郵件信箱</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="text" id="email"></td>
+                        </tr>
+                        <tr>
+                            <td><p>聯絡地址</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="text" id="adress"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="purchase-process three">
                 <div class="circular">1</div>
@@ -100,23 +104,25 @@
             </div>
             <div class="checkout">
                 <h2>結帳</h2>
-                <table>
-                    <tr>
-                        <td><label for="">信用卡號</label></td>
-                        <td><input type="text" id=""></td>
-                        <td><input type="text" id=""></td>
-                        <td><input type="text" id=""></td>
-                        <td><input type="text" id=""></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">有效日期</label></td>
-                        <td><input type="text" id="effectiveDate"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">後三碼</label></td>
-                        <td><input type="text" id="lastThreeYards"></td>
-                    </tr>
-                </table>
+                <div class="table-item">
+                    <table>
+                        <tr>
+                            <td><label for="">信用卡號</label></td>
+                            <td><input type="text" id=""></td>
+                            <td><input type="text" id=""></td>
+                            <td><input type="text" id=""></td>
+                            <td><input type="text" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">有效日期</label></td>
+                            <td><input type="text" id="effectiveDate"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">後三碼</label></td>
+                            <td><input type="text" id="lastThreeYards"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <input type="submit" value="確認">
 
