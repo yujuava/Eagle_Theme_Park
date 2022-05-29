@@ -6,34 +6,11 @@
         font-size: $h2-fzSize;
         margin: 35px 0 10px 30px;
     }
-    form{
-        display:flex;
-        justify-content: space-between;
-        margin: 0 35px;
-        .btn_left{
-            display:flex;
-            input{
-                margin-right:30px;
-                color: $color5;
-                background-color: #FFF7AB;
-                border: none;
-                font-size: $btnMd-fzSize;
-            }
-        }
-    }
     .box{
-        // border: 2px solid green;
-        width:100%;
-        table{
-            width:100%;
-            margin:30px;
-            // border:1px solid red;
-            tr{
-                td{
-                    font-size: $word-fzSize;
-                    padding:20px;
-                    // border: 1px solid blue;
-                }
+        tr{
+            td input{
+                width:15px;
+                vertical-align: middle;
             }
         }
     }

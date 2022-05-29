@@ -13,16 +13,20 @@
     }
 }
 .title_back{
+    position:absolute;
+    top:25px;
+    left:35%;
     width:30%;
     display:flex;
     margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
+    padding: 20px 0px;
     background-color: #FFF7AB;
-    margin-top: 30px;
+    margin-top: 10px;
     border-radius: 20px;
+    z-index: 3;
     .logo_img {
         // width:200px;
         img {
@@ -66,6 +70,9 @@
     }
 }
 .back_footer{
+    position:absolute;
+    width:100%;
+    bottom:0;
     svg{
       vertical-align: bottom;  
     }
@@ -92,7 +99,7 @@
         font-size: .8rem;
         @include xl(){
             color:$color1;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
         
     }
@@ -100,7 +107,7 @@
         font-size: .6rem;
         font-weight: 100;
         color:$color5;
-        margin-top: 5px;
+        // margin-top: 5px;
         text-align: center;
         font-family: $family2;
         @include md(){
