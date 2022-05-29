@@ -22,10 +22,10 @@
     
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>設施管理</h2>
         <div>
-            <button>新增</button>
+            <button @click="show">新增</button>
         </div>
         <table class="box">
             <tr>
@@ -50,9 +50,62 @@
                 <td>false</td>
                 <td>false</td>
                 <td>1</td>
-                <td><button>編輯</button></td>
+                <td><button  @click="show">編輯</button></td>
             </tr>
         </table>
+        <div class="back_lightbox backLightbox">
+            <div>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <table class="innerData">
+                    <tr>
+                        <th>設施圖片</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>設施名稱</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>所在園區</th>
+                        <td>
+                            <select name="
+                            " id="">
+                        <option value="正常">正常</option>
+                        <option value="凍結">正常</option>
+                    </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>維護時間</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>維護時間</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>雨天影響</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>孕婦乘坐</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>輪椅乘坐</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>排名</th>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+                <div>
+                    <button>新增</button>
+                    <button>修改確定</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--  ===============map ===============  -->
@@ -61,3 +114,5 @@
     <!-- @@include('layout/footer.html') -->
 </body>
 </html>
+<!-- 共用燈箱js -->
+<script src="js/backLightbox.js"></script>

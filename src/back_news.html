@@ -22,10 +22,10 @@
     
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>最新消息管理</h2>
         <div>
-            <button>新增</button>
+            <button @click="show">新增</button>
         </div>
         <table class="box">
             <tr>
@@ -42,14 +42,43 @@
                 <td>防疫公告</td>
                 <td>亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。</td>
                 <td>2022/5/29</td>
-                <td><button>編輯</button></td>
+                <td><button @click="show">編輯</button></td>
             </tr>
         </table>
+        <div class="back_lightbox backLightbox">
+            <div>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <table class="innerData">
+                    <tr>
+                        <th>消息照片</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>消息標題</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>消息內容</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>更新日期</th>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+                <div>
+                    <button>新增</button>
+                    <button>修改確定</button>
+                </div>
+            </div>
+        </div>
     </div>
-
+  
     <!--  ===============map ===============  -->
     <!-- @@include('layout/map.html') -->
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
 </body>
 </html>
+<!-- 共用燈箱js -->
+<script src="js/backLightbox.js"></script>
