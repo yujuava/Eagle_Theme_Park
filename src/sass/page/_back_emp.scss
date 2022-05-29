@@ -1,0 +1,22 @@
+
+.back_reset{
+    .box{
+        text-align: center;
+        line-height: 30px;
+        table-layout : fixed;
+        word-wrap : break-word;
+        border-collapse: collapse;
+        img{
+            aspect-ratio:16/9; 
+            width: 100%;
+            margin: auto;
+            display: block;
+        }
+        th{
+            background-color: $color2;
+        }
+        td{
+            vertical-align:middle;
+        }
+    }
+}
