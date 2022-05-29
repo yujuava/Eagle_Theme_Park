@@ -150,14 +150,24 @@
     align-items: center;
     margin-top: 10px;
     padding: 10px;
-
+    position: relative;
 }
-.shop .postcard img{
+.shop .postcard>img{
     width: 100%;
     display: block;
     margin: auto;
     justify-content: center;
     align-items: center;
+}
+.shop .stamp{
+  position: absolute;
+  width: 11%;
+  left: 82%;
+  top: 10%;
+  aspect-ratio: 1/1;
+}
+.shop .stamp img{
+  width: 100%;
 }
 .shop .stickerslider{
   position: relative;
@@ -238,31 +248,40 @@
 
 // -------------------------------------------
 .shop .product{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: flex-start;
+}
+.itemColumn{
+  width: 50%; 
+  padding: 30px;
+  text-align: center;
+}
+@include md{
+  .itemColumn{
+    width: 33.33333%; 
+  }
 }
 .shop .product .item{
-    display: block;
-    margin: 50px;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-}
-.shop .product .item .itempic{
-    width: 200px;
-    height: 200px;
-    
-}
 .shop .product  img{
     width: 100%;
 }
-.shop .product .item .card{
-    margin-top: 30px;
-}
-.shop .product .item .card p{
-    color: $color4;
-}
+// .shop .product .item .card{
+//     margin-top: 30px;
+// }
+// .shop .product .item .card p{
+//     color: $color4;
+// }
 
 // 引用RWD 方式
 @include md{
