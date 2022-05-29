@@ -1,56 +1,241 @@
 // shop css
 .shop .postbg{
-    background-color:$color3;
-    padding: 20px;
+  background-color: $color2;
+}
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  padding:80px 30px 0 30px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+.mySlides img{
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.mySliderContainer{
+  position: relative;
+}
+.sliderButton{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: $color1;
     
 }
-.shop .pic{
-    background-color: #fff;
-    width: 1090px;
-    height: 580px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+
+.next, .prev{
+  position: relative;
+  z-index: 2;
+  transition: .3s ease-in-out;
+  cursor: pointer;
 }
-.shop .pic img{
-    display: block;
-    margin: auto;
+.next::before, .prev::before {
+  content: "";
+  z-index: -1;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  transform: translateX(50%);
+  transform: translateY(-50%);
+  background-color: rgba($color6, 0.3); 
+  transition: .3s ease-in-out;
 }
+.next:hover::before, .prev:hover::before {
+  content: "";
+  background-color: rgba($color6, 0.8); 
+}
+
+/* Position the "next button" to the right */
+// .next {
+//   right: 0;
+//   border-radius: 3px 0 0 3px;
+// }
+
+/* On hover, add a black background color with a little bit see-through */
+// .prev:hover, .next:hover {
+//   background-color: rgba(224, 200, 60, 0.8);
+// }
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+// .dot {
+//   cursor: pointer;
+//   height: 15px;
+//   width: 15px;
+//   margin: 0 2px;
+//   background-color: #58B19F;
+//   border-radius: 50%;
+//   display: inline-block;
+//   transition: background-color 0.6s ease;
+// }
+
+// .active, .dot:hover {
+//   background-color: #B33771;
+// }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+// .shop .postbg{
+//     background-color:$color3;
+//     padding: 20px;
+    
+// }
+// .shop .pic{
+//     width: 1090px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: auto;
+// }
+// .shop .pic img{
+//     width: 100%;
+//     display: block;
+//     margin: auto;
+// }
 .shop .postcard{
     background-color: $color1;
-    width: 1090px;
-    height: 580px;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    padding: 10px;
 
 }
 .shop .postcard img{
+    width: 100%;
     display: block;
     margin: auto;
     justify-content: center;
     align-items: center;
 }
+.shop .stickerslider{
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+  aspect-ratio: 426/120;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 .shop .sticker{
-    display: flex;
-   justify-content: center;
+  width: 200%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: absolute;
+  transition: 0.3s;
 }
 .shop .sticker li{
-    margin: 20px;
     background-color: #fff;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.shop .sticker li img{
+  width: 100%;
 }
 
-.shop .upload{
-    text-align: center;
+// 明信片貼紙
+.postcardWrap{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+// .shop .sliderBtn{
+//   position: absolute;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+.shop #sliderLeft, #sliderRight{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color:color5;
+  font-size: 30px;
+}
+.shop #sliderLeft{
+  left: 23%;
+}
+.shop #sliderRight{
+  right: 23%;
+}
+// .shop #sliderLeft::before, #sliderRight::before{
+//   content: "";
+//   z-index: 0;
+//   width: 90px;
+//   height: 90px;
+//   border-radius: 50%;
+//   position: absolute;
+//   top: 50%;
+//   left: -100%;
+//   transform: translateX(50%);
+//   transform: translateY(-50%);
+//   background-color: rgba($color6, 0.3); 
+//   transition: .3s ease-in-out;
+// }
+
+
+
+
 // -------------------------------------------
 .shop .product{
     display: flex;
@@ -78,6 +263,7 @@
 .shop .product .item .card p{
     color: $color4;
 }
+
 // 引用RWD 方式
 @include md{
     

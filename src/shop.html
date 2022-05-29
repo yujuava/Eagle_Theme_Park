@@ -16,38 +16,70 @@
     @@include('layout/h2Style.html',{
         "h2Title" : "伊果商城"
     })
-        
-        <div class="wrap postbg">
 <!-- 明信片圖片 -->
-            <div class="pic">
-               <img src="./images/postcard1.jpg" alt="">
+        <div class="wrap postbg" >      
+               <!-- Slideshow container -->
+            <div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+                <div class="mySliderContainer">
+                    <div class="mySlides fade">
+                        <img src="./images/postcard1.jpg">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="./images/postcard2.jpg">   
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="./images/postcard3.jpg">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="./images/postcard4.jpg">
+                    </div>
+                    <div class="sliderButton">
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </div>
+
+    <!-- Next and previous buttons -->
+
+
+    <!-- 明信片內容 -->
+                <div class="postcard">
+                    <img src="./images/postcardback.jpg" alt="">
+                </div>          
             </div>
-            
-            
-<!-- 明信片內容 -->
-            <div class="postcard">
-                <img src="./images/postcardback.jpg" alt="">
-            </div>
-            
 <!-- 明信片貼紙 -->
-            <ul class="sticker">
-                <li><img src="./images/sticker1.png" alt=""></li>
-                <li><img src="./images/sticker2.png" alt=""></li>
-                <li><img src="./images/sticker3.png" alt=""></li>
-                <li><img src="./images/sticker4.png" alt=""></li>
-                <li><img src="./images/sticker5.png" alt=""></li>
-            </ul>
-            <div class="stickeritem">
-               <div></div>
-                <div></div>
-                </div>
-<!-- 寄送按鈕 -->
-                <div class="upload">
-                    <button>寄送</button>
-                </div>
+        <div class="postcardWrap">
+            <div class="stickerslider">
+                <ul class="sticker">
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker2.png" alt=""></li>
+                    <li><img src="./images/sticker3.png" alt=""></li>
+                    <li><img src="./images/sticker4.png" alt=""></li>
+                    <li><img src="./images/sticker5.png" alt=""></li>
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker1.png" alt=""></li>
+                </ul>
             </div>
+            <button id="sliderLeft">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button id="sliderRight">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
+
+
+<!-- 寄送按鈕 -->
+            <div class="upload">
+                <button>寄送</button>
+            </div>
+        </div>   
     </section>
+<!-- ---------------------- -->
 <!-- 小標使用這個 -->
     <section>
     @@include('layout/title.html',{
@@ -136,12 +168,12 @@
         </div>
     </section>
 
-
-
-
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
+
+    <script src="./js/shopSlideshow.js"></script>
+    <script src="./js/shop.stckerslider.js"></script>
 </body>
 </html>
