@@ -17,7 +17,7 @@
 
 
     <section class="Ticket-Purchase">
-        <!-- <div class="wrap"> -->
+        <div class="wrap">
             <div class="purchase-process one">
                 <div class="circular">1</div>
                 <div class="circular">2</div>
@@ -26,7 +26,7 @@
             </div>
             <div class="ticket-details">
                 <h2>購票明細</h2>
-                <div class="table-item">
+                <div class="table-item ONE">
                     <table>
                         <tr>
                             <th>&nbsp;</th>
@@ -63,15 +63,15 @@
             </div>
             <div class="orderer-information">
                 <h2>訂購人資料</h2>
-                <div class="table-item">
+                <div class="table-item TWO">
                     <table>
                         <tr>
                             <th><p>名字</p></th>
                             <th><p>姓氏</p></th>
                         </tr>
                         <tr>
-                            <td><input type="text" id="name" class="row"></td>
-                            <td><input type="text" id="last-name" class="row"></td>
+                            <td><input type="text" id="name"></td>
+                            <td><input type="text" id="last-name"></td>
                         </tr>
                         <tr>
                             <td><p>國家/地區</p></td>
@@ -79,7 +79,7 @@
                         </tr>
                         <tr>
                             <td><input type="text" id="country"></td>
-                            <td><input type="text" id="tel" class="row"></td>
+                            <td><input type="text" id="tel"></td>
                         </tr>
                         <tr>
                             <td><p>電子郵件信箱</p></td>
@@ -104,27 +104,27 @@
             </div>
             <div class="checkout">
                 <h2>結帳</h2>
-                <div class="table-item">
+                <div class="table-item THREE">
                     <table>
                         <tr>
-                            <td><label for="">信用卡號</label></td>
+                            <td> <p>信用卡卡號</p> </td>
                             <td><input type="text" id=""></td>
                             <td><input type="text" id=""></td>
                             <td><input type="text" id=""></td>
                             <td><input type="text" id=""></td>
                         </tr>
                         <tr>
-                            <td><label for="">有效日期</label></td>
+                            <td> <p>有效日期</p> </td>
                             <td><input type="text" id="effectiveDate"></td>
                         </tr>
                         <tr>
-                            <td><label for="">後三碼</label></td>
+                            <td>後三碼</td>
                             <td><input type="text" id="lastThreeYards"></td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <input type="submit" value="確認">
+            <button class="mdBtn-check" type="submit">確認</button>
 
         </div>
     </section>
