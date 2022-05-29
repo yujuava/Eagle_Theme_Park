@@ -166,35 +166,38 @@ Vue.component('card-component',{
 });
 
 new Vue({
+    el:'#all-thrill-ride',
     data:{
         cards,
-        nameList: ['伊果飛車','仙女散花',"天旋地轉",'摩天輪',"無敵海盜船",'空中UFO','旋轉木馬','極速飛鷹','伊果山車','伊飛沖天','自由落體','急流泛舟','飛鷹歷險'],
+        // nameList: [this.name],
         currentFilter: 'ALL',
-        currentRain:'ALL',
     },
-    el:'#all-thrill-ride',
     methods: {  // 函數大部分放這裡!
 
+        allFacility:function(){
+            return this.name;
+        },
+
         setFilter: function(filter) {
-			this.currentFilter = filter;
-		},
+            this.currentFilter = filter;
+		},   
 
-        changeA(){
-            this.$refs.A.style.background="red";
-            this.$refs.B.style.background="blue";
-            this.$refs.C.style.background="blue";
+        
+        changeNw(){
+            this.$refs.nw.style.background="#245D68";
+            this.$refs.west.style.background="#FDB52D";
+            this.$refs.indian.style.background="#FDB52D";
             },
-        changeB(){
-            this.$refs.B.style.background="red";
-            this.$refs.A.style.background="blue";
-            this.$refs.C.style.background="blue";
+        changeWest(){
+            this.$refs.nw.style.background="#FDB52D";
+            this.$refs.west.style.background="#245D68";
+            this.$refs.indian.style.background="#FDB52D";
             },
-        changeC(){
-            this.$refs.C.style.background="red";
-            this.$refs.B.style.background="blue";
-            this.$refs.A.style.background="blue";
-        }
-
+        changeIndian(){
+            this.$refs.nw.style.background="#FDB52D";
+            this.$refs.west.style.background="#FDB52D";
+            this.$refs.indian.style.background="#245D68";
+        },
     },
     computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
 
