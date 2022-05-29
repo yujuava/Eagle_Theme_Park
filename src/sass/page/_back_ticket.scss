@@ -22,8 +22,19 @@
         }
     }
     .box{
-        border: 1px solid red;
+        // border: 2px solid green;
         width:100%;
-        
+        table{
+            width:100%;
+            margin:30px;
+            // border:1px solid red;
+            tr{
+                td{
+                    font-size: $word-fzSize;
+                    padding:20px;
+                    // border: 1px solid blue;
+                }
+            }
+        }
     }
 }
