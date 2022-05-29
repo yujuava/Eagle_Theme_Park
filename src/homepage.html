@@ -416,14 +416,14 @@
         <section class="ThrillRide">
             <div class="wrap"  id="all-thrill-ride" >
                 <div class="all-btn">
-                    <div class="bgBtn-area"  @click="setFilter('紐約')"  ref="A" @click="changeA">
+                    <div class="bgBtn-area"  @click="setFilter('紐約');changeNw()"  ref="nw">
                         紐約都會
                     </div>
-                    <div class="bgBtn-area" @click="setFilter('西部')"  ref="B" @click="changeB">
+                    <div class="bgBtn-area" @click="setFilter('西部');changeWest()"  ref="west">
                         西部農莊
                         
                     </div>
-                    <div class="bgBtn-area" @click="setFilter('印安')"  ref="C" @click="changeC">
+                    <div class="bgBtn-area" @click="setFilter('印安');changeIndian()"  ref="indian">
                         印安部落
                     </div>
                 </div>
@@ -444,12 +444,12 @@
                 </div>
                 
                 <ul class="facility-list card-bdr">
-                    <li v-for="item in nameList">{{item}}</li>
+                    <li>{{ allFacility() }}</li>
                 </ul>
 
                 <div>
                     <transition-group name="cards" tag="div" class="all-card">
-                        <card-component v-for="item in cards" :item="item" :key="item.id" v-if="currentFilter === item.area1 || currentFilter === 'ALL'"/>
+                        <card-component v-for="item in cards" :item="item" :key="item.id" v-show="currentFilter === item.area1 || currentFilter === 'ALL'">
                     </transition-group>
                 </div>
 
