@@ -169,7 +169,7 @@ new Vue({
     el:'#all-thrill-ride',
     data:{
         cards,
-        // nameList: [this.name],
+
         currentFilter: 'ALL',
     },
     methods: {  // 函數大部分放這裡!
