@@ -43,7 +43,7 @@ for(let i=0;i<area.length;i++){
 let mapAirplane = gsap.fromTo("#map-airplane",{
     x:0,
 },{
-    x:-200,
+    x:-80,
     duration:3,
     repeat:-1,
     yoyo:true,
