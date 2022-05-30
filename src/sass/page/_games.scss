@@ -26,9 +26,15 @@
         background-color: $color2;
         border-radius: 15px;
         aspect-ratio: 1/1;
+        padding-bottom: 30px;
     }
-    .gamesCard p{
-        padding: 15px;
+    .gamesCard p:nth-of-type(1){
+        font-size: $h6-fzSize;
+        padding: 15px 15px 0 15px;
+    }
+    .gamesCard p:nth-of-type(2){
+        font-size: $word-fzSize;
+        padding: 0 15px 15px 15px;;
     }
     .gamesImg{
         padding: 15px;
@@ -37,16 +43,7 @@
         width: 100%;
     }
 
-    // @include bgBtn(area){
-    //     margin: 0 5px;
-    //     font-size: 13px;
-    //     @include md(){
-    //         margin: 0 20px;
-    //         font-size: $md-word-fzSize;
-    //     }   
-    // }
     @include bgBtn(games){
-
         font-size: 13px;
         @include md(){
             margin: 0 20px;
@@ -56,8 +53,7 @@
 
 
     .gamesCard button{
-        padding: 3px 15px 3px 15px;
-        margin-bottom: 15px;
+        padding: 5px 15px 5px 15px;
         background-color: $color6;
         color: $color5;
         border: none;

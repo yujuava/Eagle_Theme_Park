@@ -301,20 +301,20 @@
     }
     @include md{
         .index__entry button{
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
         }
     }
     @include lg{
         .index__entry button{
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
         }
     }
     @include xl{
         .index__entry button{
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
         }
     }
 

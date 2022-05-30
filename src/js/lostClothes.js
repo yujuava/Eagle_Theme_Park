@@ -25,18 +25,19 @@ function DoFirst(){
         // draw canvas
 
         // show game progress
-        context.fillStyle='#245D68'; 
-        context.font = "30px Arial";
-        context.fillText("換衣服進度: 0/3", 10, 30); 
+
 
         let eagleImg = new Image();                 // 這裡是讀取外部圖片語法, 需要先建立Image物件 並在頁面讀取完成時才載入
+        let Bcg = new Image();
         eagleImg.src = '../images/games__clothesEagleLost.png';
+        Bcg.src = '../images/games__clothesBcg.jpg';
         eagleImg.onload = () => {
-            context.drawImage(eagleImg, canvas.width*0.2, canvas.width*0.2, canvas.width*0.6, canvas.width*0.6);
-
+            context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
+            context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
+            context.fillStyle='#245D68'; 
+            context.font = "30px Arial";
+            context.fillText("換衣服進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
         };
-
-        
         
         let topImg1 = new Image();
         topImg1.src = '../images/games__clothesTop-1.png';
@@ -93,7 +94,8 @@ function DoFirst(){
 
         document.getElementById('btnClear').addEventListener('click', () =>{
             context.clearRect(0, 0, canvas.width, canvas.height); 
-            context.drawImage(eagleImg, canvas.width*0.2, canvas.width*0.2, canvas.width*0.6, canvas.width*0.6);
+            context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
+            context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
             topFlag = false;
             middleFlag = false;
             bottomFlag = false;
@@ -103,16 +105,19 @@ function DoFirst(){
             typeBottom = undefined;
             context.fillStyle='#245D68'; 
             context.font = "30px Arial";
-            context.fillText(`換衣服進度: 0/3`, 10, 30); 
+            context.fillText("換衣服進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
         });
 
 
 
         function drawClothes(){
             context.clearRect(0, 0, canvas.width, canvas.height); 
-            context.drawImage(eagleImg, canvas.width*0.2, canvas.width*0.2, canvas.width*0.6, canvas.width*0.6);
+            context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
+            context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
             if( typeof typeTop !== "undefined" ){
-                context.drawImage(typeTop, canvas.width*0.4, canvas.width*0.06, canvas.width*0.3, canvas.width*0.3);
+                context.rotate(15 * Math.PI/180 );
+                context.drawImage(typeTop, canvas.width*0.43, canvas.height*-0.1, canvas.width*0.3, canvas.height*0.3);
+                context.setTransform(1, 0, 0, 1, 0, 0);
                 topFlag = true;
             }
             
@@ -122,7 +127,7 @@ function DoFirst(){
             }
 
             if( typeof typeBottom !== "undefined" ){
-                context.drawImage(typeBottom, canvas.width*0.35, canvas.width*0.7, canvas.width*0.3, canvas.width*0.08);
+                context.drawImage(typeBottom, canvas.width*0.4, canvas.width*0.7, canvas.width*0.2, canvas.width*0.2);
                 bottomFlag = true;
             }
 
@@ -131,7 +136,7 @@ function DoFirst(){
 
             context.fillStyle='#245D68'; 
             context.font = "30px Arial";
-            context.fillText(`換衣服進度: ${progressResult}/3`, 10, 30); 
+            context.fillText(`換衣服進度: ${progressResult}/3`, canvas.width*0.05, canvas.height*0.95); 
             
             if( progressResult == 3 && couponMsg == false){
                 couponMsg = true;
