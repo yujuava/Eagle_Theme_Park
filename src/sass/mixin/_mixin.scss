@@ -23,7 +23,7 @@
 };
 //============h2設定======================
 @mixin h2Set(){
-    border: 1px solid blue;
+    // border: 1px solid blue;
     h2{
         font-size: $h2-fzSize; 
         font-family:$family1;
