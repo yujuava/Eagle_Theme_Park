@@ -1,222 +1,301 @@
-.wrap {
-    .one {
-        display: flex;
-        justify-content: center;
-        font-size: 30px;
-        position: relative;
+.ticket-purchase {
+    input {
+        border: 1.5px solid $color4;
+        width: 60%;
+        height: 25px;
+        border-radius: $sm-word-fzSize;
 
-        .circular {
-            background-color: lighten($color7, 15%);
-            margin: 30px;
-            padding: 15px;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $color8;
-
-            &:first-child {
-                background-color: $color7;
-                color: $color9;
-            }
+        @include md() {
+            height: 30px;
+            margin-bottom: 20px;
         }
 
-        .line {
-            background-color: lighten($color7, 15%);
-            position: absolute;
-            top: 35%;
-            padding: 15px 90px;
-            z-index: -1;
-            border-radius: 10px;
+        @include xl() {
+            height: 35px;
         }
+
     }
 
-    .ticket-details {
+    h2 {
+        color: $color9;
         text-align: center;
-        .ONE{
-            background-size:contain;
-            @include md(){
-                background-size: cover;   
-            }
-            @include lg{
-                aspect-ratio: 852/307;
-            }
-            
-                td {
-                    padding: 5px;
-                    
-                    p {
-                        width: 50px;
-                        @include md(){
-                            width: 100px;   
-                        }
-                    }
-                }
-            
-        }
-            
     }
 
-    .ticket-order-tp {
+    p {
+        font-size: $word-fzSize;
+        width: 300px;
+    }
+
+    .table-item {
+        background-image: url(../../images/Subtract.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        color: $color9;
         margin: auto;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        input {
-            margin: 5px;
-            width: 30%;
-            @include md(){
-                margin: 20px 5px;   
-            }
-        }
-
     }
 
-    .two {
-        display: flex;
-        justify-content: center;
-        font-size: 30px;
-        position: relative;
+    .purchase {
+        width: 100%;
 
-        .circular {
-            background-color: lighten($color7, 15%);
-            color: $color8;
-            margin: 30px;
-            padding: 15px;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:nth-child(2) {
-                background-color: $color7;
-                color: $color9;
-            }
-        }
-
-        .line {
-            background-color: lighten($color7, 15%);
-            position: absolute;
-            top: 35%;
-            padding: 15px 90px;
-            z-index: -1;
-            border-radius: 10px;
-        }
-    }
-
-    .orderer-information {
-        margin: auto;
-        .TWO{
-            aspect-ratio: 327/108;
-            @include md(){
-                background-size:cover ;
-            }
+        @include lg() {
+            // width: 60%;
         }
         
-
-        p {
+        .item{
+            border: 1px solid #000;
+            margin: 10px;
+        }
+        .item-price {
             display: flex;
-            justify-content: flex-start;
-            margin: 5px 10px;
-        }
-
-        input {
             width: 90%;
+            justify-content: space-evenly;
+            text-align: end;
+        }
+        
+        .ticket-type{
+            display: flex;
+            padding: 5px;
+            width: 90%;
+            justify-content: space-around;
+            text-align: end;
+            // align-items: flex-end;
+            .col{
+                margin-right: 5px;
+            }
+        }
+
+
+        .one {
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            position: relative;
+
+            .circular {
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $color8;
+
+                @include md() {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                &:first-child {
+                    background-color: $color7;
+                    color: $color9;
+                }
+            }
+
+            .line {
+                position: absolute;
+                top: 40%;
+                width: 200px;
+                border: 10px solid lighten($color7, 15%);
+                z-index: -1;
+            }
+        }
+
+        .ticket-details {
+            // text-align: center;
+            border: 1px solid #000;
+
+            .ONE {
+                border: 2px solid red;
+                background-size: contain;
+                // padding: 30px;
+
+
+
+                @include md() {
+                    background-size: cover;
+                }
+
+                @include lg {
+                    aspect-ratio: 852/307;
+                }
+
+
+
+                p {
+                    width: 50px;
+                    // text-align: center;
+
+                    @include md() {
+                        width: 100px;
+                    }
+                }
+
+
+
+
+            }
+        }
+
+        .ticket-order-tp {
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            input {
+                margin: 5px;
+                width: 30%;
+
+                @include md() {
+                    margin: 20px 5px;
+                }
+            }
+
+        }
+
+        .two {
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            position: relative;
+
+            .circular {
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $color8;
+
+                &:nth-child(2) {
+                    background-color: $color7;
+                    color: $color9;
+                }
+
+                @include md() {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            .line {
+                position: absolute;
+                top: 40%;
+                width: 200px;
+                border: 10px solid lighten($color7, 15%);
+                z-index: -1;
+            }
+        }
+
+        .orderer-information {
+            .TWO {
+                background-size: contain;
+                padding: 30px 90px;
+
+                @include md() {
+                    background-size: contain;
+                }
+
+                @include lg {
+                    aspect-ratio: 1092/754;
+                }
+
+
+                .col {
+                    width: 100%;
+                }
+
+
+                input {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+            }
+        }
+
+
+
+
+        .three {
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            position: relative;
+
+            .circular {
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $color8;
+
+                &:nth-child(3) {
+                    background-color: $color7;
+                    color: $color9;
+                }
+
+                @include md() {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            .line {
+                position: absolute;
+                top: 40%;
+                width: 200px;
+                border: 10px solid lighten($color7, 15%);
+                z-index: -1;
+            }
+        }
+
+        .THREE {
+            background-size: contain;
+            padding: 30px 100px;
+
+
+
+            @include md() {
+                background-size: cover;
+            }
+
+            @include lg {
+                aspect-ratio: 852/307;
+            }
+
+            p {
+                width: 100px;
+                text-align: start;
+            }
+
+            input {
+                // width: 90%;
+            }
 
         }
 
     }
 }
 
-
-.three {
+.check-btn {
     display: flex;
     justify-content: center;
-    font-size: 30px;
-    position: relative;
-
-    .circular {
-        background-color: lighten($color7, 15%);
-        color: $color8;
-        margin: 30px;
-        padding: 15px;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &:nth-child(3) {
-            background-color: $color7;
-            color: $color9;
-        }
-    }
-
-    .line {
-        background-color: lighten($color7, 15%);
-        position: absolute;
-        top: 35%;
-        padding: 15px 90px;
-        z-index: -1;
-        border-radius: 10px;
-    }
-}
-.THREE{
-    background-size: contain;
-    // padding: 1000px;
-    @include md(){
-        background-size: 100%;
-    }
-    @include lg(){
-        background-size: 1181/300;    
-    }
-
-}
-
-
-
-//共用
-// input {
-//     border: 1.5px solid $color4;
-//     width: 60%;
-//     height: 25px;
-//     border-radius: $sm-word-fzSize;
-
-//     @include md() {
-//         height: 30px;
-//         margin-bottom: 20px;
-//     }
-
-//     @include xl() {
-//         height: 35px;
-//     }
-
-// }
-
-.table-item {
-    // border: 1px solid #000;
-    background-image: url(../../images/Subtract.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    // background-size: 600px;
-    padding: 30px;
     text-align: center;
-    // border: 1px solid#fa0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: $color9;
+    margin: 10px;
+
+    @include bgBtn(check) {}
 }
-
-
-h2 {
-    color: $color9;
-    text-align: center;
-}
-
-p {
-    font-size: $word-fzSize;
-}
-
-
-@include mdBtn(check){}
