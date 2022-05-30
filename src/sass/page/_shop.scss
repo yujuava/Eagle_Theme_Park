@@ -210,7 +210,7 @@
   }
   
   // ----------------------------------------
-  .lightbox-bdr{
+  .light-box{
     width: 40%;
     background-color: $color1;
     /* 利用FIXED固定在螢幕中間 */
@@ -241,7 +241,7 @@
   .productName ,.productPrice{
     display: flex;
   }
-  .lightbox-bdr button{
+  .light-box button{
     position: absolute;
     top: 0;
     right:0;
@@ -250,12 +250,22 @@
     width: 40px;
     height: 40px;
     border: none;
-    
   }
   .lightbox-bdr .count{
     display: flex;
+    align-items: center;
   }
-
+  .count .num{
+    width: 50px;
+    margin: 0 5px;
+    text-align: center;
+  }
+  .addCart{
+    margin-top: 20px;
+    background-color: $color6;
+    border: none;
+    border-radius: $sm-word-fzSize;
+  }
   #boxBcg{
     background-color: rgba( 36, 93, 104, 0.4);
     position: fixed;
@@ -266,7 +276,9 @@
     right: 0;
     display: none;
 }
-  
+  #turnOff{
+    background-color: transparent;
+  }
 
 
 
