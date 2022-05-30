@@ -1,346 +1,287 @@
-// shop css
-.shop .postbg{
-  background-color: $color2;
-}
-.slideshow-container {
-  width: 100%;
-  position: relative;
-  margin: auto;
-  padding:80px 30px 0 30px;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-.mySlides img{
-  width: 100%;
-}
-
-/* Next & previous buttons */
-.mySliderContainer{
-  position: relative;
-}
-.sliderButton{
-    position: absolute;
-    z-index: 2;
+.shop{
+  .postbg{
+    background-color: $color2;
+  }
+  .slideshow-container {
     width: 100%;
+    position: relative;
+    margin: auto;
+    padding:80px 30px 0 30px;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  .mySlides img{
+    width: 100%;
+  }
+
+  /* Next & previous buttons */
+  .mySliderContainer{
+    position: relative;
+  }
+  .sliderButton{
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 60px;
+      color: $color1;
+      
+  }
+
+  .next, .prev{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+  }
+  .next::before, .prev::before {
+    content: "";
+    z-index: -1;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    transform: translateX(50%);
+    transform: translateY(-50%);
+    background-color: rgba($color6, 0.3); 
+    transition: .3s ease-in-out;
+  }
+  .next:hover::before, .prev:hover::before {
+    content: "";
+    background-color: rgba($color6, 0.8); 
+  }
+
+
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  .postcard{
+      background-color: #fff;
+      width: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      padding: 10px;
+      position: relative;
+  }
+  .postcard>img{
+      width: 100%;
+      display: block;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+  }
+  .stamp{
+    position: absolute;
+    width: 11%;
+    left: 82%;
+    top: 10%;
+    aspect-ratio: 1/1;
+  }
+  .stamp img{
+    width: 100%;
+  }
+  .stickerslider{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    aspect-ratio: 426/120;
+    overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+  }
+  .sticker{
+    width: 200%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: absolute;
+    transition: 0.3s;
+  }
+  .sticker li{
+      background-color: $color1;
+  }
+  .sticker li img{
+    width: 100%;
+  }
+
+  // 明信片貼紙
+  .postcardWrap{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #sliderLeft, #sliderRight{
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 60px;
-    color: $color1;
-    
-}
-
-.next, .prev{
-  position: relative;
-  z-index: 2;
-  transition: .3s ease-in-out;
-  cursor: pointer;
-}
-.next::before, .prev::before {
-  content: "";
-  z-index: -1;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: -100%;
-  transform: translateX(50%);
-  transform: translateY(-50%);
-  background-color: rgba($color6, 0.3); 
-  transition: .3s ease-in-out;
-}
-.next:hover::before, .prev:hover::before {
-  content: "";
-  background-color: rgba($color6, 0.8); 
-}
-
-/* Position the "next button" to the right */
-// .next {
-//   right: 0;
-//   border-radius: 3px 0 0 3px;
-// }
-
-/* On hover, add a black background color with a little bit see-through */
-// .prev:hover, .next:hover {
-//   background-color: rgba(224, 200, 60, 0.8);
-// }
-
-/* Caption text */
-.shop .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.shop .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-// .dot {
-//   cursor: pointer;
-//   height: 15px;
-//   width: 15px;
-//   margin: 0 2px;
-//   background-color: #58B19F;
-//   border-radius: 50%;
-//   display: inline-block;
-//   transition: background-color 0.6s ease;
-// }
-
-// .active, .dot:hover {
-//   background-color: #B33771;
-// }
-
-/* Fading animation */
-.shop.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-// .shop .postbg{
-//     background-color:$color3;
-//     padding: 20px;
-    
-// }
-// .shop .pic{
-//     width: 1090px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin: auto;
-// }
-// .shop .pic img{
-//     width: 100%;
-//     display: block;
-//     margin: auto;
-// }
-.shop .postcard{
-    background-color: $color1;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    padding: 10px;
-    position: relative;
-}
-.shop .postcard>img{
-    width: 100%;
-    display: block;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-}
-.shop .stamp{
-  position: absolute;
-  width: 11%;
-  left: 82%;
-  top: 10%;
-  aspect-ratio: 1/1;
-}
-.shop .stamp img{
-  width: 100%;
-}
-.shop .stickerslider{
-  position: relative;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 50%;
-  aspect-ratio: 426/120;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-.shop .sticker{
-  width: 200%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  position: absolute;
-  transition: 0.3s;
-}
-.shop .sticker li{
-    background-color: #fff;
-}
-.shop .sticker li img{
-  width: 100%;
-}
-
-// 明信片貼紙
-.shop .postcardWrap{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-// .shop .sliderBtn{
-//   position: absolute;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-.shop #sliderLeft, #sliderRight{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color:color5;
-  font-size: 30px;
-}
-.shop #sliderLeft{
-  left: 23%;
-}
-.shop #sliderRight{
-  right: 23%;
-}
-// .shop #sliderLeft::before, #sliderRight::before{
-//   content: "";
-//   z-index: 0;
-//   width: 90px;
-//   height: 90px;
-//   border-radius: 50%;
-//   position: absolute;
-//   top: 50%;
-//   left: -100%;
-//   transform: translateX(50%);
-//   transform: translateY(-50%);
-//   background-color: rgba($color6, 0.3); 
-//   transition: .3s ease-in-out;
-// }
-
-
-
-
-// -------------------------------------------
-.shop .product{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-}
-.shop .itemColumn{
-  width: 50%; 
-  padding: 30px;
-  text-align: center;
-}
-@include md{
-  .itemColumn{
-    width: 33.33333%; 
+    background-color: transparent;
+    border: none;
+    color:color5;
+    font-size: 30px;
   }
-}
-.shop .product .item{
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  #sliderLeft{
+    left: 23%;
+  }
+  #sliderRight{
+    right: 23%;
+  }
+   
 
-.shop .product  img{
+  // ------商品-------------------------------------
+  .product{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+  }
+  .itemColumn{
+    width: 50%; 
+    padding: 30px;
+    text-align: center;
+  }
+  @include md{
+    .itemColumn{
+      width: 33.33333%; 
+    }
+  }
+  .product .item{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product  img{
+      width: 100%;
+  }
+  
+  // ----------------------------------------
+  .lightbox-bdr{
+    width: 40%;
+    background-color: $color1;
+    /* 利用FIXED固定在螢幕中間 */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+    /* 置中對齊 */
+    /* 平常隱藏 */
+    display: none;
+    z-index: 3;
+  }
+  .lightBoxContent{
+    display: flex;
+    z-index: 3;
+  }
+  .column{
+    width: 50%;
+  }
+  .column img{
     width: 100%;
-}
-// .shop .product .item .card{
-//     margin-top: 30px;
-// }
-// .shop .product .item .card p{
-//     color: $color4;
-// }
-// ----------------------------------------
-.shop .lightbox{
-  width: 40%;
-  background-color: $color1;
-  border: 10px solid $color3;
-  // border-radius: ;
-  /* 利用FIXED固定在螢幕中間 */
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%,-50%,0);
-  /* 置中對齊 */
-  /* 平常隱藏 */
-  display: block;
-}
-.shop.lightBoxContent{
-  display: flex;
-  z-index: 3;
-}
-.shop.column{
-  width: 50%;
-}
-.shop.column img{
-  width: 100%;
-}
-.shop.inforcolumn{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-.shop.productName,.productPrice{
-  display: flex;
-}
-.shop.lightbox button{
-  position: absolute;
-  top: 0;
-  right:0;
-  transform: translate3d(50%, -50%, 0);
-  font-size: 30px;
-  background-color: $color6;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
-.shop.lightboxbg{
-  background-color:rgba($color4 , 0.5);
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-}
-// 引用RWD 方式
-@include md{
+  }
+  .inforcolumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .productName ,.productPrice{
+    display: flex;
+  }
+  .lightbox-bdr button{
+    position: absolute;
+    top: 0;
+    right:0;
+    font-size: 30px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
     
-}
+  }
+  .lightbox-bdr .count{
+    display: flex;
+  }
 
-@include lg{
-    
-    
+  #boxBcg{
+    background-color: rgba( 36, 93, 104, 0.4);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
 }
+  
 
-// 引用公版顏色變數
+
+
+
+
+
+  // 引用RWD 方式
+  @include md{
+      
+  }
+
+  @include lg{
+      
+      
+  }
+
+  // 引用公版顏色變數
+}

@@ -54,8 +54,8 @@
 <!-- 明信片貼紙 -->
         <div class="postcardWrap">
             <div class="stickerslider">
-                <ul class="sticker">
-                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <ul class="sticker">
+                        <li><img src="./images/sticker1.png" alt=""></li>
                     <li><img src="./images/sticker2.png" alt=""></li>
                     <li><img src="./images/sticker3.png" alt=""></li>
                     <li><img src="./images/sticker4.png" alt=""></li>
@@ -73,9 +73,7 @@
             <button id="sliderRight">
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
-        </div>
-<script src="./js/postcardStamp.js"></script>
-
+            </div>
 <!-- 寄送按鈕 -->
             <div class="upload">
                 <button>寄送</button>
@@ -199,31 +197,38 @@
     <!-- footer  -->
     @@include('layout/footer.html')
 <!-- 燈箱 -->
-<div id="lightBox" class="lightbox">
-    <div class="lightBoxContent">
-        <div class="column">
-            <img src="./images/shop_bottle.png" alt="">
-        </div>
-        <div class="column inforcolumn">
-            <div class="productName">
-                <p>商品名稱:</p>
-                <p>伊果保溫瓶</p>
+    <div id="lightBox" class="lightbox-bdr light-box">
+        <div class="lightBoxContent">
+            <div class="column">
+                <img src="./images/shop_bottle.png" alt="">
             </div>
-            <div class="productPrice">
-                <p>價格:</p>
-                <p>600</p>
+            <div class="column inforcolumn">
+                <div class="productName">
+                    <p>商品名稱:</p>
+                    <p>伊果保溫瓶</p>
+                </div>
+                <div class="productPrice">
+                    <p>價格:</p>
+                    <p>600</p>
+                </div>
+                <form>
+                    <div class="count">
+                        <div class="minus">
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                        <input type="text" class="num" min="0" value="0" disabled>
+                        <div class="plus">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                    <input type="submit" value="加入購物車">
+                </form>
             </div>
-            <form>
-                <p class="plus">++</p>
-                <input class="num" type="number" disabled="true">
-                <p class="minus">--</p>
-                <input type="submit" value="加入購物車">
-            </form>
         </div>
+        <button id="turnOff">X</button>
     </div>
-    <span class="lightboxbg"></span>
-    <button id="turnOff">X</button>
-</div>
+    <span id="boxBcg"></span>
+    
 <!-- --------------------------------------------- -->
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
