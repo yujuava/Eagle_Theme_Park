@@ -6,28 +6,33 @@ function DoFirst(){
 
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
-  
+    var OriginWindowWidth = window.innerWidth;
+    canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
+    canvas.height = canvas.width;
+    drawStuff(); 
     // resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, false);
           
     function resizeCanvas() {
         // minus padding value within html/css
-        console.log('resize detected');
-        canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
-        canvas.height = canvas.width;
+        
+        let newWidth = window.innerWidth;
+       if ( newWidth != OriginWindowWidth){
+            canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
+            canvas.height = canvas.width;
        
-        drawStuff(); 
+            drawStuff(); 
+       }
+
     }
     
-    resizeCanvas();
+    // resizeCanvas();
           
     function drawStuff() {
         // draw canvas
 
         // show game progress
-
-
-        let eagleImg = new Image();                 // 這裡是讀取外部圖片語法, 需要先建立Image物件 並在頁面讀取完成時才載入
+        let eagleImg = new Image();  // 這裡是讀取外部圖片語法, 需要先建立Image物件 並在頁面讀取完成時才載入
         let Bcg = new Image();
         eagleImg.src = '../images/games__clothesEagleLost.png';
         Bcg.src = '../images/games__clothesBcg.jpg';
@@ -145,7 +150,10 @@ function DoFirst(){
                     } , 500 );
             }
         }
+
+        drawClothes();
     }
+ 
 }
 
 window.addEventListener('load', DoFirst);
