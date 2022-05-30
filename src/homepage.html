@@ -98,7 +98,7 @@
         @@include('layout/h2Style.html',{
             "h2Title" : "主題園區"
         })
-        <section class="ThemeArea">
+        <section class="ThemeArea" id="ThemeArea">
             <div class="full">
                 <!-- 紐約都會 -->
                 <div class="block newyork">
@@ -452,7 +452,7 @@
                 </div>
                 
                 <ul class="facility-list card-bdr">
-                    <li></li>
+                    <li v-for="(key,value) of allFacility">{{count = key}}</li>
                 </ul>
 
                 <div>
