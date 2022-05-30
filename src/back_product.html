@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', {
+    "title" : "商品管理"
+    })
+</head>
+<!-- 改body class名稱 -->
+
+<body class="back_product back_reset">
+    <!-- 共用header -->
+    <!-- @@include('layout/header-final.html') -->
+    <!-- 共用header end -->
+    <!-- 大標使用這個-->
+    <!-- @@include('layout/h2Style.html',{
+        "h2Title" : "首頁"
+    }) -->
+    <!-- 小標使用這個 -->
+    <!-- @@include('layout/title.html',{
+        "h3TitleTC" : "主題園區",
+        "h3TitleEN": "Theme Area"
+    }) -->
+
+    @@include('layout/backNav.html')
+
+    <div class="back_content">
+        <h2>商品管理</h2>
+        <div>
+            <button @click="show">新增</button>
+        </div>
+
+        <table class="box">
+            <tr>
+                <th>商品圖</th>
+                <th>品號</th>
+                <th>品名</th>
+                <th>售價</th>
+                <th>狀態</th>
+                <th>詳細資訊</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><img src="./images/shop_cap.png" alt=""></td>
+                <td>1</td>
+                <td>帽子</td>
+                <td>500元</td>
+                <td>上架中</td>
+                <td>修改</td>
+                <td><button onclick="showAlert();">刪除</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--  ===============map ===============  -->
+    <!-- @@include('layout/map.html') -->
+    <!-- footer  -->
+    <!-- @@include('layout/footer.html') -->
+
+    <script>
+        function showAlert(){
+            window.alert("是否確認刪除?");
+        }
+    </script>
+</body>
+
+</html>

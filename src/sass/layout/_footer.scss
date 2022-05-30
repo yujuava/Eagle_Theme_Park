@@ -148,8 +148,20 @@ footer{
                 flex-direction: row;
             }
             ul{
+                display: flex;
+                div{
+                    // border: 1px solid #000;
+                    display: flex;
+                    margin-left: 20px;
+                }
                 @include xl(){
+                    display: block;
                     margin-left: 35px;
+                    div{
+                        // border: 1px solid #000;
+                        display: block;
+                        margin-left: 00px;
+                    }
                 }
                 >a{
                     // border-bottom: 1px solid $color9;
@@ -160,6 +172,10 @@ footer{
                     position: relative;
                     font-size: $word-fzSize;
                     font-weight: bold;
+                    transition: .5s;
+                    &:hover{
+                        color:$color3;
+                    }
                     &::after{
                         // border: 1px solid #000;
                         content:"";
@@ -176,6 +192,7 @@ footer{
                         content:"";
                         width: 100%;
                         transform-origin: left;
+                        background-color: $color3;
                     }
               
 
@@ -186,16 +203,16 @@ footer{
                     }
                     
                 }
+            
                 li a{
-                    display: none;
-                    @include xl(){
-                        // border: 1px solid #000;
-                        display: block;
-                        margin-left: 5px;
-                        margin-bottom: 20px;
-                        color:$color9;
-                    }
-                    
+                    display: flex;
+                    margin-left: 5px;
+                    margin-bottom: 20px;
+                    color:$color9;
+                    transition: .5s;
+                    &:hover{
+                        color:$color3;
+                    }                 
                 }
             }
 
