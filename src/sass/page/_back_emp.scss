@@ -1,13 +1,22 @@
 .back_reset{
     //共用table樣式
     .back_content{
+        border-left: 50px solid $color1;
+        border-right: 50px solid $color1;
+        h2{
+            margin:15px 0px;
+            text-align: left;
+        }
         font-size: $word-fzSize;
         > div{
-            margin: 10px;
+            margin: 10px 0px;
             text-align: left;
             button{
-                font-size: $h6-fzSize;
+                font-size: $btnMd-fzSize;
                 margin-right: 10px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
         .box{
@@ -17,6 +26,7 @@
             table-layout : fixed;
             word-wrap : break-word;
             border-collapse: collapse;
+            border: 1px solid $color2;
             img{
                 // aspect-ratio:16/9; 
                 width: 100%;
@@ -26,9 +36,11 @@
             }
             th{
                 background-color: $color2;
+                padding:7px;
             }
             td{
                 vertical-align:middle;
+                padding:10px;
             }
             
         }
@@ -40,6 +52,9 @@
         border: none;
         font-size: $word-fzSize;
         border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+        }
     }
         //共用燈箱
     .back_lightbox{
@@ -61,6 +76,9 @@
                     top: 10px;
                     right: 10px;
                     font-size: 14px;
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
                 table{
                     border-collapse: collapse;
