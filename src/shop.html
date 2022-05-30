@@ -94,7 +94,7 @@
 
             <div class="itemColumn">
                 <div class="item">
-                    <div class="itempic">
+                    <div class="itempic" id="lightBtn">
                         <img src="./images/shop_bottle.png" alt="">
                     </div>
                     <div class="card">
@@ -191,17 +191,44 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </section>
 
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-
+<!-- 燈箱 -->
+<div id="lightBox" class="lightbox">
+    <div class="lightBoxContent">
+        <div class="column">
+            <img src="./images/shop_bottle.png" alt="">
+        </div>
+        <div class="column inforcolumn">
+            <div class="productName">
+                <p>商品名稱:</p>
+                <p>伊果保溫瓶</p>
+            </div>
+            <div class="productPrice">
+                <p>價格:</p>
+                <p>600</p>
+            </div>
+            <form>
+                <p class="plus">++</p>
+                <input class="num" type="number" disabled="true">
+                <p class="minus">--</p>
+                <input type="submit" value="加入購物車">
+            </form>
+        </div>
+    </div>
+    <span class="lightboxbg"></span>
+    <button id="turnOff">X</button>
+</div>
+<!-- --------------------------------------------- -->
     <script src="./js/shopSlideshow.js"></script>
-    <script src="./js/shop.stckerslider.js"></script>
+    <script src="./js/shopStickerslider.js"></script>
+    <script src="./js/postcardStamp.js"></script>
+    <script src="./js/productLightbox.js"></script>
+    <script src="./js/buyTicketadd.js"></script>
 </body>
 </html>
