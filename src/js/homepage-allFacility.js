@@ -5,7 +5,7 @@ const cards=[{
     area2:"都會",
     img: './images/facilities.jpg',
     info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
-    rain:false,
+    rain:true,
     pregnant:false,
     wheelchair:false,
 },
@@ -17,7 +17,7 @@ const cards=[{
     img: './images/facilities8 (24).jpg',
     info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
     rain:false,
-    pregnant:false,
+    pregnant:true,
     wheelchair:false,
 },
 {   
@@ -49,7 +49,7 @@ const cards=[{
     area2:"部落",
     img: './images/facilities8 (2).jpg',
     info:"大海盜在搖動擺盪時，您可體驗庫克船長當年乘風破浪、冒險犯難的感受，一顆心隨著船起伏，驚險又刺激，可說是一種挑戰極限的設施。",
-    rain:false,
+    rain:true,
     pregnant:false,
     wheelchair:false,
 },
@@ -88,17 +88,6 @@ const cards=[{
 },
 {
     id:9,
-    name:'伊果山車',
-    area1:"印安",
-    area2:"部落",
-    img: './images/facilities8 (23).jpg',
-    info:"伊果山車是專為幼齡兒童設計的遊樂設施，個個造型可愛、色彩鮮明，坐在裡面就像是小火車般地繞行一周，是小朋友們的最愛。",
-    rain:true,
-    pregnant:true,
-    wheelchair:false,
-},
-{
-    id:10,
     name:'伊飛沖天',
     area1:"西部",
     area2:"農莊",
@@ -109,7 +98,7 @@ const cards=[{
     wheelchair:false,
 },
 {
-    id:11,
+    id:10,
     name:'自由落體',
     area1:"印安",
     area2:"部落",
@@ -120,7 +109,7 @@ const cards=[{
     wheelchair:true,
 },
 {
-    id:12,
+    id:11,
     name:'急流泛舟',
     area1:"西部",
     area2:"農莊",
@@ -131,7 +120,7 @@ const cards=[{
     wheelchair:false,
 },
 {
-    id:13,
+    id:12,
     name:'飛鷹歷險',
     area1:"印安",
     area2:"部落",
@@ -169,9 +158,46 @@ new Vue({
     el:'#all-thrill-ride',
     data:{
         cards,
-        allFacility:["A","B","C"],
         currentFilter: 'ALL',
-        count:0,
+        count: 0,
+        rain: false,
+        pregnant: false,
+        wheelchair: false,
+    },
+    computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+        cardTitles() {
+            return this.cards.map(v => v.name);
+        },
+        cardsFilter1() {
+            return this.cards.filter(item =>item.area1 == this.currentFilter || this.currentFilter == 'ALL');
+        },
+        cardsFilter2() {
+            return this.cardsFilter1.filter(item => {
+                let rainPass = true;
+                let pregnantPass = true;
+                let wheelchairPass = true;
+                if (this.rain) rainPass = item.rain;
+                if (this.pregnant) pregnantPass = item.pregnant;
+                if (this.wheelchair) wheelchairPass = item.wheelchair;
+                return rainPass && pregnantPass &&wheelchairPass;
+            });
+        },
+        tabList() {
+            let arr = [];
+            let results= [];
+            this.cards.forEach(v => {
+                const str = v.area1 + v.area2;
+                if (arr.indexOf(str) == -1) {
+                    arr.push(str);
+                    results.push({
+                        key: v.area1,
+                        name: str,
+                    });
+                }
+            })
+
+            return results;
+        },
     },
     methods: {  // 函數大部分放這裡!
 
@@ -179,32 +205,28 @@ new Vue({
         //     return this.name;
         // },
 
-        setFilter: function(filter) {
+        setFilter(filter) {
             this.currentFilter = filter;
 		},   
+        
 
         
-        changeNw(){
-            this.$refs.nw.style.background="#245D68";
-            this.$refs.west.style.background="#FDB52D";
-            this.$refs.indian.style.background="#FDB52D";
-            },
-        changeWest(){
-            this.$refs.nw.style.background="#FDB52D";
-            this.$refs.west.style.background="#245D68";
-            this.$refs.indian.style.background="#FDB52D";
-            },
-        changeIndian(){
-            this.$refs.nw.style.background="#FDB52D";
-            this.$refs.west.style.background="#FDB52D";
-            this.$refs.indian.style.background="#245D68";
-        },
+        // changeNw(){
+        //     this.$refs.nw.style.background="#245D68";
+        //     this.$refs.west.style.background="#FDB52D";
+        //     this.$refs.indian.style.background="#FDB52D";
+        //     },
+        // changeWest(){
+        //     this.$refs.nw.style.background="#FDB52D";
+        //     this.$refs.west.style.background="#245D68";
+        //     this.$refs.indian.style.background="#FDB52D";
+        //     },
+        // changeIndian(){
+        //     this.$refs.nw.style.background="#FDB52D";
+        //     this.$refs.west.style.background="#FDB52D";
+        //     this.$refs.indian.style.background="#245D68";
+        // },
     },
-    computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
-
- 
-    },
-
 
 
 })
