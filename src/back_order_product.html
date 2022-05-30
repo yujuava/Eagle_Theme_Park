@@ -24,13 +24,13 @@
 
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>商品訂單管理</h2>
         <div>
-            <button @click="show">待出貨</button>
-            <button @click="show">已出貨</button>
-            <button @click="show">已退貨</button>
-            <button @click="show">全部</button>
+            <button>待出貨</button>
+            <button>已出貨</button>
+            <button>已退貨</button>
+            <button>全部</button>
         </div>
 
         <table class="box">
@@ -48,9 +48,65 @@
                 <td>19</td>
                 <td>299元</td>
                 <td>已出貨</td>
+                <td><button @click="show">more</button></td>
+            </tr>
+            <tr>
+                <td>202205302005</td>
+                <td>2022-05-30</td>
+                <td>50</td>
+                <td>1200元</td>
+                <td>待出貨</td>
+                <td><button>more</button></td>
+            </tr>
+            <tr>
+                <td>202205310942</td>
+                <td>2022-05-31</td>
+                <td>8</td>
+                <td>750元</td>
+                <td>已退貨</td>
                 <td><button>more</button></td>
             </tr>
         </table>
+
+        <div class="back_lightbox backLightbox">
+            <div>
+                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <table class="innerData">
+                    <tr>
+                        <th>商品名稱</th>
+                        <td>杯子</td>
+                    </tr>
+                    <tr>
+                        <th>售價</th>
+                        <td>299元</td>
+                    </tr>
+                    <tr>
+                        <th>購買數量</th>
+                        <td>1個</td>
+                    </tr>
+                    <tr>
+                        <th>小計</th>
+                        <td>299元</td>
+                    </tr>
+                    <tr>
+                        <th>付款狀態</th>
+                        <td>已付款</td>
+                    </tr>
+                    <tr>
+                        <th>訂購會員</th>
+                        <td>果果</td>
+                    </tr>
+                    <tr>
+                        <th>會員email</th>
+                        <td>eagle123@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>收件地址</th>
+                        <td>桃園市中壢區復興路46號</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!--  ===============map ===============  -->
@@ -58,5 +114,6 @@
     <!-- footer  -->
     <!-- @@include('layout/footer.html') -->
 </body>
-
 </html>
+<!-- 共用燈箱js -->
+<script src="js/backLightbox.js"></script>

@@ -4,13 +4,13 @@
     flex-direction: column;
     h2{
         font-size: $h2-fzSize;
-        margin: 35px 0 10px 30px;
     }
     .box{
         tr{
-            td input{
-                width:15px;
-                vertical-align: middle;
+            td{
+                input{
+                vertical-align: middle;   
+                }
             }
         }
     }
