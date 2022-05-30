@@ -163,6 +163,7 @@
 }
 .THREE{
     background-size: contain;
+    // padding: 1000px;
     @include md(){
         background-size: 100%;
     }
@@ -175,24 +176,25 @@
 
 
 //共用
-input {
-    border: 1.5px solid $color4;
-    width: 60%;
-    height: 25px;
-    border-radius: $sm-word-fzSize;
+// input {
+//     border: 1.5px solid $color4;
+//     width: 60%;
+//     height: 25px;
+//     border-radius: $sm-word-fzSize;
 
-    @include md() {
-        height: 30px;
-        margin-bottom: 20px;
-    }
+//     @include md() {
+//         height: 30px;
+//         margin-bottom: 20px;
+//     }
 
-    @include xl() {
-        height: 35px;
-    }
+//     @include xl() {
+//         height: 35px;
+//     }
 
-}
+// }
 
 .table-item {
+    // border: 1px solid #000;
     background-image: url(../../images/Subtract.svg);
     background-repeat: no-repeat;
     background-position: center;
