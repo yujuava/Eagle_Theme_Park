@@ -1,4 +1,4 @@
-.ticket-purchase {
+.Ticket-Purchase {
     input {
         border: 1.5px solid $color4;
         width: 60%;
@@ -23,7 +23,14 @@
 
     p {
         font-size: $word-fzSize;
-        width: 300px;
+        width: 200px;
+        @include md(){
+            margin-right: 70px;
+        }
+        @include lg(){
+            margin-right: 100px;    
+        }
+
     }
 
     .table-item {
@@ -39,140 +46,106 @@
         width: 100%;
 
         @include lg() {
-            // width: 60%;
-        }
-        
-        .item{
-            border: 1px solid #000;
-            margin: 10px;
-        }
-        .item-price {
-            display: flex;
-            width: 90%;
-            justify-content: space-evenly;
-            text-align: end;
-        }
-        
-        .ticket-type{
-            display: flex;
-            padding: 5px;
-            width: 90%;
-            justify-content: space-around;
-            text-align: end;
-            // align-items: flex-end;
-            .col{
-                margin-right: 5px;
-            }
+            width: 60%;
         }
 
-
-        .one {
+        .one{
             display: flex;
             justify-content: center;
             font-size: 30px;
             position: relative;
 
             .circular {
-                background-color: lighten($color7, 15%);
-                margin: 30px;
-                padding: 15px;
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
                 display: flex;
-                align-items: center;
                 justify-content: center;
+                align-items: center;
                 color: $color8;
+
+                &:first-child {
+                    background-color: $color7;
+                    color: $color9;
+                }
 
                 @include md() {
                     width: 70px;
                     height: 70px;
                 }
 
-                &:first-child {
-                    background-color: $color7;
-                    color: $color9;
-                }
             }
 
             .line {
+                border: 5px solid lighten($color7, 15%);
                 position: absolute;
-                top: 40%;
+                top: 45%;
                 width: 200px;
-                border: 10px solid lighten($color7, 15%);
                 z-index: -1;
             }
         }
 
-        .ticket-details {
-            // text-align: center;
-            border: 1px solid #000;
 
-            .ONE {
-                border: 2px solid red;
-                background-size: contain;
-                // padding: 30px;
+        .ONE {
+            padding: 10px;
+            background-size: cover;
+            .item-price {
+                display: flex;
+                width: 80%;
+                justify-content: space-around;
+                text-align: center;
+                margin: auto;
+                // padding: 5px;
+                // border: 1px solid#fa0;
 
-
-
-                @include md() {
-                    background-size: cover;
+                p{
+                    margin-right: 5px;
                 }
+            }
 
-                @include lg {
-                    aspect-ratio: 852/307;
+            .item {
+                width: 80%;
+                text-align: center;
+                margin: auto;
+                .ticket-type{
+                    padding: 5px;
+                    display: flex;
                 }
-
-
-
-                p {
-                    width: 50px;
-                    // text-align: center;
-
-                    @include md() {
-                        width: 100px;
-                    }
+                .col {
+                    margin-right: 5px;
                 }
-
-
-
-
             }
         }
-
-        .ticket-order-tp {
-            margin: auto;
+        .ticket-order-tp{
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            input {
-                margin: 5px;
-                width: 30%;
-
-                @include md() {
-                    margin: 20px 5px;
-                }
+            justify-content: center;
+            margin: 10px;
+            p{
+                width: 50px;
             }
-
+            input{
+                width: 30%;
+            }
         }
-
-        .two {
+        .two{
             display: flex;
             justify-content: center;
             font-size: 30px;
             position: relative;
 
             .circular {
-                background-color: lighten($color7, 15%);
-                margin: 30px;
-                padding: 15px;
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
                 display: flex;
-                align-items: center;
                 justify-content: center;
+                align-items: center;
                 color: $color8;
 
                 &:nth-child(2) {
@@ -184,118 +157,118 @@
                     width: 70px;
                     height: 70px;
                 }
+
             }
 
             .line {
+                border: 5px solid lighten($color7, 15%);
                 position: absolute;
-                top: 40%;
+                top: 45%;
                 width: 200px;
-                border: 10px solid lighten($color7, 15%);
                 z-index: -1;
             }
         }
-
-        .orderer-information {
-            .TWO {
-                background-size: contain;
-                padding: 30px 90px;
-
-                @include md() {
-                    background-size: contain;
-                }
-
-                @include lg {
-                    aspect-ratio: 1092/754;
-                }
-
-
-                .col {
-                    width: 100%;
-                }
-
-
-                input {
-                    display: flex;
-                    justify-content: space-between;
-                }
-
+    }
+    .orderer-information{
+        .TWO{
+            border: 1px solid#da0;
+            padding: 70px;
+            background-size: contain;
+            width: 100%;
+            @include md(){
+                background-size: cover;   
             }
+            p{
+                margin-left: 30px;
+            }
+            .item-name,.item-body,.item-country,.item-Body{
+                display: flex;
+                input{
+                    margin-right: 30px;
+                }
+            }
+            .col{
+                width: 95%;
+            }
+
         }
+    }
+    .three{
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        position: relative;
 
-
-
-
-        .three {
+        .circular {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: lighten($color7, 15%);
+            margin: 30px;
+            padding: 15px;
             display: flex;
             justify-content: center;
-            font-size: 30px;
-            position: relative;
+            align-items: center;
+            color: $color8;
 
-            .circular {
-                background-color: lighten($color7, 15%);
-                margin: 30px;
-                padding: 15px;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: $color8;
-
-                &:nth-child(3) {
-                    background-color: $color7;
-                    color: $color9;
-                }
-
-                @include md() {
-                    width: 70px;
-                    height: 70px;
-                }
+            &:nth-child(3) {
+                background-color: $color7;
+                color: $color9;
             }
-
-            .line {
-                position: absolute;
-                top: 40%;
-                width: 200px;
-                border: 10px solid lighten($color7, 15%);
-                z-index: -1;
-            }
-        }
-
-        .THREE {
-            background-size: contain;
-            padding: 30px 100px;
-
-
 
             @include md() {
-                background-size: cover;
+                width: 70px;
+                height: 70px;
             }
-
-            @include lg {
-                aspect-ratio: 852/307;
-            }
-
-            p {
-                width: 100px;
-                text-align: start;
-            }
-
-            input {
-                // width: 90%;
-            }
-
         }
-
+        .line {
+            border: 5px solid lighten($color7, 15%);
+            position: absolute;
+            top: 45%;
+            width: 200px;
+            z-index: -1;
+        }
+    }
+    .checkout{
+        .THREE{
+            background-size: contain;
+            padding: 20px;
+            @include md(){
+                background-size: cover;   
+            }
+            .item-credit-card{
+                p{
+                    margin: 0 30px;
+                    @include md(){
+                        margin: 0 50px;   
+                    }
+                }
+            }
+            .item-body{
+                display: flex;
+                margin: 0 30px;
+                input{
+                    margin-right: 5px;
+                }
+            }
+            .item{
+                margin: 0 30px; 
+            }
+            @include md(){
+                .item-body,.item{
+                    margin: 0 50px;
+                }
+            }
+        }
     }
 }
-
 .check-btn {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin: 10px;
+    
+        @include bgBtn(check) {}
+    }
 
-    @include bgBtn(check) {}
-}
+

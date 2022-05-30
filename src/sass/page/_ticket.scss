@@ -19,14 +19,14 @@
             padding: 30px;
             color: $color5;
             font-size: $h6-fzSize;
-            font-family: $family1;
+            font-family: $family2;
         }
 
         td {
             border: 2px solid lighten($color2, 10%);
             color: $color5;
             font-size: $h6-fzSize;
-            font-family: $family1;
+            font-family: $family2;
         }
 
         // /*第一欄第一列：左上*/
@@ -87,6 +87,7 @@
             color: $color5;
             line-height: 1.5;
             text-indent: -1em;
+            font-family: $family2;
         }
     }
 }
