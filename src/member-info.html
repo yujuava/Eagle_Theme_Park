@@ -71,7 +71,7 @@
         <section v-if="type == 'A'">    
             <div class="wrap member-wrap">
                 <h3>編輯會員資料</h3>
-                <div class="member-frame member-detail lightbox-bdr">
+                <div class="member-frame member-detail big-card-bdr">
                     <div class="col">
                         <div>
                             <label for="" >名字</label>
@@ -131,7 +131,7 @@
                 <h3>近期訂單</h3>
 
                 <!-- 訂單一 -->
-                <div class="member-frame member-order lightbox-bdr">
+                <div class="member-frame member-order big-card-bdr">
                     <div class="order-table">
                         <!-- 標題 -->
                         <div class="th">
@@ -232,7 +232,7 @@
 
                 <!-- 訂單二 -->
 
-                <!-- <div class="member-frame member-order lightbox-bdr" id="orderlist">
+                <!-- <div class="member-frame member-order big-card-bdr" id="orderlist">
                     <transition-group name="orderlist" tag="div">
                         <member-orderlist-component v-for="item in orderlist" :item="item" :key="item.id"/>
                     </transition-group>
@@ -251,7 +251,7 @@
         <section v-else>
             <div class="wrap member-wrap">
                 <h3>我的優惠券</h3>
-                <div class="member-frame member-coupon lightbox-bdr">
+                <div class="member-frame member-coupon big-card-bdr">
                     <div class="use-state">
                         <p>已使用</p>
                         <p>未使用</p>

@@ -169,14 +169,15 @@ new Vue({
     el:'#all-thrill-ride',
     data:{
         cards,
-
+        allFacility:["A","B","C"],
         currentFilter: 'ALL',
+        count:0,
     },
     methods: {  // 函數大部分放這裡!
 
-        allFacility:function(){
-            return this.name;
-        },
+        // allFacility:function(){
+        //     return this.name;
+        // },
 
         setFilter: function(filter) {
             this.currentFilter = filter;

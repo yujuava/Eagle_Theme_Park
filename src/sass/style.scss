@@ -201,7 +201,6 @@ section{
     @include h2Set();
 }
 
-
 //border-radius
 .card-bdr{
     border-radius: 10px;
@@ -213,7 +212,17 @@ section{
     }
 }
 
-// 燈箱所有設定
+.big-card-bdr{
+    border-radius: 20px;
+    @include md(){
+        border-radius: 25px;
+    }
+    @include lg(){
+        border-radius: 30px;
+    }
+}
+
+// 燈箱所有設定，只有燈箱才可以用
 .lightbox-bdr{
     border-radius: 20px;
     border:6px solid $color3;

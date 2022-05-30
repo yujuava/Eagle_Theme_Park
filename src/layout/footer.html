@@ -37,13 +37,13 @@
 
 
 <!-- top -->
-<a href="" class="top-bottom" id="top">
+<a href="#top" class="top-bottom" id="top">
     <i class="fa-solid fa-angle-up"></i>
     <p>TOP</p>
 </a>
 
 <!-- footer -->
-<footer>
+<footer id="footer">
     <!-- 地址&資訊 -->
     <div class="footer-container wrap">
         <div class="inf">
@@ -60,52 +60,74 @@
 
         <nav>
             <ul>
-                <a href="">主題園區</a>
-                <li>
-                    <a href="themePark_NewYork.html">紐約都會</a>
-                </li>
-                <li>
-                    <a href="themePark_West.html">西部農莊</a>
-                </li>
-                <li>
-                    <a href="themePark_Indian.html">印安部落</a>
-                </li>
+                <a href="homepage.html#ThemeArea">主題園區</a>
+                <div>
+                    <li>
+                        <a href="themePark_NewYork.html">紐約都會</a>
+                    </li>
+                    <li>
+                        <a href="themePark_West.html">西部農莊</a>
+                    </li>
+                    <li>
+                        <a href="themePark_Indian.html">印安部落</a>
+                    </li>
+
+                </div>
             </ul>
             <ul>
                 <a href="news.html">最新消息</a>
-                <li>
-                    <a href="">伊果快報</a>
-                </li>
-                <li>
-                    <a href="">遊行活動</a>
-                </li>
-                <li>
-                    <a href="">設施保養</a>
-                </li>
+                <div>
+
+                    <li>
+                        <a href="news.html#all_news">伊果快報</a>
+                    </li>
+                    <li>
+                        <a href="news.html#parade">遊行活動</a>
+                    </li>
+                    <li>
+                        <a href="news.html#facility">設施保養</a>
+                    </li>
+                </div>
             </ul>
             <ul>
-                <a href="ticket.html">購票指南</a>
-                <li>
-                    <a href="">票價資訊</a>
-                </li>
-                <li>
-                    <a href="">交通指南</a>
-                </li>
+                <a href="ticket.html">園區資訊</a>
+                <div>
+
+                    <li>
+                        <a href="ticket.html#ticket-inf">票價資訊</a>
+                    </li>
+                    <li>
+                        <a href="ticket.html#traffic">交通指南</a>
+                    </li>
+                </div>
             </ul>
             <ul>
                 <a href="shop.html">伊果商城</a>
+                <div>
+
+                    <li>
+                        <a href="shop.html#make-post">客製明信片</a>
+                    </li>
+                    <li>
+                        <a href="shop.html#preduct-list">商品列表</a>
+                    </li>
+            
+                </div>
             </ul>
             <ul>
                 <a href="food.html">饗食餐廳</a>
-                <li>
-                    <a href="">紐約都會</a>
-                </li>
-                <li>
-                    <a href="">西部農莊</a>
-                </li>
-                <li>
-                    <a href="">印安部落</a>
-                </li>
+                <div>
+
+                    <li>
+                        <a href="food.html#new_york">紐約都會</a>
+                    </li>
+                    <li>
+                        <a href="food.html#wild_west">西部農莊</a>
+                    </li>
+                    <li>
+                        <a href="food.html#native_usa">印安部落</a>
+                    </li>
+                </div>
             </ul>
             <ul>
                 <a href="visitor_experience.html">遊客體驗</a>
@@ -434,7 +456,7 @@
     <!-- 最後文字 -->
       <div class="final">
           <p>© EAGLE THEME PARK</p>
-          <a href="https://www.facebook.com/TibaMe">本網站為緯育TibaMe_前端設計工程師班第75期學員專題成果作品，本平台僅供學習、展示之用。<br>若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</a>
+          <a href="https://www.facebook.com/TibaMe">本網站為緯育TibaMe_前端設計工程師班第75期學員專題成果作品，本平台僅供學習、展示之用。<br>若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</a>
       </div>
     </div>
 
@@ -443,3 +465,18 @@
 
 <script src="js/footer-scroll-robot.js"></script>
 <script src="js/robot.js"></script>
+
+<script>
+new Vue({
+            el: '#foorer',
+            data: {     // 變數放這裡!
+              show:true,
+            },
+            methods: {  // 函數大部分放這裡!
+            },
+            computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+ 
+         
+            },
+        });
+</script>
