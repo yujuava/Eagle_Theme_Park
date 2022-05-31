@@ -172,11 +172,13 @@
     .orderer-information{
         .TWO{
             border: 1px solid#da0;
-            padding: 70px;
-            background-size: contain;
+            // padding: 70px;
+            padding: 40px;
+            // background-size: contain;
+            background-size:cover;
             width: 100%;
             @include md(){
-                background-size: cover;   
+                background-size: cover;    
             }
             p{
                 margin-left: 30px;
