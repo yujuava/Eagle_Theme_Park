@@ -3,7 +3,7 @@
         // border: 1px solid #000;
         width: 100%;
         aspect-ratio:462 / 609;
-        background-image: url(/images/md-bigTicket.svg);
+        background-image: url(../images/md-bigTicket.svg);
         background-repeat: no-repeat;
         background-size: 100%;
         display: flex;
@@ -12,7 +12,7 @@
         @include md(){
             aspect-ratio: 1077 / 308;
             flex-direction: row;
-            background-image: url(/images/bigTicket.svg);
+            background-image: url(../images/bigTicket.svg);
             position: relative;
         }
         .leftOrTop{
