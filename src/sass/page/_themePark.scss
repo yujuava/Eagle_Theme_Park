@@ -128,18 +128,23 @@
         position: relative;
     }
     .themePark__Attractions{
+        border: 1px solid black;
         display: flex;
         justify-content: center;
         overflow: hidden;
-        padding-top: 100px;
-        // padding-bottom: 100px;
-        height: 80vh;
+        width: 100%;
+        aspect-ratio: 1/1.1;
+        padding-top: 50px;
         transform: translateY(-80px);
+        margin-bottom: -80px;
     }
+    
     @include md{
         .themePark__Attractions{
-            padding-top: 100px;
-            height: 100vh;
+            padding-top: 120px;
+            aspect-ratio: 1/0.8;
+            transform: translateY(-150px);
+            margin-bottom: -150px;
         }   
     }
 
@@ -150,111 +155,139 @@
         // aspect-ratio: 1/1;
         width: 45vw;
         position: relative;
-        perspective: 1000px;
-        perspective-origin: center -100%;
+        perspective: 2000px;
+        perspective-origin: 50% top;
         transform-style: preserve-3d;
         display: flex;
       }
-      @include md{
+    @include md{
         #slider {
-            aspect-ratio: 1/1.5;
+                   border: 1px solid black;
+            height: 50%;
             width: 40vw;
             perspective-origin: center -50%;
-          }
-      }
+        }
+    }
 
-      #slider input{
-          position: absolute;
-          left: -1000px;
-      }
-      
-      #slider label {
+    #slider input{
+        position: absolute;
+        left: -1000px;
+    }
+    
+    #slider label {
         position: absolute;
         left: 0; 
         right: 0;
         cursor: pointer;
         transition: transform 0.4s ease;
-      }
-      
-        #s1:checked ~ #slide4, #s2:checked ~ #slide5,
-        #s3:checked ~ #slide1, #s4:checked ~ #slide2,
-        #s5:checked ~ #slide3 {
+    }
+    
+    #s1:checked ~ #slide4, #s2:checked ~ #slide5,
+    #s3:checked ~ #slide1, #s4:checked ~ #slide2,
+    #s5:checked ~ #slide3 {
         transform: translate3d(-150%,0,-300px);
-       
-      }
-      
-      #s1:checked ~ #slide5, #s2:checked ~ #slide1,
-      #s3:checked ~ #slide2, #s4:checked ~ #slide3,
-      #s5:checked ~ #slide4 {
+    }
+    
+    #s1:checked ~ #slide5, #s2:checked ~ #slide1,
+    #s3:checked ~ #slide2, #s4:checked ~ #slide3,
+    #s5:checked ~ #slide4 {
         transform: translate3d(-85%,0,-200px);
-       top:2%;
-      }
-      
-      #s1:checked ~ #slide1, #s2:checked ~ #slide2,
-      #s3:checked ~ #slide3, #s4:checked ~ #slide4,
-      #s5:checked ~ #slide5 {
+        top:2%;
+    }
+    
+    #s1:checked ~ #slide1, #s2:checked ~ #slide2,
+    #s3:checked ~ #slide3, #s4:checked ~ #slide4,
+    #s5:checked ~ #slide5 {
         transform: translate3d(0,0,0);
         top:6%;
-       
-      }
-      
-      #s1:checked ~ #slide2, #s2:checked ~ #slide3,
-      #s3:checked ~ #slide4, #s4:checked ~ #slide5,
-      #s5:checked ~ #slide1 {
+    }
+    
+    #s1:checked ~ #slide2, #s2:checked ~ #slide3,
+    #s3:checked ~ #slide4, #s4:checked ~ #slide5,
+    #s5:checked ~ #slide1 {
         transform: translate3d(75%,0,-200px);
         top:2%;
-      }
-      
-      #s1:checked ~ #slide3, #s2:checked ~ #slide4,
-      #s3:checked ~ #slide5, #s4:checked ~ #slide1,
-      #s5:checked ~ #slide2 {
+    }
+    
+    #s1:checked ~ #slide3, #s2:checked ~ #slide4,
+    #s3:checked ~ #slide5, #s4:checked ~ #slide1,
+    #s5:checked ~ #slide2 {
         transform: translate3d(150%,0,-300px);
-      }
+    }
 
 
     .card{
         padding: 15px;
         box-shadow: $card-shadow2;
-        background-color: $color3;
+        background-color: $color4;
         transition: 1s;
         opacity: 0.9;
-        background-color: $color4;
     }
 
+    --smallWidth : 50vw;
     #s1:checked ~ #slide1 .card{
         background-color: $color2;
-        width: 50vw;
+        width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1;
-        color: white;
+        opacity: 1
     }
     #s2:checked ~ #slide2 .card{
         background-color: $color2;
-        width: 50vw;
+        width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1;
-        color: white;
+        opacity: 1
     }
     #s3:checked ~ #slide3 .card{
         background-color: $color2;
-        width: 50vw;
+        width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1;
-        color: white;
+        opacity: 1
     }
     #s4:checked ~ #slide4 .card{
         background-color: $color2;
-        width: 50vw;
+        width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1;
-        color: white;
+        opacity: 1
     }
     #s5:checked ~ #slide5 .card{
         background-color: $color2;
-        width: 50vw;
+        width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1;
-        color: white;
+        opacity: 1
+    }
+
+    --mdWidth : 50vw;
+    @include md{
+        #s1:checked ~ #slide1 .card{
+            background-color: $color2;
+            width: var(--mdWidth);
+            transform: translateX(-10%);
+            opacity: 1;
+        }
+        #s2:checked ~ #slide2 .card{
+            background-color: $color2;
+            width: var(--mdWidth);
+            transform: translateX(-10%);
+            opacity: 1;
+        }
+        #s3:checked ~ #slide3 .card{
+            background-color: $color2;
+            width: var(--mdWidth);
+            transform: translateX(-10%);
+            opacity: 1;
+        }
+        #s4:checked ~ #slide4 .card{
+            background-color: $color2;
+            width: var(--mdWidth);
+            transform: translateX(-10%);
+            opacity: 1;
+        }
+        #s5:checked ~ #slide5 .card{
+            background-color: $color2;
+            width: var(--mdWidth);
+            transform: translateX(-10%);
+            opacity: 1;
+        }
     }
 
     .cardImg img{
@@ -269,8 +302,11 @@
         font-size: $md-word-fzSize;
     }
     @include md{
+        .card p:nth-of-type(1){
+            font-size: $h5-fzSize;
+        }
         .card p:nth-of-type(2){
-            font-size: $word2-fzSize;
+            font-size: $h6-fzSize;
         }        
     }
 
