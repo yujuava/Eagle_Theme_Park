@@ -297,20 +297,25 @@ header{
                       }
                       
                   }
-                  .sec-nav{
+                  .sec-nav{                     
                       width: 80px;
-                      padding: 10px;
+                      // padding-top: 15px;
+                      padding: 15px 10px 10px 10px;
+                      // margin-top: 15px ;
+                      border-radius: 3px;
                       display: flex;
                       flex-direction: column;
                       align-items: center;
                       justify-content: center;
-                      background-color: $color2;
+                      background-color: #4eacb7;
                       position: absolute;
+                      left: -8px;
                       display: none;
+                  
                       a{
                           font-size: $sm-word-fzSize;
                           margin-bottom: 10px;
-                          color:$color4;
+                          color:$color1;
                           &:hover{
                              color:$color5;
                           }
