@@ -88,10 +88,6 @@
         }
         .facilitesContent{
             background-color: $color3;
-            &:hover{
-                transition: 0.4s ease-in-out;
-                box-shadow: $card-shadow2;
-            }
             & .facilitiesInfo{
                 width: 100%;
                 height: fit-content;
@@ -135,9 +131,10 @@
         display: flex;
         justify-content: center;
         overflow: hidden;
-        padding-top: 80px;
-        padding-bottom: 100px;
+        padding-top: 100px;
+        // padding-bottom: 100px;
         height: 80vh;
+        transform: translateY(-80px);
     }
     @include md{
         .themePark__Attractions{
@@ -149,7 +146,8 @@
 
     // card slider outer container
     #slider {
-        aspect-ratio: 1/1;
+        // border: 1px solid black;
+        // aspect-ratio: 1/1;
         width: 45vw;
         position: relative;
         perspective: 1000px;
@@ -211,7 +209,6 @@
       #s3:checked ~ #slide5, #s4:checked ~ #slide1,
       #s5:checked ~ #slide2 {
         transform: translate3d(150%,0,-300px);
-       
       }
 
 
@@ -220,22 +217,44 @@
         box-shadow: $card-shadow2;
         background-color: $color3;
         transition: 1s;
+        opacity: 0.9;
+        background-color: $color4;
     }
 
     #s1:checked ~ #slide1 .card{
         background-color: $color2;
+        width: 50vw;
+        transform: translateX(-10%);
+        opacity: 1;
+        color: white;
     }
     #s2:checked ~ #slide2 .card{
         background-color: $color2;
+        width: 50vw;
+        transform: translateX(-10%);
+        opacity: 1;
+        color: white;
     }
     #s3:checked ~ #slide3 .card{
         background-color: $color2;
+        width: 50vw;
+        transform: translateX(-10%);
+        opacity: 1;
+        color: white;
     }
     #s4:checked ~ #slide4 .card{
         background-color: $color2;
+        width: 50vw;
+        transform: translateX(-10%);
+        opacity: 1;
+        color: white;
     }
     #s5:checked ~ #slide5 .card{
         background-color: $color2;
+        width: 50vw;
+        transform: translateX(-10%);
+        opacity: 1;
+        color: white;
     }
 
     .cardImg img{
