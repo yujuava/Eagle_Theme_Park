@@ -1,5 +1,5 @@
 .news {
-    background-image: url(/images/news_track.png);
+    background-image: url(../images/news_track.png);
     background-repeat: no-repeat;
     background-position: 20% 25%;
     background-size: 95% 42%;
@@ -54,7 +54,7 @@
                 align-items: center;
                 @include md() {
                     aspect-ratio: 9/5;
-                    width: 45%;
+                    width: 48%;
                     padding: 15px 20px 15px 20px;
                     &:hover{
                         background-color: #d9f1f1;
@@ -64,6 +64,9 @@
                     }
                     &:hover img {
                         transform: scale(1.10);
+                    }
+                    &:hover p{
+                        color:rgb(42, 42, 42);
                     }
                 }
 
@@ -116,6 +119,7 @@
                     position: relative;
                     p{
                         font-size: $md-word-fzSize;
+                        
                         @include md() {
                             padding: 10px 10px 0px 10px;
                             font-size: $word-fzSize;
@@ -140,7 +144,7 @@
                 &:nth-child(2n-1) {
                     h4 {
                         right: -3px;
-                        background-image: url(/images/news_h4title_bck2n_1.png);
+                        background-image: url(../images/news_h4title_bck2n_1.png);
                         padding: 2px 2px 2px 12px;
                         background-position: 10%;
                     }
@@ -149,14 +153,14 @@
                 &:nth-child(2n) {
                     h4 {
                         left: -1px;
-                        background-image: url(/images/news_h4title_bck2n.png);
+                        background-image: url(../images/news_h4title_bck2n.png);
                         padding: 2px 12px 2px 2px;
                         background-position: 90%;
 
                         @include md() {
                             left: auto;
                             right: -3px;
-                            background-image: url(/images/news_h4title_bck2n_1.png);
+                            background-image: url(../images/news_h4title_bck2n_1.png);
                             padding: 2px 2px 2px 12px;
                             background-position: 10%;
                         }
@@ -215,7 +219,7 @@
                     }
                     h4 {
                         text-align: center;
-                        background-image: url(/images/news_inner_h4.png);
+                        background-image: url(../images/news_inner_h4.png);
                         // padding: 10px 0;
                         background-size: 70% 50%;
                         // line-height: 60px;
