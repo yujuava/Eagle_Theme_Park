@@ -24,7 +24,11 @@ document.getElementById('register').addEventListener('click',function(){
     if(accept!=true){
         alert("請勾選是否同意會員條款")
     }
-    if(userEmail.test(acount)==passwordCheck.test(password)==(password==checkPassword==true)==accept){
+
+    if(acount==''||password==''||passwordCheck==''){
+        alert("還有欄位未輸入唷")
+    }
+    if(userEmail.test(acount)==passwordCheck.test(password)==(password==checkPassword==true)==accept && ((acount!='')&&(password!='')&&(passwordCheck!=''))){
         alert('恭喜註冊成功')
     }
 })
