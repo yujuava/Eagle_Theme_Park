@@ -174,10 +174,14 @@
   .upload{
     display: flex;
     justify-content: center;
-    
   }
-    
-
+  
+  @include bgBtn(shop){
+    opacity:0.5;
+  }  
+  .shopbtn{
+    border: 3px solid $color5;
+  }
    
 
   // ------商品-------------------------------------

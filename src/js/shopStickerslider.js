@@ -10,16 +10,15 @@ btnRight.addEventListener('click', ()=>{
     }else{
         index++;  
         }
-        slider.style.left = -20*index + '%';
-        console.log(index);
+        slider.style.left = -50*index + '%';
     });
 btnLeft.addEventListener('click', ()=>{
-    if (index==5){
-        index=5;
-    }else{
-        index++;  
-        }
-        slider.style.right = -20*index + '%';
+    if (index==0){
+        index=0;
         console.log(index);
-        console.log('write');
+    }else{
+        index--;  
+        console.log(index);
+        }
+        slider.style.left = 50*index + '%';
     });
