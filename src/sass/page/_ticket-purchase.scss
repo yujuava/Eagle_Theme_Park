@@ -23,16 +23,17 @@
 
     p {
         font-size: $word-fzSize;
-        width: 200px;
-        @include md(){
-            margin-right: 70px;
-        }
-        @include lg(){
-            margin-right: 100px;    
-        }
+        // width: 200px;
+        // @include md(){
+        //     margin-right: 70px;
+        // }
+        // @include lg(){
+        //     margin-right: 100px;    
+        // }
 
     }
 
+    //共用的背景
     .table-item {
         background-image: url(../../images/Subtract.svg);
         background-repeat: no-repeat;
@@ -42,6 +43,7 @@
         margin: auto;
     }
 
+    // 最外層
     .purchase {
         width: 100%;
 
@@ -50,6 +52,7 @@
         }
 
         .one{
+            border: 1px solid #000;
             display: flex;
             justify-content: center;
             font-size: 30px;
@@ -88,54 +91,80 @@
             }
         }
 
-
+        // 購票明細
         .ONE {
+            border: 1px solid green;
             padding: 10px;
             background-size: cover;
+            //張數
             .item-price {
+                border: 1px solid pink;
                 display: flex;
                 width: 80%;
-                justify-content: space-around;
+                // justify-content: space-around;
+                justify-content: flex-end;
                 text-align: center;
                 margin: auto;
                 // padding: 5px;
                 // border: 1px solid#fa0;
 
                 p{
-                    margin-right: 5px;
+                    width: 40%;
+                    border: 1px solid #000;
+                    // margin-right: 5px;
                 }
             }
 
             .item {
+                border: 1px solid red;
                 width: 80%;
                 text-align: center;
                 margin: auto;
                 .ticket-type{
+                    border: 1px solid #000;
                     padding: 5px;
                     display: flex;
+                    gap:10px;
+                    p{
+                        width: 20%;
+                        border: 1px solid #000;
+                    }
                 }
                 .col {
-                    margin-right: 5px;
+                    // border: 3px solid blue;
+                    border:0px;
+                    background-color: $color2;
+                    width: 40%;
+                    text-align: center;
+                    font-size: $h5-fzSize;
                 }
             }
         }
         .ticket-order-tp{
+            border: 1px solid #000;
             display: flex;
-            justify-content: center;
-            margin: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+            // margin: 10px;
             p{
                 width: 50px;
             }
             input{
-                width: 30%;
+                width: 40%;
+                border:0px;
+                background-color: $color2;
+                font-size: $h5-fzSize;
+                text-align: center;
             }
         }
+        //訂購人資料
         .two{
+            border: 1px solid #000;
             display: flex;
             justify-content: center;
             font-size: 30px;
             position: relative;
-
+        //圈圈
             .circular {
                 width: 50px;
                 height: 50px;
@@ -168,109 +197,180 @@
                 z-index: -1;
             }
         }
-    }
-    .orderer-information{
-        .TWO{
-            border: 1px solid#da0;
-            // padding: 70px;
-            padding: 40px;
-            // background-size: contain;
-            background-size:cover;
-            width: 100%;
-            @include md(){
-                background-size: cover;    
-            }
-            p{
-                margin-left: 30px;
-            }
-            .item-name,.item-body,.item-country,.item-Body{
-                display: flex;
-                input{
-                    margin-right: 30px;
+
+        .orderer-information{
+            .TWO{
+                border: 3px solid#da0;
+                // padding: 70px;
+                // padding: 40px;
+                // background-size: contain;
+                background-size:cover;
+                width: 100%;
+                padding: 10px;
+                @include md(){
+                    background-size: cover;    
                 }
+                p{
+                    border: 1px solid #000;
+                    // margin-left: 30px;
+                }
+                .info{
+                    width: 80%;
+                    border: 1px solid #000;
+                    margin: auto;
+                }
+                .item-name,.item-body,.item-country,.item-Body{
+                    border: 1px solid red;
+                    width: 100%;;
+                    display: flex;
+                    gap:10px;
+                    p{
+                        width: 50%;
+                    }
+                    input{
+                        // margin-right: 30px;
+                        margin-bottom: 10px;
+                        margin-top: 5px;
+                    }
+                }
+                .col{
+                    width: 100%;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                }
+    
             }
-            .col{
-                width: 95%;
-            }
-
         }
-    }
-    .three{
-        display: flex;
-        justify-content: center;
-        font-size: 30px;
-        position: relative;
-
-        .circular {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: lighten($color7, 15%);
-            margin: 30px;
-            padding: 15px;
+        //結帳
+        .three{
+            border: 1px solid #000;
             display: flex;
             justify-content: center;
-            align-items: center;
-            color: $color8;
-
-            &:nth-child(3) {
-                background-color: $color7;
-                color: $color9;
+            font-size: 30px;
+            position: relative;
+            .circular {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: lighten($color7, 15%);
+                margin: 30px;
+                padding: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $color8;
+    
+                &:nth-child(3) {
+                    background-color: $color7;
+                    color: $color9;
+                }
+    
+                @include md() {
+                    width: 70px;
+                    height: 70px;
+                }
             }
-
-            @include md() {
-                width: 70px;
-                height: 70px;
+            .line {
+                border: 5px solid lighten($color7, 15%);
+                position: absolute;
+                top: 45%;
+                width: 200px;
+                z-index: -1;
             }
         }
-        .line {
-            border: 5px solid lighten($color7, 15%);
-            position: absolute;
-            top: 45%;
-            width: 200px;
-            z-index: -1;
-        }
-    }
-    .checkout{
-        .THREE{
-            background-size: contain;
-            padding: 20px;
-            @include md(){
-                background-size: cover;   
-            }
-            .item-credit-card{
-                p{
-                    margin: 0 30px;
-                    @include md(){
-                        margin: 0 50px;   
+        // 結帳
+        .checkout{
+            .THREE{
+                border: 1px solid #000;
+                background-size: cover;  
+                // background-size: contain;
+                // padding: 20px;
+                padding: 10px;
+                @include md(){
+                     
+                }
+                .info{
+                    border: 1px solid #000;
+                    width: 80%;
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+                }
+                
+                //卡號
+                .item-credit-card{
+                    border: 1px solid red;
+                  
+                    p{
+                        // margin: 0 30px;
+                        // @include md(){
+                        //     margin: 0 50px;   
+                        // }
+                    }
+                    .item-body{
+                        border: 1px solid #000;
+                        width: 100%;
+                        display: flex;
+                        gap:10px;
+                        // margin: 0 30px;
+                        input{
+                            // margin-right: 5px;
+                        }
+                    }
+                }
+    
+         
+                // 信用卡有效年月
+                .item{
+                    // margin: 0 30px; 
+                    form{
+                        border: 1px solid #000;
+                        display: flex;
+                        gap:10px;
+                        .year,.month,.back-three{
+                            width: 33.3333%;
+                            display: flex;
+                            gap:10px;
+                        }
+                        p{
+                            border: 1px solid #000;
+                        }
+                        select{
+                            flex-grow: 1;
+                        }
+                    }       
+                }
+                // 後三碼
+                .back-three{
+                    // border: 10px solid #000;
+                    input{
+                        // width: calc( 25% - 10px );
+                        width: 20%;
+                    }
+                }
+                @include md(){
+                    .item-body,.item{
+                        // margin: 0 50px;
                     }
                 }
             }
-            .item-body{
-                display: flex;
-                margin: 0 30px;
-                input{
-                    margin-right: 5px;
-                }
-            }
-            .item{
-                margin: 0 30px; 
-            }
-            @include md(){
-                .item-body,.item{
-                    margin: 0 50px;
-                }
-            }
         }
     }
-}
-.check-btn {
+
+
+
+    
+    .check-btn {
         display: flex;
         justify-content: center;
         text-align: center;
         margin: 10px;
-    
+
         @include bgBtn(check) {}
     }
+}
+
+
 
 
