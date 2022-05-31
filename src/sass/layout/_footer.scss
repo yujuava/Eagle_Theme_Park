@@ -57,10 +57,18 @@
     p{
         position: absolute;
         top:-40px;
-        width: 200px;
-        left: -65px;
+        width: 220px;
+        left: -18px;
         font-size: $sm-word-fzSize;
         transform: rotate(-20deg);
+        font-weight: bold;
+        @include xl(){
+            top:-40px;
+            width: 200px;
+            left: -22px;
+            font-size: $md-word-fzSize;
+            text-shadow: 0 1px 1px white;
+        }
     }
 }
 
