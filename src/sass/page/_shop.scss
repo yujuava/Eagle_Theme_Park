@@ -1,12 +1,13 @@
 .shop{
-  .postbg{
-    background-color: $color2;
-  }
+  // .postbg{
+  //   // background-color: $color2;
+  // }
   .slideshow-container {
-    width: 100%;
+    width: 90%;
     position: relative;
     margin: auto;
-    padding:80px 30px 0 30px;
+    padding:10px 50px 10px 50px;
+    background-color: $color2;
   }
 
   /* Hide the images by default */
@@ -97,7 +98,6 @@
     to {opacity: 1}
   }
   .postcard{
-      background-color: #fff;
       width: 100%;
       margin: auto;
       display: flex;
@@ -135,19 +135,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
   .sticker{
     width: 200%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
     position: absolute;
     transition: 0.3s;
-  }
-  .sticker li{
-      background-color: $color1;
   }
   .sticker li img{
     width: 100%;
@@ -176,6 +171,13 @@
   #sliderRight{
     right: 23%;
   }
+  .upload{
+    display: flex;
+    justify-content: center;
+    
+  }
+    
+
    
 
   // ------商品-------------------------------------
@@ -279,11 +281,6 @@
   #turnOff{
     background-color: transparent;
   }
-
-
-
-
-
 
   // 引用RWD 方式
   @include md{
