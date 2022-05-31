@@ -1,121 +1,367 @@
 .shoppingcart{
     .shopcar{
-        display: table;
-        table{
+        // display: table;
+        .table{
+            // border: 1px solid #000;
             table-layout: fixed;
             width: 100%;
             border-collapse: collapse;
             margin: auto;
             text-align: center;
             font-family:$family2 ;
-            tr{
-                th{
+            .table-title{
+                border: 2px solid $color3;
+                // display: flex;
+                background-color: $color3;
+                padding: 15px 0;         
+                @include md(){
+                    display: grid;
+                    // border: 1px solid #000;
+                    grid-template-columns: .6fr 0.5fr 0.5fr 0.5fr 0.5fr;
+                }
+                .th{
+                    display: none;
+                    color:$color1;
+                    @include md(){
+                        display: block;
+                        // border: 1px solid #000;
+                        font-size: $h6-fzSize;
+                        // display: gird;
+                        // border: 1px solid #000;
+                        // grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+              
+                    }
+
+                }
+       
+
+            }
+            .cart-row{
+                width: 100%;
+                border-bottom: 1px solid $color8;
+                padding: 20px 0;
+                display: grid;
+                grid-template-columns: .6fr 1.5fr .5fr;
+                // border: 1px solid #000;
+                align-items: center;
+                @include md(){
+                    border-bottom: 1.5px solid $color8;
+                }
+                
+                // 標題
+                .th{
                     display: none;
                     @include md(){
-                        display: table-cell;
+                        // display: table-cell;
                         font-size: $h6-fzSize;
                         background-color: $color2;
                         color:$color5;
                         line-height:$th-line-height;
-                        }
-                }
-                .td-row{
-                    display: block;
-                    margin: 25px 0;
-                    @include md(){
-                        display: table-cell;
+                        // border: 2px solid #000;
                     }
                 }
-                td{
-                    vertical-align:middle;
-                    font-size: $word-fzSize;
-                    color: $color5;
+                //商品照片
+                .pic{
+                    border: 3px solid $color3;
+                    background-color: white;
+                    aspect-ratio:  1 / 1;
+                    overflow: hidden;
+                    
                     @include md(){
-                        font-size: $h6-fzSize;
+                        margin: 0 20px;
                     }
+                    @include xl(){
+                        margin: 0 40px;
+                        border: 5px solid $color3;
+                    }
+                    
+                    
                     img{
-                        width: 25vw;
-                        @include md(){
-                            width: 10vw;
-                        }
+                        // width: 25vw;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        // @include md(){
+                        //     width: 10vw;
+                        // }
                     }
-                    @include mdBtn(delete){}
-                    .count{
+                }
+                // 中間資訊
+                .info{
+                    display: grid;
+                    justify-content:center;
+                    align-items: center;
+                    gap:15px;
+                    // border: 1px solid #000;
+                    @include md(){
+                        // border: 1px solid #000;
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
+                    
+                    .td{
+                        // border: 1px solid red;
+                        font-size: $h6-fzSize;
+                        color: $color5;
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        input{
-                            width: 6vw;
-                            text-align: center;
-                            margin: 0 5px;
+                        justify-content: flex-start;
+                        @include md(){
+                            // border: 1px solid #000;
+                            font-size: $h5-fzSize;
+                            justify-content: center;
+                        }
+                        
+                        .count{
+                            display: flex;
+                            height: 25px;
+                            justify-content: center;
                             @include md(){
-                                width: 50px;
+                                height: 40px;
+                            }
+                            
+                            input{
+                                border-top: 2px solid $color4;
+                                border-bottom: 2px solid $color4;
+                                border-left: 0;
+                                border-right: 0;
+                                width: 40px;
+                                font-size: $h6-fzSize;
+                                color:$color4;
+                                text-align: center;
+                                @include md(){
+                                    width: 50px;
+                                }
+                                @include xl(){
+                                    width: 70px;
+                                }
+                                
+                                
+                            }
+                            .minus,.plus{
+                                border: 2px solid $color4;
+                                background-color: $color6;
+                                padding: 5px;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                @include md(){
+                                    padding: 10px;
+                                }
+                                
+                                &:hover{
+                                    background-color: darken($color6, 10%);
+                                    cursor: pointer;
+                                }
                             }
                         }
                     }
                 }
+                @include mdBtn(delete){
+                    background-color: $color3;
+                    margin: 0;
+                    &:hover{
+                        background-color: darken($color3, 10%);
+
+                    }
+                }
+
+
+                // .td{
+                //     vertical-align:middle;
+                //     font-size: $word-fzSize;
+                //     color: $color5;
+                
+                //     @include md(){
+                //         font-size: $h6-fzSize;
+                //     }
+                   
+                   
+                // }
+                // .td-row{
+                //     border: 1px solid #000;
+                //     display: block;
+                //     margin: 25px 0;
+                //     @include md(){
+                //         display: table-cell;
+                //     }
+                // }
+              
+              
             }
         }
     }
 
-    .total{
-        
-        .wrap{
-            padding: 20px;
-            background-color: $color2;
-            border-radius: 10px;
-            font-size:12px;
+
+    //優惠券
+    .discount-wrap{
+        padding: 20px;
+        border-radius: 10px;
+        background-color: $color2;
+        @include md(){
+            padding: 30px;
+        }
+        .discount{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap:20px;
+            position: relative;
+            height: 100%;   
+            // border: 1px solid #000;    
             @include md(){
-                font-size: $h6-fzSize;
+                align-items: center;
+
             }
-            .total_area{
-                margin-left: auto;
-                margin-right: auto;
+            // 優惠券小圖
+            .coupon{
+                width: 200px;
+                padding: 10px;
+                font-size: $h6-fzSize;
+                color: $color1;
+                background-image: url(/images/coupon.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                border: none;
+                cursor:pointer;
+            }
+            .price{
+                // border: 2px solid red;
+                width: 100%;
                 display: flex;
+                flex-direction: column;
+                @include md(){
+                    flex-direction: row;
+                    justify-content: space-between;
+                    
                 @include lg(){
+                    width: 80%;
                 }
-                .discount{
+                }
+                @include xl(){
+                    width: 60%;
+                }
+                
+
+                
+                .discount-row{
                     display: flex;
+                    flex-direction: row;
                     align-items: center;
-                    flex-direction: column;
-                    margin-left: auto;
-                    margin-right: auto;
-                    @include md(){
-                        flex-direction: row;
-                        margin-right: 0;
-                    }
-                    @include mdBtn(bill){}
-                    .coupon{
-                        background-color:$color2;
+                    justify-content: flex-end;
+                    label{
+                        font-size: $h4-fzSize;
+                        color:$color5;
+                        font-weight: bold;
                     }
                     input{
-                        width: 120px;
-                    }
-                    .bill{
-                        margin-top: 10px;
-                        @include md{
-                            margin-top: 0;
-                        }
+                        width: 100px;
+                        background-color: $color2;
+                        border: 0px solid #000;
+                        font-size: $h2-fzSize;
+                        color:$color5;
+                        font-weight: bold;
+
                     }
                 }
             }
-        }    
+        }
+        @include bgBtn(bill){
+            // border-radius: 5px;
+            border: 3px solid $color5;
+            color:$color5;
+            margin: 0;
+            font-size: $h5-fzSize;
+        }
+        
     }
-    .coupon{
-        font-size: $h6-fzSize;
-        color: $color1;
-        background-image: url(/images/coupon.png);
-        background-size: cover;
-        padding: 5px;
-        background-image: url(/images/coupon.png);
-        background-size: 100% 100%;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        border: none;
-        padding-left:25px;
-        padding-right: 10px;
-        cursor:pointer;
-    }
+
+
+
+    // .total{
+        
+    //     .wrap{
+    //         padding: 20px;
+    //         background-color: $color2;
+    //         border-radius: 10px;
+    //         font-size:12px;
+    //         @include md(){
+    //             font-size: $h6-fzSize;
+    //             padding: 40px;
+    //         }
+    //         .total_area{
+    //             // border: 1px solid red;
+    //             .discount{
+    //                 // border: 1px solid blue;
+    //                 display: flex;
+    //                 align-items: center;
+    //                 flex-direction: column;
+    //                 justify-content: center;
+    //                 gap:20px;
+    //                 // margin-left: auto;
+    //                 // margin-right: auto;
+    //                 .price{
+    //                     width: 100%;
+    //                     // border: 1px solid #000;
+    //                     @include md(){
+    //                         // border: 2px solid red;
+    //                         display: flex;
+    //                         gap: 20px;
+    //                     }
+    //                     .discount-row{
+    //                         width: 100%;
+    //                         // border: 1px solid #000;
+    //                         display: flex;
+    //                         margin-bottom: 20px;
+    //                         align-items: center;
+    //                         label{
+    //                             // border: 1px solid #000;
+    //                             width: 30%;
+    //                             font-size: $h6-fzSize;
+    //                         }
+    //                         input{
+    //                             // width: 120px;
+    //                             width: 100%;
+    //                             border-radius: 5px;
+    //                             border:0px;
+    //                             height: 25px;
+    //                             @include md(){
+    //                                 height: 40px;
+    //                             }
+                                
+    //                         }
+    //                     }
+
+    //                 }
+                
+    //                 .bill{
+    //                     margin-top: 10px;
+    //                     @include md{
+    //                         margin-top: 0;
+    //                     }
+    //                 }
+    //                 @include bgBtn(bill){
+    //                 }
+    //                 .coupon{
+    //                     background-color:$color2;
+    //                 }
+    //             }
+    //         }
+    //     }    
+    // }
+    // .coupon{
+    //     font-size: $h6-fzSize;
+    //     color: $color1;
+    //     background-image: url(/images/coupon.png);
+    //     background-size: cover;
+    //     padding: 5px;
+    //     background-image: url(/images/coupon.png);
+    //     background-size: 100% 100%;
+    //     background-position: 50% 50%;
+    //     background-repeat: no-repeat;
+    //     border: none;
+    //     padding-left:25px;
+    //     padding-right: 10px;
+    //     cursor:pointer;
+    // }
     //優惠券燈箱
     .mycoupons{
         // position: fixed;
