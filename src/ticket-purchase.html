@@ -30,7 +30,6 @@
                 <h2>購票明細</h2>
                 <div class="table-item ONE">
                     <div class="item-price">
-                        <!-- <p>&nbsp;</p> -->
                         <p>張數</p>
                         <p>價格</p>
                     </div>
@@ -57,12 +56,12 @@
                         </div>
                     </div>
 
-                  
+
                 </div>
 
-          
+
             </div>
-            
+
             <!-- 圈圈 -->
             <div class="purchase-process two">
                 <div class="circular">1</div>
@@ -107,7 +106,7 @@
                 </div>
 
             </div>
-             <!-- 圈圈 -->
+            <!-- 圈圈 -->
             <div class="purchase-process three">
                 <div class="circular">1</div>
                 <div class="circular">2</div>
@@ -130,61 +129,36 @@
                                 <input type="text" id="">
                             </div>
                         </div>
-                  
+
                         <!-- 信用卡年月 -->
                         <div class="item">
                             <p>信用卡有效月年</p>
                             <form date="airform">
-
-                                <div class="month">
-                                    
-                                    <select date="selection">
-                                        <option>請選擇</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                    </select>
-                                    <p>月</p>
+                                <div class="Info">
+                                    <div class="month">
+                                        <select id="month">
+                                            <option value=" " >請輸入</option>
+                                        </select>
+                                        <p>月</p>
+                                    </div>
+                                    <div class="year">
+                                        <select id="year">
+                                            <option value=" " >請輸入</option>
+                                        </select>
+                                        <p>年</p>
+                                    </div>
                                 </div>
-                                <div class="year">
-                                    
-                                    <select date="selection">
-                                        <option>請選擇</option>
-                                        <option>2021</option>
-                                        <option>2022</option>
-                                        <option>2023</option>
-                                        <option>2024</option>
-                                        <option>2025</option>
-                                        <option>2026</option>
-                                        <option>2027</option>
-                                        <option>2028</option>
-                                        <option>2029</option>
-                                        <option>2030</option>
-                                    </select>
-                                    <p>年</p>
+                                <!-- 後三碼 -->
+                                <div class="back-three">
+                                    <p>後三碼</p>
+                                    <input type="text" id="lastThreeYards">
                                 </div>
-
                             </form>
 
 
-                          
-                        </div>
-                        <!-- 後三碼 -->
-                        <div class="back-three">
-     
-                            <p>後三碼</p>
-                            <input type="text" id="lastThreeYards">
 
                         </div>
+
                     </div>
 
                 </div>
@@ -195,6 +169,23 @@
 
         </div>
     </section>
+    <script>
+        window.addEventListener("load",function(){
+            let select_year = document.querySelector("#year");
+            let select_month =document.querySelector("#month");
+            let opt;
+            let Opt;
+            for (let i = 2025; i<= 2050; i++){
+                opt = new Option(i, i);
+                select_year.add(opt);
+            };
+            for(let i = 1; i<= 12; i++){
+                Opt = new Option(i, i);
+                select_month.add(Opt);
+            }
+        })
+        
+    </script>
 
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
