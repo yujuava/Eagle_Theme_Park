@@ -90,9 +90,13 @@
             // border: 1px solid #000;
             p {
                 color: $color9;
-                padding: 50px 15px;
+                padding: 20px 15px;
                 font-size: $h6-fzSize;
                 font-family: $family2;
+                @include md(){
+                    padding: 50px 15px;
+                }
+                
             }
         }
 
