@@ -64,8 +64,8 @@
         background-color: $color3;
         & .facilitiesInfo{
             width: 100%;
-            background-color: rgba($color6, 0.9);
-            border-radius: 10px;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
             padding: 10px;
             position: relative;
             transition: 0.4s ease-in-out;
@@ -82,17 +82,13 @@
 
 
     @include md{
-        .facilitesBox{
-            margin-bottom: 15px;
-            position: relative;
-        }
         .facilitesContent{
             background-color: $color3;
             & .facilitiesInfo{
                 width: 100%;
                 height: fit-content;
                 opacity: 0;
-                border-radius: 15px;
+                border-radius: 0 0 12px 12px;
                 padding: 5px;
                 position: absolute;
                 bottom: 30%;
@@ -114,7 +110,12 @@
         font-size: $md-word-fzSize;
     }
     .facilitiesImg{
-        padding: 15px;
+        padding: 5px;
+    }
+    @include md{
+        .facilitiesImg{
+            padding: 15px;
+        }
     }
     .facilitiesImg img{
         width: 100%;
@@ -128,7 +129,6 @@
         position: relative;
     }
     .themePark__Attractions{
-        border: 1px solid black;
         display: flex;
         justify-content: center;
         overflow: hidden;
@@ -151,8 +151,6 @@
 
     // card slider outer container
     #slider {
-        // border: 1px solid black;
-        // aspect-ratio: 1/1;
         width: 45vw;
         position: relative;
         perspective: 2000px;
@@ -162,7 +160,6 @@
       }
     @include md{
         #slider {
-                   border: 1px solid black;
             height: 50%;
             width: 40vw;
             perspective-origin: center -50%;
@@ -339,8 +336,9 @@
     }
     // grid RWD mobile
     .paradesBoard{
-        grid-template-rows: 50% 25% 25%;
-        grid-template-columns: 50% 50%;
+        grid-template-rows: 2fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5px;
     }
     .paradesBox:first-child{
         grid-row-start: 1;
@@ -376,8 +374,10 @@
     // grid RWD regular
     @include md{
         .paradesBoard{
-            grid-template-rows: 50% 50%;
-            grid-template-columns: 50% 25% 25%;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
+            // column-gap: 5px;
+            // row-gap: 5px;
         }
         .paradesBox:first-child{
             grid-row-start: 1;
@@ -420,23 +420,24 @@
     .paradesBox{
         height: 100%;
     }
-    .paradesBox:nth-child(1){
-        padding-bottom: 4px;
-    }
-    .paradesBox:nth-child(n+2){
-        padding-bottom: 4px;
-    }
-    .paradesBox:nth-child(even){
-        padding-right: 2px;
-    }
-    .paradesBox:nth-child(2n+3){
-        padding-left: 2px;
-    }
-    @include md{
-        .paradesBox:nth-child(n+2){
-            padding: 6px;
-        }
-    }
+    // .paradesBox:nth-child(2){
+    //     row-gap: 5px;
+    //                 background-color: blue;
+    // }
+    // .paradesBox:nth-child(3){
+    //     row-gap: 5px;
+    // }
+    // .paradesBox:nth-child(even){
+    //     padding-right: 2px;
+    // }
+    // .paradesBox:nth-child(2n+3){
+    //     padding-left: 2px;
+    // }
+    // @include md{
+    //     .paradesBox:nth-child(n+2){
+    //         padding: 6px;
+    //     }
+    // }
 
     // parades font size setting
     .paradesTypeDate{

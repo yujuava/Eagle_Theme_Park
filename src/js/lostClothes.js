@@ -3,12 +3,21 @@
 var typeTop, typeMiddle, typeBottom, topFlag, middleFlag, bottomFlag, couponMsg = false;
 
 function DoFirst(){
-
+    let fontSize = 30; // default font size 
+    let md_fontSize = 30;
+    let sm_fontSize = 20;
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
     var OriginWindowWidth = window.innerWidth;
     canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
     canvas.height = canvas.width;
+
+    if(OriginWindowWidth<768){
+        fontSize = sm_fontSize;
+    }else{
+        fontSize = md_fontSize;
+    }
+
     drawStuff(); 
     // resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, false);
@@ -21,6 +30,12 @@ function DoFirst(){
             canvas.width = document.getElementsByClassName('gameCol')[0].offsetWidth - 30;
             canvas.height = canvas.width;
        
+            if(newWidth<768){
+                fontSize = sm_fontSize;
+            }else{
+                fontSize = md_fontSize;
+            }
+
             drawStuff(); 
        }
 
@@ -40,8 +55,8 @@ function DoFirst(){
             context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
             context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
             context.fillStyle='#245D68'; 
-            context.font = "30px Arial";
-            context.fillText("換衣服進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
+            context.font = `${fontSize}px Arial`;
+            context.fillText("更衣進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
         };
         
         let topImg1 = new Image();
@@ -109,8 +124,8 @@ function DoFirst(){
             typeMiddle = undefined;
             typeBottom = undefined;
             context.fillStyle='#245D68'; 
-            context.font = "30px Arial";
-            context.fillText("換衣服進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
+            context.font = `${fontSize}px Arial`;
+            context.fillText("更衣進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
         });
 
 
@@ -140,8 +155,8 @@ function DoFirst(){
             let progressResult = progressArray.filter(Boolean).length;
 
             context.fillStyle='#245D68'; 
-            context.font = "30px Arial";
-            context.fillText(`換衣服進度: ${progressResult}/3`, canvas.width*0.05, canvas.height*0.95); 
+            context.font = `${fontSize}px Arial`;
+            context.fillText(`更衣進度: ${progressResult}/3`, canvas.width*0.05, canvas.height*0.95); 
             
             if( progressResult == 3 && couponMsg == false){
                 couponMsg = true;

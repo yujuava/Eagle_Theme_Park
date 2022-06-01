@@ -37,7 +37,12 @@
         padding: 0 15px 15px 15px;;
     }
     .gamesImg{
-        padding: 15px;
+        padding: 5px;
+    }
+    @include md{
+        .gamesImg{
+            padding: 15px;
+        }
     }
     .gamesImg img{
         width: 100%;
