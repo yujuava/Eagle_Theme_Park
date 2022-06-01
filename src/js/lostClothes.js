@@ -28,10 +28,6 @@ function DoFirst(){
         textBcg_y = md_TextBcg_y;
     }
 
-    drawStuff(); 
-    // resize the canvas to fill browser window dynamically
-    window.addEventListener('resize', resizeCanvas, false);
-          
     function resizeCanvas() {
         // minus padding value within html/css
         
@@ -186,6 +182,9 @@ function DoFirst(){
         drawClothes();
     }
  
+    drawStuff(); 
+    // resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', resizeCanvas, false);
 }
 
 window.addEventListener('load', DoFirst);
