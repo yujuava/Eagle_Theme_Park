@@ -10,7 +10,7 @@ btnRight.addEventListener('click', ()=>{
     }else{
         index++;  
         }
-        slider.style.left = -50*index + '%';
+        slider.style.left = -20*index + '%';
     });
 btnLeft.addEventListener('click', ()=>{
     if (index==0){
@@ -20,5 +20,5 @@ btnLeft.addEventListener('click', ()=>{
         index--;  
         console.log(index);
         }
-        slider.style.left = 50*index + '%';
+        slider.style.left = 20*index + '%';
     });

@@ -10,11 +10,14 @@
     <!-- 共用header -->
     @@include('layout/header-final.html')
     <!-- 共用header end -->
-    
-    <section>
-<!-- 大標使用這個-->
     @@include('layout/h2Style.html',{
         "h2Title" : "伊果商城"
+    <section>
+<!-- 大標使用這個-->
+    })
+    @@include('layout/title.html',{
+        "h3TitleTC" : "明信片製作",
+        "h3TitleEN": "Product"
     })
 <!-- 明信片圖片 -->
         <div class="wrap postbg" >      
@@ -54,7 +57,7 @@
 <!-- 明信片貼紙 -->
         <div class="postcardWrap">
             <div class="stickerslider">
-                    <ul class="sticker">
+                <ul class="sticker">
                         <li><img src="./images/sticker1.png" alt=""></li>
                     <li><img src="./images/sticker2.png" alt=""></li>
                     <li><img src="./images/sticker3.png" alt=""></li>
