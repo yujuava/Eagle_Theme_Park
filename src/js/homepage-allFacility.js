@@ -158,35 +158,58 @@ new Vue({
     el:'#all-thrill-ride',
     data:{
         cards,
-        currentFilter: 'ALL',
+        currentFilter: 'ALL',   //自己設定 currentFilter的初始屬性值為ALL
         count: 0,
         rain: false,
         pregnant: false,
         wheelchair: false,
     },
     computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
-        // cardTitles() {
-        //     return this.cards.map(v => v.name);
-        // },
 
         cardTitles() {
-            return this.cards.map(v => v.name);
+            return this.cards.map(v => v.name); 
         },
 
-        cardsFilter1() {
-            return this.cards.filter(item =>item.area1 == this.currentFilter || this.currentFilter == 'ALL');
+        //以上是簡寫，以下是完整寫法
+        //把cards這個陣列放進v陣列，並取出v.name，然後回傳 這個動作是"cardTitle()"這個函式
+        cardTitles(){
+            this.card.map(function(v){
+                return v.name;
+            })
         },
+
+        // cardsFilter1() {
+        //     return this.cards.filter(item =>item.area1 == this.currentFilter || this.currentFilter == 'ALL');
+        // },
+
+        //篩選 this.currentFilter 等於 ALL(初始值)的時候 或 等於 item.area1(紐約|印安|西部) 放進 "item"裡面，並回傳，
+        // 這個動作是"cardsFilter1()"這個函式
+        //*只有箭頭函式的this會指到vue本身，所以非箭頭函式要加上let thus = this;
+
+        //第一個篩選
+
+        cardsFilter1(){
+            let thus = this
+            return thus.cards.filter(function(item){
+              return item.area1 == thus.currentFilter || thus.currentFilter == 'ALL'
+            })
+        },
+
+        //第貳個篩選
         cardsFilter2() {
-            return this.cardsFilter1.filter(item => {
-                let rainPass = true;
+            return this.cardsFilter1.filter(item => {       //return第一次篩選完的結果並且再篩一次
+                let rainPass = true;    //先宣告雨天 | 孕婦 | 輪椅 =  true
                 let pregnantPass = true;
                 let wheelchairPass = true;
-                if (this.rain) rainPass = item.rain;
-                if (this.pregnant) pregnantPass = item.pregnant;
+                if (this.rain){rainPass = item.rain};   //如果this.rain = true(就是物件裡有自選成true的那些設施)，
+                if (this.pregnant) pregnantPass = item.pregnant;    //
                 if (this.wheelchair) wheelchairPass = item.wheelchair;
+                // console.log(rainPass)
                 return rainPass && pregnantPass &&wheelchairPass;
             });
         },
+
+
         tabList() {
             let arr = [];
             let results= [];
@@ -206,31 +229,10 @@ new Vue({
     },
     methods: {  // 函數大部分放這裡!
 
-        // allFacility:function(){
-        //     return this.name;
-        // },
-
         setFilter(filter) {
             this.currentFilter = filter;
 		},   
-        
 
-        
-        // changeNw(){
-        //     this.$refs.nw.style.background="#245D68";
-        //     this.$refs.west.style.background="#FDB52D";
-        //     this.$refs.indian.style.background="#FDB52D";
-        //     },
-        // changeWest(){
-        //     this.$refs.nw.style.background="#FDB52D";
-        //     this.$refs.west.style.background="#245D68";
-        //     this.$refs.indian.style.background="#FDB52D";
-        //     },
-        // changeIndian(){
-        //     this.$refs.nw.style.background="#FDB52D";
-        //     this.$refs.west.style.background="#FDB52D";
-        //     this.$refs.indian.style.background="#245D68";
-        // },
     },
 
 
