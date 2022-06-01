@@ -112,22 +112,22 @@ function DoFirst(){
             });
         };
 
-        document.getElementById('btnClear').addEventListener('click', () =>{
-            context.clearRect(0, 0, canvas.width, canvas.height); 
-            context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
-            context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
-            topFlag = false;
-            middleFlag = false;
-            bottomFlag = false;
-            couponMsg = false;
-            typeTop = undefined;
-            typeMiddle = undefined;
-            typeBottom = undefined;
-            context.fillStyle='#245D68'; 
-            context.font = `${fontSize}px Arial`;
-            context.fillText("更衣進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
-        });
-
+        // remove Clear button
+        // document.getElementById('btnClear').addEventListener('click', () =>{
+        //     context.clearRect(0, 0, canvas.width, canvas.height); 
+        //     context.drawImage(Bcg, 0, 0, canvas.width, canvas.height);
+        //     context.drawImage(eagleImg, canvas.width*0.3, canvas.height*0.1, canvas.width*0.4, canvas.height*0.8);
+        //     topFlag = false;
+        //     middleFlag = false;
+        //     bottomFlag = false;
+        //     couponMsg = false;
+        //     typeTop = undefined;
+        //     typeMiddle = undefined;
+        //     typeBottom = undefined;
+        //     context.fillStyle='#245D68'; 
+        //     context.font = `${fontSize}px Arial`;
+        //     context.fillText("更衣進度: 0/3", canvas.width*0.05, canvas.height*0.95); 
+        // });
 
 
         function drawClothes(){
