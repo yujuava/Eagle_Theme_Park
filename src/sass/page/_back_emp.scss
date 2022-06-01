@@ -61,11 +61,12 @@
             position: fixed;
             top: 0;
             left: 0;
-            display: none;
+            // display: none;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             > div{
+                width: 40%;
                 margin: auto;
                 background-color: $color1;
                 padding: 50px;
@@ -86,6 +87,7 @@
                     // border-spacing: 0;
                     border: 1px solid $color2;
                     // border-radius: 15px;
+                    margin: auto;
                     tr{
                         padding: 20px;
                         

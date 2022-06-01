@@ -56,9 +56,9 @@
                 <td>可購買</td>
             </tr>
         </table>
-        <div class="back_lightbox backLightbox">
+        <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
-                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <i @click="isOpen = false"  id="close" class="fa-solid fa-xmark"></i>
                 <table class="innerData">
                     <tr>
                         <th>票價</th>
@@ -80,4 +80,4 @@
 
 </html>
 <!-- 共用燈箱js -->
-<script src="js/backLightbox.js"></script>
+<script src="js/back_ticket.js"></script>

@@ -46,9 +46,9 @@
             </tr>
         </table>
 
-        <div class="back_lightbox backLightbox">
+        <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
-                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                 <table class="innerData">
                     <tr>
                         <th>票券名稱</th>
@@ -90,4 +90,4 @@
 </body>
 </html>
 <!-- 共用燈箱js -->
-<script src="js/backLightbox.js"></script>
+<script src="js/back_order_ticket.js"></script>
