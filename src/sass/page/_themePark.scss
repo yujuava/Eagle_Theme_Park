@@ -138,19 +138,9 @@
         justify-content: center;
         overflow: hidden;
         width: 100%;
-        aspect-ratio: 1/1.1;
         padding-top: 50px;
         transform: translateY(-80px);
         margin-bottom: -80px;
-    }
-    
-    @include md{
-        .themePark__Attractions{
-            padding-top: 120px;
-            aspect-ratio: 1/0.8;
-            transform: translateY(-150px);
-            margin-bottom: -150px;
-        }   
     }
 
 
@@ -217,45 +207,88 @@
         transform: translate3d(150%,0,-300px);
     }
 
-
     .card{
-        padding: 15px;
+        position: relative;
+        padding: 5px;
         box-shadow: $card-shadow2;
         background-color: $color4;
         transition: 1s;
         opacity: 0.9;
     }
+    @include md{
+        .card{
+            padding: 15px;
+        }
+    }
+    .cardImg img{
+        width: 100%;
+        display: block;
+    }
+    .cardInfo{
+        background-color: $color11;
+        padding: 5px;
+        bottom: 5px;
+        left: 4px;
+        right: 4px;
+        position: absolute;
+        opacity: 0;
+        transition: 1.5s;
+    }
+    @include md{
+        .cardInfo{
+            padding: 10px;
+            bottom: 15px;
+            left: 14px;
+            right: 14px;
+        }
+    }
 
+    --infoOpacity : 0.9;
     --smallWidth : 50vw;
     #s1:checked ~ #slide1 .card{
         background-color: $color11;
         width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1
+        opacity: 1;
+        & .cardInfo{
+            opacity: var(--infoOpacity);
+        }
     }
     #s2:checked ~ #slide2 .card{
         background-color: $color11;
         width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1
+        opacity: 1;
+        & .cardInfo{
+            opacity: var(--infoOpacity);
+        }
     }
     #s3:checked ~ #slide3 .card{
         background-color: $color11;
         width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1
+        opacity: 1;
+        & .cardInfo{
+            opacity: var(--infoOpacity);
+        }
     }
     #s4:checked ~ #slide4 .card{
         background-color: $color11;
         width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1
+        opacity: 1;
+        & .cardInfo{
+            opacity: var(--infoOpacity);
+        }
     }
     #s5:checked ~ #slide5 .card{
         background-color: $color11;
         width: var(--smallWidth);
         transform: translateX(-10%);
-        opacity: 1
+        opacity: 1;
+        & .cardInfo{
+            opacity: var(--infoOpacity);
+        }
     }
 
     --mdWidth : 50vw;
@@ -265,43 +298,54 @@
             width: var(--mdWidth);
             transform: translateX(-10%);
             opacity: 1;
+            & .cardInfo{
+                opacity: var(--infoOpacity);
+            }
         }
         #s2:checked ~ #slide2 .card{
             background-color: $color11;
             width: var(--mdWidth);
             transform: translateX(-10%);
             opacity: 1;
+            & .cardInfo{
+                opacity: var(--infoOpacity);
+            }
         }
         #s3:checked ~ #slide3 .card{
             background-color: $color11;
             width: var(--mdWidth);
             transform: translateX(-10%);
             opacity: 1;
+            & .cardInfo{
+                opacity: var(--infoOpacity);
+            }
         }
         #s4:checked ~ #slide4 .card{
             background-color: $color11;
             width: var(--mdWidth);
             transform: translateX(-10%);
             opacity: 1;
+            & .cardInfo{
+                opacity: var(--infoOpacity);
+            }
         }
         #s5:checked ~ #slide5 .card{
             background-color: $color11;
             width: var(--mdWidth);
             transform: translateX(-10%);
             opacity: 1;
+            & .cardInfo{
+                opacity: var(--infoOpacity);
+            }
         }
     }
 
-    .cardImg img{
-        width: 100%;
-        display: block;
-    }
     .card p:nth-of-type(1){
-        font-size: $h6-fzSize;
-        padding: 10px 0 10px 0;
+        font-size: $md-word-fzSize;
+        padding: 5px 0 5px 0;
     }
     .card p:nth-of-type(2){
-        font-size: $md-word-fzSize;
+        font-size: $sm-word-fzSize;
     }
     @include md{
         .card p:nth-of-type(1){
