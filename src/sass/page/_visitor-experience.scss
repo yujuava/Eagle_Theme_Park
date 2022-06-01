@@ -10,8 +10,14 @@
         box-shadow: 3px 3px 0px $color2;
     }
 }
-
-
+.Visitor_experience{
+    .wrap{
+        width: 80%;
+        @include md(){
+         width: 90%;   
+        }
+    }
+}
 // 燈箱
 .light-box {
     position: fixed;
