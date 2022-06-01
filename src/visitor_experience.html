@@ -5,6 +5,7 @@
     @@include('layout/meta.html', {
     "title" : "遊客體驗"
     })
+    
 </head>
 
 <body class="visitor_experience">
@@ -33,33 +34,35 @@
                         <div class="box-body">
                             <!-- 標題 -->
                             <input type="text" placeholder="標題">
-    
+
                             <!-- 圖片? -->
                             <input type="file" id="InsertPicture" accept="image/*">
-    
+
                             <!-- 中間區域 -->
                             <div class="center-area">
                                 <!-- 打字區 -->
                                 <div class="text-area">
-        
-                                    <textarea cols="50" rows="5" maxlength="300" placeholder="請輸入內文(發文須注意禮節)"></textarea>
+
+                                    <textarea cols="50" rows="5" maxlength="300"
+                                        placeholder="請輸入內文(發文須注意禮節)"></textarea>
                                     <!-- <p>發表需注意網路禮節</p> -->
                                 </div>
-        
+
                                 <!-- 圖片區 -->
                                 <div class="image-Preview" id="imagePreview">
                                     <label for="InsertPicture" class="smBtn-insert-pic">
                                         <i class="fa-regular fa-image"></i>插入圖片
-                                    </label>    
-        
+                                    </label>
+
                                     <div class="img" id="img">
                                         <img src="" alt="your Image" class="blah">
-                                        <span class="image-preview__default-text"><i class="fa-regular fa-image"></i></span>
+                                        <span class="image-preview__default-text"><i
+                                                class="fa-regular fa-image"></i></span>
                                     </div>
                                 </div>
-    
+
                             </div>
-    
+
                             <!-- 按鈕 -->
                             <div class="btn">
                                 <button @click="closeBox" class="mdBtn-cancel">取消</button>
@@ -72,359 +75,17 @@
                 </div>
             </div>
 
-            <div class="row">
-              
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/themePark__facWest_tourist_Lg_2.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>園區暑假表演多，表演人員都很熱情，會和遊客、小朋友互動。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/friend.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-
-           
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/smiley-female.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>適合親子打發時間用，親子時光無價啊，玩好玩滿玩得好開心哈哈。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/happygirl.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>遊樂區有適合小朋友玩的，但是也是有許多恐怖的設施，笑傲飛鷹啊，大家都很愛的衝刺濺水的獨木舟！是真的很刺激。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/happy2.jpeg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>疫情期間很多游樂設施都沒開，還想說周二人少，結果發現超多學生，假日肯定人更多，洗手間擦手紙也沒有，烘乾機也不能用，而且有的馬桶超髒的</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/happy3.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/happy4.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/newyork.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/themePark__attrIndian_3.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/themePark__attrIndian_2.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/happy.jpeg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-pic">
-                            <div class="pic">
-                                <a href="./visitor_experience_page.html">
-                                    <img src="./images/friends-having-fun.jpg" alt="感覺很恐怖">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="person">
-                            <div class="mem">
-                                <img src="./images/mem.png" alt="老鷹">                                
-                            </div>
-
-                            <div class="mem-name">小鷹</div>
-
-                        </div>
-
-                        <div class="card-body">
-                            <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
-                            <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-           
+            <div class="row"  id="voice-of-tourists">
+                <transition-group name="item" tag="div" class="row">
+                    <item-component v-for="item in cards" :item="item" :key="item.id" v-bind="item">
+                </transition-group>
+            </div>        
             
-            </div>
         </div>
     </section>
-
+    
+    
     <script>
-
-        
-        
         new Vue({
             el: '#app',
             data: {
@@ -469,6 +130,8 @@
             }
         });
     </script>
+
+    <script src="./js/card.js"></script>
 
 
 
