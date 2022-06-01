@@ -1,103 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* bgBtn(post) {
-    margin-left: auto;
-    margin-right: 0;
-    display: block;
-    margin-bottom: 20px;
-} */
-
-.light-box{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,.5);
-z-index: 100;
- display: none;
-}
-
-.test-box{
-    position: absolute;
-    top: 200px;
-        left: 0;
-        right: 0;
-        bottom: 100px;
-        width: 50%;
-        height: 50%;
-        z-index: 100;
-        background-color: #fff;
-        margin: auto;}
-
-        /* border-radius: 20px; */
-        .fa-x{
-            position: absolute;
-            right: 0;
-            top: 0;
-            font-size: 25px;
-            /* &:hover{
-                cursor: pointer;
-            } */
-        }
     
+    @@include('layout/meta.html', {
+        "title" : "首頁"
+    })
+
+    <style>
+
 
     </style>
+
 </head>
-<body>
-    <div id="app">
-        <!-- 開燈箱 -->
-        <div v-on:click='openBox'>
-            <button class="post">我要發文</button>
-        </div>
-        <!-- 關按鈕+傳文章 -->
+<body class="homepage"> 
+    <h2>13213212132</h2>
+    <section class="ThrillRide"  id="all-thrill-ride">
+        
+        <div class="wrap"  id="all-thrill-ride" >
+            <div>
+                <transition-group name="test" tag="div" class="all-card">
+                    <test-component v-for="item in test" :item="item" :key="item.id">
+                </transition-group>
 
-        <div class='light-box'>
-            <div class="test-box bdr">
-                <p>
-                    <i class="fa-solid fa-x"></i>
-                </p>
-                <p>{{POST}}</p>
+
+                <div class="all-card">
+
+                    <div class="card card-bdr">
+                        <div class="pic card-bdr">
+                            <img src="./images/themePark__facWest_tourist_Lg_2.jpg" alt="Image">
+                            <div class="area">
+                                印安<br>
+                                紐約
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>大旋轉木馬</h4>
+                            <p>不好玩</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-bdr">
+                        <div class="pic card-bdr">
+                            <img src="./images/themePark__facWest_tourist_Lg_2.jpg" alt="Image">
+                            <div class="area">
+                                印安<br>
+                                紐約
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h4>大旋轉木馬</h4>
+                            <p>不好玩</p>
+                        </div>
+                    </div>
+                </div>
+               
+
             </div>
+
+
+
+
         </div>
 
-    </div>
+        <div>
+
+     
+
+        </div>
+
+
+    </section>
 
     <script>
-        /* Vue.component('.test-box',{
-            
-             template:`
-            <p v-on:click="closeBox">
-                <i class="fa-solid fa-x"></i>
-             </p>
-            <p>{{Post}}</p> */
-         /* `, */
-         new Vue({
-             el: '#app',
-             data: {
-                 POST:'我要發文',
-             },
-            methods: {
-                openBox: function () {
-                     let lightbox = document.querySelector('.light-box');
-                      lightbox.classList.add('show-Lightbox');
-                },
-                closeBox: function () {
-                    let lightbox = document.querySelector('.light-box');
-                     lightbox.classList.remove('show-Lightbox');
-                 },
-             },
-         })
 
-                /* Post: '我要發文',
+        const test=[{
+            id:1,
+            name:'伊果飛車',
+            area1:"紐約",
+            area2:"都會",
+            img: './images/facilities.jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+            rain:true,
+            pregnant:false,
+            wheelchair:false,
+        },
+        {
+            id:2,
+            name:'仙女散花',
+            area1:"印安",
+            area2:"部落",
+            img: './images/facilities8 (24).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+            rain:false,
+            pregnant:true,
+            wheelchair:false,
+        },
+        {   
+            id:3,
+            name:'天旋地轉',
+            area1:"紐約",
+            area2:"都會",
+            img: './images/facilities8 (8).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+            rain:false,
+            pregnant:false,
+            wheelchair:true,
+        }
+        ]
+
+        Vue.component('test-component',{
+            template:`
+            <div class="card card-bdr">
+                <div class="pic card-bdr">
+                    <img :src="item.img" alt="Image">
+                    <div class="area">
+                        {{item.area1}}<br>
+                        {{item.area2}}
+                    </div>
+                </div>
+                <div class="info">
+                    <h4>{{item.name}}</h4>
+                    <p>{{item.info}}</p>
+                </div>
+            </div>
+
+            `,
+            props:{
+                item:Object
+            }
+        });
+
+        new Vue({
+            el:'#all-thrill-ride',
+            data:{
+                test,
             },
-        }) */
+            computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+
+            },
+            methods: {  // 函數大部分放這裡!
+
+
+            },
+
+
+        })
+
+
+
     </script>
+    
 </body>
 </html>
