@@ -17,16 +17,14 @@
 <!-- 大標使用這個-->
     
     @@include('layout/title.html',{
-        "h3TitleTC" : "明信片製作",
+        "h3TitleTC" : "客製明信片",
         "h3TitleEN": "Product"
     })
 <!-- 明信片圖片 -->
         <div class="wrap postbg" >      
-               <!-- Slideshow container -->
             <div class="slideshow-container">
-    <!-- Full-width images with number and caption text -->
                 <div class="mySliderContainer">
-                    <div class="mySlides fade">
+                    <div class="mySlides">
                         <img src="./images/postcard1.jpg">
                     </div>
                     <div class="mySlides fade">
@@ -43,10 +41,6 @@
                         <div class="next" onclick="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></div>
                     </div>
                 </div>
-
-    <!-- Next and previous buttons -->
-
-
     <!-- 明信片內容 -->
                 <div class="postcard">
                     <img src="./images/postcardback.jpg" alt="">
@@ -64,11 +58,11 @@
                     <li><img src="./images/sticker3.png" alt=""></li>
                     <li><img src="./images/sticker4.png" alt=""></li>
                     <li><img src="./images/sticker5.png" alt=""></li>
-                    <li><img src="./images/sticker1.png" alt=""></li>
-                    <li><img src="./images/sticker1.png" alt=""></li>
-                    <li><img src="./images/sticker1.png" alt=""></li>
-                    <li><img src="./images/sticker1.png" alt=""></li>
-                    <li><img src="./images/sticker1.png" alt=""></li>
+                    <li><img src="./images/sticker6.png" alt=""></li>
+                    <li><img src="./images/sticker7.png" alt=""></li>
+                    <li><img src="./images/sticker8.png" alt=""></li>
+                    <li><img src="./images/sticker9.png" alt=""></li>
+                    <li><img src="./images/sticker10.png" alt=""></li>
                 </ul>
             </div>
             <button id="sliderLeft">
@@ -82,7 +76,6 @@
             <div class="upload">
                 <button class="bgBtn-shop  shopbtn" id="shopBtn">寄送</button>
             </div>
-            
         </div>   
     </section>
 <!-- ---------------------- -->
@@ -92,9 +85,7 @@
         "h3TitleTC" : "商品列表",
         "h3TitleEN": "Product"
     })
-        
         <div class="product">
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic" id="lightBtn">
@@ -106,8 +97,7 @@
                     </div>
                 </div>
             </div>
-
-            
+<!-- 商品內容-->
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -119,8 +109,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -132,8 +120,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -145,7 +131,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -157,8 +142,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -170,7 +153,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
@@ -183,7 +165,6 @@
                 </div>
             </div>
     </section>
-
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
