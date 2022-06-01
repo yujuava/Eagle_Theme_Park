@@ -2,7 +2,7 @@
 // entry button replace bcg method with pseudo-element. prevent rwd bugs
 .index{
     // mobile static background image
-    background-image: url("../../images/index__bcg.jpg");
+    background-image: url("./images/index__bcg.jpg"), url("../../images/index__bcg.jpg");
     background-size: cover;
     background-position: center;
     
