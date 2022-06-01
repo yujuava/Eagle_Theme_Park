@@ -51,7 +51,12 @@
     }
     .closet li{
         width: 33.33333%;
-        padding: 15px;
+        padding: 5px;
+    }
+    @include md{
+        .closet li{
+            padding: 10px;
+        }
     }
     .closet li:hover{
         cursor: pointer;
@@ -59,8 +64,13 @@
     }
     .closet li img{
         width: 100%;
-        padding: 10px;
+        padding: 5px;
         background-color: $color1;
+    }
+    @include md{
+        .closet li img{
+            padding: 15px;
+        }
     }
     #btnClear{
         border: none;
