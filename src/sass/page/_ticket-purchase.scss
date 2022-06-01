@@ -31,7 +31,7 @@
         color: $color9;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url(../../images/Subtract.svg);
+        background-image: url(../images/Subtract.svg);
     }
 
     // 最外層
@@ -168,9 +168,7 @@
                 width: 100%;
                 padding: 20px;
                 background-size:cover;
-                @include md(){
-                    background-size: cover;    
-                }
+                background-image: url(../images/Subtract2.svg);
                 .info{
                     width: 70%;
                     margin: auto;
