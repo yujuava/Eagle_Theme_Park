@@ -1,11 +1,15 @@
 // TODO
 // entry button replace bcg method with pseudo-element. prevent rwd bugs
 .index{
+    overflow: hidden;
     // mobile static background image
-    background-image: url("./images/index__bcg.jpg"), url("../../images/index__bcg.jpg");
+    background-image: url("./images/index__bcg.jpg"), url("../images/index__bcg.jpg");
     background-size: cover;
     background-position: center;
-    
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0;
+    border: 0px;
     .index__bcgImg, .index__ballon1, .index__ballon2, .index__cloud{
         display: none;
     }

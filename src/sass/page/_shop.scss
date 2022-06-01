@@ -1,7 +1,5 @@
 .shop{
-  // .postbg{
-  //   // background-color: $color2;
-  // }
+ 
   .slideshow-container {
     width: 90%;
     position: relative;
@@ -35,15 +33,18 @@
       transform: translateY(-50%);
       font-size: 60px;
       color: $color1;
-      
   }
-
+  .sliderButton i{
+    font-size: $big-fzsize;
+    position: relative;
+  }
   .next, .prev{
     position: relative;
     z-index: 2;
     transition: .3s ease-in-out;
     cursor: pointer;
   }
+
   .next::before, .prev::before {
     content: "";
     z-index: -1;
@@ -52,7 +53,7 @@
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    left: -100%;
+    left: -115%;
     transform: translateX(50%);
     transform: translateY(-50%);
     background-color: rgba($color4, 0.3); 
@@ -63,7 +64,6 @@
     background-color: rgba($color6, 0.8); 
   }
 
-
   .text {
     color: #f2f2f2;
     font-size: 15px;
@@ -73,7 +73,14 @@
     width: 100%;
     text-align: center;
   }
+  @include md{
+  
+  }
 
+  @include lg{
+      
+      
+  }
   /* Number text (1/3 etc) */
   .numbertext {
     color: #f2f2f2;
@@ -149,9 +156,7 @@
   }
   .sticker li img{
     width: 100%;
-    background-color: aquamarine;
   }
-
   // 明信片貼紙
   .postcardWrap{
     position: relative;
@@ -251,19 +256,20 @@
   .productName ,.productPrice{
     display: flex;
   }
-  .light-box button{
+  .light-box #turnOff{
     position: absolute;
-    top: 0;
-    right:0;
+    top: 10px;
+    right:10px;
     font-size: 30px;
-    border-radius: 50%;
     width: 40px;
     height: 40px;
-    border: none;
   }
   .lightbox-bdr .count{
     display: flex;
     align-items: center;
+  }
+  .lightbox-bdr{
+    padding: 30px;
   }
   .count .num{
     width: 50px;
