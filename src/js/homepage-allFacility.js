@@ -189,11 +189,18 @@ new Vue({
         //第一個篩選
 
         cardsFilter1(){
-            let thus = this
-            return thus.cards.filter(function(item){
-              return item.area1 == thus.currentFilter || thus.currentFilter == 'ALL'
+            let thus = this;
+            let results = this.cards.filter(function(item){
+                return item.area1 == thus.currentFilter || thus.currentFilter == 'ALL'
             })
+            return results;
         },
+
+        // cardsFilter1(){
+        //     if(this.currentFilter == "ALL")return this.cards;
+        //     return this.cards.filter(v => v.area1 == this.currentFilter)
+
+        // },
 
         //第貳個篩選
         cardsFilter2() {
