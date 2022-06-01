@@ -221,9 +221,13 @@
             .th{
                 display: grid;
                 padding: 20px;
-                grid-template-columns: 2fr 1fr 1fr 1fr;
+                grid-template-columns: 2.5fr 1fr 1fr 1fr;
                 background-color: $color2;
                 text-align: center;
+                @include md(){
+                    grid-template-columns: 2fr 1fr 1fr 1fr;
+                }
+                
                 div{
                     display: none;
                 }
@@ -237,6 +241,7 @@
                         display: block;
                     }
                     div span:nth-of-type(2){
+                        
                         color:$color10;
                     }
                 }

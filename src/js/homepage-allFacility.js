@@ -165,9 +165,14 @@ new Vue({
         wheelchair: false,
     },
     computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+        // cardTitles() {
+        //     return this.cards.map(v => v.name);
+        // },
+
         cardTitles() {
             return this.cards.map(v => v.name);
         },
+
         cardsFilter1() {
             return this.cards.filter(item =>item.area1 == this.currentFilter || this.currentFilter == 'ALL');
         },
