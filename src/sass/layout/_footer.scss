@@ -15,12 +15,15 @@
     bottom:20px;
     right: 24px;
     z-index: 10;
+    transition: .2s;
+    &:hover{
+        background-color: $color6;
+    }
 
     i{
         font-size: $sm-word-fzSize;
         color:$color5;
         font-size: $word-fzSize;
-
     }
     p{
         color:$color5;
