@@ -684,9 +684,6 @@
             @include bgBtn(area){
                 font-size: $word-fzSize;
                 margin: 0 5px;
-                &:hover{
-                    background-color: $color3;
-                }
                 @include md(){
                     margin: 0 20px;
                     font-size: $h6-fzSize;
@@ -699,8 +696,35 @@
                     align-items: center;
                     margin: 0 5px;
                     font-size: $word-fzSize;
+                    position: relative;
                     input{
                         margin-right: 5px;
+                        visibility: hidden;
+                    }
+                    label{
+                        // border: 1px solid #000;
+                        display: flex;
+                        align-items: center;
+                        &:before{
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 2px;
+                            position: absolute;
+                            left: -3px;
+                            bottom: 50%;
+                            transform: translateY(50%);     
+                            border: 2px solid $color3;
+                        }
+                    }
+                    input:checked +label::after{
+                        content:"\2714";
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        left: -3px;
+                        bottom: 40%;
+                        color:$color5;
                     }
                     @include md(){
                         margin: 0 16px;
@@ -713,6 +737,7 @@
                 padding: 10px 20px;
                 display: flex;
                 flex-wrap: wrap; 
+                
                 @include lg(){
                     padding: 20px 100px;
                 }
@@ -720,9 +745,10 @@
                 li{
                     margin: 5px 5px;
                     color:$color9;
-                    font-size: $h6-fzSize;
+                    font-size: $word-fzSize;
                     @include md(){
                         margin: 10px 5px;
+                        font-size: $h6-fzSize;
                     }
                     
                 }

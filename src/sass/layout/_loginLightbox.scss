@@ -212,7 +212,10 @@
 .register-lightbox{
 
     .lightbox-container{
-        height: auto;
+        @include md(){
+            height: auto;
+        }
+        
         .pic-area{
             width: 100%;
             height:10%;
@@ -230,6 +233,7 @@
             
         }
         .login{
+            // border: 1px solid #000;
             width: 100%;
             height:90%;
             form div.accept{
