@@ -13,11 +13,13 @@
   /* Hide the images by default */
   .mySlides {
     display: none;
+    margin: auto;
+    overflow: hidden;
+    width: 60vw;
   }
   .mySlides img{
     width: 100%;
   }
-
   /* Next & previous buttons */
   .mySliderContainer{
     position: relative;
@@ -53,7 +55,7 @@
     left: -100%;
     transform: translateX(50%);
     transform: translateY(-50%);
-    background-color: rgba($color6, 0.3); 
+    background-color: rgba($color4, 0.3); 
     transition: .3s ease-in-out;
   }
   .next:hover::before, .prev:hover::before {
@@ -98,13 +100,12 @@
     to {opacity: 1}
   }
   .postcard{
-      width: 100%;
+      width: 60vw;
       margin: auto;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 10px;
-      padding: 10px;
       position: relative;
   }
   .postcard>img{
@@ -130,13 +131,15 @@
     right: 0;
     margin: auto;
     width: 50%;
-    aspect-ratio: 426/120;
+    aspect-ratio: 560/120;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .sticker{
+    position: absolute;
+    left: 0;
     width: 200%;
     display: flex;
     justify-content: space-evenly;
@@ -178,10 +181,10 @@
   }
   
   @include bgBtn(shop){
-    opacity:0.5;
+    
   }  
   .shopbtn{
-    border: 3px solid $color5;
+    border: 2px solid $color3;
   }
    
 
