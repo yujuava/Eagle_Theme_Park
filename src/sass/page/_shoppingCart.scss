@@ -69,7 +69,7 @@
                 }
                 //商品照片
                 .pic{
-                    border: 1px dotted $color3;
+                    border: 1.3px dotted $color3;
                     // background-color: white;
                     aspect-ratio:  1 / 1;
                     overflow: hidden;
@@ -79,7 +79,7 @@
                     }
                     @include xl(){
                         margin: 0 40px;
-                        border: 1px dotted $color3;
+                        border: 2px dotted $color3;
                     }
                     
                     
@@ -228,7 +228,7 @@
                 padding: 10px;
                 font-size: $h6-fzSize;
                 color: $color1;
-                background-image: url(/images/coupon.png);
+                background-image: url(../images/coupon.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
                 background-color: $color1;

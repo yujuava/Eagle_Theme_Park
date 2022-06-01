@@ -128,7 +128,7 @@
             font-size: 30px;
             position: relative;
             margin-top:50px;
-        //圈圈
+            //圈圈
             .circular {
                 width: 50px;
                 height: 50px;
@@ -140,19 +140,19 @@
                 align-items: center;
                 justify-content: center;
                 background-color: lighten($color7, 15%);
-
+                
                 &:nth-child(2) {
                     color: $color9;
                     background-color: $color7;
                 }
-
+                
                 @include md() {
                     width: 70px;
                     height: 70px;
                 }
-
+                
             }
-
+            
             .line {
                 top: 45%;
                 z-index: -1;
@@ -168,7 +168,14 @@
                 width: 100%;
                 padding: 20px;
                 background-size:cover;
+<<<<<<< HEAD
                 background-image: url(../images/Subtract2.svg);
+=======
+                background-image: url(../../images/Subtract2.svg);
+                @include md(){
+                    background-size: cover;    
+                }
+>>>>>>> brady
                 .info{
                     width: 70%;
                     margin: auto;
