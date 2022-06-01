@@ -1,11 +1,20 @@
 .shop{
  
+  // 第一個先寫的，代表是螢幕寬度低於768會套用的參數
   .slideshow-container {
     width: 90%;
     position: relative;
     margin: auto;
-    padding:10px 50px 10px 50px;
+    padding:10px 0 10px 0;
     background-color: $color4;
+  }
+
+  // 第一個引入md設定，公版設定為768以上會套用，此時再把需要改變的物件寫進來，接著寫個物件的CSS參數
+  // 這邊如果有重複的參數再寫就好，原則上會繼承上方的特性
+  @include md{
+    .slideshow-container {
+      padding:10px 50px 10px 50px;
+    }
   }
 
   /* Hide the images by default */
