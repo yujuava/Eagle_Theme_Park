@@ -1,162 +1,152 @@
-.shoppingcart{
-    .shopcar{
-        // display: table;
-        .table{
-            // border: 1px solid #000;
+.shoppingcart {
+    .shopcar {
+        .table {
             table-layout: fixed;
             width: 100%;
             border-collapse: collapse;
             margin: auto;
             text-align: center;
-            font-family:$family2 ;
-            .table-title{
+            font-family: $family2;
+
+            .table-title {
                 border-top: 4px solid $color4;
                 border-bottom: 4px solid $color4;
 
-                // display: flex;
-                // background-color: $color3;
-                padding: 0.2px 0;         
-                @include md(){
+                padding: 0.2px 0;
+
+                @include md() {
                     border: 0;
                     background-color: $color3;
-                    // padding: 15px 0; 
                     display: grid;
-                    // border: 1px solid #000;
                     grid-template-columns: .6fr 0.5fr 0.5fr 0.5fr 0.5fr;
-                    padding: 15px 0;         
+                    padding: 15px 0;
 
                 }
-                .th{
+
+                .th {
                     display: none;
-                    color:$color1;
-                    @include md(){
+                    color: $color1;
+
+                    @include md() {
                         display: block;
-                        // border: 1px solid #000;
                         font-size: $h6-fzSize;
-                        // display: gird;
-                        // border: 1px solid #000;
-                        // grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
-              
+
                     }
 
                 }
-       
+
 
             }
-            .cart-row{
+
+            .cart-row {
                 width: 100%;
                 border-bottom: 1.5px solid $color5;
                 padding: 20px 0;
                 display: grid;
                 grid-template-columns: .6fr 1.5fr .5fr;
-                // border: 1px solid #000;
                 align-items: center;
-                @include md(){
+
+                @include md() {
                     border-bottom: 1.5px solid $color4;
                 }
-                
+
                 // 標題
-                .th{
+                .th {
                     display: none;
-                    @include md(){
-                        // display: table-cell;
+
+                    @include md() {
                         font-size: $h6-fzSize;
                         background-color: $color2;
-                        color:$color5;
-                        line-height:$th-line-height;
-                        // border: 2px solid #000;
+                        color: $color5;
+                        line-height: $th-line-height;
                     }
                 }
+
                 //商品照片
-                .pic{
+                .pic {
                     border: 1.3px dotted $color3;
-                    // background-color: white;
-                    aspect-ratio:  1 / 1;
+                    aspect-ratio: 1 / 1;
                     overflow: hidden;
-                    
-                    @include md(){
+
+                    @include md() {
                         margin: 0 20px;
                     }
-                    @include xl(){
+
+                    @include xl() {
                         margin: 0 40px;
                         border: 2px dotted $color3;
                     }
-                    
-                    
-                    img{
-                        // width: 25vw;
+
+
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
-                        // @include md(){
-                        //     width: 10vw;
-                        // }
                     }
                 }
+
                 // 中間資訊
-                .info{
+                .info {
                     display: grid;
-                    justify-content:center;
+                    justify-content: center;
                     align-items: center;
-                    gap:15px;
-                    // border: 1px solid #000;
-                    @include md(){
-                        // border: 1px solid #000;
+                    gap: 15px;
+
+                    @include md() {
                         grid-template-columns: 1fr 1fr 1fr;
                     }
-                    
-                    .td{
-                        // border: 1px solid red;
+
+                    .td {
                         font-size: $h6-fzSize;
                         color: $color5;
                         display: flex;
                         justify-content: flex-start;
-                        @include md(){
-                            // border: 1px solid #000;
+
+                        @include md() {
                             font-size: $h5-fzSize;
                             justify-content: center;
                         }
-                        
-                        .count{
+
+                        .count {
                             display: flex;
                             height: 25px;
                             justify-content: center;
-                            @include md(){
+
+                            @include md() {
                                 height: 40px;
                             }
-                            
-                            input{
-                                // border-top: 2px solid $color4;
-                                // border-bottom: 2px solid $color4;
-                                // border-left: 0;
-                                // border-right: 0;
+
+                            input {
                                 border: 0;
                                 border: 1px dotted $color5;
                                 width: 40px;
                                 font-size: $h6-fzSize;
-                                color:$color4;
+                                color: $color4;
                                 text-align: center;
-                                @include md(){
+
+                                @include md() {
                                     width: 50px;
                                 }
-                                @include xl(){
+
+                                @include xl() {
                                     width: 70px;
                                 }
-                                
-                                
+
+
                             }
-                            .minus,.plus{
-                                // border: 2px solid $color4;
-                                // background-color: $color6;
+
+                            .minus,
+                            .plus {
                                 padding: 5px;
                                 height: 100%;
                                 display: flex;
                                 align-items: center;
-                                @include md(){
+
+                                @include md() {
                                     padding: 10px;
                                 }
-                                
-                                &:hover{
+
+                                &:hover {
                                     background-color: darken($color6, 10%);
                                     cursor: pointer;
                                 }
@@ -164,66 +154,53 @@
                         }
                     }
                 }
-                @include mdBtn(delete){
+
+                @include mdBtn(delete) {
                     background-color: $color3;
                     margin: 0;
-                    &:hover{
+
+                    &:hover {
                         background-color: darken($color3, 10%);
 
                     }
                 }
 
 
-                // .td{
-                //     vertical-align:middle;
-                //     font-size: $word-fzSize;
-                //     color: $color5;
-                
-                //     @include md(){
-                //         font-size: $h6-fzSize;
-                //     }
-                   
-                   
-                // }
-                // .td-row{
-                //     border: 1px solid #000;
-                //     display: block;
-                //     margin: 25px 0;
-                //     @include md(){
-                //         display: table-cell;
-                //     }
-                // }
-              
-              
+
             }
         }
     }
 
 
     //優惠券
-    .discount-wrap{
+    .discount-wrap {
         padding: 20px;
         border-radius: 10px;
         border-top: 2px double $color4;
         border-bottom: 2px double $color4;
+
         // background-color: $color2;
-        @include md(){
+        @include md() {
             padding: 30px;
         }
-        .discount{
+
+        .discount {
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: flex-end;
             justify-content: space-between;
-            gap:20px;
             position: relative;
-            height: 100%;   
-            // border: 1px solid #000;    
-            @include md(){
+            height: 100%;
+
+            @include md() {
                 align-items: center;
+                flex-direction: row;
 
             }
+
             // 優惠券小圖
-            .coupon{
+            .coupon {
+                margin: auto;
                 width: 200px;
                 padding: 10px;
                 font-size: $h6-fzSize;
@@ -233,198 +210,107 @@
                 background-repeat: no-repeat;
                 background-color: $color1;
                 border: none;
-                cursor:pointer;
+                cursor: pointer;
             }
-            .price{
-                // border: 2px solid red;
+
+            .price {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                @include md(){
+
+                @include md() {
                     flex-direction: row;
-                    justify-content: space-between;
-                    
-                @include lg(){
-                    width: 80%;
+
+                    @include lg() {
+                        width: 80%;
+                    }
                 }
-                }
-                @include xl(){
+
+                @include xl() {
                     width: 60%;
                 }
-                
 
-                
-                .discount-row{
+
+
+                .discount-row {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: flex-end;
-                    margin-left: auto;
-                    label{
+                    margin: auto;
+
+                    label {
                         font-size: $h5-fzSize;
-                        color:$color5;
+                        color: $color5;
                         font-weight: 450;
                     }
-                    input{
+
+                    input {
                         width: 70px;
                         background-color: $color1;
                         margin-top: 5px;
                         border: 0;
                         font-size: $h5-fzSize;
-                        color:$color5;
+                        color: $color5;
                         font-weight: 450;
                         text-align: right;
-                        @include lg(){
+
+                        @include lg() {
                             width: 90px;
                         }
                     }
                 }
             }
         }
-        @include bgBtn(bill){
-            // border-radius: 5px;
-            // border: 3px solid $color5;
-            color:$color1;
+
+        @include bgBtn(bill) {
+            color: $color1;
             margin: 0;
-            width:130px;
+            width: 130px;
             height: 40px;
             font-size: $h6-fzSize;
-            margin-left: auto;
-            margin-top: auto;
-            margin-bottom: auto;
+            margin: auto;
         }
-        
+
     }
 
 
 
-    // .total{
-        
-    //     .wrap{
-    //         padding: 20px;
-    //         background-color: $color2;
-    //         border-radius: 10px;
-    //         font-size:12px;
-    //         @include md(){
-    //             font-size: $h6-fzSize;
-    //             padding: 40px;
-    //         }
-    //         .total_area{
-    //             // border: 1px solid red;
-    //             .discount{
-    //                 // border: 1px solid blue;
-    //                 display: flex;
-    //                 align-items: center;
-    //                 flex-direction: column;
-    //                 justify-content: center;
-    //                 gap:20px;
-    //                 // margin-left: auto;
-    //                 // margin-right: auto;
-    //                 .price{
-    //                     width: 100%;
-    //                     // border: 1px solid #000;
-    //                     @include md(){
-    //                         // border: 2px solid red;
-    //                         display: flex;
-    //                         gap: 20px;
-    //                     }
-    //                     .discount-row{
-    //                         width: 100%;
-    //                         // border: 1px solid #000;
-    //                         display: flex;
-    //                         margin-bottom: 20px;
-    //                         align-items: center;
-    //                         label{
-    //                             // border: 1px solid #000;
-    //                             width: 30%;
-    //                             font-size: $h6-fzSize;
-    //                         }
-    //                         input{
-    //                             // width: 120px;
-    //                             width: 100%;
-    //                             border-radius: 5px;
-    //                             border:0px;
-    //                             height: 25px;
-    //                             @include md(){
-    //                                 height: 40px;
-    //                             }
-                                
-    //                         }
-    //                     }
-
-    //                 }
-                
-    //                 .bill{
-    //                     margin-top: 10px;
-    //                     @include md{
-    //                         margin-top: 0;
-    //                     }
-    //                 }
-    //                 @include bgBtn(bill){
-    //                 }
-    //                 .coupon{
-    //                     background-color:$color2;
-    //                 }
-    //             }
-    //         }
-    //     }    
-    // }
-    // .coupon{
-    //     font-size: $h6-fzSize;
-    //     color: $color1;
-    //     background-image: url(/images/coupon.png);
-    //     background-size: cover;
-    //     padding: 5px;
-    //     background-image: url(/images/coupon.png);
-    //     background-size: 100% 100%;
-    //     background-position: 50% 50%;
-    //     background-repeat: no-repeat;
-    //     border: none;
-    //     padding-left:25px;
-    //     padding-right: 10px;
-    //     cursor:pointer;
-    // }
     //優惠券燈箱
-    .mycoupons{
-        // position: fixed;
-        // width: 100%;
-        // height: 100%;
-        // top: 0%;
-        // left: 0;
-        // padding: 20%;
-        // background-color: rgba(0, 0, 0, 0.199);
-        // display: flex;
-        // z-index: 999;
+    .mycoupons {
         display: none;
-        > div{
+
+        >div {
             margin: auto;
-            background-color:$color1;
+            background-color: $color1;
             text-align: center;
             position: relative;
-            // border:4px solid $color2;
-            // border-radius: 10px;
             padding: 20px 30px;
             width: auto;
             height: auto;
-            p{
+
+            p {
                 font-size: $h5-fzSize;
                 color: $color5;
                 margin-bottom: 10px;
             }
-            i{
+
+            i {
                 position: absolute;
                 top: 10px;
                 right: 10px;
                 font-size: $h6-fzSize;
                 color: $color9;
-                cursor:pointer;
+                cursor: pointer;
             }
-            > div{
+
+            >div {
                 margin: 10px 0;
                 font-size: $word-fzSize;
                 color: $color5;
-                .coupon{
-                    background-color:$color1;
+
+                .coupon {
+                    background-color: $color1;
                 }
 
             }
