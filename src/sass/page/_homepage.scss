@@ -684,6 +684,9 @@
             @include bgBtn(area){
                 font-size: $word-fzSize;
                 margin: 0 5px;
+                &:hover{
+                    background-color: $color3;
+                }
                 @include md(){
                     margin: 0 20px;
                     font-size: $h6-fzSize;
