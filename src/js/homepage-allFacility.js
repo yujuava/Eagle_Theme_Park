@@ -143,7 +143,7 @@ Vue.component('card-component',{
             </div>
         </div>
         <div class="info">
-            <h4>{{item.name}}</h4>
+            <h5>{{item.name}}</h5>
             <p>{{item.info}}</p>
         </div>
     </div>
