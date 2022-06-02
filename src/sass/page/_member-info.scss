@@ -190,6 +190,11 @@
                 width: 100%;
             }
         }
+        .password-change{
+            input{
+                margin-bottom: 15px;
+            }
+        }
     }
     @include bgBtn(confirm){
         background-color: $color3;
@@ -222,7 +227,7 @@
             .th{
                 display: grid;
                 padding: 20px;
-                grid-template-columns: 2.5fr 1fr 1fr 1fr;
+                grid-template-columns: 3fr 1fr 1fr 1fr;
                 background-color: $color2;
                 text-align: center;
                 @include md(){
@@ -282,10 +287,13 @@
 
                     }
                     .pc-list{
+                        display: none;
+                        @include md(){
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
                         
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
                     }
                     .pc-pay-state p,.pc-order-state p{
                         color: $color5;
@@ -360,7 +368,7 @@
 
      //會員優惠券
     .member-coupon{
-        background-image: url(../../images/coupon-no.svg);
+        background-image: url(../images/coupon-no.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 25%;

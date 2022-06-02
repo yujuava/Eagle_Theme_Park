@@ -246,8 +246,10 @@ footer{
 
         }
         .icon{
+            // border: 1px solid #000;
             display: flex;
             margin-bottom: 20px;
+            gap: 20px;
             @include xl(){
                 display: flex;
                 flex-direction: column;
