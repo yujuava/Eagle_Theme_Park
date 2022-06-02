@@ -302,9 +302,9 @@
             // border: 1px solid #000;
             display: flex;
             align-items: center;
-            padding: 5px 18px;
+            padding: 10px 18px 5px 18px;
             @include xl(){
-                padding: 5px 12px;
+                padding: 10px 12px 5px 12px;
             }
             
             .mem{
@@ -353,7 +353,7 @@
                 // border: 1px solid #000;
                 // padding: 50px 15px;
                 padding: 5px 15px 0px 15px; //下面不可以用pannding 文字才可被隱藏
-                font-size: $word-fzSize;
+                font-size: $h6-fzSize;
                 font-family: $family2;
                 //文字超過隱藏
                 overflow: hidden;
@@ -362,18 +362,24 @@
                 -webkit-line-clamp: 2; /*行數*/
                 -webkit-box-orient: vertical;
                 white-space: normal;
+                @include md(){
+                    font-size: $word-fzSize;
+                }
+                
                 @include xl(){
                     padding: 5px 12px 0px 12px; //下
                     font-size: $md-word-fzSize;
                 }
                 
             }
-            @include smBtn(more){
+            @include mdBtn(more){
                 position: absolute;
                 right: 0;
                 bottom:10px;
                 font-family: $family2;
                 background-color: $color3;
+                font-weight: normal;
+                padding: 5px 10px;
                 &:hover{
                     background-color: darken($color3, 10%);
                 }

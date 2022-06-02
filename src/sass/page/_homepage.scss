@@ -228,8 +228,12 @@
         }
         .info{
             width: 80%;
-            font-size: $word-fzSize;
+            font-size: $h6-fzSize;
             margin-bottom: 40px;
+            @include md(){
+                font-size: $word-fzSize;
+            }
+            
         }
     }
     //===============大容器 大票券以下的區塊===============
@@ -384,6 +388,9 @@
                             top:30px;
                         }
                     }
+                    .info{
+                        margin-left: 15px;
+                    }
 
                 }
                 .farm{
@@ -391,6 +398,9 @@
                     flex-direction: row-reverse;
                     padding-right: 0;
                     padding-left: 6%;
+                    .info{
+                        margin-right: 15px;
+                    }
                     svg{
                         image{
                             transform: translateX(8px);
@@ -433,6 +443,7 @@
                     }
                     
                     .info{
+                        margin-left: 15px;
                         @include xl(){
                             margin-top: 60px;
                         }                   
@@ -597,7 +608,7 @@
                     @include mdBtn(game){
                         border: 3px solid $color7;
                         border-radius: 8px;
-                        width: 120px;
+                        width: 150px;
                         padding: 5px;
                         text-align: center;
                         font-size: 1rem;
@@ -605,6 +616,7 @@
                         bottom:-27%;
                         left: 8%;
                         z-index: -1;
+                        font-size: $word-fzSize;
                         @include md(){
                             border: 5px solid $color7;
                             padding: 10px;
@@ -867,7 +879,7 @@
                         }
                     }
                     .info{
-                        padding: 5px 10px 10px 10px;
+                        padding: 5px 15px 15px 15px;
                         @include md(){
                             padding: 10px 20px 20px 20px;
                         }
@@ -889,9 +901,9 @@
                             }
                         }
                         p{
-                            font-size: $word-fzSize;
+                            font-size: $h6-fzSize;
                             position: relative;
-                            @include xl(){
+                            @include md(){
                                 font-size: $word-fzSize;
                             }
                             

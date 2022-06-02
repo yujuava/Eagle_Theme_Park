@@ -85,7 +85,7 @@ Vue.component('item-component',{
 
             <div class="card-body">
                 <p>{{item.info}}</p>
-                <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
+                <a href="visitor_experience_page.html" class="mdBtn-more">MORE</a>
             </div>
             <div class="card-footer"></div>
         </div>
