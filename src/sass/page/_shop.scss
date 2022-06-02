@@ -1,6 +1,4 @@
 .shop{
- 
-  // 第一個先寫的，代表是螢幕寬度低於768會套用的參數
   .slideshow-container {
     width: 90%;
     position: relative;
@@ -8,15 +6,17 @@
     padding:10px 0 10px 0;
     background-color: $color4;
   }
-
-  // 第一個引入md設定，公版設定為768以上會套用，此時再把需要改變的物件寫進來，接著寫個物件的CSS參數
-  // 這邊如果有重複的參數再寫就好，原則上會繼承上方的特性
   @include md{
     .slideshow-container {
       padding:10px 50px 10px 50px;
     }
+    .sliderButton{
+      width: 60vw;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
   }
-
   /* Hide the images by default */
   .mySlides {
     display: none;
@@ -53,7 +53,6 @@
     transition: .3s ease-in-out;
     cursor: pointer;
   }
-
   .next::before, .prev::before {
     content: "";
     z-index: -1;
@@ -71,14 +70,6 @@
   .next:hover::before, .prev:hover::before {
     content: "";
     background-color: rgba($color6, 0.8); 
-  }
-
-  @include md{
-  
-  }
-
-  @include lg{
-      
   }
   .postcard{
       width: 60vw;
@@ -125,7 +116,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: absolute;
     transition: 0.3s;
   }
   .sticker li img{
@@ -196,19 +186,21 @@
       width: 100%;
   }
   
-  // ----------------------------------------
+  // --------燈箱--------------------------------
   .light-box{
-    width: 40%;
+    width: 80%;
     background-color: $color1;
-    /* 利用FIXED固定在螢幕中間 */
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate3d(-50%,-50%,0);
-    /* 置中對齊 */
-    /* 平常隱藏 */
     display: none;
     z-index: 3;
+  }
+  @include md{
+    .light-box{
+      width: 50%;
+    }
   }
   .lightBoxContent{
     display: flex;
@@ -230,11 +222,21 @@
   }
   .light-box #turnOff{
     position: absolute;
-    top: 10px;
-    right:10px;
-    font-size: 30px;
+    top: 0px;
+    right:-20px;
+    font-size: 20px;
     width: 40px;
     height: 40px;
+  }
+  @include md{
+    .light-box{
+      width: 50%;
+    }
+   .light-box #turnOff{
+      top: 10px;
+      right:10px;
+      font-size:30px;
+    }
   }
   .lightbox-bdr .count{
     display: flex;
@@ -263,20 +265,9 @@
     left: 0;
     right: 0;
     display: none;
-}
+  }
   #turnOff{
     background-color: transparent;
   }
 
-  // 引用RWD 方式
-  @include md{
-      
-  }
-
-  @include lg{
-      
-      
-  }
-
-  // 引用公版顏色變數
 }
