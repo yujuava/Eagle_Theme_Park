@@ -584,6 +584,10 @@
                     left: -15%;
                     bottom:5%;
                     z-index: 2;
+                    &:hover .mdBtn-game{
+                        background-color: darken($color6, 10%);
+                        animation: shakeY 2s 0s;
+                    }
                     img{
                         // border: 1px solid #000;
                         width: 100%;
@@ -626,18 +630,7 @@
                             font-size: $h6-fzSize;
                         }
                         
-                        
-                   
-                    }
-                    // @include lg(){
-                    //     width: 28%;
-                    //     left: -10%;
-                    // }
-                    // @include xl(){
-                    //     width: 30%;
-                    //     left: -10%;
-                    // }
-                    
+                    }     
                     
                 }
                 
