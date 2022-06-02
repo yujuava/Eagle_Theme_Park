@@ -184,7 +184,7 @@ function DoFirst(){
  
     setTimeout(() => {
         drawStuff();
-    }, 800);
+    }, 1500);
     // resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, false);
 }

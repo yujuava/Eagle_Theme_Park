@@ -560,6 +560,7 @@
         }
     }
     .videoBox video{
+        clip-path: inset(1px 1px);
         width: 100%;
         aspect-ratio: 960/540;
     }
