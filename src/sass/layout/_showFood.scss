@@ -15,7 +15,7 @@
         border-radius: 15px;
         background: linear-gradient($color4, $color3, $color1);
         @include xl(){
-            width:55%;
+            width:45%;
         }
         h2{
             color: $color1;
@@ -26,7 +26,7 @@
             color: $color1;
             font-size: $h6-fzSize;
             margin: 0 2em;
-            padding-bottom: 3em;
+            padding-bottom: 4em;
             @include md(){
                 font-size: $word-fzSize;
             }
@@ -210,9 +210,9 @@
             background-color: $color6;
             color: $color1;
             font-size: $btnMd-fzSize;
-            height:2.5rem;
-            width:2.5rem;
-            margin: 2rem 4.5rem;
+            height:3rem;
+            width:3rem;
+            margin: 2rem 5rem;
             font-weight: 500;
             cursor: pointer;
         }

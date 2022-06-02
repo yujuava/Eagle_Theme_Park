@@ -26,34 +26,31 @@
 
     <div id="back" class="back_content">
         <h2>票券管理</h2>
-        <div>
-            <button @click="show">修改</button>
-        </div>
 
         <table class="box">
             <tr>
-                <th>選取</th>
                 <th>票券名稱</th>
                 <th>售價</th>
                 <th>狀態</th>
+                <th></th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
                 <td>成人票</td>
                 <td>1000元</td>
                 <td>可購買</td>
+                <td><button @click="show">修改</button></td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
                 <td>幼童票</td>
                 <td>500元</td>
                 <td>可購買</td>
+                <td><button @click="show">修改</button></td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
                 <td>愛心票</td>
                 <td>400元</td>
                 <td>可購買</td>
+                <td><button @click="show">修改</button></td>
             </tr>
         </table>
         <div class="back_lightbox backLightbox" v-show="isOpen">
