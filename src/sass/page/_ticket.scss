@@ -113,12 +113,11 @@
     }
 
     .transportation {
-        font-size: $word-fzSize;
         text-align: center;
         margin: 10px;
-        width: 85%;
+        width: 100%;
+        font-size: $word-fzSize;
         @include md(){
-            font-size: $word-fzSize;
             width: 90%;
            &:hover{
             text-decoration: underline;
