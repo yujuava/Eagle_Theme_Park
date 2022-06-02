@@ -227,13 +227,17 @@ footer{
                 }
             
                 li a{
-                    width: 55px;
+                    // width: 55px;
                     // border: 1px solid #000;
                     display: flex;
                     margin-left: 15px;
                     margin-bottom: 20px;
                     color:$color9;
                     transition: .5s;
+                    @include md(){
+                        margin-left: 5px;
+                    }
+                    
                     &:hover{
                         color:$color3;
                     }                 

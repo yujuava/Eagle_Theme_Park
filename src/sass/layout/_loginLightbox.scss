@@ -1,4 +1,4 @@
-.both-lightbox{
+#login-lightbox,#register-lightbox{
     width: 80vw;
     aspect-ratio: 2 / 3.2;
     // max-height: 70vh;
@@ -12,14 +12,14 @@
     @include md(){
         aspect-ratio: 1.5 / 1;
     }
-    @include lg(){
-        aspect-ratio: 1.8 / 1;
-    }
-    @include xl(){
-        max-height:75vh;
-        aspect-ratio: 2 / 2;
-        // top:42%;
-    }
+    // @include lg(){
+    //     aspect-ratio: 1.8 / 1;
+    // }
+    // @include xl(){
+    //     max-height:80vh;
+    //     aspect-ratio: 2 / 2;
+    //     // top:42%;
+    // }
     &::before{
         content: "";
         // border: 1px solid #000;
@@ -134,7 +134,7 @@
                     }
                     
                     label{
-                        font-size: $h6-fzSize;
+                        font-size: $word-fzSize;
                         color:$color4;
                         font-weight: 500;
                     }
@@ -211,7 +211,7 @@
 
 }
 
-.register-lightbox{
+#register-lightbox{
 
     .lightbox-container{
         @include md(){
@@ -240,23 +240,21 @@
             width: 100%;
             height:90%;
             form div.accept{
-                // border: 1px solid #000;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                margin-top: 15px;
                 input{
                     margin-right: 15px;
                     box-shadow: none;
                 }
-                label{
-                    font-size: $word-fzSize;
+                .already-accept{
+                    font-size: $md-word-fzSize;
                     font-weight: normal;
                 }
             }
             @include md(){
                 width: 50%;
-                height:100%;
+                min-height:100%;
                 height: auto;
             }
             form{
