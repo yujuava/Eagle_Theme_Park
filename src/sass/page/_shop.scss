@@ -206,24 +206,45 @@
   }
   // ------商品-------------------------------------
   .product{
-      width: 100%;
+      // border: 2px solid red;
+      // width: 100%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-start;
+      gap:20px;
+      .itemColumn{
+        // border: 2px solid blue;
+        // width: 50%; 
+        // padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        .item{
+          // border: 1px solid green;
+          .itempic{
+            // border: 1px solid pink;
+            margin-bottom: 15px;
+            img{
+              // border: 1px solid #000;
+            }
+          }
+          .card{
+            p{
+              font-size: $word-fzSize;
+            }
+          }
+        }
+      }
+      @include md{
+        .itemColumn{
+          width: 33.33333%; 
+          width: calc(25% - 15px)
+        }
+      }
   }
-  .itemColumn{
-    width: 50%; 
-    padding: 30px;
-    text-align: center;
-  }
-  @include md{
-    .itemColumn{
-      width: 33.33333%; 
-    }
-  }
+
   .product .item{
-    width: 50%;
+    // width: 50%;
     margin: auto;
     display: flex;
     flex-direction: column;
