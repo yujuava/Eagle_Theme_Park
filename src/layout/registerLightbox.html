@@ -1,7 +1,7 @@
 
 <!-- ===============註冊燈箱=============== -->
-<div class="full-screen hide" id="full-screen"></div>
-    <div class="register-lightbox  both-lightbox lightbox-bdr hide" id="register-lightbox">
+<div class="full-screen" id="full-screen" v-if="RegisterBoxShow">
+    <div class="register-lightbox  both-lightbox lightbox-bdr" id="register-lightbox" >
         <!-- 照片區 -->
         <div class="pic-area">
             <img src="./images/cloud.jpg" alt="" class="lightbox-bdr-up">
@@ -41,7 +41,7 @@
 
                     <!-- <button  class="bgBtn-login">註冊</button> -->
 
-                    <span id="alreadyhave-btn">
+                    <span id="alreadyhave-btn" @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">
                         <p>已有帳號按此登入</p>
                     </span>
                 </div>
@@ -52,7 +52,7 @@
             <img src="./images/logo.svg" alt="">
         </div>
         <!-- xx -->
-        <div class="close">
+        <div class="close" @click="RegisterBoxShow = !RegisterBoxShow">
             <i class="fa-solid fa-xmark"></i>
         </div>
     </div>
