@@ -26,12 +26,19 @@
 
     //共用的背景
     .table-item {
-        width: 100%;
-        margin: auto;
-        color: $color9;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: url(../images/Subtract.svg);
+        background-image:url(../images/bgc.svg);
+
+        @include md() {
+            width: 100%;
+            margin: auto;
+            color: $color9;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(../images/Subtract.svg);
+
+        }
+
+
     }
 
     // 最外層
@@ -86,6 +93,8 @@
         .ONE {
             padding: 20px;
             background-size: cover;
+            // background-image: url(../images/Subtract.svg);
+
 
             //張數
             .item-price {
@@ -183,9 +192,12 @@
             .TWO {
                 width: 100%;
                 padding: 20px;
-                background-size:cover;
+                
+                @include md(){
+                    background-size: cover;
                 background-image: url(../images/Subtract2.svg);
-                .info{
+                }
+                .info {
                     width: 70%;
                     margin: auto;
                 }
@@ -262,10 +274,13 @@
         // 結帳
         .checkout {
             .THREE {
-                background-size: cover;
-                padding: 20px;
+                
 
-                @include md() {}
+
+                @include md() {
+                    background-size: cover;
+                padding: 20px;
+            }
 
                 .info {
                     width: 70%;
