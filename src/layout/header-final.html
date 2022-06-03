@@ -4,7 +4,7 @@
     <div class="left-back">
         <!-- 手機板上方 -->
         <div class="mobile-icon">
-            <div class="member-enter">
+            <div class="member-enter" @click="loginBoxShow = !loginBoxShow">
                 <img src="./images/Vector2.svg" alt="">
             </div>
             <a href="shoppingCart.html">
@@ -24,7 +24,7 @@
         <!-- 電腦版nav -->
         <nav class="pc-nav" id="pc-nav">
             <div class="icon">
-                <div class="member-enter">
+                <div class="member-enter" @click="loginBoxShow = !loginBoxShow">
                     <img src="./images/Vector.svg" alt="">
                 </div>
                 <a href="shoppingCart.html" >
@@ -118,20 +118,20 @@
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
         <!-- 手機板nav漢堡 -->
-        <label class="hbg" v-on:click="show = !show">
+        <label class="hbg" v-on:click="mobileHbgShow = !mobileHbgShow">
             <span></span>
             <span></span>
             <span></span>
         </label>
     </div>
     <!-- 手機板選單 -->
-    <nav class="mobile-nav"  v-if="show">
+    <nav class="mobile-nav"  v-if="mobileHbgShow">
         <div class="top-block">
             <a href="homepage.html">
                 <img src="./images/logo.svg" alt="">
             </a>
            
-            <div class="close" v-on:click="show = !show">
+            <div class="close" v-on:click="mobileHbgShow = !mobileHbgShow">
                 <span></span>
                 <span></span>
             </div>
@@ -198,15 +198,17 @@
         <div class="bcg-front"></div>
     </div>
 
+    <!-- 兩個燈箱 -->
+@@include('loginLightbox.html')
+@@include('registerLightbox.html')
+
+
 </header>
 
 <!-- 為了回到頂部設置的空標籤 -->
 <div class="top" id="top">
 </div>
 
-<!-- 兩個燈箱 -->
-@@include('loginLightbox.html')
-@@include('registerLightbox.html')
 
 <!-- header js -->
 <script src="./js/hbgAndLightbox.show.js">
