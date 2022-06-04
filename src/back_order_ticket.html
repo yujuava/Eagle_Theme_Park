@@ -26,6 +26,11 @@
 
     <div id="back" class="back_content">
         <h2>票券訂單管理</h2>
+        <div>
+            <button>未取票</button>
+            <button>已取票</button>
+            <button>全部</button>
+        </div>
 
         <table class="box">
             <tr>
@@ -41,7 +46,12 @@
                 <td>2022-05-29</td>
                 <td>19</td>
                 <td>1000元</td>
-                <td>已出票</td>
+                <td>
+                    <select name="" id="">
+                        <option value="">未取票</option>
+                        <option value="">已取票</option>
+                    </select>
+                </td>
                 <td><button @click="show">MORE</button></td>
             </tr>
         </table>
