@@ -9,27 +9,28 @@
     }
     // grid mobile
     .themePark__facilities {
-        grid-template-rows: repeat(2, 50%);
-        grid-template-columns: repeat(2, 48%);
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
     }
-    .faLarge1{
+    .faMedium{
         grid-row-start: 1;
         grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;       
+    }
+    .faLarge1{
+        grid-row-start: 3;
+        grid-row-end: 4;
         grid-column-start: 1;
         grid-column-end: 2;
     }
     .faLarge2{
-        grid-row-start: 2;
-        grid-row-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
         grid-column-start: 1;
         grid-column-end: 2;
     }
-    .faMedium{
-        grid-row-start: 1;
-        grid-row-end: 3;
-        grid-column-start: 2;
-        grid-column-end: 3;        
-    }
+
     @include md{
         .themePark__facilities {
             grid-template-rows: 100%;
@@ -224,23 +225,22 @@
         width: 100%;
         display: block;
     }
+    // .cardInfo{
+    //     background-color: $color11;
+    //     padding: 5px;
+    //     bottom: 5px;
+    //     left: 4px;
+    //     right: 4px;
+    //     position: absolute;
+    //     opacity: 0;
+    //     transition: 1.5s;
+    // }
     .cardInfo{
         background-color: $color11;
         padding: 5px;
-        bottom: 5px;
-        left: 4px;
-        right: 4px;
         position: absolute;
         opacity: 0;
         transition: 1.5s;
-    }
-    @include md{
-        .cardInfo{
-            padding: 10px;
-            bottom: 15px;
-            left: 14px;
-            right: 14px;
-        }
     }
 
     --infoOpacity : 0.9;
@@ -251,6 +251,7 @@
         transform: translateX(-10%);
         opacity: 1;
         & .cardInfo{
+            position: relative;
             opacity: var(--infoOpacity);
         }
     }
@@ -260,6 +261,7 @@
         transform: translateX(-10%);
         opacity: 1;
         & .cardInfo{
+            position: relative;
             opacity: var(--infoOpacity);
         }
     }
@@ -269,6 +271,7 @@
         transform: translateX(-10%);
         opacity: 1;
         & .cardInfo{
+            position: relative;
             opacity: var(--infoOpacity);
         }
     }
@@ -278,6 +281,7 @@
         transform: translateX(-10%);
         opacity: 1;
         & .cardInfo{
+            position: relative;
             opacity: var(--infoOpacity);
         }
     }
@@ -287,6 +291,7 @@
         transform: translateX(-10%);
         opacity: 1;
         & .cardInfo{
+            position: relative;
             opacity: var(--infoOpacity);
         }
     }
@@ -299,6 +304,11 @@
             transform: translateX(-10%);
             opacity: 1;
             & .cardInfo{
+                position: absolute;
+                padding: 10px;
+                bottom: 15px;
+                left: 14px;
+                right: 14px;
                 opacity: var(--infoOpacity);
             }
         }
@@ -308,6 +318,11 @@
             transform: translateX(-10%);
             opacity: 1;
             & .cardInfo{
+                position: absolute;
+                padding: 10px;
+                bottom: 15px;
+                left: 14px;
+                right: 14px;
                 opacity: var(--infoOpacity);
             }
         }
@@ -317,6 +332,11 @@
             transform: translateX(-10%);
             opacity: 1;
             & .cardInfo{
+                position: absolute;
+                padding: 10px;
+                bottom: 15px;
+                left: 14px;
+                right: 14px;
                 opacity: var(--infoOpacity);
             }
         }
@@ -326,6 +346,11 @@
             transform: translateX(-10%);
             opacity: 1;
             & .cardInfo{
+                position: absolute;
+                padding: 10px;
+                bottom: 15px;
+                left: 14px;
+                right: 14px;
                 opacity: var(--infoOpacity);
             }
         }
@@ -335,6 +360,11 @@
             transform: translateX(-10%);
             opacity: 1;
             & .cardInfo{
+                position: absolute;
+                padding: 10px;
+                bottom: 15px;
+                left: 14px;
+                right: 14px;
                 opacity: var(--infoOpacity);
             }
         }
@@ -503,6 +533,7 @@
     }
     .paradesBox:nth-child(n+2) .paradesTypeDate p:nth-of-type(2){
         font-size: 6px;
+        line-height: 15px;
     }
     .paradesBox:nth-child(n+2) .paradesTitle{
         font-size: $md-word-fzSize;
@@ -513,6 +544,9 @@
         }
         .paradesTypeDate p:nth-of-type(2){
             font-size: $md-word-fzSize;
+        }
+        .paradesTypeDate br{
+            display: none;
         }
         .paradesTitle{
             font-size: $md-word-fzSize;

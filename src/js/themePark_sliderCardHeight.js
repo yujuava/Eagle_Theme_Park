@@ -4,7 +4,7 @@ function DoFirst(){
 
     setTimeout( function(){
         if(window.innerWidth<400){
-            cardSection.style.height = `${cardHeight.clientHeight*1.8}px`;
+            cardSection.style.height = `${cardHeight.clientHeight*2.5}px`;
         } 
         else{
             cardSection.style.height = `${cardHeight.clientHeight*1.6}px`;
@@ -14,7 +14,7 @@ function DoFirst(){
     window.addEventListener('resize', ()=>{
         setTimeout( function(){
             if(window.innerWidth<400){
-                cardSection.style.height = `${cardHeight.clientHeight*1.8}px`;
+                cardSection.style.height = `${cardHeight.clientHeight*2.5}px`;
             } 
             else{
                 cardSection.style.height = `${cardHeight.clientHeight*1.6}px`;
