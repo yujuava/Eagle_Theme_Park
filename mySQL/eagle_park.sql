@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-05 14:49:26
+-- 產生時間： 2022-06-05 20:37:18
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.6
 
@@ -128,6 +128,15 @@ CREATE TABLE `member` (
   `mem_date` date NOT NULL COMMENT '註冊時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='會員';
 
+--
+-- 傾印資料表的資料 `member`
+--
+
+INSERT INTO `member` (`mem_no`, `mem_name`, `mem_lastname`, `mem_id`, `mem_psw`, `mem_tel`, `mem_mail`, `mem_state`, `mem_address`, `mem_country`, `mem_birth`, `mem_date`) VALUES
+(1, '小明', '王', 'wang123', 'wang1234', '0935111222', 'wang123@gmail.com', 0, '中壢區民權路2號', '台灣', '1991-01-01', '2022-02-02'),
+(2, '小強', '陳', 'chen', 'chen1234', '0935222333', 'chen@gmail.com', 0, '中壢區民權路3號', '台灣', '1991-01-05', '2022-03-04'),
+(3, '靜香', '林', 'smellgood', 'smellgood123', '0935333444', 'smellgood@gmail.com', 0, '中壢區民權路4號', '台灣', '1990-12-10', '2022-06-05');
+
 -- --------------------------------------------------------
 
 --
@@ -233,7 +242,6 @@ CREATE TABLE `ticket` (
 --
 
 CREATE TABLE `ticket_item` (
-  `ticket_item_no` int NOT NULL,
   `ticket_order_no` int NOT NULL COMMENT '票券訂單編號',
   `ticket_no` int NOT NULL COMMENT '票券種類編號',
   `ticket_total` tinyint NOT NULL COMMENT '購買票券數量',
@@ -349,7 +357,8 @@ ALTER TABLE `ticket`
 -- 資料表索引 `ticket_item`
 --
 ALTER TABLE `ticket_item`
-  ADD PRIMARY KEY (`ticket_item_no`);
+  ADD KEY `ticket_order_no` (`ticket_order_no`),
+  ADD KEY `ticket_no` (`ticket_no`);
 
 --
 -- 資料表索引 `ticket_order`
@@ -396,7 +405,7 @@ ALTER TABLE `facility`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號';
+  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
@@ -489,6 +498,13 @@ ALTER TABLE `product_order`
 ALTER TABLE `product_order_item`
   ADD CONSTRAINT `product_order_item_ibfk_1` FOREIGN KEY (`product_order_no`) REFERENCES `product_order` (`product_order_no`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_order_item_ibfk_2` FOREIGN KEY (`product_no`) REFERENCES `product` (`product_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- 資料表的限制式 `ticket_item`
+--
+ALTER TABLE `ticket_item`
+  ADD CONSTRAINT `ticket_item_ibfk_1` FOREIGN KEY (`ticket_order_no`) REFERENCES `ticket_order` (`ticket_order_no`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ticket_item_ibfk_2` FOREIGN KEY (`ticket_no`) REFERENCES `ticket` (`ticket_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 資料表的限制式 `ticket_order`
