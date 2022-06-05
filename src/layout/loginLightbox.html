@@ -1,8 +1,8 @@
 <!-- ===============登入燈箱=============== -->
 
-<div class="full-screen" id="full-screen" v-if="loginBoxShow"> 
+<div class="full-screen" v-if="loginBoxShow"> 
     
-    <div class="login-lightbox both-lightbox lightbox-bdr" id="login-lightbox">
+    <div class="login-lightbox both-lightbox lightbox-bdr">
         <!-- 照片區 -->
         <div class="pic-area">
             <img src="./images/cloud.jpg" alt="" class="lightbox-bdr-up">
@@ -27,7 +27,7 @@
                     <span>
                         <span href="">忘記密碼</span>
                         <p>|</p>
-                        <span id="register-btn" @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">立即註冊</span>
+                        <span @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">立即註冊</span>
                     </span>
                 </div>
             </form>

@@ -119,6 +119,7 @@
                         }
                     }
                     .count{
+                        // border: 1px solid #000;
                         display: flex;
                         align-items: center;
                         i{
@@ -132,6 +133,7 @@
 
                         .num{
                             border:0;
+                            // border: 1px solid #000;
                             width: 40px;
                             text-align: center;
                             margin: 0 15px;
@@ -146,28 +148,29 @@
                         }
                     }
                 }
-                //按鈕
-                @include bgBtn(book){
-                    position: absolute;
-                    bottom:-20%;
-                    right:0px;
-                    @include md(){
-                        position: absolute;
-                        bottom:20px;
-                        right:30px;
-                    }
-                    @include lg(){
-                        bottom:30px;
-                    }
-                    @include xl(){
-                        bottom:40px;
-                    }
-
-                    
-                    
-                };
+              
             }
             
         }
+        //按鈕
+        @include bgBtn(book){   
+            position: absolute;
+            bottom:-20%;
+            right:0px;
+            @include md(){
+                position: absolute;
+                bottom:20px;
+                right:30px;
+            }
+            @include lg(){
+                bottom:30px;
+            }
+            @include xl(){
+                bottom:40px;
+            }
+
+            
+            
+        };
 
     }
