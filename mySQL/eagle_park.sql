@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-06 16:51:07
+-- 產生時間： 2022-06-06 19:05:53
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -95,9 +95,19 @@ CREATE TABLE `emp` (
   `emp_no` int NOT NULL COMMENT '管理員編號',
   `emp_id` varchar(15) NOT NULL COMMENT '管理員帳號',
   `emp_psw` varchar(15) NOT NULL COMMENT '管理員密碼',
-  `emp_status` tinyint NOT NULL COMMENT '管理員狀態',
-  `emp_enroll_date` datetime NOT NULL COMMENT '管理員建立時間'
+  `emp_status` tinyint NOT NULL COMMENT '管理員狀態(0:停權 1:正常)',
+  `emp_enroll_date` datetime NOT NULL COMMENT '管理員建立時間(order by date DESC)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='管理員';
+
+--
+-- 傾印資料表的資料 `emp`
+--
+
+INSERT INTO `emp` (`emp_no`, `emp_id`, `emp_psw`, `emp_status`, `emp_enroll_date`) VALUES
+(1, 'eagle1', 'eagle1', 1, '2022-05-02 10:16:36'),
+(2, 'eagle2', 'eagle2', 1, '2022-05-09 11:36:36'),
+(3, 'eagle3', 'eagle3', 1, '2022-05-16 10:19:54'),
+(4, 'eagle4', 'eagle4', 0, '2022-05-23 12:19:54');
 
 -- --------------------------------------------------------
 
@@ -108,15 +118,27 @@ CREATE TABLE `emp` (
 CREATE TABLE `facility` (
   `fac_no` int NOT NULL COMMENT '設施編號',
   `fac_name` varchar(10) NOT NULL COMMENT '設施名稱',
-  `fac_descrip` varchar(50) NOT NULL COMMENT '設施描述',
+  `fac_descrip` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '設施描述',
   `fac_status` tinyint NOT NULL COMMENT '設施狀態(0: 維修 1: 正常)',
   `fac_area` varchar(4) NOT NULL COMMENT '設施所屬園區',
-  `fac_rep_date` char(4) NOT NULL COMMENT '設施維修日(1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 6:星期六 7:星期日)',
+  `fac_maintain_date` tinyint NOT NULL COMMENT '設施維修日(1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 6:星期六 7:星期日)',
   `fac_chart` tinyint NOT NULL COMMENT '熱門設施排名(0:其他 1: 第一名 2: 第二名 3: 第三名)',
   `fac_rainy` tinyint NOT NULL COMMENT '雨天可乘(0: 不行 1: 可以)',
   `fac_preg` tinyint NOT NULL COMMENT '孕婦可乘(0: 不行 1: 可以)',
   `fac_wheelchair` tinyint NOT NULL COMMENT '輪椅可乘(0: 不行 1: 可以)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='設施管理';
+
+--
+-- 傾印資料表的資料 `facility`
+--
+
+INSERT INTO `facility` (`fac_no`, `fac_name`, `fac_descrip`, `fac_status`, `fac_area`, `fac_maintain_date`, `fac_chart`, `fac_rainy`, `fac_preg`, `fac_wheelchair`) VALUES
+(1, '極速飛鷹', '在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。', 1, '紐約都會', 6, 1, 0, 0, 0),
+(2, '自由落體', '搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。', 1, '印安部落', 3, 2, 0, 0, 1),
+(3, '天女散花', '乘著風遊蕩在自由的風裡這畫面就像仙女般的翩翩起舞。', 0, '印安部落', 2, 3, 0, 1, 0),
+(4, '空中UFO', '以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。', 0, '西部農莊', 4, 0, 0, 0, 0),
+(5, '摩天輪', '雖然不高，但玩過的遊客不管是小朋友、銀髮族還是熱戀的情侶都讚不絕口，在摩天蓬車上它帶給您無限的歡樂，也讓您心中裝滿了歡樂的記憶。', 1, '西部農莊', 1, 0, 1, 1, 1),
+(6, '旋轉木馬', '在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。', 1, '紐約都會', 5, 0, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -425,13 +447,13 @@ ALTER TABLE `cust_service`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `emp`
 --
 ALTER TABLE `emp`
-  MODIFY `emp_no` int NOT NULL AUTO_INCREMENT COMMENT '管理員編號';
+  MODIFY `emp_no` int NOT NULL AUTO_INCREMENT COMMENT '管理員編號', AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號';
+  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號', AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
