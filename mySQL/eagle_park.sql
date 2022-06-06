@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-05 20:37:18
+-- 產生時間： 2022-06-06 16:51:07
 -- 伺服器版本： 8.0.29
--- PHP 版本： 8.1.6
+-- PHP 版本： 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,6 +73,17 @@ CREATE TABLE `cust_service` (
   `key_word` varchar(10) NOT NULL COMMENT '關鍵字',
   `key_reply` varchar(30) NOT NULL COMMENT '關鍵字回應'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='客服機器人';
+
+--
+-- 傾印資料表的資料 `cust_service`
+--
+
+INSERT INTO `cust_service` (`key_word_no`, `key_word`, `key_reply`) VALUES
+(1, '你好', '歡迎蒞臨依果樂園, 我是果果~有什麼需要協助的嗎?'),
+(2, '飲食', '園區內有三個主題餐廳以及多個小攤販~讓你盡情玩樂不怕餓肚子'),
+(3, '交通', '本園區位置方便, 自行開車或搭乘大眾交通都可以'),
+(4, '購票', '我們共有三種票券, 可以網路或現場購票~'),
+(5, '商品', '園區內提供多種商品, 也可以網路購買唷~');
 
 -- --------------------------------------------------------
 
@@ -147,8 +158,17 @@ CREATE TABLE `news` (
   `news_no` int NOT NULL COMMENT '消息編號',
   `news_name` varchar(10) NOT NULL COMMENT '消息名稱',
   `news_content` varchar(50) NOT NULL COMMENT '消息內容',
-  `news_date` datetime NOT NULL COMMENT '發布日期'
+  `news_date` datetime NOT NULL COMMENT '發布日期(order by date DESC)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='最新消息';
+
+--
+-- 傾印資料表的資料 `news`
+--
+
+INSERT INTO `news` (`news_no`, `news_name`, `news_content`, `news_date`) VALUES
+(1, '休園公告', '2022/06/28-06/30 因進行設施調整及維護，將暫停對外開放 造成您的不便，敬請見諒。', '2022-06-06 16:46:03'),
+(2, '優惠快訊', '慶開幕! 當月壽星購買門票只要『半價』 ! 快揪親朋好友一起來伊果樂園留下美好回憶', '2022-05-25 10:46:03'),
+(3, '防疫須知', '因疫情影響，伊果樂園一切將配合政府防疫措施，並落實每小時消毒，疫情防治，我們一起努力！', '2022-06-01 11:30:42');
 
 -- --------------------------------------------------------
 
@@ -289,6 +309,12 @@ ALTER TABLE `coupon`
   ADD KEY `mem_no` (`mem_no`);
 
 --
+-- 資料表索引 `cust_service`
+--
+ALTER TABLE `cust_service`
+  ADD PRIMARY KEY (`key_word_no`);
+
+--
 -- 資料表索引 `emp`
 --
 ALTER TABLE `emp`
@@ -390,6 +416,12 @@ ALTER TABLE `coupon`
   MODIFY `coupon_no` int NOT NULL AUTO_INCREMENT;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `cust_service`
+--
+ALTER TABLE `cust_service`
+  MODIFY `key_word_no` int NOT NULL AUTO_INCREMENT COMMENT '關鍵字編號', AUTO_INCREMENT=6;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `emp`
 --
 ALTER TABLE `emp`
@@ -411,7 +443,7 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號';
+  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `postcard`
