@@ -272,6 +272,14 @@
             }
             .all-tr{
                 padding: 20px;
+                .pc-list{
+                    display: none;
+                    @include lg(){
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
                 @include lg(){
                     display: grid;
                     grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -285,15 +293,6 @@
                     .product-list{
                         border-left: 1.5px solid $color8; 
 
-                    }
-                    .pc-list{
-                        display: none;
-                        @include md(){
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-                        
                     }
                     .pc-pay-state p,.pc-order-state p{
                         color: $color5;
