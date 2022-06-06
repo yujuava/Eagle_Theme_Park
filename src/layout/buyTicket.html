@@ -1,18 +1,19 @@
-    <!-- ===============大票券=============== -->
-    <div class="big-ticket">
-        <div class="leftOrTop">
-        </div>
-        <div class="rightOrBottom" id="big-ticket">
-            <p class="ticket-title">樂園票券</p>
-            <form action="">            
-                <ticket-type-component v-for="item in ticketTypes" :item="item" :key="item.id">                  
-            </form>
-        </div>
-        <a href="ticket-purchase.html" class="bgBtn-book">我要訂票</a>
-        
+<!-- ===============大票券=============== -->
+<div class="big-ticket">
+    <div class="leftOrTop">
     </div>
+    <div class="rightOrBottom" id="big-ticket">
+        <p class="ticket-title">樂園票券</p>
+        <form action="">            
+            <ticket-type-component v-for="item in ticketTypes" :item="item" :key="item.id">                  
+        </form>
+    </div>
+    <a href="ticket-purchase.html" class="bgBtn-book">我要訂票</a>
+    
+</div>
 
 
+<!-- vue -->
 <script>
 //宣告三個物件在ticketTypes陣列裡
 const ticketTypes =[{
