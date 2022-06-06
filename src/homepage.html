@@ -202,7 +202,7 @@
         @@include('layout/h2Style.html',{
             "h2Title" : "熱門設施"
         })
-        <section class="HotFacility">
+        <section class="HotFacility" id="HotFacility">
             <div class="full">
                 <div class="word">
                     <p>TOP1</p>
@@ -336,7 +336,7 @@
                                     </clipPath>
                                 </defs>
                                 <image xlink:href="./images/facilities8 (18).jpg" clip-path="url(#car5)" x="600" y="1450" width="500"/>  
-                                <text class="cls-10" transform="translate(818.5 1716.69)">空中UFO</text>
+                                <text class="cls-10" transform="translate(818.5 1716.69)" >空中UFO</text>
                         
                             </g>
                         </a>
@@ -428,7 +428,7 @@
                         所有設施
                     </div>
 
-                    <div v-for="item in tabList" class="bgBtn-area" :class="{'is-active': currentFilter == item.key}"  @click="currentFilter = item.key">
+                    <div   class="bgBtn-area" :class="{'is-active': currentFilter == item.key}"  @click="currentFilter = item.key">
                         {{item.name}}
                     </div>
 
