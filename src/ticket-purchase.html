@@ -135,13 +135,13 @@
                                 <div class="Info">
                                     <div class="month">
                                         <select id="month">
-                                            <option value=" " >請輸入</option>
+                                            <option value="" selected="true" disabled="disabled">請輸入</option>
                                         </select>
                                         <p>月</p>
                                     </div>
                                     <div class="year">
                                         <select id="year">
-                                            <option value=" " >請輸入</option>
+                                            <option  value="" selected="true" disabled="disabled">請輸入</option>
                                         </select>
                                         <p>年</p>
                                     </div>
@@ -168,21 +168,21 @@
         </div>
     </section>
     <script>
-        window.addEventListener("load",function(){
+        window.addEventListener("load", function () {
             let select_year = document.querySelector("#year");
-            let select_month =document.querySelector("#month");
+            let select_month = document.querySelector("#month");
             let opt;
             let Opt;
-            for (let i = 2025; i<= 2050; i++){
+            for (let i = 2025; i <= 2050; i++) {
                 opt = new Option(i, i);
                 select_year.add(opt);
             };
-            for(let i = 1; i<= 12; i++){
+            for (let i = 1; i <= 12; i++) {
                 Opt = new Option(i, i);
                 select_month.add(Opt);
             }
         })
-        
+
     </script>
 
     <!--  ===============map ===============  -->
