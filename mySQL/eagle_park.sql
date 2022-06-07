@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-07 19:57:16
+-- 產生時間： 2022-06-07 21:43:22
 -- 伺服器版本： 8.0.29
--- PHP 版本： 8.1.5
+-- PHP 版本： 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,15 @@ CREATE TABLE `article` (
   `article_image` varchar(255) NOT NULL COMMENT '文章圖片'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='發布文章';
 
+--
+-- 傾印資料表的資料 `article`
+--
+
+INSERT INTO `article` (`article_no`, `mem_no`, `article_title`, `article_date`, `article_content`, `article_image`) VALUES
+(1, 1, '西部農莊一日遊', '2022-02-01 10:20:25', '好吃好玩的都在這了 一早9:00進場玩到4:30出場，5:00到家了', './image/001.jpg'),
+(2, 2, '紐約都會打卡', '2022-03-01 17:36:11', '全台灣我私心最喜歡的主題樂園 美國大西部搭飛鷹', './images/002.jpg'),
+(3, 3, '遊行表演一定要看', '2022-04-01 20:37:03', '遊街表演的外國人讓氣氛變得更豐富，有機會一定要停下來看看', './images/003.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +58,15 @@ CREATE TABLE `comment` (
   `comment_date` datetime NOT NULL,
   `comment_content` varchar(255) NOT NULL COMMENT '最大字數300字'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章留言';
+
+--
+-- 傾印資料表的資料 `comment`
+--
+
+INSERT INTO `comment` (`comment_no`, `article_no`, `mem_no`, `comment_date`, `comment_content`) VALUES
+(1, 1, 2, '2022-02-15 11:38:06', '跟其他樂園比起來，滿適合小朋友去的'),
+(2, 2, 3, '2022-06-07 21:38:06', '關園時間滿早的，有空先去坐小火車看動物'),
+(3, 2, 1, '2022-03-22 21:40:36', '假日人非常多，每樣設施大概排隊40-90分鐘');
 
 -- --------------------------------------------------------
 
@@ -437,13 +455,13 @@ ALTER TABLE `ticket_order`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號';
+  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `coupon`
