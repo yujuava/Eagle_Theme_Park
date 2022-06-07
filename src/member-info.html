@@ -174,6 +174,26 @@
             sum:'111',  //如何計算
             payState:'已收到款項',
             orderState:'已完成',
+            productList:[
+            {
+                id:1,
+                name:'伊果帽子',
+                price:'700',
+                count:'3',
+            },
+            {
+                id:2,
+                name:'伊果雨衣',
+                price:'100',
+                count:'5',
+            },
+            {
+                id:3,
+                name:'伊果短T',
+                price:'700',
+                count:'1',
+            },
+            ]
         },
         {
             id:"#1112",
@@ -181,40 +201,28 @@
             sum:'1332',
             payState:'已收到款項',
             orderState:'已完成',
+            productList:[
+            {
+                id:1,
+                name:'伊果褲子',
+                price:'200',
+                count:'2',
+            },
+            ]
         }
         ]
-
-        const productList=[         //這個如何在一筆訂單裡 a的三筆商品 b的四筆商品之類
-        {
-            id:1,
-            name:'伊果帽子',
-            price:'700',
-            count:'3',
-        },
-        {
-            id:2,
-            name:'伊果雨衣',
-            price:'100',
-            count:'5',
-        },
-        {
-            id:3,
-            name:'伊果短T',
-            price:'700',
-            count:'1',
-        },
-
-        ]
-        
         // 會員訂單組件
         Vue.component('member-order',{
             data(){
-                return{
-                    
-                }
+                return{}
             },
             props:{
                 item:Object
+            },
+            computed: {
+                list() {
+                return this.item.productList ?? []; //如果item裡面沒有list,就空陣列
+                }
             },
             template:`
             <div class="member-frame member-order big-card-bdr">
@@ -246,7 +254,7 @@
                     <!-- 商品欄位 -->
                     <div class="all-tr">
                         <div class="product-list">
-                            <product-list  v-for="item in productList" :item="item" :key="item.id"> </product-list>  
+                            <product-list  v-for="subitem in list" :item="subitem" :key="subitem.id"> </product-list>  
                         </div>
 
                         <div class="pc-sum pc-list">
@@ -299,9 +307,7 @@
         // 商品明細組件
         Vue.component('product-list',{
             data(){
-                return{
-                   
-                }
+                return{}
             },
             props:{
                 item:Object
@@ -326,8 +332,6 @@
             data: {     // 變數放這裡!
                 type:'A',
                 isActive: true,
-                productList,
-                orderDetail, //要宣告嗎
             },
             methods: {  // 函數大部分放這裡!
 

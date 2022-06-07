@@ -1,6 +1,6 @@
 <!-- ===============登入燈箱=============== -->
 
-<div class="full-screen" v-if="loginBoxShow"> 
+<div class="full-screen" v-show="loginBoxShow"> 
     
     <div class="login-lightbox both-lightbox lightbox-bdr">
         <!-- 照片區 -->
@@ -22,8 +22,9 @@
                 </div>
 
                 <div class="down">
-                    <a href="member-info.html" class="bgBtn-login">登入</a>
+                    <!-- <a href="member-info.html" class="bgBtn-login">登入</a> -->
                     <!-- <button href="member-info.html" class="bgBtn-login">登入</button> -->
+                    <input type="button" class="bgBtn-login" value="登入" id="register">
                     <span>
                         <span href="">忘記密碼</span>
                         <p>|</p>
