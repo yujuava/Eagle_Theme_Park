@@ -27,7 +27,11 @@ function moveImg() {
   return src('src/images/*.*').pipe(dest('dist/images'))
 }
 
-
+// php move
+//img move
+function movePhp() {
+  return src('src/*.php').pipe(dest('dist/'))
+}
 
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
@@ -53,6 +57,7 @@ function watchfile() {
   watch('src/js/*.js' , moveJs)  // 監看js
   watch(['src/images/*.*', 'src/images/**/*.*'] , moveImg)  // 監看img
   watch(['./src/sass/*.scss' ,'./src/sass/**/*.scss'], styleSass) // 監看sass
+  watch(['./src/*.php' ,'./src/**/*.php'], movePhp) // 監看php
 }
 
 // 瀏覽器同步
@@ -72,12 +77,13 @@ function browser(done) {
     watch('src/js/*.js' , moveJs).on('change' , reload)  // 監看js
     watch(['src/images/*.*', 'src/images/**/*.*'], moveImg).on('change' , reload)  // 監看 img
     watch(['./src/sass/*.scss' ,'./src/sass/**/*.scss'], styleSass).on('change' , reload) // 監看sass
+    watch(['./src/*.php' ,'./src/**/*.php'], movePhp)
     done();
 }
 
 
 // 監看
-exports.w =  series(parallel(moveJs,moveImg,includeHTML,styleSass), watchfile)  
+exports.w =  series(parallel(moveJs, moveImg, includeHTML, styleSass, movePhp), watchfile)  
 
 //瀏覽器同步
-exports.default =  series(parallel(moveJs,includeHTML,styleSass,moveImg), browser)  
+exports.default =  series(parallel(moveJs, includeHTML, styleSass, moveImg, movePhp), browser)  
