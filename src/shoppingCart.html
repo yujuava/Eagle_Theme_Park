@@ -21,175 +21,132 @@
     "h3TitleTC" : "購物車",
     "h3TitleEN": "Theme Area"
     })
-    <section class="shopcar">
-        <div class="wrap">
-            <div class="table">
-                <!-- 表格名稱 -->
-                <div class="tr table-title">
-                    <div class="th">圖片</div>
-                    <div class="th">名稱</div>
-                    <div class="th">售價</div>
-                    <div class="th">數量</div>
-                    <div class="th">刪除</div>
-                </div>
-
-                <!-- 第一個商品 -->
-                <div class="cart-row">
-                    <div class="pic">
-                        <img src="./images/shop_cup.png ">
-
+    <div id="shoppingcart">
+        <section class="shopcar">
+            <div class="wrap">
+                <div class="table">
+                    <!-- 表格名稱 -->
+                    <div class="tr table-title">
+                        <div class="th">圖片</div>
+                        <div class="th">名稱</div>
+                        <div class="th">售價</div>
+                        <div class="th">數量</div>
+                        <div class="th">刪除</div>
                     </div>
-
-                    <div class="info">
-                        <div class="td">伊果一杯</div>
-                        <div class="td">$200</div>
-                        <div class="td">
-                            <div class="count">
-                                <div class="minus">
-                                    <i class="fa-solid fa-minus"></i>
-                                </div>
-                                <input type="text" class="num" min="0" value="0" disabled>
-                                <div class="plus">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="td">
-                        <button class="mdBtn-delete">刪除</button>
-                    </div>
-                </div>
-
-                <!-- 第貳個商品 -->
-                <div class="cart-row">
-                    <div class="pic">
-                        <img src="./images/shop_raincoat.png ">
-
-                    </div>
-
-                    <div class="info">
-                        <div class="td">伊果雨衣</div>
-                        <div class="td">$400</div>
-                        <div class="td">
-                            <div class="count">
-                                <div class="minus">
-                                    <i class="fa-solid fa-minus"></i>
-                                </div>
-                                <input type="text" class="num" min="0" value="0" disabled>
-                                <div class="plus">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="td">
-                        <button class="mdBtn-delete">刪除</button>
-                    </div>
-                </div>
-
-                <!-- 第三個商品 -->
-                <div class="cart-row">
-                    <div class="pic">
-                        <img src="./images/shop_cap.png ">
-
-                    </div>
-
-                    <div class="info">
-                        <div class="td">伊果帽帽</div>
-                        <div class="td">$400</div>
-                        <div class="td">
-                            <div class="count">
-                                <div class="minus">
-                                    <i class="fa-solid fa-minus"></i>
-                                </div>
-                                <input type="text" class="num" min="0" value="0" disabled>
-                                <div class="plus">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="td">
-                        <button class="mdBtn-delete">刪除</button>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-    </section>
-
-    <section id="shopping" class="total">
-        <div class="wrap discount-wrap">
-
-            <!-- 下方結帳框 -->
-            <div class="discount">
-                <button @click="coupons" class="coupon">
-                點選優惠券</button>
-
-                <div class="price">
-                    <div class="discount-row">
-                        <label for="">折扣前:</label>
-                        <input type="text" value="1000" disabled>
-
-                    </div>
-
-                    <div  class="discount-row">
-                        <label for="">總金額:</label>
-                        <input type="text" value="800" disabled>
-                    </div>
-
-                    <button class="bgBtn-bill bill">前往結帳</button>
-
-                </div>
-
-                <!-- 燈箱 -->
-                <div class="mycoupons full-screen">
-                    <div class="lightbox-bdr">
-                        <p>選擇優惠券</p>
-                        <i @click="close" id="close" class="fa-solid fa-xmark"></i>
-                        <div>
-                            <button class="coupon">折扣150元</button>
-                            <label for="">使用期限:</label>
-                            <span>無期限</span>
-                        </div>
-                        <div>
-                            <button class="coupon">折扣150元</button>
-                            <label for="">使用期限:</label>
-                            <span>無期限</span>
-                        </div>
+                    <div>
+                        <shoppingcart-component v-for="item in items" :item="item"/>
                     </div>
                 </div>
             </div>
-
-           
-        </div>
+        </section>
+        <section class="total">
+            <div class="wrap discount-wrap">
+                <!-- 下方結帳框 -->
+                <div class="discount">
+                    <button @click="coupons" class="coupon">
+                    點選優惠券</button>
+                    <div class="price">
+                        <div class="discount-row">
+                            <label for="">折扣前:</label>
+                            <input type="text" value="1000" disabled>
+                        </div>
+                        <div  class="discount-row">
+                            <label for="">總金額:</label>
+                            <input type="text" value="800" disabled>
+                        </div>
+                        <button class="bgBtn-bill bill">前往結帳</button>
+                    </div>
+                    <!-- 燈箱 -->
+                    <div class="mycoupons full-screen">
+                        <div class="lightbox-bdr">
+                            <p>選擇優惠券</p>
+                            <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                            <div>
+                                <button class="coupon">折扣150元</button>
+                                <label for="">使用期限:</label>
+                                <span>無期限</span>
+                            </div>
+                            <div>
+                                <button class="coupon">折扣150元</button>
+                                <label for="">使用期限:</label>
+                                <span>無期限</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         
-  
-    </section>
+            </div>
+        
+        </section>
+    </div>
 
     <!--  ===============map ===============  -->
     @@include('layout/footer.html')
+    <script>
+        const items=[{
+            image:"./images/shop_cap.png",
+            name:"伊果一杯",
+            price:300,
+        },{
+            image:"./images/shop_cap.png",
+            name:"伊果二杯",
+            price:400,
+        },{
+            image:"./images/shop_cap.png",
+            name:"伊果三杯",
+            price:500,
+        }]
+        Vue.component('shoppingcart-component',{
+          
+            template:`
+            <div class="cart-row">
+                        <div class="pic">
+                            <img :src="item.image">"
+                        </div>
+                        <div class="info">
+                            <div class="td">{{item.name}}</div>
+                            <div class="td">{{item.price}}</div>
+                            <div class="td">
+                                <div class="count">
+                                    <div class="minus">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input type="text" class="num" min="0" value="0" disabled>
+                                    <div class="plus">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td">
+                            <button class="mdBtn-delete">刪除</button>
+                        </div>
+                    </div>
+                `,
+                props:{
+                    item:Object,
+                }
+            })
+
+        new Vue({
+            el:'#shoppingcart',
+            data() {
+                return {
+                    items,
+                }
+            },
+            methods: {   
+                coupons:function(todo){
+                    document.querySelector('.mycoupons').style.display="flex";
+                },            
+                close:function(todo){
+                    document.querySelector('.mycoupons').style.display="none";
+                }    
+            }
+        })
+    </script>
+    <script src="js/buyTicketadd.js"></script>
 </body>
 
 </html>
-<script>
-    new Vue({
-        el:'#shopping',
-        methods: {   
-            coupons:function(todo){
-                document.querySelector('.mycoupons').style.display="flex";
-            },            
-            close:function(todo){
-                document.querySelector('.mycoupons').style.display="none";
-            }    
-        }
-    })
-    // alert('12331')
-</script>
-<script src="js/buyTicketadd.js"></script>
 
