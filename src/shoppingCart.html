@@ -52,7 +52,7 @@
                         </div>
                         <div  class="discount-row">
                             <label for="">總金額:</label>
-                            <input type="text" value="800" disabled>
+                            <input type="text" value="" v-model="sum" disabled>
                         </div>
                         <button class="bgBtn-bill bill">前往結帳</button>
                     </div>
@@ -142,6 +142,12 @@
                 close:function(todo){
                     document.querySelector('.mycoupons').style.display="none";
                 }    
+            },
+            computed: { 
+                calculate(){
+                    let sum = this.item.price;
+                    return sum;
+                }
             }
         })
     </script>

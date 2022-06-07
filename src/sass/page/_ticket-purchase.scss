@@ -107,23 +107,11 @@
                 display: flex;
                 text-align: center;
                 justify-content: flex-end;
-<<<<<<< HEAD
                 padding:10px;
                 p{
                     width: 40%;
         font-family: $family2;
 
-=======
-                padding: 10px;
-
-                p {
-                    width: 35%;
-
-                    @include md() {
-                        width: 40%;
-
-                    }
->>>>>>> dev
                 }
             }
 
@@ -222,15 +210,9 @@
                     width: 100%;
                     ;
                     display: flex;
-<<<<<<< HEAD
                     p{
         font-family: $family2;
         width: 50%;
-=======
-
-                    p {
-                        width: 50%;
->>>>>>> dev
                     }
 
                     input {
@@ -290,20 +272,10 @@
         }
 
         // 結帳
-<<<<<<< HEAD
         .checkout{
             
             .THREE{
                 background-size: cover; 
-=======
-        .checkout {
-            .THREE {
-                
-
-
-                @include md() {
-                    background-size: cover;
->>>>>>> dev
                 padding: 20px;
             }
 
@@ -324,16 +296,11 @@
                         margin: 10px 0;
                     }
                 }
-<<<<<<< HEAD
                 p{
         font-family: $family2;
 
                 }
          
-=======
-
-
->>>>>>> dev
                 // 信用卡有效年月
                 .item {
                     .Info {
