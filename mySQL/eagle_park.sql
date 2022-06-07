@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-06 19:05:53
+-- 產生時間： 2022-06-07 19:57:16
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -168,7 +168,8 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`mem_no`, `mem_name`, `mem_lastname`, `mem_id`, `mem_psw`, `mem_tel`, `mem_mail`, `mem_state`, `mem_address`, `mem_country`, `mem_birth`, `mem_date`) VALUES
 (1, '小明', '王', 'wang123', 'wang1234', '0935111222', 'wang123@gmail.com', 0, '中壢區民權路2號', '台灣', '1991-01-01', '2022-02-02'),
 (2, '小強', '陳', 'chen', 'chen1234', '0935222333', 'chen@gmail.com', 0, '中壢區民權路3號', '台灣', '1991-01-05', '2022-03-04'),
-(3, '靜香', '林', 'smellgood', 'smellgood123', '0935333444', 'smellgood@gmail.com', 0, '中壢區民權路4號', '台灣', '1990-12-10', '2022-06-05');
+(3, '靜香', '林', 'smellgood', 'smellgood123', '0935333444', 'smellgood@gmail.com', 0, '中壢區民權路4號', '台灣', '1990-12-10', '2022-06-05'),
+(4, '丞軒', '葉', 'eagleyeh', 'eagleyeh', '0912345678', 'eagleyeh@gmail.com', 1, '桃園市中壢區復興路46號', '台灣', '1996-06-01', '2022-06-07');
 
 -- --------------------------------------------------------
 
@@ -229,8 +230,21 @@ CREATE TABLE `product` (
   `product_infor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品資訊',
   `product_pic` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '商品圖片',
   `product_st` tinyint NOT NULL COMMENT '商品狀態(0.正常,1下架,2缺貨)',
-  `product_creat` int DEFAULT NULL COMMENT '建立日期'
+  `product_creat` date DEFAULT NULL COMMENT '建立日期'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品';
+
+--
+-- 傾印資料表的資料 `product`
+--
+
+INSERT INTO `product` (`product_no`, `product_name`, `product_price`, `product_infor`, `product_pic`, `product_st`, `product_creat`) VALUES
+(1, '伊果保溫瓶', 600, '真空長效保溫，適合戶外、運動、居家使用。', '', 0, '2022-06-01'),
+(2, '伊果帽', 300, '夏天防曬冬天防寒，讓你每次都亮麗出場的超萬用帽型', NULL, 0, '2022-06-01'),
+(3, '伊果短T', 400, '美式休閒時尚服飾，引領潮流精神', NULL, 0, '2022-06-01'),
+(4, '伊果馬克杯', 300, '日系簡約風，實用與質感兼具，讓你愛不釋手', NULL, 0, '2022-06-01'),
+(5, '伊果鑰匙圈', 150, '伊果人氣商品，網路人氣推薦，豐富有質感', NULL, 0, '2022-06-01'),
+(6, '伊果口罩(10入)', 150, '在防疫的同時兼具時尚美感，讓你出門開心又安心', NULL, 0, '2022-06-01'),
+(7, '伊果雨衣', 200, '攜帶方便，輕鬆收納，出門再也不怕下雨天', NULL, 0, '2022-06-01');
 
 -- --------------------------------------------------------
 
@@ -483,7 +497,7 @@ ALTER TABLE `postcard_co`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號';
+  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號', AUTO_INCREMENT=8;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
