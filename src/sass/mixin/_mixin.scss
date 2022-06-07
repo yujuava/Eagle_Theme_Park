@@ -1,5 +1,12 @@
 // @import url('../base/var');//
 
+//===========斷點設計-手機直以上===========
+@mixin sm(){
+    @media screen and (min-width: $sm_breakpoint){
+        @content
+    }
+};
+
 //===========斷點設計-平板直以上===========
 @mixin md(){
     @media screen and (min-width: $md_breakpoint){

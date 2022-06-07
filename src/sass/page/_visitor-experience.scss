@@ -6,11 +6,21 @@
     background-color: #fff;
     border: 2px solid $color4;
     margin-bottom: 40px;
-    &:hover{
+
+    &:hover {
         box-shadow: 3px 3px 0px $color2;
     }
 }
 
+.Visitor_experience {
+    .wrap {
+        width: 80%;
+
+        @include md() {
+            width: 90%;
+        }
+    }
+}
 
 // 燈箱
 .light-box {
@@ -18,81 +28,73 @@
     top: 0;
     left: 0;
     display: none;
-    
+
     .forum-box {
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         // top: 200px;
-        top:50%;
+        top: 50%;
         transform: translateY(-50%); //置中:方法
         left: 0;
         right: 0;
-        // bottom: 200px;
-        // z-index: 100;
         background-color: #fff;
         margin: auto;
-        // padding-bottom: 80px;
-        // width: 70%;
-        // height: 50%;
-        // @include md() {
-        //     width: 60%; 
-        //     height: 40%;
-        // }
-        // @include lg(){
-        //     width: 50%;
-        //     height: 60%;
-        // }
         aspect-ratio: 2 / 2.2;
-        @include md(){
+
+        @include md() {
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             aspect-ratio: 2 / 1;
         }
-        @include lg(){
+
+        @include lg() {
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
             aspect-ratio: 1.8 / 1;
         }
-        @include xl(){
+
+        @include xl() {
             aspect-ratio: 2 / 1.2;
         }
-        
-    
+
+
 
         .box-header {
             padding: 15px;
             background-color: $color3;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            @include md(){
+
+            @include md() {
                 padding: 20px;
             }
-            
+
         }
 
-        .box-body{
+        .box-body {
             padding: 10px;
             height: 100%;
             display: flex;
             flex-direction: column;
-            @include md(){
+
+            @include md() {
                 padding: 20px;
             }
-            
+
 
         }
 
         input[type="text"] {
             width: 100%;
             height: 20px;
-            // margin: 20px 10px;
             margin-bottom: 20px;
             padding: 10px;
             border: 1px solid$color4;
             outline: none;
             font-size: $word-fzSize;
+
             @include md() {
                 height: 35px;
                 border-radius: 10px;
@@ -102,7 +104,6 @@
         }
 
         input[type="file"] {
-            // position: absolute;
             width: 1px;
             height: 1px;
             padding: 0;
@@ -125,26 +126,24 @@
             text-align: center;
             width: 100%;
             height: 20px;
-            margin: 0 0 15px 0; 
+            margin: 0 0 15px 0;
+
             @include md() {
                 font-size: $h6-fzSize;
-                // width: 170px;
                 height: 35px;
                 border-radius: 10px;
                 border: 2px solid $color4;
-                margin: 0 0 30px 0; 
-                
+                margin: 0 0 30px 0;
+
                 &:hover {
                     background-color: $color3;
                     color: #fff;
                 }
             }
-            @include lg(){
-                // margin-right: 180px;
-            }
 
         }
-        .center-area{
+
+        .center-area {
             display: flex;
             flex-grow: 1;
             margin-bottom: 20px;
@@ -153,18 +152,19 @@
 
         .image-Preview {
             width: 35%;
-            @include md(){
+
+            @include md() {
                 width: 40%;
-            }   
+            }
+
             .img {
                 border: 1px solid$color4;
                 border-radius: 5px;
-                // width: 60%;
-                // margin-right: 15px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: $color8;
+
                 .blah {
                     display: none;
                     width: 100%;
@@ -172,41 +172,35 @@
             }
         }
 
-        .text-area{
-            // border: 1px solid #000;
+        .text-area {
             width: 65%;
             margin-right: 10px;
 
             display: flex;
             flex-direction: column;
-            @include md(){
+
+            @include md() {
                 width: 60%;
                 margin-right: 20px;
             }
-            
+
         }
-        
+
         textarea {
-            // width: 90%;
             width: 100%;
-            // margin-top: 30px;
             display: block;
-            padding:10px;
-            // margin-left: auto;
-            // margin-right: 20px;
+            padding: 10px;
             border: 1px solid$color4;
             outline: none;
             resize: none;
             border-radius: 10px;
             flex-grow: 1;
             font-size: $md-word-fzSize;
+
             @include md() {
                 padding: 20px;
                 font-size: $word-fzSize;
                 border: 2px solid$color4;
-            }
-            @include lg(){
-                // width: 95%;
             }
         }
 
@@ -226,20 +220,22 @@
                 background-color: #fff;
                 border: 1px solid$color4;
                 color: $color4;
-                @include md(){
+
+                @include md() {
                     border: 2px solid$color4;
                 }
-                
+
             }
 
             @include mdBtn(submit) {
                 background-color: $color4;
                 border: 1px solid$color4;
                 color: #fff;
-                @include md(){
+
+                @include md() {
                     border: 2px solid$color4;
                 }
-                
+
             }
         }
     }
@@ -251,31 +247,34 @@
 }
 
 .container-grid {
-    // border: 2px solid #000;
- 
+
     .card {
         border-radius: 10px;
         background-color: #fff;
         box-shadow: $card-shadow1;
         margin-bottom: 20px;
+
         .card-header {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             background-color: $color3;
             padding: 20px;
-            @include xl(){
+
+            @include xl() {
                 padding: 13px;
             }
-            
+
         }
+
         // 主要照片
         .card-pic {
             position: relative;
+
             .pic {
                 overflow: hidden;
                 aspect-ratio: 1.75/1;
+
                 img {
-                    // aspect-ratio: 1.5/1;
                     object-fit: cover;
                     width: 100%;
                     height: 100%;
@@ -288,106 +287,122 @@
                     }
                 }
             }
-            
+
         }
+
         // 人物照片
-        .person{
-            //照片
-            // border: 1px solid #000;
+        .person {
             display: flex;
             align-items: center;
-            padding: 5px 18px;
-            @include xl(){
-                padding: 5px 12px;
+            padding: 10px 18px 5px 18px;
+
+            @include xl() {
+                padding: 10px 12px 5px 12px;
             }
-            
-            .mem{
-                // width: 100%;
+
+            .mem {
                 aspect-ratio: 1/1;
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
-                // align-items: center;
-                // font-weight: bold;
-                // font-size: $word-fzSize;
                 overflow: hidden;
-                // padding: 10px;
-                @include xl(){
+
+                @include xl() {
                     width: 35px;
                     height: 35px;
                 }
-                
+
                 img {
-                    // aspect-ratio: 1/1;
-                    // width: 10%;
                     width: 100%;
                     height: 100%;
-                    object-fit:cover;
+                    object-fit: cover;
                 }
             }
+
             .mem-name {
                 color: $color3;
-                // background-color: $color1;
-                // border-radius: 20px;
                 margin-left: 12px;
                 font-weight: bold;
-                color:$color4;
+                color: $color4;
                 font-size: $h6-fzSize;
-                @include xl(){
+
+                @include xl() {
                     font-size: $word-fzSize;
                 }
-                
+
             }
-            
+
         }
+
         .card-body {
             position: relative;
             aspect-ratio: 2.6 / 1;
+
             p {
-                // border: 1px solid #000;
-                // padding: 50px 15px;
                 padding: 5px 15px 0px 15px; //下面不可以用pannding 文字才可被隱藏
-                font-size: $word-fzSize;
+                font-size: $h6-fzSize;
                 font-family: $family2;
                 //文字超過隱藏
                 overflow: hidden;
                 display: -webkit-box;
                 text-overflow: ellipsis;
-                -webkit-line-clamp: 2; /*行數*/
+                -webkit-line-clamp: 2;
+                /*行數*/
                 -webkit-box-orient: vertical;
                 white-space: normal;
-                @include xl(){
+
+                @include md() {
+                    font-size: $word-fzSize;
+                }
+
+                @include xl() {
                     padding: 5px 12px 0px 12px; //下
                     font-size: $md-word-fzSize;
                 }
-                
+
             }
-            @include smBtn(more){
+
+            @include mdBtn(more) {
                 position: absolute;
                 right: 0;
-                bottom:10px;
+                bottom: 10px;
                 font-family: $family2;
                 background-color: $color3;
-                &:hover{
-                    background-color: darken($color3, 10%);
+                font-weight: normal;
+                padding: 5px 10px;
+
+                @include md() {
+        font-size: $word-fzSize;
+        @include lg(){
+            font-size: $word2-fzSize;
+
+
+            }
+
+
+                    &:hover {
+                        background-color: darken($color3, 10%);
+                    }
                 }
-            } 
+            }
         }
 
     }
 
-    .col-12:nth-of-type(1) .card-pic{
-        img{
+    .col-12:nth-of-type(1) .card-pic {
+        img {
             object-position: top;
         }
     }
-    .col-12:nth-of-type(5) .card-pic{
-        img{
+
+    .col-12:nth-of-type(5) .card-pic {
+        img {
             object-position: bottom;
         }
     }
-    .col-12:nth-of-type(11) .card-pic{
-        img{
+
+    .col-12:nth-of-type(11) .card-pic {
+        img {
             object-position: top;
         }
     }
@@ -397,7 +412,8 @@
         border-bottom-right-radius: 10px;
         background-color: $color3;
         padding: 20px;
-        @include xl(){
+
+        @include xl() {
             padding: 13px;
         }
     }

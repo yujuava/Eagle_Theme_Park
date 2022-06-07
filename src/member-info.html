@@ -110,9 +110,11 @@
                         <input type="text">
                     </div>
                     
-                    <div class="col f-col">
+                    <div class="col f-col password-change">
                         <label for="">修改密碼</label>
-                        <input type="text">
+                        <input type="password" placeholder="請輸入舊密碼">
+                        <input type="password" placeholder="請輸入新密碼">
+                        <input type="password" placeholder="新密碼確認">
                     </div>
         
                     <div class="col">
@@ -127,129 +129,22 @@
 
         <!-- 會員訂單 -->
 
-        <section v-else-if="type=='B'">
+        <section v-else-if="type=='B'" id="member-order">
             <div class="wrap member-wrap">
                 <h3>近期訂單</h3>
 
                 <!-- 訂單一 -->
-                <div class="member-frame member-order big-card-bdr">
-                    <div class="order-table">
-                        <!-- 標題 -->
-                        <div class="th">
-                            <div class="th-col order-num">
-                                <div>
-                                    <span>訂單編號</span>
-                                    <span>#1111</span>
-                                </div>
-                                <div>
-                                    <span>訂單日期</span>
-                                    <span>2022-05-28</span>
-                                </div>
-                            </div>
-                            <div class="th-col">
-                                <span>總金額</span>
-                            </div>
-                            <div class="th-col">
-                                <span>付款狀態</span>
-                            </div>
-                            <div class="th-col">
-                                <span>訂單狀態</span>
-                            </div>
-
-                        </div>
-
-                        <!-- 商品欄位 -->
-                        <div class="all-tr">
-                            <div class="product-list">
-
-                                <div class="tr product">
-                                    <p class="td">伊果帽子</p>
-                                    <span class="td">
-                                        <p>NT$700</p>
-                                        <p>數量:1</p>
-                                    </span>
-                                </div>
-                                <div class="tr product">
-                                    <p class="td">伊果帽子</p>
-                                    <span class="td">
-                                        <p>NT$700</p>
-                                        <p>數量:1</p>
-                                    </span>
-                                </div>
-                                <div class="tr product">
-                                    <p class="td">伊果帽子</p>
-                                    <span class="td">
-                                        <p>NT$700</p>
-                                        <p>數量:1</p>
-                                    </span>
-                                </div>
-
-                            </div>
-
-                            <div class="pc-sum pc-list">
-                                <p> $1255</p>
-
-                            </div>
-                            
-                            <div class="pc-pay-state pc-list">
-                                <p>已收到款項</p>
-
-                            </div>
-
-                            <div class="pc-order-state pc-list">
-                                <p>已出貨</p>
-
-                            </div>
-        
-                    
-                        </div>
-
-                        <!-- 總金額 -->
-
-                        <div class="tr sum">總金額   $1255</div>
-                        <!-- 狀態 -->
-                        <div class="tr state">
-
-                            <div  class="tr-col">
-                                <p>付款狀態</p>
-                                <p>已收到款項</p>
-                            </div>
-        
-                            <div  class="tr-col">
-                                <p>配送狀態</p>
-                                <p>已出貨</p>
-                            </div>
-        
-                            <div  class="tr-col">
-                                <p>訂單狀態</p>
-                                <p></p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    
-                </div>
+                    <member-order v-for="item in orderDetail" :item="item" :key="item.id">
+                    </member-order>
 
                 <!-- 訂單二 -->
 
-                <!-- <div class="member-frame member-order big-card-bdr" id="orderlist">
-                    <transition-group name="orderlist" tag="div">
-                        <member-orderlist-component v-for="item in orderlist" :item="item" :key="item.id"/>
-                    </transition-group>
-                </div> -->
-
-
-
-
             </div>
-
-
         </section>
 
         <!-- 優惠券 -->
 
-        <section v-else>
+        <section v-else-if="type=='C'">
             <div class="wrap member-wrap">
                 <h3>我的優惠券</h3>
                 <div class="member-frame member-coupon big-card-bdr">
@@ -261,8 +156,6 @@
                     <p>目前沒有可使用優惠券</p>
 
                 </div>
-
-
             </div>
 
         </section>
@@ -275,12 +168,170 @@
 
     <script>
 
+        const orderDetail=[{
+            id:"#1111",
+            date:'2022-05-28',
+            sum:'111',  //如何計算
+            payState:'已收到款項',
+            orderState:'已完成',
+            productList:[
+            {
+                id:1,
+                name:'伊果帽子',
+                price:'700',
+                count:'3',
+            },
+            {
+                id:2,
+                name:'伊果雨衣',
+                price:'100',
+                count:'5',
+            },
+            {
+                id:3,
+                name:'伊果短T',
+                price:'700',
+                count:'1',
+            },
+            ]
+        },
+        {
+            id:"#1112",
+            date:'2022-05-29',
+            sum:'1332',
+            payState:'已收到款項',
+            orderState:'已完成',
+            productList:[
+            {
+                id:1,
+                name:'伊果褲子',
+                price:'200',
+                count:'2',
+            },
+            ]
+        }
+        ]
+        // 會員訂單組件
+        Vue.component('member-order',{
+            data(){
+                return{}
+            },
+            props:{
+                item:Object
+            },
+            computed: {
+                list() {
+                return this.item.productList ?? []; //如果item裡面沒有list,就空陣列
+                }
+            },
+            template:`
+            <div class="member-frame member-order big-card-bdr">
+                <div class="order-table">
+                    <!-- 標題 -->
+                    <div class="th">
+                        <div class="th-col order-num">
+                            <div>
+                                <span>訂單編號</span>
+                                <span>{{item.id}}</span>
+                            </div>
+                            <div>
+                                <span>訂單日期</span>
+                                <span>{{item.date}}</span>
+                            </div>
+                        </div>
+                        <div class="th-col">
+                            <span>總金額</span>
+                        </div>
+                        <div class="th-col">
+                            <span>付款狀態</span>
+                        </div>
+                        <div class="th-col">
+                            <span>訂單狀態</span>
+                        </div>
+
+                    </div>
+
+                    <!-- 商品欄位 -->
+                    <div class="all-tr">
+                        <div class="product-list">
+                            <product-list  v-for="subitem in list" :item="subitem" :key="subitem.id"> </product-list>  
+                        </div>
+
+                        <div class="pc-sum pc-list">
+                            <p> $ {{item.sum}}</p>
+
+                        </div>
+                        
+                        <div class="pc-pay-state pc-list">
+                            <p>{{item.payState}}</p>
+
+                        </div>
+
+                        <div class="pc-order-state pc-list">
+                            <p>{{item.orderState}}</p>
+
+                        </div>
+    
+                
+                    </div>
+
+                    <!-- 總金額 -->
+
+                    <div class="tr sum">總金額   $1255</div>
+                    <!-- 狀態 -->
+                    <div class="tr state">
+
+                        <div  class="tr-col">
+                            <p>付款狀態</p>
+                            <p>已收到款項</p>
+                        </div>
+    
+                        <div  class="tr-col">
+                            <p>配送狀態</p>
+                            <p>已出貨</p>
+                        </div>
+    
+                        <div  class="tr-col">
+                            <p>訂單狀態</p>
+                            <p></p>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            </div>
+            `
+        }),
+    
+        // 商品明細組件
+        Vue.component('product-list',{
+            data(){
+                return{}
+            },
+            props:{
+                item:Object
+            },
+            method:{
+                //所有總數如何相加
+            },
+            template:`
+                <div class="tr product">
+                    <p class="td">{{item.name}}</p>
+                    <span class="td">
+                        <p>{{item.price}}</p>
+                        <p>數量: {{item.count}}</p>
+                    </span>
+                </div>
+            `,
+        }),
+
+
         new Vue({
             el: '#member',
             data: {     // 變數放這裡!
                 type:'A',
                 isActive: true,
-              
             },
             methods: {  // 函數大部分放這裡!
 
@@ -311,150 +362,6 @@
         });
         
     </script>
-
-
-<!-- 錯的 -->
-<script >
-
-    // const orderlist=[{
-    //         id:1,
-    //         orderNum:1111,
-    //         orderDate:2022-05-18,
-    //         detailName:[伊果帽子,伊果衣服,伊果雨衣],
-    //         detailPrice:[1000,500,200],
-    //         detailNum:[1,2,1],
-    //         moneyNum:'1200',
-    //         payState:"已收到款項",
-    //         orderState:"已出貨",
-    
-    //     },
-    //     {
-    //         id:2,
-    //         orderNum:1111,
-    //         orderDate:2022-05-18,
-    //         detailName:[伊果帽子,伊果衣服,伊果雨衣],
-    //         detailPrice:[1000,500,200],
-    //         detailNum:[1,2,1],
-    //         moneyNum:'1200',
-    //         payState:"已收到款項",
-    //         orderState:"已出貨",
-    //     },
-    // ]
-    
-    // Vue.component('member-orderlist-component',{
-    //     template:`
-    //     <div class="order-table">
-    //             <!-- 標題 -->
-    //             <div class="th">
-    //                 <div class="th-col order-num">
-    //                     <div>
-    //                         <span>訂單編號</span>
-    //                         <span>{{item.orderNum}}</span>
-    //                     </div>
-    //                     <div>
-    //                         <span>訂單日期</span>
-    //                         <span>{{item.orderDate}}</span>
-    //                     </div>
-    //                 </div>
-    //                 <div class="th-col">
-    //                     <span>總金額</span>
-    //                 </div>
-    //                 <div class="th-col">
-    //                     <span>付款狀態</span>
-    //                 </div>
-    //                 <div class="th-col">
-    //                     <span>訂單狀態</span>
-    //                 </div>
-
-    //             </div>
-
-    //             <!-- 商品欄位 -->
-    //             <div class="all-tr">
-    //                 <div class="product-list">
-
-    //                     <div class="tr product">
-    //                         <p class="td">{{item.detailName}}</p>
-    //                         <span class="td">
-    //                             <p>NT$ {{item.detailPrice}}</p>
-    //                             <p數量: {{item.detailName}}</p>
-    //                         </span>
-    //                     </div>
-    //                     <div class="tr product">
-    //                         <p class="td">{{item.detailName}}</p>
-    //                         <span class="td">
-    //                             <p>>NT$ {{item.detailPrice}}</p>
-    //                             <p>數量: {{item.detailName}}</p>
-    //                         </span>
-    //                     </div>
-    //                     <div class="tr product">
-    //                         <p class="td">{{item.detailName}}</p>
-    //                         <span class="td">
-    //                             <p>NT$ {{item.detailPrice}}</p>
-    //                             <p>數量: {{item.detailName}}</p>
-    //                         </span>
-    //                     </div>
-
-    //                 </div>
-
-    //                 <div class="pc-sum pc-list">
-    //                     <p> {{moneyNum}} </p>
-
-    //                 </div>
-                    
-    //                 <div class="pc-pay-state pc-list">
-    //                     <p> {{payState}}</p>
-
-    //                 </div>
-
-    //                 <div class="pc-order-state pc-list">
-    //                     <p> {{orderState}}</p>
-
-    //                 </div>
-
-            
-    //             </div>
-
-
-    //             <div class="tr sum">總金額    {{orderState}} </div>
-    //             <!-- 狀態 -->
-    //             <div class="tr state">
-
-    //                 <div  class="tr-col">
-    //                     <p>付款狀態</p>
-    //                     <p> {{payState}}</p>
-    //                 </div>
-
-    //                 <div  class="tr-col">
-    //                     <p>配送狀態</p>
-    //                     <p> {{orderState}}</p>
-    //                 </div>
-
-    //                 <div  class="tr-col">
-    //                     <p>訂單狀態</p>
-    //                     <p></p>
-    //                 </div>
-
-    //             </div>
-
-    //         </div>
-
-    //     `,
-    //     props:{
-    //         item:Object
-    //     }
-    // });
-
-    // new Vue({
-    //     data:{
-    //         orderlist,
-    //     },
-    //     el:'#orderlist',
-
-    // })
-
-</script>
-
-    
 
 </body>
 </html>

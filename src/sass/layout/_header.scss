@@ -74,6 +74,7 @@ header .pc-nav ul li{
   top:50%;
   transform: translateY(-50%);
 }
+
 header{
   border-top:10px solid $color3;
   width: 100%;
@@ -297,7 +298,7 @@ header{
                       }
                       
                   }
-                  .sec-nav{                     
+                  .sec-nav{                 
                       width: 80px;
                       // padding-top: 15px;
                       padding: 30px 10px 10px 10px;
@@ -320,7 +321,8 @@ header{
                           top: 16px;
                       }
                       a{
-                          font-size: $sm-word-fzSize;
+                        // border: 1px solid #000;
+                          font-size: $md-word-fzSize;
                           margin-bottom: 10px;
                           color:$color1;
                           &:hover{

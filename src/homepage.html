@@ -84,9 +84,7 @@
         <div class="wrap">
             <h2>歡迎來到伊果樂園</h2>
             <p class="info">伊果樂園有三大園區：紐約都會、西部農莊，印安部落
-                建議各用一天時間遊玩。每個區域都各具特色。
-                <br>
-                快來伊果樂園在不同園區，與你喜愛的果果共度美好時光！<br>
+                建議各用一天時間遊玩。每個區域都各具特色。快來伊果樂園在不同園區，與果果共度美好時光！<br>
                 2022年5月22日正式啟程！</p>
             @@include('layout/buyTicket.html')
         </div>
@@ -204,7 +202,7 @@
         @@include('layout/h2Style.html',{
             "h2Title" : "熱門設施"
         })
-        <section class="HotFacility">
+        <section class="HotFacility" id="HotFacility">
             <div class="full">
                 <div class="word">
                     <p>TOP1</p>
@@ -230,7 +228,7 @@
                             .cls-12{stroke-width:30px;}
 
                         .cls-10,.cls-11{
-                            font-size:45px;
+                            font-size:50px;
                             font-family:'M PLUS Rounded 1c', 
                             sans-serif;
                             fill:#245D68;
@@ -338,7 +336,7 @@
                                     </clipPath>
                                 </defs>
                                 <image xlink:href="./images/facilities8 (18).jpg" clip-path="url(#car5)" x="600" y="1450" width="500"/>  
-                                <text class="cls-10" transform="translate(818.5 1716.69)">空中UFO</text>
+                                <text class="cls-10" transform="translate(818.5 1716.69)" >空中UFO</text>
                         
                             </g>
                         </a>
@@ -424,7 +422,10 @@
         <section class="ThrillRide">
             <div class="wrap"  id="all-thrill-ride" >
                 <div class="all-btn">
-                    <div v-for="item in tabList" class="bgBtn-area" :class="{'is-active': currentFilter == item.key}"  @click="currentFilter = item.key">
+                    <div class="bgBtn-area" :class="{'is-active' : currentFilter == 'ALL'}" @click="currentFilter = 'ALL'">
+                        所有設施
+                    </div>
+                    <div   class="bgBtn-area" :class="{'is-active' : currentFilter == item.key}"  @click="currentFilter = item.key" v-for="item in tabList">
                         {{item.name}}
                     </div>
                     <!-- <div class="bgBtn-area" :class="{'is-active': currentFilter == '紐約'}"  @click="setFilter('紐約');changeNw()" ref="nw">
@@ -435,7 +436,7 @@
                 <div class="filter">
                     <div class="option">
                         <input type="checkbox" v-model="rain" id="rain">
-                        <label for="rain">不受雨天影響</label>
+                        <label for="rain">雨天可乘</label>
                     </div>
                     <div class="option">
                         <input type="checkbox" v-model="pregnant" id="pregnant">
@@ -447,7 +448,7 @@
                     </div>
                 </div>
                 <ul class="facility-list card-bdr">
-                    <li v-for="(item,idx) of cards" :key="item.id">{{item.name}}</li>
+                    <li v-for="(item,idx) of cardsFilter2" :key="item.id">{{item.name}}</li>
                 </ul>
 
                 <div>

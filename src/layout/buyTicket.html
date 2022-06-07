@@ -1,67 +1,118 @@
-    <!-- ===============大票券=============== -->
-    <div class="big-ticket">
-        <div class="leftOrTop">
-        </div>
-        <div class="rightOrBottom">
-            <h4>樂園票券</h4>
-            <form action="">
-                <div class="col">
-                    <label for="">
-                        <p>成人票</p>
-                        <p>(12+)</p>
-                    </label>
-                    <div class="count">
-                        <div class="minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <input type="text" class="num" min="0" value="0" disabled>
-                        <div class="plus">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <label for="">
-                        <p>兒童票</p>
-                        <p>(4-11)</p>
-                    </label>
-                    <div class="count">
-                        <div class="minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <input type="text" class="num" min="0" value="0" disabled>
-                        <div class="plus">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <label for="">
-                        <p>愛心票</p>
-                        <p>(65+)</p>
-                    </label>
-                    <div class="count">
-                        <div class="minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <input type="text" class="num" min="0" value="0" disabled>
-                        <div class="plus">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-                    </div>
-                </div>
-                <a href="ticket-purchase.html" class="bgBtn-book">我要訂票</a>
-            </form>
-
-        </div>
-    
+<!-- ===============大票券=============== -->
+<div class="big-ticket">
+    <div class="leftOrTop">
     </div>
+    <div class="rightOrBottom" id="big-ticket">
+        <p class="ticket-title">樂園票券</p>
+        <form action="">            
+            <ticket-type-component v-for="item in ticketTypes" :item="item" :key="item.id">                  
+        </form>
+    </div>
+    <a href="ticket-purchase.html" class="bgBtn-book">我要訂票</a>
+    
+</div>
+
+
+<!-- vue -->
+<script>
+//宣告三個物件在ticketTypes陣列裡
+const ticketTypes =[{
+    id:1,
+    name:'成人票',
+    age:"12+",
+},
+{
+    id:2,
+    name:'兒童票',
+    age:"4-11",
+},
+{
+    id:3,
+    name:'愛心票',
+    age:"65+",
+},
+]
+
+Vue.component('ticket-type-component',{
+    data(){
+        return{
+            count:0,
+            minCount:0,
+            maxCount:10,
+        }
+    },
+    template:`
+    <div class="col">
+        <label for="">
+            <p>{{item.name}}</p>
+            <p>({{item.age}})</p>
+        </label>
+        <div class="count">
+            <div class="minus" @click="countMinus">
+                <i class="fa-solid fa-minus"></i>
+            </div>
+            <p class="num">{{count}}</p>
+            <div class="plus" @click="countAdd">    
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+    </div>
+    `,
+    props:{
+        item:Object,
+    },
+    methods: { 
+        countAdd(){
+            if(this.count < this.maxCount){
+                this.count++;
+            }else{
+                this.count = this.maxCount;
+            };
+        },
+        countMinus(){
+            if(this.count > this.minCount){
+                this.count--;
+            }else{
+                this.count = this.minCount;
+            };
+        },
+        
+    },
+
+});
 
 
 
-<script src="./js/buyTicketadd.js"></script>
+new Vue({
+    el:'#big-ticket',
+    data:{
+        count:0,
+        ticketTypes,
+    },
+    computed: {  
+    },
+    methods: { 
+        countAdd(){
+            this.count++;
+            alert("hi");
+            if(this.count < this.maxCount){
+                
+                this.count++;
+            }else{
+                this.count = this.maxCount;
+            };
+        },
+        countMinus(){
+            if(this.count > this.minCount){
+                this.count--;
+            }else{
+                this.count = this.minCount;
+            };
+        },
+        
+    },
+})
+</script>
 
 
 

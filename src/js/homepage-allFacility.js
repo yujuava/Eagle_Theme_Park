@@ -4,7 +4,7 @@ const cards=[{
     area1:"紐約",
     area2:"都會",
     img: './images/facilities.jpg',
-    info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+    info:"當列車從最高點俯衝而下時，還會發出響亮的鈴鐺聲，就像是火車的汽笛般。全程雖僅需30秒，但卻已足以讓您回味無窮。",
     rain:true,
     pregnant:false,
     wheelchair:false,
@@ -15,7 +15,7 @@ const cards=[{
     area1:"印安",
     area2:"部落",
     img: './images/facilities8 (24).jpg',
-    info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+    info:"乘著風遊蕩在自由的風裡這畫面就像仙女般的翩翩起舞。",
     rain:false,
     pregnant:true,
     wheelchair:false,
@@ -26,7 +26,7 @@ const cards=[{
     area1:"紐約",
     area2:"都會",
     img: './images/facilities8 (8).jpg',
-    info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+    info:"坐上高達18層樓加上360度大旋轉明星遊樂設施，心理的忐忑在醞釀翻轉，天旋地轉啟動後，才是尖叫聲此起彼落無限延續的開端。",
     rain:false,
     pregnant:false,
     wheelchair:true,
@@ -37,7 +37,7 @@ const cards=[{
     area1:"西部",
     area2:"農莊",
     img: './images/facilities2.jpg',
-    info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。",
+    info:"這可說是美國大西部的小小摩天輪，雖然不高，但玩過的遊客不管是小朋友、銀髮族還是熱戀的情侶都讚不絕口，在摩天蓬車上它帶給您無限的歡樂，也讓您心中裝滿了歡樂的記憶。",
     rain:true,
     pregnant:true,
     wheelchair:true,
@@ -143,7 +143,7 @@ Vue.component('card-component',{
             </div>
         </div>
         <div class="info">
-            <h4>{{item.name}}</h4>
+            <h5>{{item.name}}</h5>
             <p>{{item.info}}</p>
         </div>
     </div>
@@ -241,6 +241,4 @@ new Vue({
 		},   
 
     },
-
-
 })

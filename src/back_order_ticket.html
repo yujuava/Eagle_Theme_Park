@@ -26,6 +26,11 @@
 
     <div id="back" class="back_content">
         <h2>票券訂單管理</h2>
+        <div>
+            <button>未取票</button>
+            <button>已取票</button>
+            <button>全部</button>
+        </div>
 
         <table class="box">
             <tr>
@@ -41,14 +46,19 @@
                 <td>2022-05-29</td>
                 <td>19</td>
                 <td>1000元</td>
-                <td>已出票</td>
-                <td><button @click="show">more</button></td>
+                <td>
+                    <select name="" id="">
+                        <option value="">未取票</option>
+                        <option value="">已取票</option>
+                    </select>
+                </td>
+                <td><button @click="show">MORE</button></td>
             </tr>
         </table>
 
-        <div class="back_lightbox backLightbox">
+        <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
-                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                 <table class="innerData">
                     <tr>
                         <th>票券名稱</th>
@@ -90,4 +100,4 @@
 </body>
 </html>
 <!-- 共用燈箱js -->
-<script src="js/backLightbox.js"></script>
+<script src="js/back_order_ticket.js"></script>

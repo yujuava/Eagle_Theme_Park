@@ -55,9 +55,9 @@
                 <td><button @click="show">編輯</button></td>
             </tr>
         </table>
-        <div class="back_lightbox backLightbox">
+        <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
-                <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                 <table class="innerData">
                     <tr>
                         <th>設施圖片</th>
@@ -83,18 +83,18 @@
                     </tr>
                     <tr>
                         <th>雨天影響</th>
-                        <td><input type="radio">是</td>
-                        <td><input type="radio">否</td>
+                        <td><input type="radio" name="rain" value="yes">是</td>
+                        <td><input type="radio" name="rain" value="no">否</td>
                     </tr>
                     <tr>
                         <th>孕婦乘坐</th>
-                        <td><input type="radio">是</td>
-                        <td><input type="radio">否</td>
+                        <td><input type="radio" name="preg" value="yes">是</td>
+                        <td><input type="radio" name="preg" value="no">否</td>
                     </tr>
                     <tr>
                         <th>輪椅乘坐</th>
-                        <td><input type="radio">是</td>
-                        <td><input type="radio">否</td>
+                        <td><input type="radio" name="wheel" value="yes">是</td>
+                        <td><input type="radio" name="wheel" value="no">否</td>
                     </tr>
                     <tr>
                         <th>排名</th>
@@ -123,4 +123,4 @@
 
 </html>
 <!-- 共用燈箱js -->
-<script src="js/backLightbox.js"></script>
+<script src="js/back_facility.js"></script>

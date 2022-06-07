@@ -7,7 +7,7 @@
 {
     id:2,
     img:'./images/friend.jpg',
-    info:'伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。',
+    info:'伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有遊樂區，全台灣的遊樂園實在是很少會有這種規模。',
 },
 {
     id:3,
@@ -17,7 +17,7 @@
 {
     id:4,
     img:'./images/happygirl.jpg',
-    info:'遊樂區有適合小朋友玩的，但是也是有許多恐怖的設施，笑傲飛鷹啊，大家都很愛的衝刺濺水的獨木舟！是真的很刺激。',
+    info:'遊樂區有適合小朋友玩的，但是也是有許多恐怖的設施，極速飛鷹啊，大家都很愛的衝刺濺水的獨木舟！是真的很刺激。',
 },
 {
     id:5,
@@ -85,7 +85,7 @@ Vue.component('item-component',{
 
             <div class="card-body">
                 <p>{{item.info}}</p>
-                <a href="visitor_experience_page.html" class="smBtn-more">MORE</a>
+                <a href="visitor_experience_page.html" class="mdBtn-more">MORE</a>
             </div>
             <div class="card-footer"></div>
         </div>

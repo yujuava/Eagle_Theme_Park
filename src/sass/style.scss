@@ -43,15 +43,19 @@
 }
 
 html{
-    font-size:11px;
-    @include md(){
+    font-size:11.5px;
+    
+    @include sm(){
         font-size:12px;
     }
+    @include md(){
+        font-size:13px;
+    }
     @include lg(){
-        font-size:12.5px;
+        font-size:13.5px;
     }
     @include xl(){
-        font-size:13px;
+        font-size:14px;
     }
 }
 
@@ -233,6 +237,8 @@ section{
         border-radius: 25px;
         border:8px solid $color3;
         aspect-ratio: 2 / 1;
+        max-height:90vh;
+        max-width: 50vw;
     }
     @include lg(){
         border-radius: 30px;
@@ -279,7 +285,6 @@ section{
     right: 0;
     background-color: rgba(0,0,0,0.6);
     z-index: 1000;
-
 }
 
 

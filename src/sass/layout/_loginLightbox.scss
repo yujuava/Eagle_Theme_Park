@@ -1,271 +1,208 @@
 .both-lightbox{
-    width: 80vw;
-    aspect-ratio: 2 / 3.2;
-    // max-height: 70vh;
-    margin:auto;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    background-color: $color1;
     position: fixed;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: $color2;
+    height:60vh;
+    width: 70vw ;
+    overflow: hidden;
     @include md(){
-        aspect-ratio: 1.5 / 1;
-    }
-    @include lg(){
-        aspect-ratio: 1.8 / 1;
-    }
+        border: 1px solid #000;
+        flex-direction: row;
+        height: 75vh !important;
+    }  
     @include xl(){
-        max-height:75vh;
-        aspect-ratio: 2 / 2;
-        // top:42%;
+        max-height:85vh !important;
     }
-    &::before{
-        content: "";
-        // border: 1px solid #000;
-        // background-image: url(/images/login-eagle.png);
-        background-size:contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        width: 130%;
-        height: 350px;
-        position: absolute;
-        top:-180px;
-        left:50%;
-        transform: translateX(-50%);
-        z-index: -2;
-        @include md(){
-            content: "";
-            width: 140%;
-            height: 600px;
-            top:-250px;
-            left:50%;
-            transform: translateX(-50%);
-        }  
-    }
-     
-    .lightbox-container{
-        display: flex;
+    
+    // 照片區
+    .pic-area{
+        background-color: $color2;
         width: 100%;
-        height: 100%;
-        flex-direction: column;
-  
+        height:35%;
+        padding: 40px 20px 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // border-radius: 18px 18px 0 0px;
         @include md(){
-            flex-direction: row;
-        }  
-        .pic-area{
-            background-color: $color2;
-            width: 100%;
-            height:35%;
-            padding: 40px 20px 20px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px 18px 0 0px;
-            @include md(){
-                border-radius: 25px 0 0 25px;
-                width: 50%;
-                height:100%;
-                @include lg(){
-                    border-radius: 30px 0 0 30px;
-                }
-            }
-            
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                @include md(){
-                    border-radius: 20px;
-                }
-                
+            // border-radius: 25px 0 0 25px;
+            width: 50%;
+            height:100%;
+            @include lg(){
+                // border-radius: 30px 0 0 30px;
             }
         }
-        .login{
-            border: 1px solid $color7;
-            background-color: $color7;
-            padding: 15px;
+        
+        img{
             width: 100%;
-            height:65%;
-            display: flex;
-            align-items: flex-end;
-            border-radius: 0px 0px 18px 18px;
+            height: 100%;
+            object-fit: cover;
             @include md(){
-                border-radius: 0px 25px 25px 0;
-                padding: 40px 20px 20px 20px;
-                width: 50%;
-                height:100%;
-                @include lg(){
-                    border-radius: 0px 30px 30px 0;
-                }
-                
+                border-radius: 20px;
             }
-            form{
-                // border: 1px solid #000;
+            
+        }
+    }
+    // 登入區
+    .login{
+        border: 1px solid $color7;
+        background-color: $color7;
+        padding: 15px;
+        width: 100%;
+        height:65%;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        @include md(){
+            // border-radius: 0px 25px 25px 0;
+            padding: 40px 20px 20px 20px;
+            width: 50%;
+            height:100%;
+            @include lg(){
+                // border-radius: 0px 30px 30px 0;
+            }
+        }
+        form{
+            // border: 1px solid #000;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            div{
                 width: 100%;
-                height: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+                label{
+                    font-size: $word-fzSize;
+                    color:$color4;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+                input{
+                    outline: none;
+                    border-radius: $sm-word-fzSize;
+                    border:0;
+                    height: 25px;
+                    padding: 10px;
+                    box-shadow:$button-shadow;
+                    @include lg(){
+                        height: 30px;
+                    }              
+                } 
+            }
+            .down{
+                // border: 1px solid #000;
+                margin-bottom: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
-                .down{
-                    // border: 1px solid #000;
-                    margin-bottom: 0;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-between;
 
-                }
-        
-                @include md(){
-                    height: 100%;
-                }
+            }
+    
+         
+            @include bgBtn(login){
+                background-color: $color4;
+                border:0;
                 
-                div{
-                    // border: 1px solid #000;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    margin-bottom: 15px;
-                    @include md(){
-                        // margin-bottom: 40px;
-                    }
-                    
-                    label{
-                        font-size: $h6-fzSize;
-                        color:$color4;
-                        font-weight: 500;
-                    }
-                    input{
-                        outline: none;
-                        border-radius: $sm-word-fzSize;
-                        border:0;
-                        height: 25px;
-                        padding: 10px;
-                        box-shadow:$button-shadow;
-                        @include lg(){
-                            height: 30px;
-                        }
-                        
-                    } 
-                }
-                @include bgBtn(login){
-                    background-color: $color4;
-                    border:0;
-                    
-                    &:hover{
-                        background-color:$color3;
-                    }
-                } 
-                span{
-                    display: flex;
-                    align-items: center;
-                    margin-top: 20px;
-                    span{
-                        &:hover{
-                            cursor: pointer;
-                        }
-                        margin-top: 0;
-
-                    }
-                    a,p,span{
-                        font-size: $word-fzSize;
-                        color:$color4;
-                    }
-                    p{
-                        margin: 5px;
-                    }
-                }
-            }
-        }
-        .logo,.close{
-            position: absolute;
-        }
-        .logo{
-            width: 100px;
-            left: 5%;
-            top:1%;
-            img{
-                width: 100%;
-            }
-        }
-        .close{
-            right: 5%;
-            top:2%;
-            i{
-                font-size: $h3-fzSize;
-                color:$color4;
-                transition: .2s;
                 &:hover{
-                    color:$color1;
+                    background-color:$color3;
+                }
+            } 
+            span{
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                span{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    margin-top: 0;
 
                 }
+                a,p,span{
+                    font-size: $word-fzSize;
+                    color:$color4;
+                }
+                p{
+                    margin: 5px;
+                }
             }
-            &:hover{
-                cursor: pointer;
-            }
-        } 
+        }
     }
+    .logo,.close{
+        position: absolute;
+    }
+    .logo{
+        width: 100px;
+        left: 5%;
+        top:1%;
+        img{
+            width: 100%;
+        }
+    }
+    .close{
+        right: 5%;
+        top:2%;
+        i{
+            font-size: $h3-fzSize;
+            color:$color4;
+            transition: .2s;
+            &:hover{
+                color:$color1;
 
+            }
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    } 
 }
 
 .register-lightbox{
-
-    .lightbox-container{
-        height: auto;
-        .pic-area{
-            width: 100%;
-            height:10%;
-            @include md(){
-                width: 50%;
-                height:auto;
-            }
-            img{
-                display: none;
-                @include md(){
-                    display: block;
-                }
-                
-            }
-            
+    #alreadyhave-btn{
+        font-size:$word-fzSize;
+        &:hover{
+            cursor: pointer;
+    
         }
-        .login{
-            width: 100%;
-            height:90%;
-            form div.accept{
-                // border: 1px solid #000;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                margin-top: 15px;
-                input{
-                    margin-right: 15px;
-                    box-shadow: none;
-                }
-                label{
-                    font-size: $word-fzSize;
-                    font-weight: normal;
-                }
+    }
+    .pic-area{
+        height: 10%;
+        @include md(){
+            height: 100%;
+        }
+        
+    }
+        
+    .login{
+        height: 90%;
+        @include md(){
+            height: 100%;
+        }
+        
+        form div.accept{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            input{
+                margin-right: 15px;
+                box-shadow: none;
             }
-            @include md(){
-                width: 50%;
-                height:100%;
-            }
-            form{
-                @include md(){
-                    padding-top: 0px;
-                }
-                div{
-                    margin-bottom: 10px;
-                }
-                #alreadyhave-btn:hover{
-                    cursor: pointer;
-
-                }
-                
+            .already-accept{
+                font-size: $md-word-fzSize;
+                font-weight: normal;
             }
         }
-
     }
 }
-
