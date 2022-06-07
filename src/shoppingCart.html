@@ -34,7 +34,7 @@
                         <div class="th">刪除</div>
                     </div>
                     <div>
-                        <shoppingcart-component v-for="item in items" :item="item"/>
+                        <shoppingcart-component @total="calculate" v-for="item in items" :item="item" />
                     </div>
                 </div>
             </div>
@@ -44,15 +44,14 @@
                 <!-- 下方結帳框 -->
                 <div class="discount">
                     <button @click="coupons" class="coupon">
-                    點選優惠券</button>
+                        點選優惠券</button>
                     <div class="price">
                         <div class="discount-row">
                             <label for="">折扣前:</label>
-                            <input type="text" value="1000" disabled>
                         </div>
-                        <div  class="discount-row">
+                        <div class="discount-row">
                             <label for="">總金額:</label>
-                            <input type="text" value="" v-model="sum" disabled>
+                            <input type="text" v-model="calculate" disabled>
                         </div>
                         <button class="bgBtn-bill bill">前往結帳</button>
                     </div>
@@ -74,31 +73,34 @@
                         </div>
                     </div>
                 </div>
-        
+
             </div>
-        
+
         </section>
     </div>
 
     <!--  ===============map ===============  -->
     @@include('layout/footer.html')
     <script>
-        const items=[{
-            image:"./images/shop_cap.png",
-            name:"伊果一杯",
-            price:300,
-        },{
-            image:"./images/shop_cap.png",
-            name:"伊果二杯",
-            price:400,
-        },{
-            image:"./images/shop_cap.png",
-            name:"伊果三杯",
-            price:500,
+        const items = [{
+            image: "./images/shop_cap.png",
+            name: "伊果一杯",
+            price: 300,
+            amount: 1,
+        }, {
+            image: "./images/shop_cap.png",
+            name: "伊果二杯",
+            price: 400,
+            amount: 2,
+        }, {
+            image: "./images/shop_cap.png",
+            name: "伊果三杯",
+            price: 500,
+            amount: 3,
         }]
-        Vue.component('shoppingcart-component',{
-          
-            template:`
+        Vue.component('shoppingcart-component', {
+            
+            template: `
             <div class="cart-row">
                         <div class="pic">
                             <img :src="item.image">"
@@ -111,7 +113,7 @@
                                     <div class="minus">
                                         <i class="fa-solid fa-minus"></i>
                                     </div>
-                                    <input type="text" class="num" min="0" value="0" disabled>
+                                    <input type="text" class="num" min="0" @input="updataamount" v-model="item.amount" disabled>
                                     <div class="plus">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>
@@ -123,36 +125,52 @@
                         </div>
                     </div>
                 `,
-                props:{
-                    item:Object,
+            methods: {
+                // delete(){
+                //     this.item
+                // },
+                
+                updataamount(){
+                    this.$emit('total',items[0].amount);
                 }
-            })
+            },
+            props: {
+                item: Object,
+            }
+        })
 
         new Vue({
-            el:'#shoppingcart',
+            el: '#shoppingcart',
             data() {
                 return {
                     items,
                 }
             },
-            methods: {   
-                coupons:function(todo){
-                    document.querySelector('.mycoupons').style.display="flex";
-                },            
-                close:function(todo){
-                    document.querySelector('.mycoupons').style.display="none";
-                }    
+            methods: {
+                coupons: function (todo) {
+                    document.querySelector('.mycoupons').style.display = "flex";
+                },
+                close: function (todo) {
+                    document.querySelector('.mycoupons').style.display = "none";
+                },
+                
             },
-            computed: { 
-                calculate(){
-                    let sum = this.item.price;
+            computed: {
+              
+                // 木前購買的金額
+                calculate() {
+                    let sum = 0;
+                    let stotal=0
+                    this.items.forEach((item, i) =>{
+                        stotal=items[i].amount*items[i].price
+                        sum += stotal
+                    });
                     return sum;
                 }
-            }
+            },
         })
     </script>
     <script src="js/buyTicketadd.js"></script>
 </body>
 
 </html>
-
