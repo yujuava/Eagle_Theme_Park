@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', {
+    "title" : "商品訂單"
+    })
+</head>
+
+<body class="ticket-purchase">
+    <!-- 共用header -->
+    @@include('layout/header-final.html')
+    <!-- 大標使用這個-->
+    @@include('layout/h2Style.html',{
+    "h2Title" : "商品訂單"
+    })
+
+
+    <section class="product-Purchase">
+        <div class="wrap purchase">
+            <!-- 圈圈 -->
+            <div class="purchase-process one">
+                <div class="circular">1</div>
+                <div class="circular">2</div>
+                <div class="circular">3</div>
+                <div class="line"></div>
+            </div>
+            <!-- 購票明細 -->
+            <div class="ticket-details">
+                <h2>訂單明細</h2>
+                <div class="table-item ONE">
+                    <div class="item-price">
+                        <p>數量</p>
+                        <p>價格</p>
+                    </div>
+                    <div class="item">
+                        <div class="ticket-type">
+                            <p>伊果保溫瓶</p>
+                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
+                            <input type="text" id="ticketPrice" class="col" value="600" disabled>
+                        </div>
+                        <div class="ticket-type">
+                            <p>伊果帽</p>
+                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
+                            <input type="text" id="ticketPrice" class="col" value="300" disabled>
+                        </div>
+                        <div class="ticket-type">
+                            <p>伊果短T</p>
+                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
+                            <input type="text" id="ticketPrice" class="col" value="400" disabled>
+                        </div>
+                        <div class="ticket-type">
+                            <p>總計</p>
+                            <input type="text" id="ticketTotal" class="col" value="3" disabled>
+                            <input type="text" id="ticketPrice" class="col" value="1,300" disabled>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- 圈圈 -->
+            <div class="purchase-process two">
+                <div class="circular">1</div>
+                <div class="circular">2</div>
+                <div class="circular">3</div>
+                <div class="line"></div>
+            </div>
+            <!-- 訂購人資料 -->
+            <div class="orderer-information">
+                <h2>訂購人資料</h2>
+                <div class="table-item TWO">
+                    <div class="info">
+                        <div class="item-name">
+                            <p>名字</p>
+                            <p>姓氏</p>
+                        </div>
+                        <div class="item-body">
+                            <input type="text" id="name">
+                            <input type="text" id="last-name">
+                        </div>
+                        <div class="item-country">
+                            <p>國家/地區</p>
+                            <p>聯絡電話</p>
+                        </div>
+                        <div class="item-Body">
+                            <input type="text" id="country">
+                            <input type="text" id="tel">
+                        </div>
+                        <div class="item-email">
+                            <p>電子郵件信箱</p>
+                        </div>
+                        <div class="itemBody">
+                            <input type="text" id="email" class="col">
+                        </div>
+                        <div class="item-adress">
+                            <p>聯絡地址</p>
+                        </div>
+                        <div class="item-footer">
+                            <input type="text" id="adress" class="col">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 圈圈 -->
+            <div class="purchase-process three">
+                <div class="circular">1</div>
+                <div class="circular">2</div>
+                <div class="circular">3</div>
+                <div class="line"></div>
+            </div>
+            <!-- 結帳 -->
+            <div class="checkout">
+                <h2>結帳</h2>
+                <div class="table-item THREE">
+                    <div class="info">
+
+                        <!-- 信用卡卡號 -->
+                        <div class="item-credit-card">
+                            <p>信用卡卡號</p>
+                            <div class="item-body">
+                                <input type="text" id="">
+                                <input type="text" id="">
+                                <input type="text" id="">
+                                <input type="text" id="">
+                            </div>
+                        </div>
+
+                        <!-- 信用卡年月 -->
+                        <div class="item">
+                            <p>信用卡有效月年</p>
+                            <form date="airform">
+                                <div class="Info">
+                                    <div class="month">
+                                        <select id="month">
+                                            <option value=" " >請輸入</option>
+                                        </select>
+                                        <p>月</p>
+                                    </div>
+                                    <div class="year">
+                                        <select id="year">
+                                            <option value=" " >請輸入</option>
+                                        </select>
+                                        <p>年</p>
+                                    </div>
+                                </div>
+                                <!-- 後三碼 -->
+                                <div class="back-three">
+                                    <p>後三碼</p>
+                                    <input type="text" id="lastThreeYards">
+                                </div>
+                            </form>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="check-btn">
+                <button class="bgBtn-check" type="submit">確認</button>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        window.addEventListener("load",function(){
+            let select_year = document.querySelector("#year");
+            let select_month =document.querySelector("#month");
+            let opt;
+            let Opt;
+            for (let i = 2025; i<= 2050; i++){
+                opt = new Option(i, i);
+                select_year.add(opt);
+            };
+            for(let i = 1; i<= 12; i++){
+                Opt = new Option(i, i);
+                select_month.add(Opt);
+            }
+        })
+        
+    </script>
+
+    <!--  ===============map ===============  -->
+    @@include('layout/map.html')
+    <!-- footer  -->
+    @@include('layout/footer.html')
+</body>
+
+</html>
