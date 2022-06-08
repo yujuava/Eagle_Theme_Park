@@ -134,10 +134,7 @@
     justify-content: space-evenly;
     align-items: center;
     transition: 0.3s;
-    li{
-      // border: 1px solid #000;
-      // margin: 5px;
-    }
+  
     &:hover{
       cursor: pointer;
     }
@@ -229,9 +226,7 @@
               width: 100%;
             }
             
-            img{
-              // border: 1px solid #000;
-            }
+         
           }
           @keyframes swing{
             15%{transform: translate(5px);}

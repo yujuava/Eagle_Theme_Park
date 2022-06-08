@@ -33,33 +33,56 @@
                         <div class="th">數量</div>
                         <div class="th">刪除</div>
                     </div>
-                    <div>
-                        <shoppingcart-component @total="calculate" v-for="item in items" :item="item" />
+                    <div v-for="(item,index) in items" :item="item" :key='item.id'>
+                        <div class="cart-row">
+                            <div class="pic">
+                                <img :src="item.image">
+                            </div>
+                            <div class="info">
+                                <div class="td">{{item.name}}</div>
+                                <div class="td">{{item.price}}</div>
+                                <div class="td">
+                                    <div class="count">
+                                        <div @click="amountreduce(index,-1)" class="minus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <input type="text" class="num" min="0" v-model="item.amount" disabled>
+                                        <div class="plus" @click="item.amount++">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="td">
+                                <button @click="deleteitem(index)" class="mdBtn-delete">刪除</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
         <section class="total">
             <div class="wrap discount-wrap">
-                <!-- 下方結帳框 -->
                 <div class="discount">
-                    <button @click="coupons" class="coupon">
+                    <button @click="isOpen=true" class="coupon">
                         點選優惠券</button>
                     <div class="price">
                         <div class="discount-row">
                             <label for="">折扣前:</label>
+                            <input type="text" v-model="calculate" disabled>
                         </div>
                         <div class="discount-row">
                             <label for="">總金額:</label>
                             <input type="text" v-model="calculate" disabled>
+
                         </div>
                         <button class="bgBtn-bill bill">前往結帳</button>
                     </div>
-                    <!-- 燈箱 -->
-                    <div class="mycoupons full-screen">
+                    <div class="mycoupons full-screen" v-show="isOpen">
                         <div class="lightbox-bdr">
                             <p>選擇優惠券</p>
-                            <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                            <i @click="isOpen=false" id="close" class="fa-solid fa-xmark"></i>
                             <div>
                                 <button class="coupon">折扣150元</button>
                                 <label for="">使用期限:</label>
@@ -82,87 +105,50 @@
     <!--  ===============map ===============  -->
     @@include('layout/footer.html')
     <script>
-        const items = [{
-            image: "./images/shop_cap.png",
-            name: "伊果一杯",
-            price: 300,
-            amount: 1,
-        }, {
-            image: "./images/shop_cap.png",
-            name: "伊果二杯",
-            price: 400,
-            amount: 2,
-        }, {
-            image: "./images/shop_cap.png",
-            name: "伊果三杯",
-            price: 500,
-            amount: 3,
-        }]
-        Vue.component('shoppingcart-component', {
-            
-            template: `
-            <div class="cart-row">
-                        <div class="pic">
-                            <img :src="item.image">"
-                        </div>
-                        <div class="info">
-                            <div class="td">{{item.name}}</div>
-                            <div class="td">{{item.price}}</div>
-                            <div class="td">
-                                <div class="count">
-                                    <div class="minus">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </div>
-                                    <input type="text" class="num" min="0" @input="updataamount" v-model="item.amount" disabled>
-                                    <div class="plus">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="td">
-                            <button class="mdBtn-delete">刪除</button>
-                        </div>
-                    </div>
-                `,
-            methods: {
-                // delete(){
-                //     this.item
-                // },
-                
-                updataamount(){
-                    this.$emit('total',items[0].amount);
-                }
-            },
-            props: {
-                item: Object,
-            }
-        })
-
         new Vue({
             el: '#shoppingcart',
-            data() {
-                return {
-                    items,
-                }
+            data: {
+                isOpen: false,
+                items: [{
+                    id: 1,
+                    image: "./images/shop_cup.png",
+                    name: "伊果一杯",
+                    price: 300,
+                    amount: 1,
+                }, {
+                    id: 2,
+                    image: "./images/shop_cap.png",
+                    name: "伊果二杯",
+                    price: 400,
+                    amount: 2,
+                }, {
+                    id: 3,
+                    image: "./images/shop_bottle.png",
+                    name: "伊果三杯",
+                    price: 500,
+                    amount: 3,
+                }]
             },
             methods: {
-                coupons: function (todo) {
-                    document.querySelector('.mycoupons').style.display = "flex";
+                amountreduce(index, amount) {
+                    let item = this.items[index].amount + amount;
+                    if (item >0) {
+                        this.items[index].amount = item;
+                    }else{
+                        this.items.splice(index, 1);
+                    }
                 },
-                close: function (todo) {
-                    document.querySelector('.mycoupons').style.display = "none";
-                },
-                
+                deleteitem(index) {
+                    this.items.splice(index, 1);
+                }
             },
             computed: {
-              
-                // 木前購買的金額
+                // 目前購買的金額
                 calculate() {
                     let sum = 0;
-                    let stotal=0
-                    this.items.forEach((item, i) =>{
-                        stotal=items[i].amount*items[i].price
+                    let stotal = 0
+                    this.items.forEach((item, i) => {
+                        stotal = item.amount * item.price
                         sum += stotal
                     });
                     return sum;
@@ -170,7 +156,6 @@
             },
         })
     </script>
-    <script src="js/buyTicketadd.js"></script>
 </body>
 
 </html>
