@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "伊果商城"
+    "title" : "伊果商城"
     })
 </head>
-    
+
 <body class="shop">
     <!-- 共用header -->
     @@include('layout/header-final.html')
     <!-- 共用header end -->
     @@include('layout/h2Style.html',{
-        "h2Title" : "伊果商城"
+    "h2Title" : "伊果商城"
     })
     <section id="make-post">
-<!-- 大標使用這個-->
-    
-    @@include('layout/title.html',{
+        <!-- 大標使用這個-->
+
+        @@include('layout/title.html',{
         "h3TitleTC" : "客製商品",
         "h3TitleEN": "Product"
-    })
-<!-- 明信片圖片 -->
-        <div class="wrap postbg" >      
+        })
+        <!-- 明信片圖片 -->
+        <div class="wrap postbg">
             <div class="slideshow-container">
                 <div class="mySliderContainer">
                     <div class="mySlides">
                         <img src="./images/postcard1.jpg">
                     </div>
                     <div class="mySlides fade">
-                        <img src="./images/postcard2.jpg">   
+                        <img src="./images/postcard2.jpg">
                     </div>
                     <div class="mySlides fade">
                         <img src="./images/postcard3.jpg">
@@ -41,52 +42,55 @@
                         <div class="next" onclick="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></div>
                     </div>
                 </div>
-    <!-- 明信片內容 -->
+                <!-- 明信片內容 -->
                 <div class="postcard">
                     <img src="./images/postcardback.jpg" alt="">
                     <div class="stamp">
                         <img id="stamp" src="./images/sticker1.png" alt="">
                     </div>
-                </div>          
+                </div>
             </div>
-<!-- 明信片貼紙 -->
-        <div class="postcardWrap">
-            <div class="stickerslider">
-                <ul class="sticker">
-                    <li><img src="./images/sticker1.png" alt=""></li>
-                    <li><img src="./images/sticker2.png" alt=""></li>
-                    <li><img src="./images/sticker3.png" alt=""></li>
-                    <li><img src="./images/sticker4.png" alt=""></li>
-                    <li><img src="./images/sticker5.png" alt=""></li>
-                    <li><img src="./images/sticker6.png" alt=""></li>
-                    <li><img src="./images/sticker7.png" alt=""></li>
-                    <li><img src="./images/sticker8.png" alt=""></li>
-                    <li><img src="./images/sticker9.png" alt=""></li>
-                    <li><img src="./images/sticker10.png" alt=""></li>
-                </ul>
+            <!-- 明信片貼紙 -->
+            <div class="postcardWrap">
+                <div class="stickerslider">
+                    <ul class="sticker">
+                        <li><img src="./images/sticker1.png" alt=""></li>
+                        <li><img src="./images/sticker2.png" alt=""></li>
+                        <li><img src="./images/sticker3.png" alt=""></li>
+                        <li><img src="./images/sticker4.png" alt=""></li>
+                        <li><img src="./images/sticker5.png" alt=""></li>
+                        <li><img src="./images/sticker6.png" alt=""></li>
+                        <li><img src="./images/sticker7.png" alt=""></li>
+                        <li><img src="./images/sticker8.png" alt=""></li>
+                        <li><img src="./images/sticker9.png" alt=""></li>
+                        <li><img src="./images/sticker10.png" alt=""></li>
+                    </ul>
+                </div>
+                <button id="sliderLeft">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button id="sliderRight">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
-            <button id="sliderLeft">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button id="sliderRight">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            </div>
-<!-- 寄送按鈕 -->
+            <!-- 寄送按鈕 -->
             <div class="upload">
                 <button class="bgBtn-shop  shopbtn" id="shopBtn">寄送</button>
             </div>
-        </div>   
+        </div>
     </section>
-<!-- ---------------------- -->
-<!-- 小標使用這個 -->
-    <section id="preduct-list">
-    @@include('layout/title.html',{
+    <!-- ---------------------- -->
+    <!-- 小標使用這個 -->
+    <section id="product-list">
+        @@include('layout/title.html',{
         "h3TitleTC" : "商品列表",
         "h3TitleEN": "Product"
-    })
+        })
         <div class="product wrap">
-            <div class="itemColumn">
+            <div>
+                <product-componet v-for="item in items" :item="item" />
+            </div>
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic" id="lightBtn">
                         <img src="./images/shop_bottle.png" alt="">
@@ -96,9 +100,9 @@
                         <p>$600</p>
                     </div>
                 </div>
-            </div>
-<!-- 商品內容-->
-            <div class="itemColumn">
+            </div> -->
+            <!-- 商品內容-->
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
                         <img src="./images/shop_cap.png" alt="">
@@ -108,8 +112,8 @@
                         <p>$300</p>
                     </div>
                 </div>
-            </div>
-            <div class="itemColumn">
+            </div> -->
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
                         <img src="./images/shop_cloth.png" alt="">
@@ -119,8 +123,8 @@
                         <p>$400</p>
                     </div>
                 </div>
-            </div>
-            <div class="itemColumn">
+            </div> -->
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
                         <img src="./images/shop_cup.png" alt="">
@@ -141,8 +145,8 @@
                     <p>$150</p>
                     </div>
                 </div>
-            </div>
-            <div class="itemColumn">
+            </div> -->
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
                         <img src="./images/shop_mask.png" alt="">
@@ -152,8 +156,8 @@
                         <p>$150</p>
                     </div>
                 </div>
-            </div>
-            <div class="itemColumn">
+            </div> -->
+            <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic">
                         <img src="./images/shop_raincoat.png" alt="">
@@ -163,52 +167,151 @@
                         <p>$200</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
+        <div id="lightBox" class="lightbox-bdr light-box" v-show="isOpen">
+
+            <!-- <div>
+                <productdetails-componet v-for="item in items" :item="item" />
+            </div> -->
+            <!-- <div class="lightBoxContent">
+                <div class="column">
+                    <img src="./images/shop_bottle.png" alt="">
+                </div>
+                <div class="column inforcolumn">
+                    <div class="productName">
+                        <p>商品名稱:</p>
+                        <p>伊果保溫瓶</p>
+                    </div>
+                    <div class="productPrice">
+                        <p>價格:</p>
+                        <p>600</p>
+                    </div>
+                    <form>
+                        <div class="count">
+                            <div class="minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <input type="text" class="num" min="0" value="0" disabled>
+                            <div class="plus">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                        <input type="submit" value="加入購物車" class="mdBtn-addCart">
+                    </form>
+                </div>
+            </div> -->
+            <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
+        </div>
+        <span id="boxBcg"></span>
     </section>
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-<!-- 燈箱 -->
-    <div id="lightBox" class="lightbox-bdr light-box">
-        <div class="lightBoxContent">
-            <div class="column">
-                <img src="./images/shop_bottle.png" alt="">
-            </div>
-            
-            <div class="column inforcolumn">
-                <div class="productName">
-                    <p>商品名稱:</p>
-                    <p>伊果保溫瓶</p>
-                </div>
-                <div class="productPrice">
-                    <p>價格:</p>
-                    <p>600</p>
-                </div>
-                <form>
-                    <div class="count">
-                        <div class="minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <input type="text" class="num" min="0" value="0" disabled>
-                        <div class="plus">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
+    <!-- 燈箱 -->
+
+
+
+    <!-- ----------------------------------------------------------- -->
+    <script>
+        const items = [{
+            image: "./images/shop_cup.png",
+            name: "伊果馬克杯",
+            price: 300,
+            amount: 2,
+        }, {
+            image: "./images/shop_keyring.png",
+            name: "伊果鑰匙圈",
+            price: 150,
+            amount: 2,
+        }, {
+            image: "./images/shop_bottle.png",
+            name: "伊果保溫瓶",
+            price: 600,
+            amount: 2,
+        }]
+        Vue.component('product-componet', {
+            data() {
+                return {
+                    isOpen: false,
+                }
+            },
+            // methods: {
+            //     show(){
+            //         this.isOpen = true;
+            //     }
+            // },
+            template: `
+            <div @click="isOpen = !isOpen" class="itemColumn">
+                <div class="item">
+                    <div class="itempic" id="lightBtn">
+                        <img :src="item.image">"
                     </div>
-                    <input type="submit" value="加入購物車" class="mdBtn-addCart">
-                </form>
-            </div>
-        </div>
-        <i  class="fa-solid fa-xmark"id="turnOff"></i>
-    </div>
-    <span id="boxBcg"></span>
-    
-<!-- --------------------------------------------- -->
+                    <div class="card">
+                        <p>{{item.name}}</p>
+                        <p>{{'$'+item.price}}</p>
+                    </div>
+                </div>
+            </div> `,
+            props: {
+                item: Object,
+            }
+        });
+        // Vue.component('productdetails-componet',{
+        //     template: `  <div class="lightBoxContent">
+        //         <div class="column">
+        //             <img src="./images/shop_bottle.png" alt="">
+        //         </div>
+        //         <div class="column inforcolumn">
+        //             <div class="productName">
+        //                 <p>商品名稱:</p>
+        //                 <p>伊果保溫瓶</p>
+        //             </div>
+        //             <div class="productPrice">
+        //                 <p>價格:</p>
+        //                 <p>600</p>
+        //             </div>
+        //             <form>
+        //                 <div class="count">
+        //                     <div class="minus">
+        //                         <i class="fa-solid fa-minus"></i>
+        //                     </div>
+        //                     <input type="text" class="num" min="0" value="0" disabled>
+        //                     <div class="plus">
+        //                         <i class="fa-solid fa-plus"></i>
+        //                     </div>
+        //                 </div>
+        //                 <input type="submit" value="加入購物車" class="mdBtn-addCart">
+        //             </form>
+        //         </div>
+        //      `,
+        //     props:{
+        //         item:Object,
+        //     }
+        // }) 
+        new Vue({
+            el: "#product-list",
+            data() {
+                return {
+                    isOpen: false,
+                    items,
+                }
+            },
+            methods: {
+                show() {
+                    this.isOpen = true;
+                },
+            }
+        })
+    </script>
+
+    <!-- --------------------------------------------- -->
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
     <script src="./js/buyTicketadd.js"></script>
-    <script src="./js/shopProductLightBox.js"></script>
+    <!-- <script src="./js/shopProductLightBox.js"></script> -->
 </body>
+
 </html>

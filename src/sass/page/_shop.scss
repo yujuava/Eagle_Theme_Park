@@ -286,7 +286,8 @@
     left: 50%;
     top: 50%;
     transform: translate3d(-50%,-50%,0);
-    display: none;
+    // display: none;
+    display: flex;
     z-index: 3;
     @include md{
         // border: 1px solid #000;
