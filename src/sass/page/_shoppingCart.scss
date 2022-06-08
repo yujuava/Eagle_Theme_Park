@@ -278,7 +278,7 @@
 
     //優惠券燈箱
     .mycoupons {
-        display: none;
+        display: flex;
 
         >div {
             margin: auto;
@@ -286,8 +286,8 @@
             text-align: center;
             position: relative;
             padding: 20px 30px;
-            width: auto;
-            height: auto;
+            // width: auto;
+            // height: auto;
 
             p {
                 font-size: $h5-fzSize;
