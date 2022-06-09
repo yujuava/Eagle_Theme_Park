@@ -33,14 +33,14 @@
                         <div class="th">數量</div>
                         <div class="th">刪除</div>
                     </div>
-                    <div v-for="(item,index) in items" :item="item" :key='item.id'>
+                    <div v-for="(item,index) in carts" :item="item" :key='item.id'>
                         <div class="cart-row">
                             <div class="pic">
                                 <img :src="item.image">
                             </div>
                             <div class="info">
                                 <div class="td">{{item.name}}</div>
-                                <div class="td">{{item.price}}</div>
+                                <div class="td">{{"$"+item.price}}</div>
                                 <div class="td">
                                     <div class="count">
                                         <div @click="amountreduce(index,-1)" class="minus">
@@ -105,10 +105,25 @@
     <!--  ===============map ===============  -->
     @@include('layout/footer.html')
     <script>
+        // const carts = [];
+        // let a = JSON.parse(localStorage.getItem('carts'));
+        // carts.push({a})
+        // console.log(carts);
+        //當localStorage沒有資料陣列，指定一個空陣列放入資料庫
+        var carts = [];
+        if (localStorage.getItem('carts') === null) {
+            var carts = [];
+            localStorage.setItem('carts', JSON.stringify(carts));
+            //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+        } else {
+            var carts = JSON.parse(localStorage.getItem('carts'));
+        };
+        console.log(carts)
         new Vue({
             el: '#shoppingcart',
             data: {
                 isOpen: false,
+                carts,
                 items: [{
                     id: 1,
                     image: "./images/shop_cup.png",
@@ -129,17 +144,24 @@
                     amount: 3,
                 }]
             },
+            watch: {
+                // shoppingcarts(carts){
+
+                // }
+            },
             methods: {
+                getdata(){},
                 amountreduce(index, amount) {
-                    let item = this.items[index].amount + amount;
+                    let item = this.carts[index].amount + amount;
                     if (item >0) {
-                        this.items[index].amount = item;
+                        this.carts[index].amount = item;
                     }else{
-                        this.items.splice(index, 1);
+                        this.carts.splice(index, 1);
                     }
                 },
                 deleteitem(index) {
-                    this.items.splice(index, 1);
+                    this.carts.splice(index, 1);
+                    // localStorage.removeItem(this.carts.splice(index, 1))
                 }
             },
             computed: {
@@ -147,7 +169,7 @@
                 calculate() {
                     let sum = 0;
                     let stotal = 0
-                    this.items.forEach((item, i) => {
+                    this.carts.forEach((item, i) => {
                         stotal = item.amount * item.price
                         sum += stotal
                     });
