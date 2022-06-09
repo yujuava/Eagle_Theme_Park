@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -88,8 +87,9 @@
         })
         <div class="product wrap">
             <div>
-                <product-componet v-for="item in items" :item="item" />
+                <product-componet v-for="item in items" :item="item" @open-lightbox="isOpen=true" />
             </div>
+            <button @click="show">我是測試</button>
             <!-- <div class="itemColumn">
                 <div class="item">
                     <div class="itempic" id="lightBtn">
@@ -232,18 +232,15 @@
             amount: 2,
         }]
         Vue.component('product-componet', {
-            data() {
-                return {
-                    isOpen: false,
+            
+            methods: {
+                show() {
+                    this.$emit("open-lightbox");
+                    // alert("123");
                 }
             },
-            // methods: {
-            //     show(){
-            //         this.isOpen = true;
-            //     }
-            // },
             template: `
-            <div @click="isOpen = !isOpen" class="itemColumn">
+            <div @click="show" class="itemColumn">
                 <div class="item">
                     <div class="itempic" id="lightBtn">
                         <img :src="item.image">
@@ -256,6 +253,7 @@
             </div> `,
             props: {
                 item: Object,
+                isOpen: false,
             }
         });
         // Vue.component('productdetails-componet',{
@@ -310,7 +308,7 @@
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
-    <script src="./js/buyTicketadd.js"></script>
+    <!-- <script src="./js/buyTicketadd.js"></script> -->
     <!-- <script src="./js/shopProductLightBox.js"></script> -->
 </body>
 
