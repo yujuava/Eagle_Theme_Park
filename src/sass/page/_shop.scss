@@ -299,17 +299,16 @@
         padding: 20px;
     }
     @include lg{
-      // display: none
+      display: flex;
     }
     @include xl{
       width: auto;
       max-height:85vh !important;
-      // display: none
+      display: flex;
     }
   }
 
   .lightBoxContent{
-    border: 1px solid #000;
     display: flex;
     flex-direction: column;
     z-index: 3;
@@ -318,16 +317,21 @@
     }
     
   }
+  .columnpic{
+    width: 100%;
+    
+  }
   .column{
-    border: 1px solid #000;
-    width: 50%;
     width: 100%;
     display: flex;
     align-items: center;
   }
   .column img{
     width: 100%;
+    display: block;
+    margin: auto;
   }
+
   .inforcolumn{
     display: flex;
     flex-direction: column;
@@ -342,19 +346,18 @@
   }
   .productName ,.productPrice{
     display: flex;
+    
   }
   .productName{
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     p{
-      // border: 1px solid #000;
       font-size: $h6-fzSize;
     }
   }
   .productPrice{
     p{
       font-size: $h6-fzSize;
-
     }
   }
   .light-box #turnOff{
@@ -408,5 +411,4 @@
   }
   @include mdBtn(addCart){
   } 
-
 }
