@@ -298,12 +298,12 @@
         padding: 20px;
     }
     @include lg{
-      display: none
+      // display: none
     }
     @include xl{
       width: auto;
       max-height:85vh !important;
-      display: none
+      // display: none
     }
   }
 
