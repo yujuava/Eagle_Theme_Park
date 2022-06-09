@@ -7,42 +7,47 @@
 </head>
 <!-- 改body class名稱 -->
 <body class="back_member back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
-    
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div class="back_content" id="memberVue">
         <h2>會員管理</h2>
         <table class="box">
             <tr>
-                <th>序號</th>
-                <th>會員帳號</th>
-                <th>會員名稱</th>
-                <th>建立時間</th>
+            <th>會員序號</th>
+            <th>會員帳號</th>
+            <th>會員名稱</th>
+            <th>建立時間</th>
             </tr>
-            <tr>
-                <td>範例</td>
-                <td>wd02004@tibame.com</td>
-                <td>郭小明</td>
-                <td>2022/5/29</td>
+
+            <tr v-for="memRow in memRows">
+                <td>{{memRow.mem_no}} </td>
+                <td>{{memRow.mem_id}}</td>
+                <td>{{memRow.mem_lastname}} {{memRow.mem_name}}</td>
+                <td>{{memRow.mem_date}}</td>
             </tr>
         </table>
     </div>
 
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
+    <script type="text/javascript">
+        let memVue = new Vue({
+            el:"#memberVue",
+            data:{
+                memRows:[]
+            }
+        });
+
+        function getMembers(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                memVue.memRows = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get","get_back_member.php",true);
+            xhr.send(null);
+        }
+        window.addEventListener("load", function(){
+            getMembers();
+        })
+    </script>
+
 </body>
 </html>
