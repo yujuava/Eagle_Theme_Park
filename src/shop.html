@@ -87,123 +87,46 @@
         })
         <div class="product wrap">
             <div>
-                <product-componet v-for="item in items" :item="item" @open-lightbox="isOpen=true" />
+                <product-componet v-for="(item,index) in items" :item="item" :key='item.id' @open-lightbox="isOpen=true"
+                    @click.native="setFocusId(item.id)" />
             </div>
-            <button @click="show">我是測試</button>
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic" id="lightBtn">
-                        <img src="./images/shop_bottle.png" alt="">
-                    </div>
-                    <div class="card">
-                        <p>伊果保溫瓶</p>
-                        <p>$600</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- 商品內容-->
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_cap.png" alt="">
-                    </div>
-                    <div class="card">
-                        <p>伊果帽</p>
-                        <p>$300</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_cloth.png" alt="">
-                    </div>
-                    <div class="card">
-                       <p>伊果短T</p>
-                        <p>$400</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_cup.png" alt="">
-                    </div>
-                    <div class="card">
-                    <p>伊果馬克杯</p>
-                    <p>$300</p>
-                    </div>
-                </div>
-            </div>
-            <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_keyring.png" alt="">
-                    </div>
-                    <div class="card">
-                    <p>伊果鑰匙圈</p>
-                    <p>$150</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_mask.png" alt="">
-                    </div>
-                    <div class="card">
-                        <p>伊果口罩(10入)</p>
-                        <p>$150</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="itemColumn">
-                <div class="item">
-                    <div class="itempic">
-                        <img src="./images/shop_raincoat.png" alt="">
-                    </div>
-                    <div class="card">
-                        <p>伊果雨衣</p>
-                        <p>$200</p>
-                    </div>
-                </div>
-            </div> -->
+            <!-- <button @click="show">我是測試</button> -->
         </div>
         <div id="lightBox" class="lightbox-bdr light-box" v-show="isOpen">
-
-            <!-- <div>
-                <productdetails-componet v-for="item in items" :item="item" />
-            </div> -->
-            <!-- <div class="lightBoxContent">
-                <div class="column">
-                    <img src="./images/shop_bottle.png" alt="">
-                </div>
-                <div class="column inforcolumn">
-                    <div class="productName">
-                        <p>商品名稱:</p>
-                        <p>伊果保溫瓶</p>
+            <!-- <div :item="item"> -->
+            <div class="lightBoxContent">
+                <productdetail-componet :item="showthispro">
+                    <!-- <div class="column">
+                        <img :src="item.image" alt="">
                     </div>
-                    <div class="productPrice">
-                        <p>價格:</p>
-                        <p>600</p>
-                    </div>
-                    <form>
-                        <div class="count">
-                            <div class="minus">
-                                <i class="fa-solid fa-minus"></i>
-                            </div>
-                            <input type="text" class="num" min="0" value="0" disabled>
-                            <div class="plus">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
+                    <div class="column inforcolumn">
+                        <div class="productName">
+                            <p>商品名稱:</p>
+                            <p>{{item.name}}</p>
                         </div>
-                        <input type="submit" value="加入購物車" class="mdBtn-addCart">
-                    </form>
-                </div>
-            </div> -->
-            <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
+                        <div class="productPrice">
+                            <p>價格:</p>
+                            <p>{{'$'+item.price}}</p>
+                        </div>
+                        <form>
+                            <div class="count">
+                                <div @click="amountreduce(index,-1)" class="minus">
+                                    <i class="fa-solid fa-minus"></i>
+                                </div>
+                                <input type="text" class="num" min="0" v-model="item.amount" disabled>
+                                <div class="plus" @click="item.amount++">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <input type="submit" value="加入購物車" class="mdBtn-addCart">
+                        </form>
+                    </div> -->
+                
+                </productdetail-componet>
+                <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
+            </div>
+            <span id="boxBcg"></span>
         </div>
-        <span id="boxBcg"></span>
     </section>
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
@@ -216,23 +139,26 @@
     <!-- ----------------------------------------------------------- -->
     <script>
         const items = [{
+            id: 1,
             image: "./images/shop_cup.png",
             name: "伊果馬克杯",
             price: 300,
-            amount: 2,
+            amount: 1,
         }, {
+            id: 2,
             image: "./images/shop_keyring.png",
             name: "伊果鑰匙圈",
             price: 150,
-            amount: 2,
+            amount: 1,
         }, {
+            id: 3,
             image: "./images/shop_bottle.png",
             name: "伊果保溫瓶",
             price: 600,
-            amount: 2,
+            amount: 1,
         }]
         Vue.component('product-componet', {
-            
+
             methods: {
                 show() {
                     this.$emit("open-lightbox");
@@ -256,60 +182,88 @@
                 isOpen: false,
             }
         });
-        // Vue.component('productdetails-componet',{
-        //     template: `  <div class="lightBoxContent">
-        //         <div class="column">
-        //             <img src="./images/shop_bottle.png" alt="">
-        //         </div>
-        //         <div class="column inforcolumn">
-        //             <div class="productName">
-        //                 <p>商品名稱:</p>
-        //                 <p>伊果保溫瓶</p>
-        //             </div>
-        //             <div class="productPrice">
-        //                 <p>價格:</p>
-        //                 <p>600</p>
-        //             </div>
-        //             <form>
-        //                 <div class="count">
-        //                     <div class="minus">
-        //                         <i class="fa-solid fa-minus"></i>
-        //                     </div>
-        //                     <input type="text" class="num" min="0" value="0" disabled>
-        //                     <div class="plus">
-        //                         <i class="fa-solid fa-plus"></i>
-        //                     </div>
-        //                 </div>
-        //                 <input type="submit" value="加入購物車" class="mdBtn-addCart">
-        //             </form>
-        //         </div>
-        //      `,
-        //     props:{
-        //         item:Object,
-        //     }
-        // }) 
+        Vue.component('productdetail-componet', {
+
+            methods: {
+                show() {
+                    this.$emit("open-lightbox");
+                    // alert("123");
+                }
+            },
+            template: `
+            <div class="column">
+                <div>
+                    <img :src="item.image" alt="">
+                </div>
+                <div class="column inforcolumn">
+                    <div class="productName">
+                        <p>商品名稱:</p>
+                        <p>{{item.name}}</p>
+                    </div>
+                    <div class="productPrice">
+                        <p>價格:</p>
+                        <p>{{'$'+item.price}}</p>
+                    </div>
+                    <form>
+                        <div class="count">
+                            <div @click="amountreduce(index,-1)" class="minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <input type="text" class="num" min="0" v-model="item.amount" disabled>
+                            <div class="plus" @click="item.amount++">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                        <input type="submit" value="加入購物車" class="mdBtn-addCart">
+                    </form>
+                </div>
+            </div>    
+            `,
+            props: {
+                item: Object,
+                isOpen: false,
+            }
+        });
         new Vue({
             el: "#product-list",
             data() {
                 return {
                     isOpen: false,
                     items,
+                    focusKey: '',
                 }
             },
+            computed: {
+                showthispro() {
+                    return this.items.find(v => v.id == this.focusKey) ?? this.items[0];
+                },
+            },
             methods: {
+                amountreduce(index, amount) {
+                    let item = this.items[index].amount + amount;
+                    if (item > 0) {
+                        this.items[index].amount = item;
+                    }
+                },
                 show() {
                     this.isOpen = true;
                 },
-            }
+                setFocusId(id) {
+                    console.log(id)
+                    this.focusKey = id;
+                    this.$nextTick(() => {
+                        console.log(this.showthispro)
+                    })
+                },
+            },
         })
     </script>
 
-    <!-- --------------------------------------------- -->
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
-    <!-- <script src="./js/buyTicketadd.js"></script> -->
-    <!-- <script src="./js/shopProductLightBox.js"></script> -->
+    <!-- <script src="./js/buyTicketadd.js"></script>
+<script src="./js/shopProductLightBox.js"></script> -->
 </body>
 
 </html>
