@@ -6,7 +6,7 @@ $json = $_POST["json"];
 $dataset = json_decode($json, true); //true:關聯性陣列
 
 try{
-	require_once("./connectLocalDb.php");
+	require_once("./connect_cgd101g3.php");
 
 	// 3. 準備寫入資料庫指令, 
 	// insert這種落落長的指令 不用特別指定欄位(mem_id=:mem_id (X) ), 直接擺value上去就好
