@@ -1,5 +1,5 @@
 node_modules
 dist
 package-lock.json
-src/connectLocalDb.php
-src\connectLocalDb.php
+src/connect_cgd101g3.php
+src\connect_cgd101g3.php
