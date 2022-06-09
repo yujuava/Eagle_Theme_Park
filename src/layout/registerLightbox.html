@@ -8,7 +8,7 @@
         </div>
         <!-- 登入區 -->
         <div class="login">
-            <form action="">
+            <form action="" id="form" @submit.prevent="validate">
                 <div class="up">
                     <div>
                         <label for="">帳號</label>
@@ -37,9 +37,9 @@
 
                 <div class="down">
                     <!-- <a href="member-info.html" class="bgBtn-login">註冊</a> -->
-                    <input type="button" class="bgBtn-login" value="註冊" id="register">
+                    <!-- <input type="button" class="bgBtn-login" value="註冊" id="register"> -->
 
-                    <!-- <button  class="bgBtn-login">註冊</button> -->
+                    <button class="bgBtn-login" id="register">註冊</button>
 
                     <span @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">
                         <p id="alreadyhave-btn">已有帳號按此登入</p>
@@ -57,4 +57,3 @@
         </div>
     </div>
 </div>
-<!-- <script src="./js/register.js"></script> -->
