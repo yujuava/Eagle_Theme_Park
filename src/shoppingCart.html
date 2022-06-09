@@ -69,12 +69,12 @@
                         點選優惠券</button>
                     <div class="price">
                         <div class="discount-row">
-                            <label for="">折扣前:</label>
-                            <input type="text" v-model="calculate" disabled>
+                            <label for="">折扣前:   $</label>
+                            <input type="text" class="acount" v-model="calculate" disabled>
                         </div>
                         <div class="discount-row">
-                            <label for="">總金額:</label>
-                            <input type="text" v-model="calculate" disabled>
+                            <label for="">總金額:   $</label>
+                            <input type="text" class="acount" v-model="calculate" disabled>
 
                         </div>
                         <button class="bgBtn-bill bill">前往結帳</button>
@@ -105,49 +105,20 @@
     <!--  ===============map ===============  -->
     @@include('layout/footer.html')
     <script>
-        // const carts = [];
-        // let a = JSON.parse(localStorage.getItem('carts'));
-        // carts.push({a})
-        // console.log(carts);
-        //當localStorage沒有資料陣列，指定一個空陣列放入資料庫
-        var carts = [];
         if (localStorage.getItem('carts') === null) {
-            var carts = [];
+            const carts = [];
             localStorage.setItem('carts', JSON.stringify(carts));
             //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
         } else {
-            var carts = JSON.parse(localStorage.getItem('carts'));
+            var carts = JSON.parse(localStorage.getItem('carts'));//這裡只能用var carts??
         };
-        console.log(carts)
         new Vue({
             el: '#shoppingcart',
             data: {
                 isOpen: false,
                 carts,
-                items: [{
-                    id: 1,
-                    image: "./images/shop_cup.png",
-                    name: "伊果一杯",
-                    price: 300,
-                    amount: 1,
-                }, {
-                    id: 2,
-                    image: "./images/shop_cap.png",
-                    name: "伊果二杯",
-                    price: 400,
-                    amount: 2,
-                }, {
-                    id: 3,
-                    image: "./images/shop_bottle.png",
-                    name: "伊果三杯",
-                    price: 500,
-                    amount: 3,
-                }]
             },
             watch: {
-                // shoppingcarts(carts){
-
-                // }
             },
             methods: {
                 getdata(){},
@@ -156,12 +127,13 @@
                     if (item >0) {
                         this.carts[index].amount = item;
                     }else{
-                        this.carts.splice(index, 1);
+                        carts.splice(index, 1);
+                        localStorage.setItem('carts',JSON.stringify(carts));
                     }
                 },
                 deleteitem(index) {
-                    this.carts.splice(index, 1);
-                    // localStorage.removeItem(this.carts.splice(index, 1))
+                    carts.splice(index, 1);
+                    localStorage.setItem('carts',JSON.stringify(carts));
                 }
             },
             computed: {

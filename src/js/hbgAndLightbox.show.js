@@ -3,7 +3,9 @@ new Vue({
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
         loginBoxShow:false, //登入燈箱
-        RegisterBoxShow:false,  //註冊燈箱
+        RegisterBoxShow:false,
+        //註冊燈箱
+        sum:{type:[Number]},
     },
     methods: {  // 函數大部分放這裡! 
         validate(){
@@ -46,8 +48,24 @@ new Vue({
             return;
         }
         },
+        // cartsnum(){
+        //     // let sum = 5;
+        //     num = 5;
+        // }
+    },
+    watch:{
+        shoppingcarts(sum){
+            sum = JSON.parse(localStorage.getItem('carts')).length;
+            immediate: true;
+        }
     },
     computed: { 
+        cartsnum(){
+        // var carts = [];
+        // console.log(JSON.parse(localStorage.getItem('carts')).length)
+        sum = JSON.parse(localStorage.getItem('carts')).length
+        return sum;
+        }
     },
     mounted(){
     }
