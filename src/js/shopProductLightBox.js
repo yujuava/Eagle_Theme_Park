@@ -17,7 +17,7 @@ function DoFirst(){
             let productName = allProduct[i].querySelector('.card p:nth-of-type(1)');
             console.log(productName);
             let productPrice = allProduct[i].querySelector('.card p:nth-of-type(2)');
-
+            
             let  productPic= allProduct[i].querySelector('.itempic img');
             // 燈箱被打開時 對應的欄位要被上面抓到的資料取代
             lightBox.querySelector('.productName p:nth-of-type(2)').innerHTML = productName.innerHTML;
