@@ -14,16 +14,16 @@ new Vue({
 
         // =================註冊驗證==================
         //email(帳號)的正規表達式
-        let userEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; 
+        // let userEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; 
 
         //密碼的正規表達式
         let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;''
         // alert(userEmail.test(acount))
 
-        if(userEmail.test(acount)!=true){
-            alert("帳號請輸入e-mail格式");
-            return;
-        }
+        // if(userEmail.test(acount)!=true){
+        //     alert("帳號請輸入e-mail格式");
+        //     return;
+        // }
         if(passwordCheck.test(password)!=true){
             alert("密碼請輸入大小寫英文及數字8~12碼")
             return;
