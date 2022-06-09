@@ -125,7 +125,8 @@
                 amountreduce(index, amount) {
                     let item = this.carts[index].amount + amount;
                     if (item >0) {
-                        this.carts[index].amount = item;
+                        carts[index].amount = item;
+                        // localStorage.setItem('carts'[index].amount,JSON.stringify(carts[index].amount));
                     }else{
                         carts.splice(index, 1);
                         localStorage.setItem('carts',JSON.stringify(carts));

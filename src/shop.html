@@ -211,7 +211,6 @@
                     isOpen: false,
                     items,
                     focusKey: '',
-                    name: '',
                     carts,
                 }
             },
@@ -242,18 +241,23 @@
                 addcartlocal(id) {
                     this.isOpen = false;
                     alert('已加入購物車')
-                    let sid = this.items[id - 1].id;
-                    let simage = this.items[id - 1].image;
-                    let sname = this.items[id - 1].name;
-                    let sprice = this.items[id - 1].price;
-                    let samount = this.items[id - 1].amount;
-                    carts.push({
-                        id: sid,
-                        image: simage,
-                        name: sname,
-                        price: sprice,
-                        amount: samount,
-                    })
+                    let sumid =  this.items[id - 1];
+                    // let sid = this.items[id - 1].id;
+                    // let simage = this.items[id - 1].image;
+                    // let sname = this.items[id - 1].name;
+                    // let sprice = this.items[id - 1].price;
+                    // let samount = this.items[id - 1].amount;
+                    // console.log(this.items[id - 1])
+                    carts.push(
+                        sumid
+                    )
+                    // carts.push({
+                    //     id: sid,
+                    //     image: simage,
+                    //     name: sname,
+                    //     price: sprice,
+                    //     amount: samount,
+                    // })
                     localStorage.setItem('carts',JSON.stringify(carts));
                 }
             },
