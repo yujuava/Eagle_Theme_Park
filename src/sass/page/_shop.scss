@@ -203,6 +203,11 @@
   }
   // ------商品-------------------------------------
   .product{
+      >div{
+        flex-wrap: wrap;
+        display: flex;
+
+      }
       // border: 2px solid red;
       // width: 100%;
       display: flex;
@@ -254,8 +259,9 @@
       }
       @include md{
         .itemColumn{
-          width: 33.33333%; 
+          // width: 33.33333%; 
           width: calc(25% - 15px)
+          
         }
       }
   }
