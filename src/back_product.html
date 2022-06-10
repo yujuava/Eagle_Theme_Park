@@ -40,26 +40,14 @@
                 <th></th>
                 <th></th>
             </tr>
-            <!-- <tr v-for="prodRow in prodRows">
-               <td>{{prodRow.product_no}}</td>
-                <td><img src="'./images'+ prodRow.product_pic"></td>
+            <tr v-for="prodRow in prodRows">
+                <td>{{prodRow.product_no}}</td>
+                <td><img :src="'images//' + prodRow.product_pic"></td>
                 <td>{{prodRow.product_name}}</td>
                 <td>{{prodRow.product_price}}</td>
-                <td>{{prodRow.product_st}}</td> 
-            </tr> -->
-            <tr>
-                <td>1</td>
-                <td><img src="./images/shop_cap.png" alt=""></td>
-                <td>帽子</td>
-                <td>500元</td>
-                <td>
-                    <select name="" id="">
-                        <option value="true">上架中</option>
-                        <option value="false">下架中</option>
-                    </select>
-                </td>
-               <td><button @click="show">修改</button></td>
-                <td><button onclick="showAlert();">刪除</button></td> 
+                <td>{{prodRow.product_st}}</td>
+                <td><button @click="show">修改</button></td>
+                <td><button onclick="showAlert();">刪除</button></td>
             </tr>
         </table>
 
@@ -94,27 +82,6 @@
         </div>
     </div>
 
-    <!-- <script type="text/javascript">
-        let productsVue = new Vue({
-            el:"#prodVue",
-            data:{
-                prodRows:[]
-            }
-        });
-
-        function getProducts(){
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function(){
-                productsVue.prodRows = JSON.parse(xhr.responseText);
-            }
-            xhr.open("get","get_back_product.php",true);
-            xhr.send(null);
-        }
-        window.addEventListener("load", function(){
-            getProducts();
-        })
-    </script> -->
-
     <!--  ===============map ===============  -->
     <!-- @@include('layout/map.html') -->
     <!-- footer  -->
@@ -123,4 +90,4 @@
 
 </html>
 <!-- 共用燈箱js -->
-<script src="js/back_product.js"></script>
+<script src="./js/back_product.js"></script>
