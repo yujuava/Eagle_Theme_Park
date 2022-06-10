@@ -43,11 +43,11 @@
                                 <div class="td">{{"$"+item.price}}</div>
                                 <div class="td">
                                     <div class="count">
-                                        <div @click="amountreduce(index,-1)" class="minus">
+                                        <div @click="amountreduce(item.id,-1,index)" class="minus">
                                             <i class="fa-solid fa-minus"></i>
                                         </div>
                                         <input type="text" class="num" min="0" v-model="item.amount" disabled>
-                                        <div class="plus" @click="item.amount++">
+                                        <div class="plus" @click="amountreduce(item.id,1,index)">
                                             <i class="fa-solid fa-plus"></i>
                                         </div>
                                     </div>
@@ -106,11 +106,11 @@
     @@include('layout/footer.html')
     <script>
         if (localStorage.getItem('carts') === null) {
-            const carts = [];
+            let carts = [];
             localStorage.setItem('carts', JSON.stringify(carts));
             //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
         } else {
-            var carts = JSON.parse(localStorage.getItem('carts'));//這裡只能用var carts??
+            carts = JSON.parse(localStorage.getItem('carts'));
         };
         new Vue({
             el: '#shoppingcart',
@@ -122,19 +122,30 @@
             },
             methods: {
                 getdata(){},
-                amountreduce(index, amount) {
-                    let item = this.carts[index].amount + amount;
+                amountreduce(id, amount,index) {
+                    //找陣列的第[0]個取出來擺一個新陣列
+                    const idList = carts.map(item => Object.values(item)[0]);
+                    //取id相同的兩個陣列位置+新的amount
+                    let item = carts[idList.indexOf(id)].amount + amount;
+                    //判斷新的amount是否有大於0                    
                     if (item >0) {
-                        carts[index].amount = item;
-                        // localStorage.setItem('carts'[index].amount,JSON.stringify(carts[index].amount));
+                        //大於0新的amount更新carts對應位置的amount
+                        carts[idList.indexOf(id)].amount = item
+                        //更新localstorage數量
+                        localStorage.setItem('carts', JSON.stringify(carts));
                     }else{
                         carts.splice(index, 1);
                         localStorage.setItem('carts',JSON.stringify(carts));
+                        headerVue.getCarts();
+
                     }
                 },
+                //刪除按鍵
                 deleteitem(index) {
                     carts.splice(index, 1);
                     localStorage.setItem('carts',JSON.stringify(carts));
+                    headerVue.getCarts();
+
                 }
             },
             computed: {

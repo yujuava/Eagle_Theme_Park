@@ -2,7 +2,6 @@
 //抓後台頁面的會員資料
 try{
     require_once("./connect_cgd101g3.php");
-
     // echo "連線成功<br>";
     $sql ="select * from member";
     $pdoStatement = $pdo->query($sql); 
