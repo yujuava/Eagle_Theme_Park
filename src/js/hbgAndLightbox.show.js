@@ -15,8 +15,10 @@ let headerVue = new Vue({
         inputPsw2:"",
         agreement:false,
 
-        sum:{type:[Number]},
-        carts: [],
+        sum:{type:[Number]},    //衝突的
+        carts: [],  //衝突的
+        // sum:{type:[Number]},
+        // acount: '',
     },
     methods: {  // 函數大部分放這裡! 
         validateAccount(){
@@ -79,7 +81,6 @@ let headerVue = new Vue({
             alert("請勾選是否同意會員條款")
             return;
         }
-
         if(acount==''||password==''||passwordCheck==''){
             alert("還有欄位未輸入唷")
             return;
@@ -101,8 +102,16 @@ let headerVue = new Vue({
 
         shoppingcarts(sum){
             sum = JSON.parse(localStorage.getItem('carts')).length;
+<<<<<<< HEAD
             deep: true;
         }
+=======
+            immediate: true;
+        },
+        acount() {
+
+        },
+>>>>>>> hana
     },
     computed: { 
       
