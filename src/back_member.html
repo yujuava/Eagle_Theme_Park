@@ -41,7 +41,7 @@
             xhr.onload = function(){
                 memVue.memRows = JSON.parse(xhr.responseText)
             }
-            xhr.open("get","back_member_get.php",true);
+            xhr.open("get","./php/back_member_get.php",true);
             xhr.send(null);
         }
         window.addEventListener("load", function(){

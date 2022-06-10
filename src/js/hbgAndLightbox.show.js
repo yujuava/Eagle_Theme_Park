@@ -5,7 +5,8 @@ new Vue({
         loginBoxShow:false, //登入燈箱
         RegisterBoxShow:false,
         //註冊燈箱
-        sum:{type:[Number]},
+        // sum:{type:[Number]},
+        // acount: '',
     },
     methods: {  // 函數大部分放這裡! 
         validate(){
@@ -38,7 +39,6 @@ new Vue({
             alert("請勾選是否同意會員條款")
             return;
         }
-
         if(acount==''||password==''||passwordCheck==''){
             alert("還有欄位未輸入唷")
             return;
@@ -57,7 +57,10 @@ new Vue({
         shoppingcarts(sum){
             sum = JSON.parse(localStorage.getItem('carts')).length;
             immediate: true;
-        }
+        },
+        acount() {
+
+        },
     },
     computed: { 
         cartsnum(){
