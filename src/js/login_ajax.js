@@ -11,7 +11,7 @@ function sendForm(){
     //   document.getElementById('userpassword').value = '';
     }
     
-    xhr.open("post", "./login_ajax.php", true);
+    xhr.open("post", "./php/login_ajax.php", true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
     let datas = {};
     datas.mem_id = document.getElementById("username").value;
@@ -44,7 +44,7 @@ function getMemberInfo(){
         })
       }
     }
-    xhr.open("get", "login_getMember.php", true);
+    xhr.open("post", "./php/login_getMember.php", true);
     xhr.send(null);
   }
 
