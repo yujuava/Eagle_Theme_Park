@@ -48,10 +48,10 @@ new Vue({
             return;
         }
         },
-        // cartsnum(){
-        //     // let sum = 5;
-        //     num = 5;
-        // }
+        cartsnum(){
+            // let sum = 5;
+            num = 5;
+        }
     },
     watch:{
         shoppingcarts(sum){
@@ -68,6 +68,5 @@ new Vue({
         }
     },
     mounted(){
-        console.log("box loaded1");
     }
 });
