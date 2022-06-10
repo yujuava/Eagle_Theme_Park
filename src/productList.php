@@ -2,7 +2,7 @@
 // 於HTML結構前預先載入PHP並與資料庫進行連線
 // HMTL內容為測試資料 若能獲取商品資料代表正確執行
 try{
-	require_once("../mySQL/connectLocalDb.php");
+	require_once("../mySQL/connect_cgd101g3.php");
 
 	$sql = "select * from product"; //準備好sql指令
 	$product = $pdo->query($sql); //將sql指令送到mysql去執行, 回傳的是pdoStatement

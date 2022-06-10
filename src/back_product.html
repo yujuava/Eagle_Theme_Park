@@ -40,6 +40,13 @@
                 <th></th>
                 <th></th>
             </tr>
+            <!-- <tr v-for="prodRow in prodRows">
+               <td>{{prodRow.product_no}}</td>
+                <td><img src="'./images'+ prodRow.product_pic"></td>
+                <td>{{prodRow.product_name}}</td>
+                <td>{{prodRow.product_price}}</td>
+                <td>{{prodRow.product_st}}</td> 
+            </tr> -->
             <tr>
                 <td>1</td>
                 <td><img src="./images/shop_cap.png" alt=""></td>
@@ -51,8 +58,8 @@
                         <option value="false">下架中</option>
                     </select>
                 </td>
-                <td><button @click="show">修改</button></td>
-                <td><button onclick="showAlert();">刪除</button></td>
+               <td><button @click="show">修改</button></td>
+                <td><button onclick="showAlert();">刪除</button></td> 
             </tr>
         </table>
 
@@ -86,6 +93,27 @@
             </div>
         </div>
     </div>
+
+    <!-- <script type="text/javascript">
+        let productsVue = new Vue({
+            el:"#prodVue",
+            data:{
+                prodRows:[]
+            }
+        });
+
+        function getProducts(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                productsVue.prodRows = JSON.parse(xhr.responseText);
+            }
+            xhr.open("get","get_back_product.php",true);
+            xhr.send(null);
+        }
+        window.addEventListener("load", function(){
+            getProducts();
+        })
+    </script> -->
 
     <!--  ===============map ===============  -->
     <!-- @@include('layout/map.html') -->
