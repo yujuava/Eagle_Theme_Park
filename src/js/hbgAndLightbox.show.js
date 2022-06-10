@@ -1,4 +1,4 @@
-new Vue({
+let headerVue = new Vue({
     el: '#header',
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
@@ -6,6 +6,7 @@ new Vue({
         RegisterBoxShow:false,
         //註冊燈箱
         sum:{type:[Number]},
+        carts: [],
     },
     methods: {  // 函數大部分放這裡! 
         validate(){
@@ -48,25 +49,24 @@ new Vue({
             return;
         }
         },
-        cartsnum(){
-            // let sum = 5;
-            num = 5;
-        }
+        getCarts() {
+            if (localStorage.getItem('carts'))
+            this.carts =  JSON.parse(localStorage.getItem('carts'))
+        },
+
     },
     watch:{
         shoppingcarts(sum){
             sum = JSON.parse(localStorage.getItem('carts')).length;
-            immediate: true;
+            deep: true;
         }
     },
     computed: { 
         cartsnum(){
-        // var carts = [];
-        // console.log(JSON.parse(localStorage.getItem('carts')).length)
-        sum = JSON.parse(localStorage.getItem('carts')).length
-        return sum;
+        return this.carts.length;
         }
     },
     mounted(){
+        this.getCarts();
     }
 });

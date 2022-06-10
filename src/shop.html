@@ -110,13 +110,8 @@
 
     <!-- ----------------------------------------------------------- -->
     <script>
-        if (localStorage.getItem('carts') === null) {
-            const carts = [];
-            localStorage.setItem('carts', JSON.stringify(carts));
-            //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
-        } else {
-            var carts = JSON.parse(localStorage.getItem('carts'));
-        };
+        let carts = [];
+
         const items = [{
             id: 1,
             image: "./images/shop_cup.png",
@@ -166,8 +161,8 @@
                 countadd(id, amount) {
                     this.$emit('count', id, amount)
                 },
-                addtocart(id) {
-                    this.$emit('tocart', id)
+                addtocart(id,amount) {
+                    this.$emit('tocart', id, amount)
                 }
             },
             template: `
@@ -219,8 +214,8 @@
                     return this.items.find(v => v.id == this.focusKey) ?? this.items[0];
                 },
             },
-            watch:{
-                shoppingcarts(carts){
+            watch: {
+                shoppingcarts(carts) {
                     localStorage.shoppingcarts = JSON.stringify(carts);
                 }
             },
@@ -238,27 +233,34 @@
                     this.focusKey = id;
                     this.$nextTick(() => {})
                 },
-                addcartlocal(id) {
+                addcartlocal(id,amount) {
                     this.isOpen = false;
-                    alert('已加入購物車')
-                    let sumid =  this.items[id - 1];
-                    // let sid = this.items[id - 1].id;
-                    // let simage = this.items[id - 1].image;
-                    // let sname = this.items[id - 1].name;
-                    // let sprice = this.items[id - 1].price;
-                    // let samount = this.items[id - 1].amount;
-                    // console.log(this.items[id - 1])
-                    carts.push(
+
+                    //拿到最新的CARTS
+                    if (localStorage.getItem('carts') === null) {
+                        localStorage.setItem('carts', JSON.stringify(carts));
+                    //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+                    } else {
+                        carts = JSON.parse(localStorage.getItem('carts'));
+                    };
+                    //如果有相同ID -> 更新相對應ID的數量
+                    const idList = carts.map(item => Object.values(item)[0]);
+                    //有存在
+                    if(idList.indexOf(id)!=-1){
+                        carts[idList.indexOf(id)].amount += this.items[id - 1].amount
+                        alert('已加入購物車')
+                    //不存在
+                    }else{
+                        let sumid = this.items[id - 1];
+                        carts.push(
                         sumid
-                    )
-                    // carts.push({
-                    //     id: sid,
-                    //     image: simage,
-                    //     name: sname,
-                    //     price: sprice,
-                    //     amount: samount,
-                    // })
-                    localStorage.setItem('carts',JSON.stringify(carts));
+                        )
+                        alert('已加入購物車')
+                    }
+
+                    localStorage.setItem('carts', JSON.stringify(carts));
+                    headerVue.getCarts();
+                    // console.log(headerVue)
                 }
             },
         })
@@ -267,8 +269,6 @@
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
-    <!-- <script src="./js/buyTicketadd.js"></script>
-<script src="./js/shopProductLightBox.js"></script> -->
 </body>
 
 </html>
