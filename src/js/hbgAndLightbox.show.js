@@ -5,9 +5,49 @@ new Vue({
         loginBoxShow:false, //登入燈箱
         RegisterBoxShow:false,
         //註冊燈箱
+
+        //註冊燈箱顯示訊息
+        inputAccount:"",
+        accountResult:"",
+        pswResult1:"",
+        pswResult2:"",
+        inputPsw1:"",
+        inputPsw2:"",
+        agreement:false,
+
         sum:{type:[Number]},
     },
     methods: {  // 函數大部分放這裡! 
+        validateAccount(){
+            if (this.inputAccount.length<8){
+                this.accountResult = "帳號長度不足";
+            }else{
+                this.accountResult = "驗證";
+                // call 驗證程序並去資料庫比對
+            }
+        },
+        validatePsw1(){
+            if (this.inputPsw1.length<8){
+                this.pswResult1 = "PSW密碼長度不足";
+            }else{
+                this.pswResult1 = "等待密碼確認";
+            }
+        },
+        validatePsw2(){
+            if (this.inputPsw2.length<8){
+                this.pswResult2 = "確認PSW密碼長度不足";
+            }else{
+                if(this.inputPsw1 == this.inputPsw2){
+                    this.pswResult2 = "密碼相符";
+                }else{
+                    this.pswResult2 = "密碼錯誤";
+                }
+            }
+        },         
+
+
+
+
         validate(){
         let acount = document.getElementById('account').value;
         let password = document.getElementById('password').value;
@@ -54,12 +94,17 @@ new Vue({
         }
     },
     watch:{
+       
+
+
         shoppingcarts(sum){
             sum = JSON.parse(localStorage.getItem('carts')).length;
             immediate: true;
         }
     },
     computed: { 
+      
+
         cartsnum(){
         // var carts = [];
         // console.log(JSON.parse(localStorage.getItem('carts')).length)
