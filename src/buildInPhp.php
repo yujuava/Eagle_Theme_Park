@@ -28,7 +28,7 @@ try{
 <table align='center' class='productTable'>
 	<tr><th>會員編號</th><th>會員名</th><th>會員姓氏</th><th>會員帳號</th></tr>
 <?php 	
-	while($memdRow = $member->fetch(PDO::FETCH_ASSOC)){//取回一筆資料放到關聯性陣列中,
+	while($memdRow = $member->fetch(PDO::FETCH_ASSOC)){ //取回一筆資料放到關聯性陣列中,
 ?>
 		<tr>
 		<td><?=$memdRow["mem_no"]?></td>
