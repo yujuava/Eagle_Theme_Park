@@ -3,11 +3,11 @@ new Vue({
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
         loginBoxShow:false, //登入燈箱
-        RegisterBoxShow:false,  //註冊燈箱
+        RegisterBoxShow:true,  //註冊燈箱
     },
     methods: {  // 函數大部分放這裡! 
         validate(){
-        let acount = document.getElementById('acount').value;
+        let acount = document.getElementById('account').value;
         let password = document.getElementById('password').value;
         let checkPassword = document.getElementById('checkPassword').value;
         let accept = document.getElementById('accept').checked;
@@ -46,9 +46,13 @@ new Vue({
             return;
         }
         },
+        registerValidate(){
+            console.log("re vali");
+        }
     },
     computed: { 
     },
     mounted(){
+        console.log("box loaded1");
     }
 });
