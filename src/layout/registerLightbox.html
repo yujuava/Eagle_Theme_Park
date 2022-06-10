@@ -30,8 +30,8 @@
                     </div> -->
 
                     <div class="accept">
-                        <input type="checkbox" id="accept" v-model="agreement">
-                        <label for="accept" class="already-accept" >我已閱讀並同意會員條款</label>
+                        <input type="checkbox" id="accept" v-model="agreement" @change="prepareRegister">
+                        <label for="accept" class="already-accept">我已閱讀並同意會員條款</label>
                     
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                 <div class="down">
                     <!-- <a href="member-info.html" class="bgBtn-login">註冊</a> -->
 
-                    <!-- <input type="button" class="bgBtn-login registerBtn" value="註冊" id="registerBtn" @click="validate" disabled> -->
+                    <!-- <input type="button" class="bgBtn-login registerBtn" value="註冊" id="register" @click="validate" disabled> -->
 
-                    <button id="register" @click="validate" disabled>註冊</button>
+                    <input type="button" class="" value="註冊" id="register" @click="validate" disabled>
 
                     <span @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">
                         <p id="alreadyhave-btn">已有帳號按此登入</p>
