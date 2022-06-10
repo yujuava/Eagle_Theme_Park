@@ -30,7 +30,7 @@ function moveImg() {
 // php move
 //img move
 function movePhp() {
-  return src('src/*.php').pipe(dest('dist/'))
+  return src('src/php/*.php').pipe(dest('dist/php'))
 }
 
 const sass = require('gulp-sass')(require('sass'));
@@ -57,7 +57,7 @@ function watchfile() {
   watch('src/js/*.js' , moveJs)  // 監看js
   watch(['src/images/*.*', 'src/images/**/*.*'] , moveImg)  // 監看img
   watch(['./src/sass/*.scss' ,'./src/sass/**/*.scss'], styleSass) // 監看sass
-  watch(['./src/*.php' ,'./src/**/*.php'], movePhp) // 監看php
+  watch(['./src/php/*.php' ,'./src/php/**/*.php'], movePhp) // 監看php
 }
 
 // 瀏覽器同步
@@ -77,7 +77,7 @@ function browser(done) {
     watch('src/js/*.js' , moveJs).on('change' , reload)  // 監看js
     watch(['src/images/*.*', 'src/images/**/*.*'], moveImg).on('change' , reload)  // 監看 img
     watch(['./src/sass/*.scss' ,'./src/sass/**/*.scss'], styleSass).on('change' , reload) // 監看sass
-    watch(['./src/*.php' ,'./src/**/*.php'], movePhp)
+    watch(['./src/php/*.php' ,'./src/php/**/*.php'], movePhp)
     done();
 }
 

@@ -1,6 +1,6 @@
 <?php
 try{
-    require_once("connectLocalDb.php");
+    require_once("./connect_cgd101g3.php");
 
     // echo "連線成功<br>";
     $sql ="select * from member";
