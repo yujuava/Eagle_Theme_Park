@@ -4,7 +4,7 @@
     <div class="left-back">
         <!-- 手機板上方 -->
         <div class="mobile-icon">
-            <div class="member-enter" @click="loginBoxShow = !loginBoxShow">
+            <div class="member-enter" @click="loginBoxShow = !loginBoxShow" id="mobile-member-enter">
                 <img src="./images/Vector2.svg" alt="">
             </div>
             <a href="shoppingCart.html">
@@ -24,7 +24,7 @@
         <!-- 電腦版nav -->
         <nav class="pc-nav" id="pc-nav">
             <div class="icon">
-                <div class="member-enter" @click="loginBoxShow = !loginBoxShow">
+                <div class="member-enter" @click="loginBoxShow = !loginBoxShow" id="member-enter">
                     <img src="./images/Vector.svg" alt="">
                 </div>
                 <a href="shoppingCart.html" >
@@ -111,8 +111,12 @@
                         遊客體驗
                     </a>
                 </li>
+               
             </ul>
+            <span id="username-lo"></span>
+            
         </nav>
+        
     
     </div>
     <!-- HEADER MAIN 結束 -->
@@ -213,3 +217,6 @@
 <!-- header js -->
 <script src="./js/hbgAndLightbox.show.js">
 </script>
+
+<script src="./js/login_ajax.js"></script>
+

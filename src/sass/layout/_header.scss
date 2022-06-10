@@ -220,7 +220,7 @@ header{
       }
       //電腦版nav
       .pc-nav{
-        // border: 1px solid #000;
+        border: 1px solid #000;
           border-radius: 0 0 0 15px;
           width: 75%;
           z-index: 2;
@@ -228,6 +228,7 @@ header{
           align-items: center;
           justify-content: flex-start;
           display: none;
+          position: relative;
           @include lg(){
               display: flex;
               border-radius: 0 0 0 30px;
@@ -255,7 +256,7 @@ header{
           ul{
               display: none;  
               @include lg(){
-                  // border: 1px solid #000;
+                  // border: 2px solid blue;
                   display: flex;
                   justify-content: end;
                   li{
@@ -332,6 +333,16 @@ header{
                   }
               }
           }
+        
+      }
+      #username-lo{
+        position: absolute;
+        z-index: 1000;
+        top:-5px;
+        right: 0;
+        color:$color1;
+        font-family: $family1;
+        font-size: 10px;
       }
      
   }
