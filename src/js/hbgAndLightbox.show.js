@@ -3,7 +3,13 @@ new Vue({
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
         loginBoxShow:false, //登入燈箱
+<<<<<<< HEAD
         RegisterBoxShow:true,  //註冊燈箱
+=======
+        RegisterBoxShow:false,
+        //註冊燈箱
+        sum:{type:[Number]},
+>>>>>>> 33b595dfc23bde9fceee35b67767bfaa289d5cdf
     },
     methods: {  // 函數大部分放這裡! 
         validate(){
@@ -46,11 +52,24 @@ new Vue({
             return;
         }
         },
-        registerValidate(){
-            console.log("re vali");
+        // cartsnum(){
+        //     // let sum = 5;
+        //     num = 5;
+        // }
+    },
+    watch:{
+        shoppingcarts(sum){
+            sum = JSON.parse(localStorage.getItem('carts')).length;
+            immediate: true;
         }
     },
     computed: { 
+        cartsnum(){
+        // var carts = [];
+        // console.log(JSON.parse(localStorage.getItem('carts')).length)
+        sum = JSON.parse(localStorage.getItem('carts')).length
+        return sum;
+        }
     },
     mounted(){
         console.log("box loaded1");

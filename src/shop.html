@@ -110,7 +110,13 @@
 
     <!-- ----------------------------------------------------------- -->
     <script>
-        const carts = [];
+        if (localStorage.getItem('carts') === null) {
+            const carts = [];
+            localStorage.setItem('carts', JSON.stringify(carts));
+            //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+        } else {
+            var carts = JSON.parse(localStorage.getItem('carts'));
+        };
         const items = [{
             id: 1,
             image: "./images/shop_cup.png",
@@ -205,7 +211,6 @@
                     isOpen: false,
                     items,
                     focusKey: '',
-                    name: '',
                     carts,
                 }
             },
@@ -225,7 +230,6 @@
                     if (item >= 1) {
                         this.items[id - 1].amount = item;
                     }
-                    // console.log(item)
                 },
                 show() {
                     this.isOpen = true;
@@ -237,29 +241,24 @@
                 addcartlocal(id) {
                     this.isOpen = false;
                     alert('已加入購物車')
-                    let sid = this.items[id - 1].id;
-                    let simage = this.items[id - 1].image;
-                    let sname = this.items[id - 1].name;
-                    let sprice = this.items[id - 1].price;
-                    let samount = this.items[id - 1].amount;
-                    // carts.push({'id':sid})
-                    // console.log(carts)
-                    carts.push({
-                        id: sid,
-                        image: simage,
-                        name: sname,
-                        price: sprice,
-                        amount: samount,
-                    })
-                    console.log(carts)
-
+                    let sumid =  this.items[id - 1];
+                    // let sid = this.items[id - 1].id;
+                    // let simage = this.items[id - 1].image;
+                    // let sname = this.items[id - 1].name;
+                    // let sprice = this.items[id - 1].price;
+                    // let samount = this.items[id - 1].amount;
+                    // console.log(this.items[id - 1])
+                    carts.push(
+                        sumid
+                    )
+                    // carts.push({
+                    //     id: sid,
+                    //     image: simage,
+                    //     name: sname,
+                    //     price: sprice,
+                    //     amount: samount,
+                    // })
                     localStorage.setItem('carts',JSON.stringify(carts));
-                    // console.log(localStorage.getItem('carts'));
-                    //prepare a item object;
-                    // let item = 
-                    // //push item to vue
-                    // this.items.push(item);
-                    //write to localStorage
                 }
             },
         })
