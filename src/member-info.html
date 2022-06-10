@@ -14,7 +14,7 @@
     @@include('layout/h2Style.html',{
         "h2Title" : "會員中心"
     })
-
+    <script src="./js/member_info_php.js"></script>
     <div id="member">
 
         <!-- ==================共用上半部start ================== -->
@@ -118,7 +118,7 @@
                     </div>
         
                     <div class="col">
-                        <button class="bgBtn-confirm">確認修改</button>
+                        <button class="bgBtn-confirm" id="confirmBtn">確認修改</button>
                     </div>
         
         
@@ -163,7 +163,7 @@
     </div>
    
 
-    
+   
     <!-- ================== vue點擊 ================== -->
 
     <script>
@@ -326,7 +326,7 @@
             `,
         }),
 
-
+        
         new Vue({
             el: '#member',
             data: {     // 變數放這裡!
@@ -362,6 +362,7 @@
         });
         
     </script>
+    
 
 </body>
 </html>
