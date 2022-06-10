@@ -3,7 +3,7 @@ let headerVue = new Vue({
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
         loginBoxShow:false, //登入燈箱
-        RegisterBoxShow:false,
+        RegisterBoxShow:true,
         //註冊燈箱
 
         //註冊燈箱顯示訊息
@@ -25,8 +25,32 @@ let headerVue = new Vue({
             if (this.inputAccount.length<8){
                 this.accountResult = "帳號長度不足";
             }else{
-                this.accountResult = "驗證";
-                // call 驗證程序並去資料庫比對
+                
+                // sent data to php for validate existence
+                // 1. create ajax procedure
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "./php/validateMemId.php", true);
+                xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+                // 4. waiting for response and render result to page
+                xhr.onload = function () {
+                    validateResult = JSON.parse(xhr.responseText);
+                    if(validateResult == '1'){
+                        headerVue.accountResult = "請使用其他帳號";
+                    }else{
+                        headerVue.accountResult = "帳號可使用";
+                    }
+               };
+
+                // 2. package account data
+                let dataset = {};
+                dataset.inputAccount = this.inputAccount;
+                let data_info = `json=${JSON.stringify(dataset)}`;
+                // 3. sent data to php
+                xhr.send(data_info);
+
+
+
             }
         },
         validatePsw1(){
@@ -41,12 +65,41 @@ let headerVue = new Vue({
                 this.pswResult2 = "確認PSW密碼長度不足";
             }else{
                 if(this.inputPsw1 == this.inputPsw2){
+                    this.pswResult1 = "密碼相符";
                     this.pswResult2 = "密碼相符";
                 }else{
                     this.pswResult2 = "密碼錯誤";
                 }
             }
-        },         
+        },
+        prepareRegister(){
+            if(this.agreement==true){
+
+                // 檢查所有資料是否符合規範
+                //!!之後判斷參數要改  不然會爆
+                // acount==''||password==''||passwordCheck==''
+                if( this.accountResult == "帳號可使用"
+                    && this.pswResult1 == "密碼相符"
+                    && this.pswResult2 == "密碼相符" ){
+                    document.getElementById('account').disabled = true;
+                    document.getElementById('password').disabled = true;
+                    document.getElementById('checkPassword').disabled = true;
+                    document.getElementById('register').disabled = false;
+                }else{
+                    alert("請檢查輸入資料");
+                    // 需要一點時間差 警示跳完才勾選 下面要慢一點才能取消到
+                    setTimeout( function(){
+                        document.getElementById('accept').checked=false;
+                    } ,200);
+                }
+            }else{
+                // lock all input data 通通給我鎖起來  別想傳怪東西到資料庫
+                document.getElementById('account').disabled = false;
+                document.getElementById('password').disabled = false;
+                document.getElementById('checkPassword').disabled = false;
+                document.getElementById('register').disabled = true;
+            }
+        },
 
 
 
@@ -96,31 +149,28 @@ let headerVue = new Vue({
         },
 
     },
-    watch:{
+    // watch:{
        
 
 
-        shoppingcarts(sum){
-            sum = JSON.parse(localStorage.getItem('carts')).length;
-<<<<<<< HEAD
-            deep: true;
-        }
-=======
-            immediate: true;
-        },
-        acount() {
+    //     shoppingcarts(sum){
+    //         sum = JSON.parse(localStorage.getItem('carts')).length;
+    //         deep: true;
+    //     },
+    //         immediate: true;
+    //     },
+    //     acount() {
 
-        },
->>>>>>> hana
-    },
-    computed: { 
+    //     },
+    // },
+    // computed: { 
       
 
-        cartsnum(){
-        return this.carts.length;
-        }
-    },
-    mounted(){
-        this.getCarts();
-    }
+    //     cartsnum(){
+    //     return this.carts.length;
+    //     }
+    // },
+    // mounted(){
+    //     this.getCarts();
+    // }
 });
