@@ -13,9 +13,10 @@ function getMemberInfo(){
   xhr.onload = function(){ //只要echo就ok
     let textResult = xhr.responseText;
     let objResult = JSON.parse(xhr.responseText); //把字串轉成物件
+    
 
     if(objResult.mem_name){
-      // usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
+      usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
       pcMemberEnter.addEventListener("click",function(){
         window.location.href = "member-info.html";
         loginBox.style.display="none";
@@ -44,7 +45,7 @@ function sendForm(){
     console.log("textResult:",typeof(textResult))
     console.log("objResult:",typeof(objResult))
     if( objResult !== 0){
-      alert("輸入的資料正確");
+      alert("登入成功");
         console.log("登入按鍵按下後的",textResult)
         window.location.href = "member-info.html";
         loginBox.style.display="none";
@@ -68,27 +69,19 @@ function sendForm(){
 
 }
 
-//(會員中心的登出按鍵所觸發的函式)
+// (會員中心的登出按鍵所觸發的函式)
 function logout(){
-  alert();
+  alert("您已登出");
+  
   let xhr = new XMLHttpRequest();
-  let textResult = xhr.responseText;
-  let objResult = JSON.parse(xhr.responseText); 
-  alert(JSON.parse(xhr.responseText));
-  xhr.onload = function(){ //只要echo就ok
-    字串轉成物件
-    if( objResult !== 0){
-      window.location.href = "homepage.html";
-      xhr.open("post", "./php/logout_ajax.php", true);
-      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-      
-    }
-  }
 
-
+  window.location.href = "homepage.html#buy-big-ticket";
+  xhr.open("get", "./php/logout_ajax.php", true);
+  xhr.send(null);
 }
 
 function init(){
+
 
 //取得會員是否已登入的資訊，一開始就觸發
 getMemberInfo();
