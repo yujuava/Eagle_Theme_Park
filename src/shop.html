@@ -87,6 +87,21 @@
         <!-- My name is <input v-model="name"> -->
         <div class="product wrap">
             <div>
+                <div class="itemColumn" v-for="prodRow in prodRows">
+                    <div class="item">
+                        <div id="lightBtn" class="itempic">
+                            <img :src="'images//' + prodRow.product_pic">
+                        </div>
+                        <div class="card">
+                            <p>{{prodRow.product_name}}</p>
+                            <p>${{prodRow.product_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product wrap">
+            <div>
                 <product-componet v-for="(item,index) in items" :item="item" :key='item.id' @open-lightbox="isOpen=true"
                     @click.native="setFocusId(item.id)" />
             </div>
@@ -199,15 +214,16 @@
                 isOpen: false,
             }
         });
-        new Vue({
+        var prods = new Vue({
             el: "#product-list",
-            data() {
-                return {
-                    isOpen: false,
-                    items,
-                    focusKey: '',
-                    carts,
-                }
+            data:{
+              
+              isOpen: false,
+              items,
+              focusKey: '',
+              carts,
+              prodRows:[],
+              
             },
             computed: {
                 showthispro() {
@@ -264,6 +280,22 @@
                 }
             },
         })
+        const prodRows = [];
+
+        function getProducts() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            prods.prodRows = JSON.parse(xhr.responseText);
+            console.log(prods.prodRows);
+        }
+        xhr.open("get", "./php/get_back_product.php", true);
+        xhr.send(null);
+        }
+        window.addEventListener("load", function () {
+            getProducts();
+        })
+        console.log(prodRows)
+        console.log(items)
     </script>
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
