@@ -1,6 +1,7 @@
+// by hana
 let usernameLocation = document.getElementById("username-lo"); //秀出您好的位置
 let mobileMemberEnter = document.getElementById("mobile-member-enter"); //手機member進入按鈕
-let pcMemberEnter = document.getElementById("member-enter"); //電腦member進入按鈕
+let pcMemberEnter = document.getElementById("member-enter");//電腦member進入按鈕
 let loginBox = document.getElementById("loginBox"); //登入燈箱
 let registerbox = document.getElementById("registerbox"); //註冊燈箱
 
@@ -14,23 +15,25 @@ function getMemberInfo(){
     let textResult = xhr.responseText;
     let objResult = JSON.parse(xhr.responseText); //把字串轉成物件
     
-
     if(objResult.mem_name){
       usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
       pcMemberEnter.addEventListener("click",function(){
-        window.location.href = "member-info.html";
-        loginBox.style.display="none";
-        registerbox.style.display="none";
+      window.location.href = "member-info.html";
+      loginBox.style.display="none";
+      registerbox.style.display="none";
+
       });
+
       mobileMemberEnter.addEventListener("click",function(){
-        window.location.href = "member-info.html";
-        loginBox.style.display="none";
-        registerbox.style.display="none";
+      window.location.href = "member-info.html";
+      loginBox.style.display="none";
+      registerbox.style.display="none";
       })
 
     }
   }
   xhr.open("post", "./php/login_getMember.php", true);
+  // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   xhr.send(null);
 }
 

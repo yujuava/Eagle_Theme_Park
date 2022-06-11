@@ -1,4 +1,5 @@
-<?php 
+<?php
+// by hana 
 session_start();
 //---1
 //unset($_SESSION["memNo"]);

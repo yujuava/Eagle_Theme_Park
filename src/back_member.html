@@ -9,16 +9,12 @@
 <body class="back_member back_reset">
     @@include('layout/backNav.html')
 
-    <div class="back_content" id="memberVue">
+    <div class="back_content" id="backmemberVue">
         <h2>會員管理</h2>
         <table class="box">
             <tr>
-            <th>會員序號</th>
-            <th>會員帳號</th>
-            <th>會員名稱</th>
-            <th>建立時間</th>
+                <th v-for="title in memTitle">{{title}}</th>
             </tr>
-
             <tr v-for="memRow in memRows">
                 <td>{{memRow.mem_no}} </td>
                 <td>{{memRow.mem_id}}</td>
@@ -30,23 +26,27 @@
 
     <script type="text/javascript">
         let memVue = new Vue({
-            el:"#memberVue",
+            el:"#backmemberVue",
             data:{
-                memRows:[]
-            }
+                memTitle: ['會員序號','會員帳號','會員名稱','建立時間'],
+                memRows:[],
+            },
+            mounted(){
+                let xhr = new XMLHttpRequest();
+                // xhr.onload = function(){
+                //     this.memRows = JSON.parse(xhr.responseText);
+                //     alert(this.memRows);
+                //     console.log(this.memRows);
+                // }
+                xhr.onload = () => {
+                    this.memRows = JSON.parse(xhr.responseText);
+                    console.log(this.memRows);
+                }
+                xhr.open("get","./php/get_back_member.php",true);
+                xhr.send(null);
+            },
         });
 
-        function getMembers(){
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function(){
-                memVue.memRows = JSON.parse(xhr.responseText)
-            }
-            xhr.open("get","./php/back_member_get.php",true);
-            xhr.send(null);
-        }
-        window.addEventListener("load", function(){
-            getMembers();
-        })
     </script>
 
 </body>
