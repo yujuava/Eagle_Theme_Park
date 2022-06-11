@@ -1,3 +1,4 @@
+// by brady
 // alert('已註冊好');
 function DoFirst(){
 
@@ -41,6 +42,26 @@ function DoFirst(){
     }
 }
 
-window.addEventListener('load',DoFirst);
 
+// function putname(){
+// let xhr = new XMLHttpRequest();
+//   xhr.onload = function(){ //只要echo就ok
+//     let textResult = xhr.responseText;
+//     let objResult = JSON.parse(xhr.responseText); //把字串轉成物件
+//     alert(objResult.mem_lastname)
+//     document.getElementById("member-name-up").innerText =(objResult.mem_lastname + objResult.mem_name);
+//   }
+//   xhr.open("post", "./php/login_getMember.php", true);
+//   xhr.send(null);
+// }
+
+
+
+
+
+    
+
+
+window.addEventListener('load',DoFirst);
+// window.addEventListener('load',putname);
 

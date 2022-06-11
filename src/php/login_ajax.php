@@ -1,4 +1,5 @@
 <?php
+// by hana
 session_start(); //
 $json = $_POST["json"]; //json={"memId":"Handsome","memPsw":"111"}
 // $json={"memId":"chen","memPsw":"chen1234"};
@@ -23,7 +24,20 @@ try{
     $_SESSION["mem_name"] = $memRow["mem_name"];
     $_SESSION["mem_mail"] = $memRow["mem_mail"];
 
-    $result = ["mem_no"=>$_SESSION["mem_no"], "mem_id"=>$_SESSION["mem_id"], "mem_name"=>$_SESSION["mem_name"], "mem_mail"=>$_SESSION["mem_mail"]];
+    $_SESSION["mem_lastname"] = $memRow["mem_lastname"];
+    $_SESSION["mem_tel"] = $memRow["mem_tel"];
+    $_SESSION["mem_address"] = $memRow["mem_address"];
+    $_SESSION["mem_country"] = $memRow["mem_country"];
+
+    // $result = ["mem_no"=>$_SESSION["mem_no"], "mem_id"=>$_SESSION["mem_id"], "mem_name"=>$_SESSION["mem_name"], "mem_mail"=>$_SESSION["mem_mail"]];
+    $result = ["mem_no"=>$_SESSION["mem_no"],
+	"mem_id"=>$_SESSION["mem_id"],
+	"mem_name"=>$_SESSION["mem_name"], 
+	"mem_mail"=>$_SESSION["mem_mail"],
+	"mem_lastname"=>$_SESSION["mem_lastname"],
+	"mem_tel"=>$_SESSION["mem_tel"],
+  "mem_address"=>$_SESSION["mem_address"],
+  "mem_country"=>$_SESSION["mem_country"]];
 
     //送出登入者的姓名資料
     echo json_encode($result); //送去前台
