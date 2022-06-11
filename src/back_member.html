@@ -42,7 +42,7 @@
                     this.memRows = JSON.parse(xhr.responseText);
                     console.log(this.memRows);
                 }
-                xhr.open("get","./php/get_back_member.php",true);
+                xhr.open("get","php/get_back_member.php",true);
                 xhr.send(null);
             },
         });

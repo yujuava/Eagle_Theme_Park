@@ -356,7 +356,7 @@
             },
             computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
             },
-            mounted(){
+            created(){
                 let xhr = new XMLHttpRequest();
                 xhr.onload = () => {
                     // alert();
@@ -365,7 +365,7 @@
                     console.log("textResult",this.textResult);
                     console.log("objResult",this.objResult)
                 }
-                xhr.open("get","./php/login_getMember.php",true);
+                xhr.open("get","php/login_getMember.php",true);
                 xhr.send(null);
             },
         });

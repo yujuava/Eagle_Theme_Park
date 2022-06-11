@@ -6,7 +6,7 @@ let loginBox = document.getElementById("loginBox"); //登入燈箱
 let registerbox = document.getElementById("registerbox"); //註冊燈箱
 
 // alert("更新了沒啦煩死");
-alert("hi");
+// alert("hi");
 
 // 取得會員是否已登入的資訊 (一進去就要觸發)
 function getMemberInfo(){
