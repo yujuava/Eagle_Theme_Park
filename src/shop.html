@@ -181,11 +181,11 @@
                     </div>
                     <form>
                         <div class="count">
-                            <div @click="countadd(item.id,-1)"class="minus">
+                            <div @click="countadd(item.id,-1)"class="addamount">
                                 <i class="fa-solid fa-minus"></i>
                             </div>
                             <input type="text" class="num" min="0" v-model="item.amount" disabled>
-                            <div class="plus" @click="countadd(item.id,1)">
+                            <div class="addamount" @click="countadd(item.id,1)">
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                     //拿到最新的CARTS
                     if (localStorage.getItem('carts') === null) {
                         localStorage.setItem('carts', JSON.stringify(carts));
-                        //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+                    //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
                     } else {
                         carts = JSON.parse(localStorage.getItem('carts'));
                     };
@@ -252,7 +252,7 @@
                     if (idList.indexOf(id) != -1) {
                         carts[idList.indexOf(id)].amount += this.items[id - 1].amount
                         alert('已加入購物車')
-                        //不存在(整筆商品放入localstorage)
+                    //不存在(整筆商品放入localstorage)
                     } else {
                         let sumid = this.items[id - 1];
                         carts.push(sumid)

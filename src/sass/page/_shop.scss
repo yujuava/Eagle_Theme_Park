@@ -321,7 +321,7 @@
   }
   .columnpic{
     width: 100%;
-    
+    padding: 25px;
   }
   .column{
     width: 100%;
@@ -365,6 +365,7 @@
     }
   }
   .light-box #turnOff{
+    font-size: $h6-fzSize;
     position: absolute;
     top: 0px;
     right:-20px;
@@ -380,19 +381,37 @@
       top: 10px;
       right:10px;
       font-size:30px;
+      cursor: pointer;
+      color: $color4;
     }
   }
   .lightbox-bdr .count{
     display: flex;
     align-items: center;
+    margin: auto;
+    justify-content: center;
+  }
+  .lightbox-bdr .count .addamount{
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    color:$color5;
+    font-size:$h6-fzSize;
+    font-weight: 550;
+    border-radius: 1px;
+    &:hover{
+      background-color: $color6;
+    }
   }
   .lightbox-bdr{
     padding: 30px;
   }
   .count .num{
+    font-size: $h6-fzSize;
     width: 50px;
     margin: 0 5px;
     text-align: center;
+    border: 0;
   }
   // .addCart{
   //   margin-top: 20px;
