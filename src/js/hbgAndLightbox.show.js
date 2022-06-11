@@ -14,7 +14,7 @@ let headerVue = new Vue({
         inputPsw1:"",
         inputPsw2:"",
         agreement:false,
-
+        //小購物車計算使用
         sum:{type:[Number]},
         carts: [],
     },
@@ -89,24 +89,20 @@ let headerVue = new Vue({
             return;
         }
         },
+        //拿到localstorage裡carts
         getCarts() {
             if (localStorage.getItem('carts'))
             this.carts =  JSON.parse(localStorage.getItem('carts'))
         },
-
     },
     watch:{
-       
-
-
         shoppingcarts(sum){
             sum = JSON.parse(localStorage.getItem('carts')).length;
             deep: true;
         }
     },
     computed: { 
-      
-
+        //回傳carts.length至小購物車v-model
         cartsnum(){
         return this.carts.length;
         }

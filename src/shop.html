@@ -161,7 +161,7 @@
                 countadd(id, amount) {
                     this.$emit('count', id, amount)
                 },
-                addtocart(id,amount) {
+                addtocart(id, amount) {
                     this.$emit('tocart', id, amount)
                 }
             },
@@ -211,6 +211,7 @@
             },
             computed: {
                 showthispro() {
+                    //打開箱對應商品燈箱內容
                     return this.items.find(v => v.id == this.focusKey) ?? this.items[0];
                 },
             },
@@ -220,6 +221,7 @@
                 }
             },
             methods: {
+                //計算燈箱內商品數量加減
                 countadd(id, amount) {
                     let item = this.items[id - 1].amount + amount;
                     if (item >= 1) {
@@ -233,34 +235,32 @@
                     this.focusKey = id;
                     this.$nextTick(() => {})
                 },
-                addcartlocal(id,amount) {
+                //加入購物車被點擊時打商品資料加入localstorage
+                addcartlocal(id, amount) {
+                    //關燈箱
                     this.isOpen = false;
-
                     //拿到最新的CARTS
                     if (localStorage.getItem('carts') === null) {
                         localStorage.setItem('carts', JSON.stringify(carts));
-                    //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+                        //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
                     } else {
                         carts = JSON.parse(localStorage.getItem('carts'));
                     };
                     //如果有相同ID -> 更新相對應ID的數量
                     const idList = carts.map(item => Object.values(item)[0]);
-                    //有存在
-                    if(idList.indexOf(id)!=-1){
+                    //有存在(更新數量放回localstorage)
+                    if (idList.indexOf(id) != -1) {
                         carts[idList.indexOf(id)].amount += this.items[id - 1].amount
                         alert('已加入購物車')
-                    //不存在
-                    }else{
+                        //不存在(整筆商品放入localstorage)
+                    } else {
                         let sumid = this.items[id - 1];
-                        carts.push(
-                        sumid
-                        )
+                        carts.push(sumid)
                         alert('已加入購物車')
                     }
-
                     localStorage.setItem('carts', JSON.stringify(carts));
+                    //同步更新小購物車數量
                     headerVue.getCarts();
-                    // console.log(headerVue)
                 }
             },
         })
