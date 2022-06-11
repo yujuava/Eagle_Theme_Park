@@ -1,10 +1,11 @@
 let usernameLocation = document.getElementById("username-lo"); //秀出您好的位置
-let mobileMemberEnter = document.getElementById("mobile-member-enter"); //手機燈箱登入按鈕
-let pcMemberEnter = document.getElementById("member-enter"); //手機燈箱登入按鈕
+let mobileMemberEnter = document.getElementById("mobile-member-enter"); //手機member進入按鈕
+let pcMemberEnter = document.getElementById("member-enter"); //電腦member進入按鈕
 let loginBox = document.getElementById("loginBox"); //登入燈箱
 let registerbox = document.getElementById("registerbox"); //註冊燈箱
 
-//===設定btnLogin.onclick 事件處理程序是 sendForm
+// alert("更新了沒啦煩死");
+// alert("hi");
 
 // 取得會員是否已登入的資訊 (一進去就要觸發)
 function getMemberInfo(){
@@ -14,19 +15,29 @@ function getMemberInfo(){
     let objResult = JSON.parse(xhr.responseText); //把字串轉成物件
 
     if(objResult.mem_name){
-      usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
+      // usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
+      pcMemberEnter.addEventListener("click",function(){
+        window.location.href = "member-info.html";
+        loginBox.style.display="none";
+        registerbox.style.display="none";
+      });
+      mobileMemberEnter.addEventListener("click",function(){
+        window.location.href = "member-info.html";
+        loginBox.style.display="none";
+        registerbox.style.display="none";
+      })
+
     }
   }
   xhr.open("post", "./php/login_getMember.php", true);
   xhr.send(null);
 }
 
-//(燈箱的的登入按鍵所觸發的函式)
+//(燈箱的的登入按鍵btnLogin所觸發的函式sendForm)
 function sendForm(){
   //================使用Ajax 回server端,取回登入者姓名, 放到頁面上   
   // alert("我是燈箱的登入");
   let xhr = new XMLHttpRequest();
-
   xhr.onload = function(){ //只要echo就ok
     let textResult = xhr.responseText;
     let objResult = JSON.parse(xhr.responseText); //把字串轉成物件
@@ -42,8 +53,6 @@ function sendForm(){
       alert("帳號密碼有誤");
     }
   }
-
-
   xhr.open("post", "./php/login_ajax.php", true);
   xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
   //上 建立了ajax誤鍵，請求ajax
@@ -58,13 +67,41 @@ function sendForm(){
   xhr.send(data_info);
 
 }
+
+//(會員中心的登出按鍵所觸發的函式)
+function logout(){
+  alert();
+  let xhr = new XMLHttpRequest();
+  let textResult = xhr.responseText;
+  let objResult = JSON.parse(xhr.responseText); 
+  alert(JSON.parse(xhr.responseText));
+  xhr.onload = function(){ //只要echo就ok
+    字串轉成物件
+    if( objResult !== 0){
+      window.location.href = "homepage.html";
+      xhr.open("post", "./php/logout_ajax.php", true);
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      
+    }
+  }
+
+
+}
+
 function init(){
+
 //取得會員是否已登入的資訊，一開始就觸發
 getMemberInfo();
 
 //===設定燈箱的的登入.onclick 事件處理程序是 sendForm
 document.getElementById("loginBtn").onclick = sendForm;
 
+//===設定會員中心的的登出按鍵.onclick 事件處理程序是 sendForm
+document.getElementById("logoutBtn").onclick = logout;
+
+
 }; 
+
+
 
 window.addEventListener("load", init);
