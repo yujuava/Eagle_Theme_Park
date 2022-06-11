@@ -14,11 +14,9 @@ let headerVue = new Vue({
         inputPsw1:"",
         inputPsw2:"",
         agreement:false,
-
-        sum:{type:[Number]},    //衝突的
-        carts: [],  //衝突的
-        // sum:{type:[Number]},
-        // acount: '',
+        //小購物車計算使用
+        sum:{type:[Number]},
+        carts: [],
     },
     methods: {  // 函數大部分放這裡! 
         validateAccount(){
@@ -143,34 +141,25 @@ let headerVue = new Vue({
             return;
         }
         },
+        //拿到localstorage裡carts
         getCarts() {
             if (localStorage.getItem('carts'))
             this.carts =  JSON.parse(localStorage.getItem('carts'))
         },
-
     },
-    // watch:{
-       
-
-
-    //     shoppingcarts(sum){
-    //         sum = JSON.parse(localStorage.getItem('carts')).length;
-    //         deep: true;
-    //     },
-    //         immediate: true;
-    //     },
-    //     acount() {
-
-    //     },
-    // },
-    // computed: { 
-      
-
-    //     cartsnum(){
-    //     return this.carts.length;
-    //     }
-    // },
-    // mounted(){
-    //     this.getCarts();
-    // }
+    watch:{
+        shoppingcarts(sum){
+            sum = JSON.parse(localStorage.getItem('carts')).length;
+            deep: true;
+        }
+    },
+    computed: { 
+        //回傳carts.length至小購物車v-model
+        cartsnum(){
+        return this.carts.length;
+        }
+    },
+    mounted(){
+        this.getCarts();
+    }
 });

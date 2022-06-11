@@ -110,6 +110,7 @@
             localStorage.setItem('carts', JSON.stringify(carts));
             //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
         } else {
+            //把localstorage裡casts資料拿回來
             carts = JSON.parse(localStorage.getItem('carts'));
         };
         new Vue({
@@ -123,7 +124,7 @@
             methods: {
                 getdata(){},
                 amountreduce(id, amount,index) {
-                    //找陣列的第[0]個取出來擺一個新陣列
+                    //找物件的第[0]個取出來擺一個新陣列
                     const idList = carts.map(item => Object.values(item)[0]);
                     //取id相同的兩個陣列位置+新的amount
                     let item = carts[idList.indexOf(id)].amount + amount;
@@ -134,6 +135,7 @@
                         //更新localstorage數量
                         localStorage.setItem('carts', JSON.stringify(carts));
                     }else{
+                        //刪除對應的carts[index]
                         carts.splice(index, 1);
                         localStorage.setItem('carts',JSON.stringify(carts));
                         headerVue.getCarts();
@@ -142,14 +144,16 @@
                 },
                 //刪除按鍵
                 deleteitem(index) {
+                    //刪除對應的carts[index]
                     carts.splice(index, 1);
                     localStorage.setItem('carts',JSON.stringify(carts));
+                    //同步更新小購物車數字
                     headerVue.getCarts();
 
                 }
             },
             computed: {
-                // 目前購買的金額
+                // 目前購買的總金額計算
                 calculate() {
                     let sum = 0;
                     let stotal = 0
