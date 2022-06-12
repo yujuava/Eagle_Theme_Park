@@ -194,7 +194,7 @@
                         stotal = item.product_amount * item.product_price
                         sum += stotal
                     });
-                    return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                    return "$ "+sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                 }
             }
 

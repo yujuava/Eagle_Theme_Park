@@ -79,7 +79,7 @@
     </section>
     <!-- ---------------------- -->
     <!-- 小標使用這個 -->
-    <section id="product-list">
+    <section id="product-list" v-cloak>
         @@include('layout/title.html',{
         "h3TitleTC" : "商品列表",
         "h3TitleEN": "Product"
@@ -106,13 +106,15 @@
                     @click.native="setFocusId(item.product_no)"/>
             </div>
         </div>
-        <div id="lightBox" class="lightbox-bdr light-box" v-show="isOpen">
-            <div class="lightBoxContent">
-                <productdetail-component @tocart="addcartlocal" @count="countadd" :item="showthispro">
-                </productdetail-component>
-                <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
+        <div class="full-screen light" v-show="isOpen">
+            <div id="lightBox" class="lightbox-bdr light-box">
+                <div class="lightBoxContent">
+                    <productdetail-component @tocart="addcartlocal" @count="countadd" :item="showthispro">
+                    </productdetail-component>
+                    <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
+                </div>
+                <span id="boxBcg"></span>
             </div>
-            <span id="boxBcg"></span>
         </div>
     </section>
     <!--  ===============map ===============  -->
@@ -195,8 +197,7 @@
                         <p>{{'商品描述: '+item.product_infor}}</p>
                     </div>
                     <div class="productPrice">
-                        <p>價格:</p>
-                        <p>{{'$'+item.product_price}}</p>
+                        <p>{{'價格: $ '+item.product_price}}</p>
                     </div>
                     <form>
                         <div class="count">
