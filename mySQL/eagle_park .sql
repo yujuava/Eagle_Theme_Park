@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-08 23:20:25
+-- 產生時間： 2022-06-12 13:36:27
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `eagle_park`
+-- 資料庫： `eagle_theme_park`
 --
 
 -- --------------------------------------------------------
@@ -228,6 +228,7 @@ CREATE TABLE `product` (
   `product_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品名稱',
   `product_price` int NOT NULL COMMENT '商品價格',
   `product_infor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品資訊',
+  `product_amount` int NOT NULL DEFAULT '1' COMMENT '商品預設數量',
   `product_pic` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '商品圖片',
   `product_st` tinyint NOT NULL COMMENT '商品狀態(0.正常,1下架,2缺貨)',
   `product_creat` date DEFAULT NULL COMMENT '建立日期'
@@ -237,14 +238,14 @@ CREATE TABLE `product` (
 -- 傾印資料表的資料 `product`
 --
 
-INSERT INTO `product` (`product_no`, `product_name`, `product_price`, `product_infor`, `product_pic`, `product_st`, `product_creat`) VALUES
-(1, '伊果保溫瓶', 600, '真空長效保溫，適合戶外、運動、居家使用。', 'shop_bottle.png', 0, '2022-06-01'),
-(2, '伊果帽', 300, '夏天防曬冬天防寒，讓你每次都亮麗出場的超萬用帽型', 'shop_cap.png', 0, '2022-06-01'),
-(3, '伊果短T', 400, '美式休閒時尚服飾，引領潮流精神', 'shop_cloth.png', 0, '2022-06-01'),
-(4, '伊果馬克杯', 300, '日系簡約風，實用與質感兼具，讓你愛不釋手', 'shop_cup.png', 0, '2022-06-01'),
-(5, '伊果鑰匙圈', 150, '伊果人氣商品，網路人氣推薦，豐富有質感', 'shop_keyring.png', 0, '2022-06-01'),
-(6, '伊果口罩(10入)', 150, '在防疫的同時兼具時尚美感，讓你出門開心又安心', 'shop_mask.png', 0, '2022-06-01'),
-(7, '伊果雨衣', 200, '攜帶方便，輕鬆收納，出門再也不怕下雨天', 'shop_raincoat.png', 0, '2022-06-01');
+INSERT INTO `product` (`product_no`, `product_name`, `product_price`, `product_infor`, `product_amount`, `product_pic`, `product_st`, `product_creat`) VALUES
+(1, '伊果保溫瓶', 600, '真空長效保溫，適合戶外、運動、居家使用。', 1, 'shop_bottle.png', 0, '2022-06-01'),
+(2, '伊果帽', 300, '夏天防曬冬天防寒，讓你每次都亮麗出場的超萬用帽型', 1, 'shop_cap.png', 0, '2022-06-01'),
+(3, '伊果短T', 400, '美式休閒時尚服飾，引領潮流精神', 1, 'shop_cloth.png', 0, '2022-06-01'),
+(4, '伊果馬克杯', 300, '日系簡約風，實用與質感兼具，讓你愛不釋手', 1, 'shop_cup.png', 0, '2022-06-01'),
+(5, '伊果鑰匙圈', 150, '伊果人氣商品，網路人氣推薦，豐富有質感', 1, 'shop_keyring.png', 0, '2022-06-01'),
+(6, '伊果口罩(10入)', 150, '在防疫的同時兼具時尚美感，讓你出門開心又安心', 1, 'shop_mask.png', 0, '2022-06-01'),
+(7, '伊果雨衣', 200, '攜帶方便，輕鬆收納，出門再也不怕下雨天', 1, 'shop_raincoat.png', 0, '2022-06-01');
 
 -- --------------------------------------------------------
 
