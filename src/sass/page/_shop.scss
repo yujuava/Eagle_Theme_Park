@@ -1,4 +1,5 @@
 .shop {
+  margin: auto;
   .slideshow-container {
     width: 90%;
     position: relative;
@@ -325,17 +326,17 @@
 
   // --------燈箱--------------------------------
   .light-box {
-    width: 80%;
+    width: 60%;
     background-color: $color1;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     display: flex;
-    z-index: 3;
+    z-index: 999;
 
     @include md {
-
+      width: 80%;
       display: flex;
       flex-direction: row;
       height: auto !important;
@@ -356,7 +357,7 @@
   .lightBoxContent {
     display: flex;
     flex-direction: column;
-    z-index: 3;
+    z-index: 999;
 
     @include md {
       flex-direction: row;
@@ -364,7 +365,14 @@
   }
 
   .columnpic {
-    width: 100%;
+    margin: auto;
+    width: 60%;
+    @include md {
+      // width: 100%;
+    }
+    img{
+      width: 100%;
+    }
   }
 
   .column {
@@ -385,11 +393,14 @@
   }
 
   .inforcolumn {
+    margin: 10px 0 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 15px;
-
+    @include md {
+      margin: 20px;
+    }
     form {
       // border: 1px solid #000;
       display: flex;
@@ -418,26 +429,22 @@
   .light-box #turnOff {
     font-size: $h6-fzSize;
     position: absolute;
-    top: 0px;
-    right: -20px;
-    font-size: 20px;
     width: 40px;
     height: 40px;
+    top: 10px;
+    right: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    color: $color4;
   }
 
-  @include md {
-    .light-box {
-      width: 50%;
-    }
+  // @include md {
+  //   .light-box {
+  //     width: 70%;
+  //   }
 
-    .light-box #turnOff {
-      top: 10px;
-      right: 10px;
-      font-size: 30px;
-      cursor: pointer;
-      color: $color4;
-    }
-  }
+
+  
 
   .lightbox-bdr .count {
     display: flex;
@@ -463,7 +470,10 @@
   .lightbox-bdr {
     padding: 30px;
   }
+  #lightBox{
+    max-width: 75vw;
 
+  }
   .count .num {
     font-size: $h6-fzSize;
     width: 50px;
@@ -487,5 +497,5 @@
     background-color: transparent;
   }
 
-  // @include mdBtn(addCart) {}
+  @include mdBtn(addCart) {}
 }
