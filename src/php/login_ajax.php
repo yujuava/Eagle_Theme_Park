@@ -6,7 +6,7 @@ $json = $_POST["json"]; //json={"memId":"Handsome","memPsw":"111"}
 $datas = json_decode($json, true); //true:關聯性陣列
 // echo "已收到: ", $datas["mem_id"], "<br>";
 try{
-  require_once("./connect_cgd101g3.php");
+  require_once("../connect_cgd101g3.php");
   $sql = "select * from `member` where mem_id=:aaa and mem_psw=:bbb";  //sql= : 自訂變數
   $member = $pdo->prepare($sql);
   $member->bindValue(":aaa", $datas["memid"]); //把前台收到的包裹拆開來，包裹裡面的東西對應的欄位 送到sql 查詢!
