@@ -228,10 +228,7 @@
             @include md(){
               width: 100%;
             }
-            
-         
           }
-       
           .itempic:hover{
             animation: swing 0.8s 2;
             cursor: pointer;
@@ -295,7 +292,6 @@
         display: flex;
         flex-direction: row;
         height: auto !important;
-        padding: 20px;
     }
     @include lg{
       display: flex;
