@@ -36,18 +36,18 @@
                     <div v-for="(item,index) in carts" :item="item" :key='item.id'>
                         <div class="cart-row">
                             <div class="pic">
-                                <img :src="item.image">
+                                <img :src="'images//' + item.product_pic">
                             </div>
                             <div class="info">
-                                <div class="td">{{item.name}}</div>
-                                <div class="td">{{"$"+item.price}}</div>
+                                <div class="td">{{item.product_name}}</div>
+                                <div class="td">{{"$"+item.product_price}}</div>
                                 <div class="td">
                                     <div class="count">
-                                        <div @click="amountreduce(item.id,-1,index)" class="minus">
+                                        <div @click="amountreduce(item.product_no,-1,index)" class="minus">
                                             <i class="fa-solid fa-minus"></i>
                                         </div>
-                                        <input type="text" class="num" min="0" v-model="item.amount" disabled>
-                                        <div class="plus" @click="amountreduce(item.id,1,index)">
+                                        <input type="text" class="num" min="0" v-model="item.product_amount" disabled>
+                                        <div class="plus" @click="amountreduce(item.product_no,1,index)">
                                             <i class="fa-solid fa-plus"></i>
                                         </div>
                                     </div>
@@ -129,11 +129,11 @@
                     //找物件的第[0]個取出來擺一個新陣列
                     const idList = carts.map(item => Object.values(item)[0]);
                     //取id相同的兩個陣列位置+新的amount
-                    let item = carts[idList.indexOf(id)].amount + amount;
+                    let item = carts[idList.indexOf(id)].product_amount + amount;
                     //判斷新的amount是否有大於0                    
                     if (item >0) {
                         //大於0新的amount更新carts對應位置的amount
-                        carts[idList.indexOf(id)].amount = item
+                        carts[idList.indexOf(id)].product_amount = item
                         //更新localstorage數量
                         localStorage.setItem('carts', JSON.stringify(carts));
                     }else{
@@ -160,10 +160,10 @@
                     let sum = 0;
                     let stotal = 0
                     this.carts.forEach((item, i) => {
-                        stotal = item.amount * item.price
+                        stotal = item.product_amount * item.product_price
                         sum += stotal
                     });
-                    return sum;
+                    return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                 }
             },
         })

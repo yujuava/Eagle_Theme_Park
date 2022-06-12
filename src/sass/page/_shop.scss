@@ -1,22 +1,25 @@
-.shop{
+.shop {
   .slideshow-container {
     width: 90%;
     position: relative;
     margin: auto;
-    padding:10px 0 10px 0;
+    padding: 10px 0 10px 0;
     background-color: $color4;
   }
-  @include md{
+
+  @include md {
     .slideshow-container {
-      padding:10px 50px 10px 50px;
+      padding: 10px 50px 10px 50px;
     }
-    .sliderButton{
+
+    .sliderButton {
       width: 60vw;
       left: 0;
       right: 0;
       margin: auto;
     }
   }
+
   /* Hide the images by default */
   .mySlides {
     display: none;
@@ -24,37 +27,45 @@
     overflow: hidden;
     width: 60vw;
   }
-  .mySlides img{
+
+  .mySlides img {
     width: 100%;
   }
+
   /* Next & previous buttons */
-  .mySliderContainer{
+  .mySliderContainer {
     position: relative;
   }
-  .sliderButton{
-      position: absolute;
-      z-index: 2;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 60px;
-      color: $color1;
+
+  .sliderButton {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: $color1;
   }
-  .sliderButton i{
+
+  .sliderButton i {
     font-size: $big-fzsize;
     position: relative;
   }
-  .next, .prev{
+
+  .next,
+  .prev {
     position: relative;
     z-index: 2;
     transition: .3s ease-in-out;
     cursor: pointer;
   }
-  .next::before, .prev::before {
-    @include md(){
+
+  .next::before,
+  .prev::before {
+    @include md() {
       content: "";
       z-index: -1;
       width: 90px;
@@ -66,37 +77,42 @@
       left: 50%;
       // transform: translateX(50%);
       // transform: translateY(-50%);
-      transform: translate(-50%,-50%);
-      background-color: rgba($color4, 0.3); 
+      transform: translate(-50%, -50%);
+      background-color: rgba($color4, 0.3);
       transition: .3s ease-in-out;
     }
-    
+
   }
-  .next:hover::before, .prev:hover::before {
-    @include md(){
+
+  .next:hover::before,
+  .prev:hover::before {
+    @include md() {
       content: "";
-      background-color: rgba($color6, 0.8); 
+      background-color: rgba($color6, 0.8);
     }
-    
-  
+
+
   }
-  .postcard{
-      width: 60vw;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
-      position: relative;
+
+  .postcard {
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
   }
-  .postcard>img{
-      width: 100%;
-      display: block;
-      margin: auto;
-      justify-content: center;
-      align-items: center;
+
+  .postcard>img {
+    width: 100%;
+    display: block;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
   }
-  .stamp{
+
+  .stamp {
     // border: 1px solid #000;
     position: absolute;
     width: 11%;
@@ -104,11 +120,13 @@
     top: 10%;
     aspect-ratio: 1/1;
   }
-  .stamp img{
+
+  .stamp img {
     // border: 1px solid #000;
     width: 100%;
   }
-  .stickerslider{
+
+  .stickerslider {
     // border: 1px solid #000;
     position: relative;
     left: 0;
@@ -121,12 +139,14 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
-    @include md(){
+
+    @include md() {
       margin: 20px;
     }
-    
+
   }
-  .sticker{
+
+  .sticker {
     position: absolute;
     left: 0;
     width: 200%;
@@ -134,137 +154,163 @@
     justify-content: space-evenly;
     align-items: center;
     transition: 0.3s;
-  
-    &:hover{
+
+    &:hover {
       cursor: pointer;
     }
   }
-  .sticker li img{
+
+  .sticker li img {
     width: 100%;
-    &:hover{
+
+    &:hover {
       cursor: pointer;
       transform: scale(1.05);
     }
   }
+
   // 明信片貼紙
-  .postcardWrap{
+  .postcardWrap {
     // border: 1px solid #000;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
-  #sliderLeft, #sliderRight{
+
+  #sliderLeft,
+  #sliderRight {
     // border: 1px solid #000;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     border: none;
-    color:color5;
+    color: color5;
     font-size: 20px;
-    &:hover{
+
+    &:hover {
       cursor: pointer;
-      color:$color3;
+      color: $color3;
     }
-    @include md(){
+
+    @include md() {
       font-size: 30px;
     }
-    
+
   }
-  #sliderLeft{
+
+  #sliderLeft {
     // border: 5px solid #000;
     left: 10%;
-    @include md(){
+
+    @include md() {
       left: 23%;
     }
+
     // right: 0%;
   }
-  #sliderRight{
-    
+
+  #sliderRight {
+
     right: 10%;
-    @include md(){
+
+    @include md() {
       right: 23%;
     }
-    // left: 50%;
+
   }
-  .upload{
+
+  .upload {
     display: flex;
     justify-content: center;
   }
 
-  @include bgBtn(shop){
-    
-  }  
-  .shopbtn{
+  @include bgBtn(shop) {}
+
+  .shopbtn {
     border: 3px solid $color3;
   }
+
   // ------商品-------------------------------------
-  .product{
-      >div{
-        flex-wrap: wrap;
-        display: flex;
-      }
-      // border: 2px solid red;
-      // width: 100%;
-      display: flex;
+  .product {
+    >div {
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-start;
-      gap:20px;
-      .itemColumn{
-        // border: 2px solid blue;
-        // width: 50%; 
-        // padding: 30px;
-        margin-bottom: 30px;
-        text-align: center;
-        .item{
-          // border: 1px solid green;
-          .itempic{
-            // border: 1px solid pink;
-            margin-bottom: 15px;
-            width: 80%;
-            @include md(){
-              width: 100%;
-            }
-            
-         
+      display: flex;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap:20px;
+
+    .itemColumn {
+      margin-bottom: 30px;
+      text-align: center;
+
+      .item {
+
+        .itempic {
+          margin-bottom: 15px;
+          width: 80%;
+
+          @include md() {
+            width: 100%;
           }
-       
-          .itempic:hover{
-            animation: swing 0.8s 2;
-            cursor: pointer;
-            background-color: $color6;
-            border-radius: 50%;
-          }
-          @keyframes swing{
-            15%{transform: translate(5px);}
-            40%{transform: translate(-5px);}
-            65%{transform: translate(2px);}
-            85%{transform: translate(-2px);}
-            100%{transform: translate(0px);}
-          }
-          .card{
-            p{
-              font-size: $h6-fzSize;
-              @include md(){
-                font-size: $word-fzSize;
-              }
-            }
-          }
-        }
-      }
-      @include md{
-        .itemColumn{
-          // width: 33.33333%; 
-          width: calc(25% - 15px)
+
 
         }
+
+        .itempic:hover {
+          animation: swing 0.8s 2;
+          cursor: pointer;
+          background-color: $color6;
+          border-radius: 50%;
+        }
+
+        @keyframes swing {
+          15% {
+            transform: translate(5px);
+          }
+
+          40% {
+            transform: translate(-5px);
+          }
+
+          65% {
+            transform: translate(2px);
+          }
+
+          85% {
+            transform: translate(-2px);
+          }
+
+          100% {
+            transform: translate(0px);
+          }
+        }
+
+        .card {
+          p {
+            font-size: $h6-fzSize;
+
+            @include md() {
+              font-size: $word-fzSize;
+            }
+          }
+        }
       }
+    }
+
+    @include md {
+      .itemColumn {
+        width: calc(25% - 15px)
+      }
+    }
   }
 
-  .product .item{
+  .product .item {
     // width: 50%;
     margin: auto;
     display: flex;
@@ -273,151 +319,161 @@
     justify-content: center;
   }
 
-  .product  img{
-      width: 100%;
+  .product img {
+    width: 100%;
   }
-  
+
   // --------燈箱--------------------------------
-  .light-box{
-    // border: 1px solid #000;
+  .light-box {
     width: 80%;
     background-color: $color1;
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate3d(-50%,-50%,0);
-    // display: none;
+    transform: translate3d(-50%, -50%, 0);
     display: flex;
     z-index: 3;
-    @include md{
-        // border: 1px solid #000;
-        // width: 50%; 
-        display: flex;
-        flex-direction: row;
-        height: auto !important;
-        padding: 20px;
+
+    @include md {
+
+      display: flex;
+      flex-direction: row;
+      height: auto !important;
+      padding: 20px;
     }
-    @include lg{
+
+    @include lg {
       display: flex;
     }
-    @include xl{
+
+    @include xl {
       width: auto;
-      max-height:85vh !important;
+      max-height: 85vh !important;
       display: flex;
     }
   }
-  .lightBoxContent{
+
+  .lightBoxContent {
     display: flex;
     flex-direction: column;
     z-index: 3;
-    @include md{
+
+    @include md {
       flex-direction: row;
     }
   }
-  .columnpic{
+
+  .columnpic {
     width: 100%;
-<<<<<<< HEAD
-=======
-    padding: 25px;
->>>>>>> Ava
   }
-  .column{
+
+  .column {
     width: 100%;
     display: flex;
     flex-direction: column;
+
     // align-items: center;
-  @include md{
+    @include md {
       flex-direction: row;
     }
   }
-  .column img{
+
+  .column img {
     width: 100%;
     display: block;
     margin: auto;
   }
 
-  .inforcolumn{
+  .inforcolumn {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap:15px;
-    form{
+    gap: 15px;
+
+    form {
       // border: 1px solid #000;
       display: flex;
       flex-direction: column;
-      gap:15px;
+      gap: 15px;
     }
   }
-  .productName ,.productPrice{
+
+  .productName,
+  .productPrice {
     display: flex;
   }
-  .productName{
-    p{
+
+  .productName {
+    p {
       font-size: $h6-fzSize;
     }
   }
-  .productPrice{
-    p{
+
+  .productPrice {
+    p {
       font-size: $h6-fzSize;
     }
   }
-  .light-box #turnOff{
+
+  .light-box #turnOff {
     font-size: $h6-fzSize;
     position: absolute;
     top: 0px;
-    right:-20px;
+    right: -20px;
     font-size: 20px;
     width: 40px;
     height: 40px;
   }
-  @include md{
-    .light-box{
+
+  @include md {
+    .light-box {
       width: 50%;
     }
-   .light-box #turnOff{
+
+    .light-box #turnOff {
       top: 10px;
-      right:10px;
-      font-size:30px;
+      right: 10px;
+      font-size: 30px;
       cursor: pointer;
       color: $color4;
     }
   }
-  .lightbox-bdr .count{
+
+  .lightbox-bdr .count {
     display: flex;
     align-items: center;
     margin: auto;
     justify-content: center;
   }
-  .lightbox-bdr .count .addamount{
+
+  .lightbox-bdr .count .addamount {
     cursor: pointer;
     display: inline-block;
     padding: 10px;
-    color:$color5;
-    font-size:$h6-fzSize;
+    color: $color5;
+    font-size: $h6-fzSize;
     font-weight: 550;
     border-radius: 1px;
-    &:hover{
+
+    &:hover {
       background-color: $color6;
     }
   }
-  .lightbox-bdr{
+
+  .lightbox-bdr {
     padding: 30px;
   }
-  .count .num{
+
+  .count .num {
     font-size: $h6-fzSize;
     width: 50px;
     margin: 0 5px;
     text-align: center;
     border: 0;
   }
-  // .addCart{
-  //   margin-top: 20px;
-  //   background-color: $color6;
-  //   border: none;
-  //   border-radius: $sm-word-fzSize;
-  // }
-  #boxBcg{
-    background-color: rgba( 36, 93, 104, 0.4);
+
+  #boxBcg {
+    background-color: rgba(36, 93, 104, 0.4);
     position: fixed;
     z-index: 2;
     top: 0;
@@ -426,9 +482,10 @@
     right: 0;
     display: none;
   }
-  #turnOff{
+
+  #turnOff {
     background-color: transparent;
   }
-  @include mdBtn(addCart){
-  } 
+
+  // @include mdBtn(addCart) {}
 }

@@ -157,15 +157,15 @@
             },
             computed: {
                 stotal() {
-                    let stotal = this.item.amount * this.item.price
+                    let stotal = this.item.product_amount * this.item.product_price
                     return stotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                 }
             },
             methods: {},
             template: `
             <div class="ticket-type">
-                <p>{{item.name}}</p>
-                <input type="text" id="ticketTotal" class="col" v-model="item.amount" disabled>
+                <p>{{item.product_name}}</p>
+                <input type="text" id="ticketTotal" class="col" v-model="item.product_amount" disabled>
                 <input type="text" id="ticketPrice" class="col" v-model="stotal" disabled>
             </div>
             `
@@ -191,7 +191,7 @@
                     let sum = 0;
                     let stotal = 0
                     this.carts.forEach((item, i) => {
-                        stotal = item.amount * item.price
+                        stotal = item.product_amount * item.product_price
                         sum += stotal
                     });
                     return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
