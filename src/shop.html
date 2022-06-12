@@ -84,26 +84,10 @@
         "h3TitleTC" : "商品列表",
         "h3TitleEN": "Product"
         })
-        <!-- My name is <input v-model="name"> -->
-        <!-- <div class="product wrap">
-            <div>
-                <div class="itemColumn" v-for="prodRow in prodRows">
-                    <div class="item">
-                        <div id="lightBtn" class="itempic">
-                            <img :src="'images//' + prodRow.product_pic">
-                        </div>
-                        <div class="card">
-                            <p>{{prodRow.product_name}}</p>
-                            <p>${{prodRow.product_price}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="product wrap">
             <div>
-                <product-component v-for="(item,index) in prodRows" :item="item" :key='item.id' @open-lightbox="isOpen=true"
-                    @click.native="setFocusId(item.product_no)"/>
+                <product-component v-for="(item,index) in prodRows" :item="item" :key='item.id'
+                    @open-lightbox="isOpen=true" @click.native="setFocusId(item.product_no)" />
             </div>
         </div>
         <div class="full-screen light" v-show="isOpen">
@@ -121,35 +105,9 @@
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-    <!-- 燈箱 -->
-
-
-
     <!-- ----------------------------------------------------------- -->
     <script>
         let carts = [];
-
-        const items = [
-        //     {
-        //     id: 1,
-        //     image: "./images/shop_cup.png",
-        //     name: "伊果馬克杯",
-        //     price: 300,
-        //     amount: 1,
-        // }, {
-        //     id: 2,
-        //     image: "./images/shop_keyring.png",
-        //     name: "伊果鑰匙圈",
-        //     price: 150,
-        //     amount: 1,
-        // }, {
-        //     id: 3,
-        //     image: "./images/shop_bottle.png",
-        //     name: "伊果保溫瓶",
-        //     price: 600,
-        //     amount: 1,
-        // }
-    ]
         Vue.component('product-component', {
 
             methods: {
@@ -221,14 +179,11 @@
         });
         var prods = new Vue({
             el: "#product-list",
-            data:{
-              
-              isOpen: false,
-              items,
-              focusKey: '',
-              carts,
-              prodRows:[],
-              
+            data: {
+                isOpen: false,
+                focusKey: '',
+                carts,
+                prodRows: [],
             },
             computed: {
                 showthispro() {
@@ -257,14 +212,14 @@
                     this.focusKey = product_no;
                     this.$nextTick(() => {})
                 },
-                //加入購物車被點擊時打商品資料加入localstorage
+                //加入購物車被點擊時商品資料加入localstorage
                 addcartlocal(id, amount) {
                     //關燈箱
                     this.isOpen = false;
                     //拿到最新的CARTS
                     if (localStorage.getItem('carts') === null) {
                         localStorage.setItem('carts', JSON.stringify(carts));
-                    //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+                        //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
                     } else {
                         carts = JSON.parse(localStorage.getItem('carts'));
                     };
@@ -274,7 +229,7 @@
                     if (idList.indexOf(id) != -1) {
                         carts[idList.indexOf(id)].product_amount += this.prodRows[id - 1].product_amount
                         alert('已加入購物車')
-                    //不存在(整筆商品放入localstorage)
+                        //不存在(整筆商品放入localstorage)
                     } else {
                         console.log(id)
                         let sumid = this.prodRows[id - 1];
@@ -288,25 +243,20 @@
             },
         })
         const prodRows = [];
-
         function getProducts() {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            prods.prodRows = JSON.parse(xhr.responseText);
-            // console.log(prods.prodRows);
-        }
-        xhr.open("get", "./php/get_back_product.php", true);
-        xhr.send(null);
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                prods.prodRows = JSON.parse(xhr.responseText);
+            }
+            xhr.open("get", "./php/get_back_product.php", true);
+            xhr.send(null);
         }
         window.addEventListener("load", function () {
             getProducts();
         })
-        // console.log(prodRows)
-        // console.log(items)
     </script>
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
 </body>
-
 </html>

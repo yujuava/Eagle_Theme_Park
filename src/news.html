@@ -117,123 +117,121 @@
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-    <!-- <script src="./js/register.js"></script> -->
-</body>
-</html>
-<!-- 最上面的小飛機 -->
-<script>        
-//開消息燈箱
-    const cards=[{
-        id:1,
-        name:'優惠快訊',
-        img: './images/facilities.jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {
-        id:2,
-        name:'活動快報',
-        img: './images/facilities8 (24).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {   
-        id:3,
-        name:'休園公告',
-        img: './images/facilities8 (8).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {
-        id:4,
-        name:'防疫須知',
-        img: './images/facilities2.jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {
-        id:5,
-        name:'活動快報',
-        img: './images/facilities8 (2).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-    {
-        id:6,
-        name:'休園公告',
-        img: './images/facilities8 (18).jpg',
-        info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-    },
-]
-    Vue.component('card-component',{
-        methods: {
-            openNews:function(todo){
-                document.querySelector('.news_inner').style.display="flex";
-            }
+    <script>        
+    //開消息燈箱
+        const cards=[{
+            id:1,
+            name:'優惠快訊',
+            img: './images/facilities.jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
         },
-        template:`
-        <div @click="openNews" class="newspaper_item">
-            <h4>{{item.name}}</h4>
-            <div class="picture">
-                <img :src="item.img" alt="Image">
-            </div>
-            <div class="inner_text">
-                <p>{{item.info}}</p>
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
-        </div>
-        `,
-        props:{
-            item:Object
-        }
-    });
-
-    Vue.component('news-component',{
-        methods: {
-        
+        {
+            id:2,
+            name:'活動快報',
+            img: './images/facilities8 (24).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
         },
-        template:`
-        <div class="change_inner">
-            <h4>{{item.name}}</h4>
-            <div class="inner">
-                <div class="inner_picture">
+        {   
+            id:3,
+            name:'休園公告',
+            img: './images/facilities8 (8).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        },
+        {
+            id:4,
+            name:'防疫須知',
+            img: './images/facilities2.jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        },
+        {
+            id:5,
+            name:'活動快報',
+            img: './images/facilities8 (2).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        },
+        {
+            id:6,
+            name:'休園公告',
+            img: './images/facilities8 (18).jpg',
+            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        },
+    ]
+        Vue.component('card-component',{
+            methods: {
+                openNews:function(todo){
+                    document.querySelector('.news_inner').style.display="flex";
+                }
+            },
+            template:`
+            <div @click="openNews" class="newspaper_item">
+                <h4>{{item.name}}</h4>
+                <div class="picture">
                     <img :src="item.img" alt="Image">
                 </div>
-                <div class="inner_artical">
+                <div class="inner_text">
                     <p>{{item.info}}</p>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-        </div>
-        `,
-        props:{
-            item:Object,
-            newsSource:Object,
-        }
-    });
-
-    new Vue({
-        data(){
-            return {
-                cards,
-                focusKey: '',
+            `,
+            props:{
+                item:Object
             }
-        },
-        el:'#all_news',
-        computed: {
-            showPopupItem() {
-                return this.cards.find(v => v.id == this.focusKey) ?? this.cards[0];
+        });
+    
+        Vue.component('news-component',{
+            methods: {
+            
             },
-        },
-        methods: {
-            close:function(todo){
-                document.querySelector('.news_inner').style.display="none";
+            template:`
+            <div class="change_inner">
+                <h4>{{item.name}}</h4>
+                <div class="inner">
+                    <div class="inner_picture">
+                        <img :src="item.img" alt="Image">
+                    </div>
+                    <div class="inner_artical">
+                        <p>{{item.info}}</p>
+                    </div>
+                </div>
+            </div>
+            `,
+            props:{
+                item:Object,
+                newsSource:Object,
+            }
+        });
+    
+        new Vue({
+            data(){
+                return {
+                    cards,
+                    focusKey: '',
+                }
             },
-            setFocusId(id) {
-                console.log(id)
-                this.focusKey = id;
-                this.$nextTick(() => {
-                    console.log(this.showPopupItem)
-                })
+            el:'#all_news',
+            computed: {
+                showPopupItem() {
+                    return this.cards.find(v => v.id == this.focusKey) ?? this.cards[0];
+                },
             },
-        },
-
-    })
-
-</script>
-<script src="js/MNevents.js"></script>
-<script src="js/littlefly.js"></script>
+            methods: {
+                close:function(todo){
+                    document.querySelector('.news_inner').style.display="none";
+                },
+                setFocusId(id) {
+                    console.log(id)
+                    this.focusKey = id;
+                    this.$nextTick(() => {
+                        console.log(this.showPopupItem)
+                    })
+                },
+            },
+    
+        })
+    
+    </script>
+    <script src="js/MNevents.js"></script>
+    <script src="js/littlefly.js"></script>
+</body>
+</html>
