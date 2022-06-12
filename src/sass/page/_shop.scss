@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .shop{
+=======
+.shop {
+  margin: auto;
+>>>>>>> Ava
   .slideshow-container {
     width: 90%;
     position: relative;
@@ -275,9 +280,14 @@
   }
   
   // --------燈箱--------------------------------
+<<<<<<< HEAD
   .light-box{
     // border: 1px solid #000;
     width: 80%;
+=======
+  .light-box {
+    width: 60%;
+>>>>>>> Ava
     background-color: $color1;
     position: fixed;
     left: 50%;
@@ -285,6 +295,7 @@
     transform: translate3d(-50%,-50%,0);
     // display: none;
     display: flex;
+<<<<<<< HEAD
     z-index: 3;
     @include md{
         // border: 1px solid #000;
@@ -292,6 +303,16 @@
         display: flex;
         flex-direction: row;
         height: auto !important;
+=======
+    z-index: 999;
+
+    @include md {
+      width: 80%;
+      display: flex;
+      flex-direction: row;
+      height: auto !important;
+      padding: 20px;
+>>>>>>> Ava
     }
     @include lg{
       display: flex;
@@ -305,6 +326,7 @@
   .lightBoxContent{
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     z-index: 3;
     @include md{
       flex-direction: row;
@@ -312,6 +334,24 @@
   }
   .columnpic{
     width: 100%;
+=======
+    z-index: 999;
+
+    @include md {
+      flex-direction: row;
+    }
+  }
+
+  .columnpic {
+    margin: auto;
+    width: 60%;
+    @include md {
+      // width: 100%;
+    }
+    img{
+      width: 100%;
+    }
+>>>>>>> Ava
   }
   .column{
     width: 100%;
@@ -328,12 +368,25 @@
     margin: auto;
   }
 
+<<<<<<< HEAD
   .inforcolumn{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap:15px;
     form{
+=======
+  .inforcolumn {
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 15px;
+    @include md {
+      margin: 20px;
+    }
+    form {
+>>>>>>> Ava
       // border: 1px solid #000;
       display: flex;
       flex-direction: column;
@@ -355,12 +408,21 @@
   }
   .light-box #turnOff{
     position: absolute;
+<<<<<<< HEAD
     top: 0px;
     right:-20px;
     font-size: 20px;
+=======
+>>>>>>> Ava
     width: 40px;
     height: 40px;
+    top: 10px;
+    right: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    color: $color4;
   }
+<<<<<<< HEAD
   @include md{
     .light-box{
       width: 50%;
@@ -372,6 +434,18 @@
     }
   }
   .lightbox-bdr .count{
+=======
+
+  // @include md {
+  //   .light-box {
+  //     width: 70%;
+  //   }
+
+
+  
+
+  .lightbox-bdr .count {
+>>>>>>> Ava
     display: flex;
     align-items: center;
   }
@@ -379,7 +453,16 @@
     padding: 30px;
     padding: 0;
   }
+<<<<<<< HEAD
   .count .num{
+=======
+  #lightBox{
+    max-width: 75vw;
+
+  }
+  .count .num {
+    font-size: $h6-fzSize;
+>>>>>>> Ava
     width: 50px;
     margin: 0 5px;
     text-align: center;
@@ -403,6 +486,11 @@
   #turnOff{
     background-color: transparent;
   }
+<<<<<<< HEAD
   @include mdBtn(addCart){
   } 
+=======
+
+  @include mdBtn(addCart) {}
+>>>>>>> Ava
 }
