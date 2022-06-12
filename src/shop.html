@@ -102,14 +102,14 @@
         </div>
         <div class="product wrap">
             <div>
-                <product-componet v-for="(item,index) in items" :item="item" :key='item.id' @open-lightbox="isOpen=true"
-                    @click.native="setFocusId(item.id)" />
+                <product-component v-for="(item,index) in items" :item="item" :key='item.id' @open-lightbox="isOpen=true"
+                    @click.native="setFocusId(item.id)"/>
             </div>
         </div>
         <div id="lightBox" class="lightbox-bdr light-box" v-show="isOpen">
             <div class="lightBoxContent">
-                <productdetail-componet @tocart="addcartlocal" @count="countadd" :item="showthispro">
-                </productdetail-componet>
+                <productdetail-component @tocart="addcartlocal" @count="countadd" :item="showthispro">
+                </productdetail-component>
                 <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
             </div>
             <span id="boxBcg"></span>
@@ -146,7 +146,7 @@
             price: 600,
             amount: 1,
         }]
-        Vue.component('product-componet', {
+        Vue.component('product-component', {
 
             methods: {
                 show() {
@@ -170,7 +170,7 @@
                 isOpen: false,
             }
         });
-        Vue.component('productdetail-componet', {
+        Vue.component('productdetail-component', {
 
             methods: {
                 countadd(id, amount) {

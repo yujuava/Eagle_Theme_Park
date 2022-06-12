@@ -16,7 +16,7 @@
     })
 
 
-    <section class="product-Purchase">
+    <section class="product-Purchase" id="product-purchase">
         <div class="wrap purchase">
             <!-- 圈圈 -->
             <div class="purchase-process one">
@@ -34,32 +34,17 @@
                         <p>價格</p>
                     </div>
                     <div class="item">
-                        <div class="ticket-type">
-                            <p>伊果保溫瓶</p>
-                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="600" disabled>
-                        </div>
-                        <div class="ticket-type">
-                            <p>伊果帽</p>
-                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="300" disabled>
-                        </div>
-                        <div class="ticket-type">
-                            <p>伊果短T</p>
-                            <input type="text" id="ticketTotal" class="col" value="1" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="400" disabled>
+                        <div>
+                            <order-component v-for="item in carts" :item="item" :key='item.id' />
                         </div>
                         <div class="ticket-type">
                             <p>總計</p>
-                            <input type="text" id="ticketTotal" class="col" value="3" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="1,300" disabled>
+                            <input type="text" id="ticketTotal" class="col" v-model="totalamount" disabled>
+                            <input type="text" id="ticketPrice" class="col" v-model="total" disabled>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
             <!-- 圈圈 -->
             <div class="purchase-process two">
                 <div class="circular">1</div>
@@ -102,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- 圈圈 -->
             <div class="purchase-process three">
@@ -116,7 +100,6 @@
                 <h2>結帳</h2>
                 <div class="table-item THREE">
                     <div class="info">
-
                         <!-- 信用卡卡號 -->
                         <div class="item-credit-card">
                             <p>信用卡卡號</p>
@@ -127,7 +110,6 @@
                                 <input type="text" id="">
                             </div>
                         </div>
-
                         <!-- 信用卡年月 -->
                         <div class="item">
                             <p>信用卡有效月年</p>
@@ -135,13 +117,13 @@
                                 <div class="Info">
                                     <div class="month">
                                         <select id="month">
-                                            <option value=" " >請輸入</option>
+                                            <option value=" ">請輸入</option>
                                         </select>
                                         <p>月</p>
                                     </div>
                                     <div class="year">
                                         <select id="year">
-                                            <option value=" " >請輸入</option>
+                                            <option value=" ">請輸入</option>
                                         </select>
                                         <p>年</p>
                                     </div>
@@ -152,37 +134,87 @@
                                     <input type="text" id="lastThreeYards">
                                 </div>
                             </form>
-
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
             <div class="check-btn">
                 <button class="bgBtn-check" type="submit">確認</button>
             </div>
-
         </div>
     </section>
     <script>
-        window.addEventListener("load",function(){
+        let carts = [];
+        if (localStorage.getItem('carts') === null) {
+            let carts = [];
+            localStorage.setItem('carts', JSON.stringify(carts));
+        } else {
+            carts = JSON.parse(localStorage.getItem('carts'));
+        };
+        Vue.component('order-component', {
+            props: {
+                item: Object,
+            },
+            computed: {
+                stotal() {
+                    let stotal = this.item.amount * this.item.price
+                    return stotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                }
+            },
+            methods: {},
+            template: `
+            <div class="ticket-type">
+                <p>{{item.name}}</p>
+                <input type="text" id="ticketTotal" class="col" v-model="item.amount" disabled>
+                <input type="text" id="ticketPrice" class="col" v-model="stotal" disabled>
+            </div>
+            `
+        })
+        new Vue({
+            el: '#product-purchase',
+            data: {
+                carts,
+            },
+            mounted() {},
+            methods: {},
+            computed: {
+                totalamount() {
+                    const arramount = carts.map(item => Object.values(item)[4]);
+                    let tamount = 0;
+                    arramount.forEach((item) => {
+                        tamount += item
+                    });
+                    return tamount;
+                    console.log(tamount)
+                },
+                total() {
+                    let sum = 0;
+                    let stotal = 0
+                    this.carts.forEach((item, i) => {
+                        stotal = item.amount * item.price
+                        sum += stotal
+                    });
+                    return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                }
+            }
+
+        })
+    </script>
+    <script>
+        window.addEventListener("load", function () {
             let select_year = document.querySelector("#year");
-            let select_month =document.querySelector("#month");
+            let select_month = document.querySelector("#month");
             let opt;
             let Opt;
-            for (let i = 2025; i<= 2050; i++){
+            for (let i = 2025; i <= 2050; i++) {
                 opt = new Option(i, i);
                 select_year.add(opt);
             };
-            for(let i = 1; i<= 12; i++){
+            for (let i = 1; i <= 12; i++) {
                 Opt = new Option(i, i);
                 select_month.add(Opt);
             }
         })
-        
     </script>
 
     <!--  ===============map ===============  -->
