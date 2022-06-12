@@ -121,7 +121,7 @@ let headerVue = new Vue({
                     // 會員註冊時間
                     let today = new Date();
                     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                    dataset.memDate = date;
+                    dataset.memDate = `${date}`;
             
                     // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
                     let data_info = `json=${JSON.stringify(dataset)}`;
@@ -136,24 +136,24 @@ let headerVue = new Vue({
 
 
 
-        // validate(){
-        // let acount = document.getElementById('account').value;
-        // let password = document.getElementById('password').value;
-        // let checkPassword = document.getElementById('checkPassword').value;
-        // let accept = document.getElementById('accept').checked;
+        validate(){
+        let acount = document.getElementById('account').value;
+        let password = document.getElementById('password').value;
+        let checkPassword = document.getElementById('checkPassword').value;
+        let accept = document.getElementById('accept').checked;
 
-        // // =================註冊驗證==================
-        // //email(帳號)的正規表達式
-        // // let userEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; 
+        // =================註冊驗證==================
+        //email(帳號)的正規表達式
+        // let userEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; 
 
-        // //密碼的正規表達式
-        // let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;''
-        // // alert(userEmail.test(acount))
+        //密碼的正規表達式
+        let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;''
+        // alert(userEmail.test(acount))
 
-        // // if(userEmail.test(acount)!=true){
-        // //     alert("帳號請輸入e-mail格式");
-        // //     return;
-        // // }
+        // if(userEmail.test(acount)!=true){
+        //     alert("帳號請輸入e-mail格式");
+        //     return;
+        // }
         // if(passwordCheck.test(password)!=true){
         //     alert("密碼請輸入大小寫英文及數字8~12碼")
         //     return;
@@ -174,7 +174,7 @@ let headerVue = new Vue({
         //     alert('恭喜註冊成功')
         //     return;
         // }
-        // },
+        },
         //拿到localstorage裡carts
         getCarts() {
             if (localStorage.getItem('carts'))
