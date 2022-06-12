@@ -251,6 +251,14 @@
             100%{transform: translate(0px);}
           }
           .card{
+            h4{
+              font-size:  $h6-fzSize;
+              font-weight: 500;
+              color: $color9;
+              @include md(){
+                font-size: $word-fzSize;
+              }
+            }
             p{
               font-size: $h6-fzSize;
               @include md(){
