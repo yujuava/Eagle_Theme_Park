@@ -3,7 +3,7 @@ let headerVue = new Vue({
     data: {     // 變數放這裡!
         mobileHbgShow: false,   //漢堡
         loginBoxShow:false, //登入燈箱
-        RegisterBoxShow:false,
+        RegisterBoxShow:true,
         //註冊燈箱
 
         //註冊燈箱顯示訊息
