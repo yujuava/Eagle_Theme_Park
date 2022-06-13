@@ -420,14 +420,39 @@
         })
         <section class="ThrillRide">
             <div class="wrap"  id="all-thrill-ride" >
+                <div class="all-btn">
+                    <div class="bgBtn-area" :class="{'is-active' : currentFilter == 'ALL'}" @click="currentFilter = 'ALL'">
+                        所有設施
+                    </div>
+                    <div   class="bgBtn-area" :class="{'is-active' : currentFilter == item.key}"  @click="currentFilter = item.key" v-for="item in tabList">
+                        {{item.name}}
+                    </div>
+                    <!-- <div class="bgBtn-area" :class="{'is-active': currentFilter == '紐約'}"  @click="setFilter('紐約');changeNw()" ref="nw">
+                        紐約都會
+                    </div>-->
+                </div>
 
-                <!-- 設施區域的btn -->
-                
+                <div class="filter">
+                    <div class="option">
+                        <input type="checkbox" v-model="rain" id="rain">
+                        <label for="rain">雨天可乘</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" v-model="pregnant" id="pregnant">
+                        <label for="pregnant">孕婦可乘</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" v-model="wheelchair" id="wheelchair">
+                        <label for="wheelchair">輪椅可乘</label>
+                    </div>
+                </div>
+                <ul class="facility-list card-bdr">
+                    <li v-for="(item,idx) of cardsFilter2" :key="item.id">{{item.name}}</li>
+                </ul>
 
-                <!-- 所有設施組件 -->
                 <div>
-                    <transition-group name="facilityRows" tag="div" class="all-card">
-                        <card-component v-for="facilityRow in facilityRows" :item="facilityRow" :key="facilityRow.id">
+                    <transition-group name="cards" tag="div" class="all-card">
+                        <card-component v-for="item in cardsFilter2" :item="item" :key="item.id">
                     </transition-group>
                 </div>
 
