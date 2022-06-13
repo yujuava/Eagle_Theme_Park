@@ -11,9 +11,9 @@ try{
 	$validateAccount = $pdo->prepare($sql);
 	$validateAccount -> bindValue(":memId", $dataset["memId"]);
 	$validateAccount -> execute();
-	$validateAccount -> rowCount();
+	$validateResult = $validateAccount -> rowCount();
     // response result to previous page
-    if($validateAccount == 0){
+    if($validateResult != 0){
 		echo json_encode("1"); // response 1 mean memName already exsist
 		exit();
 	};
