@@ -8,9 +8,9 @@
 
 <body class="homepage">
     <!-- 共用header -->
-    @@include('layout/header-final.html', {
+    <!-- @@include('layout/header-final.html', {
       "class" : "hide"
-    })
+    }) -->
     <!-- 共用header end -->
 
     <!-- 首頁才有的header -->
@@ -425,10 +425,8 @@
                 
 
                 <!-- 所有設施組件 -->
-                <div>
-                    <div tag="div" class="all-card">
-                        <card-component v-for="facilityRow in facilityRows" :item="facilityRow">
-                    </div>
+                <div class="all-card">
+                    <card-component v-for="item in facilityRows" :item="item">
                 </div>
 
 
@@ -465,13 +463,13 @@
 </html>
 
 <!-- 電腦版導覽列滾輪事件 -->
-<script src="./js/homepage-nav-scroll.js"></script>
+<!-- <script src="./js/homepage-nav-scroll.js"></script> -->
 
 <!-- vue -->
 <script src="./js/homepage-allFacility.js"></script>
 
 <!-- gsap -->
-<script src="./js/homepage-gsap.js"></script>
+<!-- <script src="./js/homepage-gsap.js"></script> -->
 
 <!-- food -->
-<script src="./js/food.js"></script>
+<!-- <script src="./js/food.js"></script> -->
