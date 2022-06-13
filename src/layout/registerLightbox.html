@@ -11,16 +11,31 @@
             <form action="" id="form" @submit.prevent="validate">
                 <div class="up">
                     <div>
-                        <label>帳號</label><span>{{accountResult}}</span>
+                        <div class="inputfather">
+                            <label>帳號</label>
+                            <span>{{accountResult}}</span>
+                        </div>
+
                         <input id="account" maxlength="15" placeholder="請輸入15碼內英文及數字" type="text" v-model="inputAccount" @keyup="validateAccount">
                     </div>
                     <div>
-                        <label>密碼</label><span>{{pswResult1}}</span>
+                        <div class="inputfather">
+                            <label>密碼</label>
+                            <span>{{pswResult1}}</span>
+                        </div>
+
                         <input id="password" maxlength="12" placeholder="請輸入大小寫英文及數字8~12碼" type="password" v-model="inputPsw1" @keyup="validatePsw1">
                     </div>
                     <div>
-                        <label>密碼確認</label><span>{{pswResult2}}</span>
+                        <div class="inputfather">
+                            <label>密碼確認</label>
+                            <span>{{pswResult2}}</span>
+                        </div>   
+                       
+                            
+                            
                         <input id="checkPassword" maxlength="12" placeholder="請再次確認密碼" type="password" v-model="inputPsw2" @keyup="validatePsw2">
+                    
                     
                     </div>
                     <!-- <div>
