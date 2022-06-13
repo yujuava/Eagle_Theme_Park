@@ -168,16 +168,16 @@ INSERT INTO `facility` (`fac_no`, `fac_name`, `fac_descrip`, `fac_status`, `fac_
 
 CREATE TABLE `member` (
   `mem_no` int NOT NULL COMMENT '會員編號',
-  `mem_name` varchar(50) NOT NULL COMMENT '會員名',
-  `mem_lastname` varchar(15) NOT NULL COMMENT '會員姓氏',
+  `mem_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員名',
+  `mem_lastname` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員姓氏',
   `mem_id` varchar(15) NOT NULL COMMENT '會員帳號',
   `mem_psw` varchar(15) NOT NULL COMMENT '會員密碼',
-  `mem_tel` varchar(10) NOT NULL COMMENT '電話',
-  `mem_mail` varchar(40) NOT NULL COMMENT 'E-mail',
+  `mem_tel` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '電話',
+  `mem_mail` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'E-mail',
   `mem_state` tinyint(1) NOT NULL COMMENT '會員狀態\r\n(0.正常,1停權)',
-  `mem_address` varchar(50) NOT NULL COMMENT '會員地址',
-  `mem_country` varchar(50) NOT NULL COMMENT '會員國家/地區',
-  `mem_birth` date NOT NULL COMMENT '會員生日',
+  `mem_address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員地址',
+  `mem_country` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員國家/地區',
+  `mem_birth` date DEFAULT NULL COMMENT '會員生日',
   `mem_date` date NOT NULL COMMENT '註冊時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='會員';
 
