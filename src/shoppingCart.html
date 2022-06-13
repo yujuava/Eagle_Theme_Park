@@ -77,11 +77,11 @@
                             <input type="text" class="acount" v-model="calculate" disabled>
 
                         </div>
-                        <a href="shopOrder.html">
-                            <button class="bgBtn-bill bill">前往結帳</button>
-                        </a>
+                        <div class="gobill">
+                            <button id="checkmember" class="bgBtn-bill bill">前往結帳</button>
+                        </div>
                     </div>
-                    <div class="mycoupons full-screen" v-show="isOpen">
+                    <div class="mycoupons full-screen" v-show="isOpen" v-cloak>
                         <div class="lightbox-bdr">
                             <p>選擇優惠券</p>
                             <i @click="isOpen=false" id="close" class="fa-solid fa-xmark"></i>
@@ -124,7 +124,6 @@
             watch: {
             },
             methods: {
-                getdata(){},
                 amountreduce(id, amount,index) {
                     //找物件的第[0]個取出來擺一個新陣列
                     const idList = carts.map(item => Object.values(item)[0]);
@@ -152,7 +151,7 @@
                     //同步更新小購物車數字
                     headerVue.getCarts();
 
-                }
+                },
             },
             computed: {
                 // 目前購買的總金額計算
@@ -167,6 +166,24 @@
                 }
             },
         })
+        // console.log('test')
+
+    </script>
+    <script>
+        function checkmember(){
+            if(carts==''){
+                alert('購物車沒有商品唷~!');
+                return;
+            }else if(document.getElementById("username-lo").innerText==""){
+                loginBox.style.display="flex"; 
+            }else{
+                window.location.href = "shopOrder.html";
+            }
+        }
+        function init(){
+            document.getElementById('checkmember').onclick=checkmember;
+        }
+        window.addEventListener("load", init);
     </script>
 </body>
 
