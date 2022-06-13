@@ -426,9 +426,9 @@
 
                 <!-- 所有設施組件 -->
                 <div>
-                    <transition-group name="facilityRows" tag="div" class="all-card">
-                        <card-component v-for="facilityRow in facilityRows" :item="facilityRow" :key="facilityRow.id">
-                    </transition-group>
+                    <div tag="div" class="all-card">
+                        <card-component v-for="facilityRow in facilityRows" :item="facilityRow">
+                    </div>
                 </div>
 
 
