@@ -27,7 +27,7 @@
     <div id="back" class="back_content">
         <h2>商品管理</h2>
         <div>
-            <button @click="show">新增</button>
+            <button @click="addHandler">新增</button>
         </div>
 
         <table class="box">
@@ -46,8 +46,8 @@
                 <td>{{prodRow.product_name}}</td>
                 <td>{{prodRow.product_price}}</td>
                 <td>{{prodRow.product_st}}</td>
-                <td><button @click="show">修改</button></td>
-                <td><button onclick="showAlert();">刪除</button></td>
+                <td><button @click="show(prodRow.product_no)">修改</button></td>
+                <td><button @click="showAlert();">刪除</button></td>
             </tr>
         </table>
 
@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <th>商品名稱</th>
-                        <td><input type="text"></td>
+                        <td><input type="text" v-model="popup.product_name"></td>
                     </tr>
                     <tr>
                         <th>商品介紹</th>
@@ -71,12 +71,12 @@
                     </tr>
                     <tr>
                         <th>售價</th>
-                        <td><input type="text"></td>
+                        <td><input type="text" v-model="popup.product_price"></td>
                     </tr>
                 </table>
                 <div>
-                    <button>新增</button>
-                    <button>修改確定</button>
+                    <button @click="addPro">新增</button>
+                    <button @click="change">修改確定</button>
                 </div>
             </div>
         </div>
