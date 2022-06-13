@@ -9,30 +9,19 @@
 <!-- 改body class名稱 -->
 
 <body class="back_discuss back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
 
     @@include('layout/backNav.html')
 
-    <div class="back_content">
+    <div id="back" class="back_content">
         <h2>討論區</h2>
 
         <table class="box">
             <tr>
-                <th>文章編號</th>
+                <th v-for="title in discussTitle">{{title}}</th>
+                <!-- <th>文章編號</th>
                 <th>成立時間</th>
                 <th>留言會員</th>
-                <th>標題內容</th>
+                <th>標題內容</th> -->
                 <th></th>
             </tr>
             <tr>
@@ -45,10 +34,6 @@
         </table>
     </div>
 
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
 
 </body>
 
