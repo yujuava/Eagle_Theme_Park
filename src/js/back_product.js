@@ -3,12 +3,44 @@ var prods = new Vue({
     el:'#back',
     data: {
         isOpen: false,
-        prodRows:[]
+        prodRows:[],
+        currentNo: 0,
+        popup: {},
+        default: {
+            product_name: '',
+            product_infor: '',
+            product_price: '',
+            product_pic: ''
+        },
+    },
+    computed: {
+        currentItem() {
+            return this.prodRows.find(v => v.product_no == this.currentNo) ?? this.prodRows[0]
+        },
+    },
+    watch: {
+        currentItem(nVal) {
+            this.popup = nVal;
+        },
     },
     methods: {   
-        show(){
+        show(no){
+            this.currentNo = no;
             this.isOpen = true;
         },
+        addHandler() {
+            this.popup = JSON.parse(JSON.stringify(this.default));
+            this.isOpen = true;
+        },
+        showAlert() {
+            window.confirm("是否確認刪除?");
+        },
+        addPro() {
+            
+        },
+        change() {
+            
+        }
     }
 })
 
@@ -24,7 +56,3 @@ function getProducts() {
 window.addEventListener("load", function () {
     getProducts();
 })
-
-function showAlert(){
-    window.confirm("是否確認刪除?");
-}
