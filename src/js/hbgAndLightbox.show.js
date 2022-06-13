@@ -1,3 +1,6 @@
+// const { exit } = require("browser-sync");
+// const { tree } = require("gulp");
+
 let headerVue = new Vue({
     el: '#header',
     data: {     // 變數放這裡!
@@ -23,13 +26,11 @@ let headerVue = new Vue({
             if (this.inputAccount.length<8){
                 this.accountResult = "帳號長度不足";
             }else{
-                
                 // sent data to php for validate existence
                 // 1. create ajax procedure
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", "./php/validateMemId.php", true);
                 xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-
                 // 4. waiting for response and render result to page
                 xhr.onload = function () {
                     validateResult = JSON.parse(xhr.responseText);
@@ -39,16 +40,12 @@ let headerVue = new Vue({
                         headerVue.accountResult = "帳號可使用";
                     }
                };
-
                 // 2. package account data
                 let dataset = {};
                 dataset.inputAccount = this.inputAccount;
                 let data_info = `json=${JSON.stringify(dataset)}`;
                 // 3. sent data to php
                 xhr.send(data_info);
-
-
-
             }
         },
         validatePsw1(){
@@ -78,58 +75,38 @@ let headerVue = new Vue({
             }
         },
         prepareRegister(){
-            if(this.agreement==true){
-
-                // 檢查所有資料是否符合規範
-                //!!之後判斷參數要改  不然會爆
-                // acount==''||password==''||passwordCheck==''
-                if( this.accountResult == "帳號可使用"
-                    && this.pswResult1 == "密碼相符"
-                    && this.pswResult2 == "密碼相符" ){
-                    document.getElementById('account').disabled = true;
-                    document.getElementById('password').disabled = true;
-                    document.getElementById('checkPassword').disabled = true;
-                    document.getElementById('register').disabled = false;
-                }else{
-                    alert("請檢查輸入資料");
-                    // 需要一點時間差 警示跳完才勾選 下面要慢一點才能取消到
-                    setTimeout( function(){
-                        document.getElementById('accept').checked=false;
-                    } ,200);
-                }
-            }else{
-                // lock all input data 通通給我鎖起來  別想傳怪東西到資料庫
-                document.getElementById('account').disabled = false;
-                document.getElementById('password').disabled = false;
-                document.getElementById('checkPassword').disabled = false;
-                document.getElementById('register').disabled = true;
-                document.getElementById('register').addEventListener("click", ()=>{  
-                    // 1. 宣告XMLHttpRequest()
-                    let xhr = new XMLHttpRequest();
-                    
-                    // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
-                    xhr.open("POST", "./php/register_ajax.php", true);
-                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-
-                    // 3. 封裝接收到的檔案  此處以JSON格式為例
-                    // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
-                    let dataset = {};
-                    dataset.memId = headerVue.inputAccount;
-                    dataset.memPsw = headerVue.inputPsw1;
-            
-                    // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
-                    let data_info = `json=${JSON.stringify(dataset)}`;
-
-                    // 5. XMLHttpRequest送出
-                    xhr.send(data_info);
-      
-                });
-            }
+            headerVue.agreement = true;
         },
-
-
-
-
+        sendRegister(){
+            if(headerVue.agreement == false){
+                alert("請同意使用者條款");
+                return;
+            }
+            // lock all input data 通通給我鎖起來  別想傳怪東西到資料庫
+            // 1. 宣告XMLHttpRequest()
+            let xhr = new XMLHttpRequest();
+            // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
+            xhr.open("POST", "./php/register_ajax.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.onload = function () {
+                validateResult = JSON.parse(xhr.responseText);
+                if(validateResult == '1'){
+                    alert("輸入資料有誤 請檢查");
+                }else{
+                    alert("註冊成功 準備跳轉會員中心");
+                }
+            };
+            // 3. 封裝接收到的檔案  此處以JSON格式為例
+            // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
+            let dataset = {};
+            dataset.memId = headerVue.inputAccount;
+            dataset.memPsw1 = headerVue.inputPsw1;
+            dataset.memPsw2 = headerVue.inputPsw2;
+            // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
+            let data_info = `json=${JSON.stringify(dataset)}`;
+            // 5. XMLHttpRequest送出
+            xhr.send(data_info);
+        },
         // validate(){
         // let acount = document.getElementById('account').value;
         // let password = document.getElementById('password').value;
