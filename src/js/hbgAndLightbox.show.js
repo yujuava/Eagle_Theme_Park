@@ -33,8 +33,8 @@ let headerVue = new Vue({
                 xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
                 // 4. waiting for response and render result to page
                 xhr.onload = function () {
-                    validateResult = JSON.parse(xhr.responseText);
-                    if(validateResult == '1'){
+                    let validateResult = JSON.parse(xhr.responseText);
+                    if(validateResult != '0'){
                         headerVue.accountResult = "請使用其他帳號";
                     }else{
                         headerVue.accountResult = "帳號可使用";
