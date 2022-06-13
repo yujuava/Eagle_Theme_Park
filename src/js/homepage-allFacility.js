@@ -2,9 +2,8 @@ Vue.component('card-component',{
     template:`
     <div class="card card-bdr">
         <div class="pic card-bdr">
-            <div class="area">
-            {{item.fac_area}}<br>
-               {{item.fac_area}}
+            <img :src="'images//' + item.fac_pic" alt="Image">
+            <div class="area" v-html="areaNameHandler(item.fac_area)">
             </div>
         </div>
         <div class="info">
@@ -12,10 +11,16 @@ Vue.component('card-component',{
             <p>{{item.fac_descrip}}</p>
         </div>
     </div>
-
     `,
     props:{
         item:Object,
+    },
+    methods: {
+        areaNameHandler(str) {
+            let arr = str.split('');
+            return `${arr[0]}${arr[1]}<br />${arr[2]}${arr[3]}`
+           },
+
     }
 });
 
@@ -24,14 +29,42 @@ new Vue({
     data:{
         item:[],
         facilityRows:[],
+        currentArea: '全部',
+        names: ['全部','紐約都會', '西部農莊', '印安部落'],
+        rain:false,
+        pregnant:false,
+        wheelchair:false,
+
     },
     // new
     computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+        filterTab() {
+            if (this.currentArea == '全部') return this.facilityRows;
+            return this.facilityRows.filter(v => {
+                return v.fac_area == this.currentArea
+            })
+        },
+
+        filterCheck() {
+            return this.filterTab.filter(item => {       //return第一次篩選完的結果並且再篩一次
+                let rainPass = true;    //先宣告雨天 | 孕婦 | 輪椅 =  true
+                let pregnantPass = true;
+                let wheelchairPass = true;
+                if (this.rain){rainPass = !!item.fac_rainy};   //如果this.rain = true(就是物件裡有自選成true的那些設施)，
+                if (this.pregnant) pregnantPass = !!item.fac_preg;    //
+                if (this.wheelchair) wheelchairPass = !!item.fac_wheelchair;
+                // console.log(rainPass)
+                return rainPass && pregnantPass && wheelchairPass;
+            });
+        },
+
+
+
     },
     methods: {  // 函數大部分放這裡!
         // setFilter(filter) {
         //     this.currentFilter = filter;
-		// },   
+		// },
     },
     //new
     mounted(){
@@ -42,5 +75,7 @@ new Vue({
         }
         xhr.open("get","./php/get_back_facility.php",true);
         xhr.send(null);
+
     },
+
 })
