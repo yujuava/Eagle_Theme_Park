@@ -1,27 +1,24 @@
 // by brady
 // alert('已註冊好');
+ function $id(id){
+        return document.getElementById(id);
+    };
 function DoFirst(){
 
     let confirmBtn = document.querySelector("#confirmBtn");
 
-    function $id(id){
-        return document.getElementById(id);
-    };
+   
     confirmBtn.addEventListener("click",sendForm);
 
     function sendForm(){
     //宣告XMLHttpRequest()
+    alert('更改完成')
     let xhr = new XMLHttpRequest();
 
     // 決定傳送方法POST, 傳送目標, true代表非同步執行
     xhr.open("POST","./php/member-info.php",true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
-    //封裝接收到的檔案  此處以JSON格式為例
-    //因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
-    // dataset ={};
-    // dataset.mem_name = (id)input_name.value;
-    // dataset.mem_lastname = (id)mem_lastname.value;
 
     let dataset = {};
     dataset.mem_name = $id("mem_name").value;
@@ -32,11 +29,10 @@ function DoFirst(){
     dataset.mem_mail = $id("mem_mail").value;
     dataset.mem_adress = $id("mem_adress").value;
     dataset.mem_country = $id("mem_country").value;
-    // dataset.mem_no = $id("mem_no").value;
 
     // 透過JSON.stringify將處理好物件封裝成JSON檔
     let data_info = `json=${JSON.stringify(dataset)}`;
-
+console.log(data_info);
     // XMLHttpRequest送出
     xhr.send(data_info);
     }
@@ -54,6 +50,8 @@ function DoFirst(){
 //   xhr.open("post", "./php/login_getMember.php", true);
 //   xhr.send(null);
 // }
+window.addEventListener('load',DoFirst);
+// window.addEventListener('load',putname);
 
 
 
@@ -62,6 +60,4 @@ function DoFirst(){
     
 
 
-window.addEventListener('load',DoFirst);
-// window.addEventListener('load',putname);
 
