@@ -22,7 +22,7 @@
             <div class="wrap  member-wrap">
                 <div class="personal-information card-bdr">
                     <div class="area-name">
-                        <p>{{this.objResult.mem_lastname}}{{this.objResult.mem_name}}</p>
+                        <p>{{objResult.mem_lastname}}{{objResult.mem_name}}</p>
                         <button class="mdBtn-logout" id="logoutBtn">登出</button>
                     </div>
             
@@ -71,40 +71,40 @@
                     <div class="col">
                         <div>
                             <label for="" >名字</label>
-                            <input type="text" id="mem_name" v-model="this.objResult.mem_name">
+                            <input type="text" id="mem_name" v-model="objResult.mem_name">
                         </div>
                         
                         <div>
                             <label for="">姓氏</label>
-                            <input type="text" id="mem_lastname" v-model="this.objResult.mem_lastname">
+                            <input type="text" id="mem_lastname" v-model="objResult.mem_lastname">
                         </div>
                     </div>
         
                     <div class="col">
                         <div>
                             <label for="">國家/地址</label>
-                            <select name="" id="mem_country" v-model="this.objResult.mem_country">
+                            <select name="" id="mem_country" v-model="objResult.mem_country">
                                 <!-- <option value="" disabled  selected=selected >請選擇</option> -->
-                                <option value="">台灣</option>
-                                <option value="">中國</option>
-                                <option value="">美國</option>
-                                <option value="">加拿大</option>
+                                <option value="台灣">台灣</option>
+                                <option value="中國">中國</option>
+                                <option value="美國">美國</option>
+                                <option value="加拿大">加拿大</option>
                             </select>
                         </div>
                         <div>
                             <label for="">連絡電話</label>
-                            <input type="text" id="mem_tel" v-model="this.objResult.mem_tel">
+                            <input type="text" id="mem_tel" v-model="objResult.mem_tel">
                         </div>
                     </div>
         
                     <div class="col f-col">
                         <label for="">電子郵件信箱</label>
-                        <input type="mail" id="mem_mail" v-model="this.objResult.mem_mail">
+                        <input type="mail" id="mem_mail" v-model="objResult.mem_mail">
                     </div>
         
                     <div class="col f-col">
                         <label for="">聯絡地址</label>
-                        <input type="text" id="mem_adress" v-model="this.objResult.mem_address">
+                        <input type="text" id="mem_adress" v-model="objResult.mem_address">
                     </div>
                     
                     <div class="col f-col password-change">
@@ -115,7 +115,7 @@
                     </div>
         
                     <div class="col">
-                        <button class="bgBtn-confirm" id="confirmBtn">確認修改</button>
+                        <button class="bgBtn-confirm" id="confirmBtn" @click="sendData">確認修改</button>
                     </div>
         
         
@@ -330,7 +330,8 @@
                 type:'A',
                 isActive: true,
                 textResult:[], //ajax回傳
-                objResult:[],
+                objResult: {},
+                defaultResult: {},
             },
             methods: {  // 函數大部分放這裡!
 
@@ -351,7 +352,22 @@
                 this.$refs.C.style.background="#FDB52D";
                 this.$refs.B.style.background="#A7D4D3";
                 this.$refs.A.style.background="#A7D4D3";
-                }
+                },
+                async sendData() {
+                    let sendObj = {};
+                    Object.keys(this.objResult).forEach(key => {
+                        console.log(this.objResult[key]);
+                        if (this.objResult[key]) sendObj[key] = this.objResult[key];
+                        else sendObj[key] = this.defaultResult[key];
+                    })
+                    console.log(sendObj)
+
+                    let xhr = new XMLHttpRequest();
+                    // 決定傳送方法POST, 傳送目標, true代表非同步執行
+                    xhr.open("POST","./php/member-info.php",true);
+                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                    xhr.send(JSON.stringify(sendObj));
+                },
                
             },
             computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
@@ -361,6 +377,7 @@
                 xhr.onload = () => {
                     // alert();
                     this.objResult = JSON.parse(xhr.responseText); //把
+                    this.defaultResult = JSON.parse(xhr.responseText);
                     this.textResult = xhr.responseText;
                     console.log("textResult",this.textResult);
                     console.log("objResult",this.objResult)
