@@ -9,19 +9,6 @@
 <!-- 改body class名稱 -->
 
 <body class="back_facility back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
-
     @@include('layout/backNav.html')
 
     <div id="back" class="back_content">
@@ -29,9 +16,10 @@
         <div>
             <button @click="show">新增</button>
         </div>
-        <table class="box">
+        <table class="box" >
             <tr>
-                <th>序號</th>
+                <th v-for="title in facilityTitle">{{title}}</th>
+                <!-- <th>序號</th>
                 <th>設施圖片</th>
                 <th>設施名稱</th>
                 <th>園區</th>
@@ -40,21 +28,22 @@
                 <th>孕婦乘坐</th>
                 <th>輪椅乘坐</th>
                 <th>排名</th>
-                <th>編輯</th>
+                <th>編輯</th> -->
             </tr>
-            <tr>
-                <td>範例</td>
-                <td><img src="./images/facilities8 (18).jpg" alt=""></td>
-                <td>伊果飛車</td>
-                <td>西部農莊</td>
-                <td>星期一</td>
-                <td>true</td>
-                <td>false</td>
-                <td>false</td>
-                <td>1</td>
+            <tr v-for="facilityRow in facilityRows">
+                <td>{{facilityRow.fac_no}}</td>
+                <td><img :src="'images//' + facilityRow.fac_pic" alt=""></td>
+                <td>{{facilityRow.fac_name}}</td>
+                <td>{{facilityRow.fac_area}}</td>
+                <td>{{facilityRow.fac_maintain_date}}</td>
+                <td>{{facilityRow.fac_rainy}}</td>
+                <td>{{facilityRow.fac_preg}}</td>
+                <td>{{facilityRow.fac_wheelchair}}</td>
+                <td>{{facilityRow.fac_chart}}</td>
                 <td><button @click="show">編輯</button></td>
             </tr>
         </table>
+        <!-- 燈箱 -->
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
@@ -115,10 +104,6 @@
         </div>
     </div>
 
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
 </body>
 
 </html>
