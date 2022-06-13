@@ -24,13 +24,15 @@ Vue.component('card-component',{
     }
 });
 
+
+// 所有設施 vue
 new Vue({
     el:'#all-thrill-ride',
     data:{
         item:[],
         facilityRows:[],
-        currentArea: '全部',
-        names: ['全部','紐約都會', '西部農莊', '印安部落'],
+        currentArea: '所有設施',
+        names: ['所有設施','紐約都會', '西部農莊', '印安部落'],
         rain:false,
         pregnant:false,
         wheelchair:false,
@@ -39,7 +41,7 @@ new Vue({
     // new
     computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
         filterTab() {
-            if (this.currentArea == '全部') return this.facilityRows;
+            if (this.currentArea == '所有設施') return this.facilityRows;
             return this.facilityRows.filter(v => {
                 return v.fac_area == this.currentArea
             })
@@ -72,6 +74,39 @@ new Vue({
         xhr.onload = () => {
             this.facilityRows = JSON.parse(xhr.responseText);
             console.log(this.facilityRows);
+        }
+        xhr.open("get","./php/get_back_facility.php",true);
+        xhr.send(null);
+
+    },
+
+})
+
+
+//熱門設施 vue
+new Vue({
+    el:'#HotFacility',
+    data:{
+        facilityRows:[],
+    },
+    computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+        filterHotFac() {
+            return this.facilityRows.filter(v => v.fac_chart > 0);
+        },
+        facilityName() {
+            return this.filterHotFac.map(v=> v.fac_name)
+        },
+        facilityPic() {
+            return this.filterHotFac.map(v=> v.fac_pic)
+        },
+    },
+    methods: {  // 函數大部分放這裡!
+     
+    },
+    mounted(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            this.facilityRows = JSON.parse(xhr.responseText);
         }
         xhr.open("get","./php/get_back_facility.php",true);
         xhr.send(null);

@@ -72,16 +72,7 @@ function sendForm(){
 
 }
 
-// (會員中心的登出按鍵所觸發的函式)
-function logout(){
-  alert("您已登出");
-  
-  let xhr = new XMLHttpRequest();
 
-  window.location.href = "homepage.html#buy-big-ticket";
-  xhr.open("get", "./php/logout_ajax.php", true);
-  xhr.send(null);
-}
 
 function init(){
 
@@ -92,8 +83,7 @@ getMemberInfo();
 //===設定燈箱的的登入.onclick 事件處理程序是 sendForm
 document.getElementById("loginBtn").onclick = sendForm;
 
-//===設定會員中心的的登出按鍵.onclick 事件處理程序是 sendForm
-document.getElementById("logoutBtn").onclick = logout;
+
 
 
 }; 
