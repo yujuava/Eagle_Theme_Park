@@ -1,9 +1,12 @@
 .back_reset {
 
+
     //共用table樣式
     .back_content {
         border-left: 50px solid $color1;
         border-right: 50px solid $color1;
+        
+
 
         h2 {
             margin: 15px 0px;
@@ -30,6 +33,10 @@
             word-wrap: break-word;
             border-collapse: collapse;
             border: 1px solid $color2;
+        
+            margin-bottom: 50px;
+            overflow-y: scroll;
+
 
             img {
                 // aspect-ratio:16/9; 

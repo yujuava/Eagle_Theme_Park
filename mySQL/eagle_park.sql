@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-12 13:36:27
+-- 產生時間： 2022-06-13 15:03:57
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `eagle_theme_park`
+-- 資料庫： `eagle_park`
 --
 
 -- --------------------------------------------------------
@@ -45,7 +45,6 @@ INSERT INTO `article` (`article_no`, `mem_no`, `article_title`, `article_date`, 
 (2, 2, '紐約都會打卡', '2022-03-01 17:36:11', '全台灣我私心最喜歡的主題樂園 美國大西部搭飛鷹', './images/002.jpg'),
 (3, 3, '遊行表演一定要看', '2022-04-01 20:37:03', '遊街表演的外國人讓氣氛變得更豐富，有機會一定要停下來看看', './images/003.jpg');
 
-
 -- --------------------------------------------------------
 
 --
@@ -68,7 +67,6 @@ INSERT INTO `comment` (`comment_no`, `article_no`, `mem_no`, `comment_date`, `co
 (1, 1, 2, '2022-02-15 11:38:06', '跟其他樂園比起來，滿適合小朋友去的'),
 (2, 2, 3, '2022-06-07 21:38:06', '關園時間滿早的，有空先去坐小火車看動物'),
 (3, 2, 1, '2022-03-22 21:40:36', '假日人非常多，每樣設施大概排隊40-90分鐘');
-
 
 -- --------------------------------------------------------
 
@@ -137,6 +135,7 @@ INSERT INTO `emp` (`emp_no`, `emp_id`, `emp_psw`, `emp_status`, `emp_enroll_date
 
 CREATE TABLE `facility` (
   `fac_no` int NOT NULL COMMENT '設施編號',
+  `fac_pic` varchar(20) NOT NULL,
   `fac_name` varchar(10) NOT NULL COMMENT '設施名稱',
   `fac_descrip` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '設施描述',
   `fac_status` tinyint NOT NULL COMMENT '設施狀態(0: 維修 1: 正常)',
@@ -152,13 +151,19 @@ CREATE TABLE `facility` (
 -- 傾印資料表的資料 `facility`
 --
 
-INSERT INTO `facility` (`fac_no`, `fac_name`, `fac_descrip`, `fac_status`, `fac_area`, `fac_maintain_date`, `fac_chart`, `fac_rainy`, `fac_preg`, `fac_wheelchair`) VALUES
-(1, '極速飛鷹', '在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。', 1, '紐約都會', 6, 1, 0, 0, 0),
-(2, '自由落體', '搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。', 1, '印安部落', 3, 2, 0, 0, 1),
-(3, '天女散花', '乘著風遊蕩在自由的風裡這畫面就像仙女般的翩翩起舞。', 0, '印安部落', 2, 3, 0, 1, 0),
-(4, '空中UFO', '以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。', 0, '西部農莊', 4, 0, 0, 0, 0),
-(5, '摩天輪', '雖然不高，但玩過的遊客不管是小朋友、銀髮族還是熱戀的情侶都讚不絕口，在摩天蓬車上它帶給您無限的歡樂，也讓您心中裝滿了歡樂的記憶。', 1, '西部農莊', 1, 0, 1, 1, 1),
-(6, '旋轉木馬', '在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。', 1, '紐約都會', 5, 0, 1, 1, 0);
+INSERT INTO `facility` (`fac_no`, `fac_pic`, `fac_name`, `fac_descrip`, `fac_status`, `fac_area`, `fac_maintain_date`, `fac_chart`, `fac_rainy`, `fac_preg`, `fac_wheelchair`) VALUES
+(1, 'facilities8 (20).jpg', '極速飛鷹', '在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。', 1, '紐約都會', 6, 1, 0, 0, 0),
+(2, 'facilities8 (2).png', '自由落體', '搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。', 1, '印安部落', 3, 2, 0, 0, 1),
+(3, 'facilities8 (24).jpg', '天女散花', '乘著風遊蕩在自由的風裡這畫面就像仙女般的翩翩起舞。', 0, '印安部落', 2, 3, 0, 1, 0),
+(4, 'facilities8 (18).jpg', '空中UFO', '以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。', 0, '西部農莊', 4, 0, 0, 0, 0),
+(5, 'facilities2.jpg', '摩天輪', '這可說是西部農莊的小小摩天輪，雖然不高，但玩過的遊客不管是小朋友、銀髮族還是熱戀的情侶都讚不絕口，在摩天蓬車上它帶給您無限的歡樂，也讓您心中裝滿了歡樂的記憶。', 1, '西部農莊', 1, 0, 1, 1, 1),
+(6, 'facilities8 (1).jpg', '旋轉木馬', '在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。', 1, '紐約都會', 5, 0, 1, 1, 0),
+(7, 'facilities.jpg', '伊果飛車', '當列車從最高點俯衝而下時，還會發出響亮的鈴鐺聲，就像是火車的汽笛般。全程雖僅需30秒，但卻已足以讓您回味無窮。', 1, '紐約都會', 3, 0, 1, 0, 0),
+(8, 'facilities8 (8).jpg', '天旋地轉', '坐上高達18層樓加上360度大旋轉明星遊樂設施，心理的忐忑在醞釀翻轉，天旋地轉啟動後，才是尖叫聲此起彼落無限延續的開端。', 1, '紐約都會', 4, 0, 0, 0, 1),
+(9, 'facilities8 (2).jpg', '大海盜', '大海盜在搖動擺盪時，您可體驗庫克船長當年乘風破浪、冒險犯難的感受，一顆心隨著船起伏，驚險又刺激，可說是一種挑戰極限的設施。', 1, '印安部落', 5, 0, 1, 0, 0),
+(10, 'facilities8 (4).jpg', '飛鷹歷險', '從火山口三層樓高的急流處瞬間俯衝而下，剎那間驚險的讓您來不及尖叫，剌激的感覺就在那一瞬間，最適合心臟強、膽子夠大、並且愛刺激的朋友前往冒險。', 1, '印安部落', 1, 0, 0, 0, 0),
+(11, 'facilities8 (3).jpg', '伊飛沖天', '亞洲第一座U型滑軌懸吊式螺旋雲霄飛，軌道全長190公尺，最大落差達56公尺，瞬間最高時速122公里。', 1, '西部農莊', 2, 0, 0, 0, 0),
+(12, 'water.jpg', '激流泛舟', '目前國內最大型的人工泛舟河道，水道全長七百四十公尺，每艘圓型橡膠船可乘坐二至九人，全程約七分鐘。', 1, '西部農莊', 4, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -458,13 +463,13 @@ ALTER TABLE `ticket_order`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號';
+  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `coupon`
@@ -488,7 +493,7 @@ ALTER TABLE `emp`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號', AUTO_INCREMENT=7;
+  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號', AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
