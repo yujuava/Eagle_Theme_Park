@@ -116,10 +116,13 @@
             }
 
             .item {
-                width: 70%;
+                width: 80%;
                 margin: auto;
                 text-align: left;
+                @include md() {
+                    width: 70%;
 
+                }
                 .ticket-type {
                     display: flex;
                     align-items: center;
@@ -198,8 +201,18 @@
                 background-image: url(../images/Subtract2.svg);
                 }
                 .info {
-                    width: 70%;
+                    width: 80%;
                     margin: auto;
+                    @include md() {
+                        width: 70%;
+                        
+                    }
+                    input{
+                        margin-bottom: 10px;
+                    }
+                    p{
+                        margin-bottom: 5px;
+                    }
                 }
 
                 .item-name,
@@ -215,10 +228,10 @@
                         width: 50%;
                     }
 
-                    input {
-                        margin-top: 10px;
-                        margin-bottom: 20px;
-                    }
+                    // input {
+                    //     margin-top: 10px;
+                    //     margin-bottom: 20px;
+                    // }
                 }
 
                 .col {
@@ -283,11 +296,16 @@
             }
 
                 .info {
-                    width: 70%;
+                    width: 80%;
                     margin: auto;
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    padding: 20px 20px;
+                    // gap: 10px;
+                    @include md() {
+                        width: 70%;
+
+                    }
                 }
 
                 //卡號
@@ -324,7 +342,7 @@
 
                 // 後三碼
                 .back-three {
-                    margin-top: 20px;
+                    // margin-top: 20px;
 
                     input {
                         width: 20%;
