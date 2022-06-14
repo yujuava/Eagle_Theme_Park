@@ -38,6 +38,7 @@ var prods = new Vue({
         showAlert() {
             window.confirm("是否確認刪除?");
         },
+<<<<<<< HEAD
         async changeHandler() {//非同步//綁最後的按鍵
             console.log('changeHandler')
             let sendObj = JSON.stringify(this.popup);//取最後要再資料庫呈現的東西
@@ -47,6 +48,14 @@ var prods = new Vue({
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             xhr.send(`json=${sendObj}`);
         },
+=======
+        addPro() {  //燈箱的新增按鈕
+            
+        },  
+        change() {   //燈箱的修改按鈕
+            
+        }
+>>>>>>> hana
     }
 })
 
