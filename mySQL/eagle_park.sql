@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-13 15:03:57
+-- 產生時間： 2022-06-14 14:08:35
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -140,8 +140,8 @@ CREATE TABLE `facility` (
   `fac_descrip` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '設施描述',
   `fac_status` tinyint NOT NULL COMMENT '設施狀態(0: 維修 1: 正常)',
   `fac_area` varchar(4) NOT NULL COMMENT '設施所屬園區',
-  `fac_maintain_date` tinyint NOT NULL COMMENT '設施維修日(1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 6:星期六 7:星期日)',
-  `fac_chart` tinyint NOT NULL COMMENT '熱門設施排名(0:其他 1: 第一名 2: 第二名 3: 第三名)',
+  `fac_maintain_date` tinyint NOT NULL COMMENT '設施維修日(1:星期一 2:星期二 3:星期三 4:星期四 5:星期五)',
+  `fac_chart` tinyint NOT NULL COMMENT '熱門設施排名(0:其他 1: 第一名 2: 第二名 3: 第三名 4: 第四名)',
   `fac_rainy` tinyint NOT NULL COMMENT '雨天可乘(0: 不行 1: 可以)',
   `fac_preg` tinyint NOT NULL COMMENT '孕婦可乘(0: 不行 1: 可以)',
   `fac_wheelchair` tinyint NOT NULL COMMENT '輪椅可乘(0: 不行 1: 可以)'
@@ -152,10 +152,10 @@ CREATE TABLE `facility` (
 --
 
 INSERT INTO `facility` (`fac_no`, `fac_pic`, `fac_name`, `fac_descrip`, `fac_status`, `fac_area`, `fac_maintain_date`, `fac_chart`, `fac_rainy`, `fac_preg`, `fac_wheelchair`) VALUES
-(1, 'facilities8 (20).jpg', '極速飛鷹', '在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。', 1, '紐約都會', 6, 1, 0, 0, 0),
+(1, 'facilities8 (20).jpg', '極速飛鷹', '在九十秒歷程中，挑戰達六層樓高的巨幅擺盪，以及雙腳懸空人體極限3G重力加速度外拋與三百六十度正反向空中旋轉，邀請年輕遊客前來挑戰膽量極限。', 1, '紐約都會', 2, 1, 0, 0, 0),
 (2, 'facilities8 (2).png', '自由落體', '搭乘著座椅緩緩上升時，您在忐忑不安的心情中可以欣賞伊果樂園全貌並鳥瞰關西地區優美的風景。上升至最高點時，座椅將以自由落體的G速度向下墬落。', 1, '印安部落', 3, 2, 0, 0, 1),
 (3, 'facilities8 (24).jpg', '天女散花', '乘著風遊蕩在自由的風裡這畫面就像仙女般的翩翩起舞。', 0, '印安部落', 2, 3, 0, 1, 0),
-(4, 'facilities8 (18).jpg', '空中UFO', '以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。', 0, '西部農莊', 4, 0, 0, 0, 0),
+(4, 'facilities8 (18).jpg', '空中UFO', '以三百六十度轉動，倒轉世界狂飆，瞬間帶領您進入超高速的神秘世界中，有膽量的朋友千萬別放棄這個挑戰自己的機會。', 0, '西部農莊', 4, 4, 0, 0, 0),
 (5, 'facilities2.jpg', '摩天輪', '這可說是西部農莊的小小摩天輪，雖然不高，但玩過的遊客不管是小朋友、銀髮族還是熱戀的情侶都讚不絕口，在摩天蓬車上它帶給您無限的歡樂，也讓您心中裝滿了歡樂的記憶。', 1, '西部農莊', 1, 0, 1, 1, 1),
 (6, 'facilities8 (1).jpg', '旋轉木馬', '在美侖美奐的皇宮中，您可以幻想自己是小王子或是小公主，乘著飛天白馬輕鬆遨遊在皇宮中，觀賞、巡視皇宮各角落的景觀。', 1, '紐約都會', 5, 0, 1, 1, 0),
 (7, 'facilities.jpg', '伊果飛車', '當列車從最高點俯衝而下時，還會發出響亮的鈴鐺聲，就像是火車的汽笛般。全程雖僅需30秒，但卻已足以讓您回味無窮。', 1, '紐約都會', 3, 0, 1, 0, 0),
@@ -173,16 +173,16 @@ INSERT INTO `facility` (`fac_no`, `fac_pic`, `fac_name`, `fac_descrip`, `fac_sta
 
 CREATE TABLE `member` (
   `mem_no` int NOT NULL COMMENT '會員編號',
-  `mem_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員名',
-  `mem_lastname` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員姓氏',
+  `mem_name` varchar(50) NOT NULL COMMENT '會員名',
+  `mem_lastname` varchar(15) NOT NULL COMMENT '會員姓氏',
   `mem_id` varchar(15) NOT NULL COMMENT '會員帳號',
   `mem_psw` varchar(15) NOT NULL COMMENT '會員密碼',
-  `mem_tel` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '電話',
-  `mem_mail` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'E-mail',
+  `mem_tel` varchar(10) NOT NULL COMMENT '電話',
+  `mem_mail` varchar(40) NOT NULL COMMENT 'E-mail',
   `mem_state` tinyint(1) NOT NULL COMMENT '會員狀態\r\n(0.正常,1停權)',
-  `mem_address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員地址',
-  `mem_country` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '會員國家/地區',
-  `mem_birth` date DEFAULT NULL COMMENT '會員生日',
+  `mem_address` varchar(50) NOT NULL COMMENT '會員地址',
+  `mem_country` varchar(50) NOT NULL COMMENT '會員國家/地區',
+  `mem_birth` date NOT NULL COMMENT '會員生日',
   `mem_date` date NOT NULL COMMENT '註冊時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='會員';
 
@@ -264,8 +264,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_no`, `product_name`, `product_price`, `product_infor`, `product_amount`, `product_pic`, `product_st`, `product_creat`) VALUES
-(1, '伊果保溫瓶', 600, '真空長效保溫，適合戶外、運動、居家使用。', 1, 'shop_bottle.png', 0, '2022-06-01'),
-(2, '伊果帽', 300, '夏天防曬冬天防寒，讓你每次都亮麗出場的超萬用帽型', 1, 'shop_cap.png', 0, '2022-06-01'),
+(1, '伊果保溫瓶', 555, '真空長效保溫，適合戶外、運動、居家使用。', 1, 'shop_bottle.png', 0, '2022-06-01'),
+(2, '伊果帽', 3000, '夏天防曬冬天防寒，讓你每次都亮麗出場的超萬用帽型', 1, 'shop_cap.png', 0, '2022-06-01'),
 (3, '伊果短T', 400, '美式休閒時尚服飾，引領潮流精神', 1, 'shop_cloth.png', 0, '2022-06-01'),
 (4, '伊果馬克杯', 300, '日系簡約風，實用與質感兼具，讓你愛不釋手', 1, 'shop_cup.png', 0, '2022-06-01'),
 (5, '伊果鑰匙圈', 150, '伊果人氣商品，網路人氣推薦，豐富有質感', 1, 'shop_keyring.png', 0, '2022-06-01'),
@@ -523,7 +523,7 @@ ALTER TABLE `postcard_co`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號', AUTO_INCREMENT=8;
+  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號', AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
