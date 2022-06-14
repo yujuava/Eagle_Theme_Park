@@ -16,10 +16,13 @@
     @include md(){
         border: 1px solid #000;
         flex-direction: row;
-        height: 75vh !important;
+        width: 45vw;
+        height:75vh;
     }  
     @include xl(){
-        max-height:85vh !important;
+        width: 55vw;
+        height:80vh;
+        
     }
     
     // 照片區
@@ -212,8 +215,10 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 0;
             span{
                 margin-top: 0;
+                color:$color4;
             }
         }
     }

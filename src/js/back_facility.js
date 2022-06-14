@@ -47,10 +47,6 @@ new Vue({
             this.isOpen = false;
             
         },  
-        change() {   //燈箱的修改按鈕
-            this.isOpen = false;
-            
-        },
         async changeFinalFac() {//非同步//綁最後的按鍵     
             let sendFacObj = JSON.stringify(this.popup);//取最後要在資料庫呈現的東西
             let xhr = new XMLHttpRequest();
@@ -58,6 +54,9 @@ new Vue({
             xhr.open("POST","./php/update_back_facility.php",true);
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             xhr.send(`json=${sendFacObj}`);
+
+            window.confirm("是否確認修改?");
+            this.isOpen = false;
         },
     },
     mounted(){

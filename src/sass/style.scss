@@ -230,25 +230,23 @@ section{
 .lightbox-bdr{
     border-radius: 20px;
     border:6px solid $color3;
-    // aspect-ratio: 2 / 2.5;
-    max-height:70vh;
-    max-width: 80vw;
+    // max-height:70vh;
+    // max-width: 80vw;
     z-index: 1001;
     @include md(){
         border-radius: 25px;
         border:8px solid $color3;
-        aspect-ratio: 2 / 1;
-        max-height:90vh;
-        // max-width: 50vw;
+        // aspect-ratio: 2 / 1;
+        // max-height:90vh;
     }
     @include lg(){
         border-radius: 30px;
         border:8px solid $color3;
-        aspect-ratio: 1.8 / 1;
+        // aspect-ratio: 1.8 / 1;
     }
     @include xl(){
-        max-height:65vh;
-        aspect-ratio: 2 / 1.2;
+        // max-height:65vh;
+        // aspect-ratio: 2 / 1.2;
     }
 }
 
