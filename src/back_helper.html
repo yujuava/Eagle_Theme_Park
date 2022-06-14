@@ -28,10 +28,10 @@
                     <th>回答內容</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>你好/早安/午安/晚安</td>
-                    <td>歡迎蒞臨伊果樂園，我是果果，有什麼需要協助的嗎？</td>
+                <tr v-for="helperRow in helperRows">
+                    <td>{{helperRow.key_word_no}}</td>
+                    <td>{{helperRow.key_word}}</td>
+                    <td>{{helperRow.key_reply}}</td>
                     <td><button onclick="showAlert();">刪除</button></td>
                 </tr>
             </table>
