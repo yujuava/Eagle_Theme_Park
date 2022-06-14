@@ -70,6 +70,7 @@
                                 <option value="3">星期三</option>
                                 <option value="4">星期四</option>
                                 <option value="5">星期五</option>
+                                <option value="0"></option>
                             </select>
                         </td>
                     </tr>
@@ -111,13 +112,14 @@
                                 <option value="2">第二名</option>
                                 <option value="3">第三名</option>
                                 <option value="4">第四名</option>
+                                <option value="0"></option>
                             </select>
                         </td>
                     </tr>
                 </table>
                 <div>
                     <button  @click="addPro">新增</button>
-                    <button  @click="change">修改確定</button>
+                    <button @click="changeFinalFac" type="button">確定</button>
                 </div>
             </div>
         </div>
