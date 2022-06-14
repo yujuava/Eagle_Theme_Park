@@ -195,31 +195,37 @@
 
                     // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
                     // xhr.open("POST", "./product-order-about.php", true);
-                    xhr.open("POST","./php/product-order-about.php",true);
+                    xhr.open("POST", "./php/product-order-about.php", true);
 
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                     // 3. 封裝接收到的檔案  此處以JSON格式為例
                     // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
                     let sendObj = {};
-                    
+
                     Object.keys(this.objResult).forEach(key => {
                         // console.log(this.objResult[key]);
-                        if (this.objResult[key]) sendObj[key] = this.objResult[key];//如果這個key是原來的，給的資料就是原來的
-                        else sendObj[key] = this.defaultResult[key];//不然給的就是新的結果
+                        if (this.objResult[key]) sendObj[key] = this.objResult[
+                        key]; //如果這個key是原來的，給的資料就是原來的
+                        else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
                     })
                     console.log(sendObj)
 
                     // sendObj.memId = $id("acount").value;//this.acount
                     // sendObj.memPsw = $id("password").value;//this.password
-                    
+
                     // let sendInfo = JSON.stringify(this.send_result);
                     // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
-                    xhr.send(JSON.stringify(sendObj));
+                    // xhr.send(JSON.stringify(sendObj));
                     // let data_info = `json=${JSON.stringify(sendObj)}`;
 
                     // // 5. XMLHttpRequest送出
                     // xhr.send(data_info);
+
+                    let data_info = `json=${JSON.stringify(sendObj)}`;
+
+                    // // 5. XMLHttpRequest送出
+                    xhr.send(data_info);
                 }
             },
             computed: {
