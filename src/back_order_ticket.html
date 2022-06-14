@@ -9,18 +9,7 @@
 <!-- 改body class名稱 -->
 
 <body class="back_order_ticket back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
+
 
     @@include('layout/backNav.html')
 
@@ -32,29 +21,32 @@
             <button>全部</button>
         </div>
 
-        <table class="box">
-            <tr>
-                <th>訂單編號</th>
-                <th>成立時間</th>
-                <th>訂購會員</th>
-                <th>訂單金額</th>
-                <th>票務狀況</th>
-                <th>詳細內容</th>
-            </tr>
-            <tr>
-                <td>202205292338</td>
-                <td>2022-05-29</td>
-                <td>19</td>
-                <td>1000元</td>
-                <td>
-                    <select name="" id="">
-                        <option value="">未取票</option>
-                        <option value="">已取票</option>
-                    </select>
-                </td>
-                <td><button @click="show">MORE</button></td>
-            </tr>
-        </table>
+        <div class="box_father">
+            <table class="box">
+                <tr>
+                    <th>訂單編號</th>
+                    <th>成立時間</th>
+                    <th>訂購會員</th>
+                    <th>訂單金額</th>
+                    <th>票務狀況</th>
+                    <th>詳細內容</th>
+                </tr>
+                <tr>
+                    <td>202205292338</td>
+                    <td>2022-05-29</td>
+                    <td>19</td>
+                    <td>1000元</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="">未取票</option>
+                            <option value="">已取票</option>
+                        </select>
+                    </td>
+                    <td><button @click="show">MORE</button></td>
+                </tr>
+            </table>
+
+        </div>
 
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>

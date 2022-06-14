@@ -1,6 +1,5 @@
 .back_reset {
 
-
     //共用table樣式
     .back_content {
         border-left: 50px solid $color1;
@@ -15,8 +14,11 @@
         }
         
         h2 {        //標題
-            margin: 15px 0px -20px 0;    
+            margin: 15px 0px -15px 0;    
             text-align: left;
+            font-size: $h2-fzSize;
+            font-weight: bold;
+            color:$color4
             // position: fixed;
             // top:0px;
         }
@@ -52,6 +54,8 @@
             // border: 1px solid $color2;
         
             margin-bottom: 50px;
+            font-family: $family2;
+            font-weight: 300;
 
             table-layout : fixed;
             top:130px;
@@ -69,11 +73,18 @@
 
                 position:sticky;    //固定首列
                 top:0px;  
+                color:$color5;
+                font-weight: 400;
+                font-size: 1.3rem;
+                
             }
 
             td {
                 vertical-align: middle;
                 padding: 10px;
+
+                color:$color9;
+                font-size: $word-fzSize;
                
             }
 

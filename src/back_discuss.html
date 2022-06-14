@@ -15,23 +15,27 @@
     <div id="back" class="back_content">
         <h2>討論區</h2>
 
-        <table class="box">
-            <tr>
-                <th v-for="title in discussTitle">{{title}}</th>
-                <!-- <th>文章編號</th>
-                <th>成立時間</th>
-                <th>留言會員</th>
-                <th>標題內容</th> -->
-                <th></th>
-            </tr>
-            <tr v-for="discussRow in discussRows">
-                <td>{{discussRow.article_no}}</td>
-                <td>{{discussRow.article_date}}</td>
-                <td>{{discussRow.mem_no}}</td>
-                <td>{{discussRow.article_title}}</td>
-                <td><button onclick="showAlert();">刪除</button></td>
-            </tr>
-        </table>
+        <div class="box_father">
+            <table class="box">
+                <tr>
+                    <th v-for="title in discussTitle">{{title}}</th>
+                    <!-- <th>文章編號</th>
+                    <th>成立時間</th>
+                    <th>留言會員</th>
+                    <th>標題內容</th> -->
+                    <th></th>
+                </tr>
+                <tr v-for="discussRow in discussRows">
+                    <td>{{discussRow.article_no}}</td>
+                    <td>{{discussRow.article_date}}</td>
+                    <td>{{discussRow.mem_no}}</td>
+                    <td>{{discussRow.article_title}}</td>
+                    <td><button onclick="showAlert();">刪除</button></td>
+                </tr>
+            </table>
+
+        </div>
+
     </div>
 
 
