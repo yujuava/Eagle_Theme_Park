@@ -9,18 +9,7 @@
 <!-- 改body class名稱 -->
 
 <body class="back_helper back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
+
 
     @@include('layout/backNav.html')
 
@@ -31,20 +20,24 @@
             <button @click="show">修改</button>
         </div>
 
-        <table class="box">
-            <tr>
-                <th>編號</th>
-                <th>關鍵字</th>
-                <th>回答內容</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>你好/早安/午安/晚安</td>
-                <td>歡迎蒞臨伊果樂園，我是果果，有什麼需要協助的嗎？</td>
-                <td><button onclick="showAlert();">刪除</button></td>
-            </tr>
-        </table>
+        <div class="box_father">
+            <table class="box">
+                <tr>
+                    <th>編號</th>
+                    <th>關鍵字</th>
+                    <th>回答內容</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>你好/早安/午安/晚安</td>
+                    <td>歡迎蒞臨伊果樂園，我是果果，有什麼需要協助的嗎？</td>
+                    <td><button onclick="showAlert();">刪除</button></td>
+                </tr>
+            </table>
+
+        </div>
+
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>

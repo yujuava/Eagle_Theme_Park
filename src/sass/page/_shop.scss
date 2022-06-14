@@ -271,6 +271,14 @@
       @include md{
         .itemColumn{
           // width: 33.33333%; 
+          width: calc(33% - 10px);
+          margin: 5px;
+
+        }
+      }
+      @include lg{
+        .itemColumn{
+          // width: 33.33333%; 
           width: calc(25% - 10px);
           margin: 5px;
 

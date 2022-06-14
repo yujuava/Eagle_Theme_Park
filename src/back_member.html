@@ -11,19 +11,24 @@
 
     <div class="back_content" id="backmemberVue">
         <h2>會員管理</h2>
-        <table class="box">
-            <tr>
-                <th v-for="title in memTitle">{{title}}</th>
-            </tr>
-            <tr v-for="memRow in memRows">
-                <td>{{memRow.mem_no}} </td>
-                <td>{{memRow.mem_id}}</td>
-                <td>{{memRow.mem_lastname}} {{memRow.mem_name}}</td>
-                <td>{{memRow.mem_date}}</td>
-            </tr>
-        </table>
+
+        <div class="box_father">
+            <table class="box">
+                <tr>
+                    <th v-for="title in memTitle">{{title}}</th>
+                </tr>
+                <tr v-for="memRow in memRows">
+                    <td>{{memRow.mem_no}} </td>
+                    <td>{{memRow.mem_id}}</td>
+                    <td>{{memRow.mem_lastname}} {{memRow.mem_name}}</td>
+                    <td>{{memRow.mem_date}}</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
 
+    <!-- 抓後台資料 -->
     <script type="text/javascript">
         let memVue = new Vue({
             el:"#backmemberVue",

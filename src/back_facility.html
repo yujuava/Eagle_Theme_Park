@@ -9,55 +9,39 @@
 <!-- 改body class名稱 -->
 
 <body class="back_facility back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
-
     @@include('layout/backNav.html')
 
     <div id="back" class="back_content">
         <h2>設施管理</h2>
         <div>
-            <button @click="show">新增</button>
+            <button>新增</button>
         </div>
-        <table class="box">
-            <tr>
-                <th>序號</th>
-                <th>設施圖片</th>
-                <th>設施名稱</th>
-                <th>園區</th>
-                <th>維護時間</th>
-                <th>雨天影響</th>
-                <th>孕婦乘坐</th>
-                <th>輪椅乘坐</th>
-                <th>排名</th>
-                <th>編輯</th>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td><img src="./images/facilities8 (18).jpg" alt=""></td>
-                <td>伊果飛車</td>
-                <td>西部農莊</td>
-                <td>星期一</td>
-                <td>true</td>
-                <td>false</td>
-                <td>false</td>
-                <td>1</td>
-                <td><button @click="show">編輯</button></td>
-            </tr>
-        </table>
+
+        <div class="box_father">
+
+            <table class="box" >
+                <tr>
+                    <th v-for="title in facilityTitle">{{title}}</th>
+                </tr>
+                <tr v-for="facilityRow in facilityRows">
+                    <td>{{facilityRow.fac_no}}</td>
+                    <td><img :src="'images//' + facilityRow.fac_pic" alt=""></td>
+                    <td>{{facilityRow.fac_name}}</td>
+                    <td>{{facilityRow.fac_area}}</td>
+                    <td>{{facilityRow.fac_maintain_date}}</td>
+                    <td>{{facilityRow.fac_rainy}}</td>
+                    <td>{{facilityRow.fac_preg}}</td>
+                    <td>{{facilityRow.fac_wheelchair}}</td>
+                    <td>{{facilityRow.fac_chart}}</td>
+                    <td><button @click="show(facilityRow.fac_no)" >編輯</button></td>
+                </tr>
+            </table>
+        </div>
+        <!-- 燈箱 -->
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
+                
                 <table class="innerData">
                     <tr>
                         <th>設施圖片</th>
@@ -65,60 +49,80 @@
                     </tr>
                     <tr>
                         <th>設施名稱</th>
-                        <td><input type="text"></td>
+                        <td><input type="text" v-model="popup.fac_name"></td>
                     </tr>
                     <tr>
                         <th>所在園區</th>
                         <td>
-                            <select name="" id="">
-                                <option value="">紐約都會</option>
-                                <option value="">西部農莊</option>
-                                <option value="">印安部落</option>
+                            <select v-model="popup.fac_area">
+                                <option value="紐約都會">紐約都會</option>
+                                <option value="西部農莊">西部農莊</option>
+                                <option value="印安部落">印安部落</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <th>維護時間</th>
-                        <td><input type="date"></td>
+                        <td>
+                            <select  v-model="popup.fac_maintain_date">
+                                <option value="1">星期一</option>
+                                <option value="2">星期二</option>
+                                <option value="3">星期三</option>
+                                <option value="4">星期四</option>
+                                <option value="5">星期五</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <th>雨天影響</th>
-                        <td><input type="radio" name="rain" value="yes">是</td>
-                        <td><input type="radio" name="rain" value="no">否</td>
+                        <td>
+                            <select v-model="popup.fac_rainy">
+                                <option value="1">可乘</option>
+                                <option value="0">不可乘</option>
+                            </select>
+
+                        </td>
                     </tr>
                     <tr>
                         <th>孕婦乘坐</th>
-                        <td><input type="radio" name="preg" value="yes">是</td>
-                        <td><input type="radio" name="preg" value="no">否</td>
+                        <td>
+                            <select v-model="popup.fac_preg">
+                                <option value="1">可乘</option>
+                                <option value="0">不可乘</option>
+                            </select>
+
+                        </td>
                     </tr>
                     <tr>
                         <th>輪椅乘坐</th>
-                        <td><input type="radio" name="wheel" value="yes">是</td>
-                        <td><input type="radio" name="wheel" value="no">否</td>
+                        <td>
+                            <select v-model="popup.fac_wheelchair">
+                                <option value="1">可乘</option>
+                                <option value="0">不可乘</option>
+                            </select>
+
+                        </td>
                     </tr>
                     <tr>
                         <th>排名</th>
                         <td>
-                            <select name="" id="">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
+                            <select v-model="popup.fac_chart">
+                                <option value="1">第一名</option>
+                                <option value="2">第二名</option>
+                                <option value="3">第三名</option>
+                                <option value="4">第四名</option>
                             </select>
                         </td>
                     </tr>
                 </table>
                 <div>
-                    <button>新增</button>
-                    <button>修改確定</button>
+                    <button  @click="addPro">新增</button>
+                    <button  @click="change">修改確定</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
 </body>
 
 </html>

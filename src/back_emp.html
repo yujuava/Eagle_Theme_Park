@@ -7,18 +7,7 @@
 </head>
 <!-- 改body class名稱 -->
 <body class="back_emp back_reset">
-    <!-- 共用header -->
-    <!-- @@include('layout/header-final.html') -->
-    <!-- 共用header end -->
-    <!-- 大標使用這個-->
-    <!-- @@include('layout/h2Style.html',{
-        "h2Title" : "首頁"
-    }) -->
-    <!-- 小標使用這個 -->
-    <!-- @@include('layout/title.html',{
-        "h3TitleTC" : "主題園區",
-        "h3TitleEN": "Theme Area"
-    }) -->
+
     
     @@include('layout/backNav.html')
 
@@ -27,22 +16,26 @@
         <div>
             <button @click="show">新增</button>
         </div>
-        <table class="box">
-            <tr>
-                <th>序號</th>
-                <th>員工帳號</th>
-                <th>帳號狀態</th>
-                <th>建立時間</th>
-                <th>編輯</th>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>wd02004@tibame.com</td>
-                <td>正常</td>
-                <td>2022/5/29</td>
-                <td><button @click="show">編輯</button></td>
-            </tr>
-        </table>
+
+        <div class="box_father">
+            <table class="box">
+                <tr>
+                    <th>序號</th>
+                    <th>員工帳號</th>
+                    <th>帳號狀態</th>
+                    <th>建立時間</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>範例</td>
+                    <td>wd02004@tibame.com</td>
+                    <td>正常</td>
+                    <td>2022/5/29</td>
+                    <td><button @click="show">編輯</button></td>
+                </tr>
+            </table>
+
+        </div>
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
@@ -78,10 +71,6 @@
         </div>
     </div>
     
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
 </body>
 </html>
 <!-- 共用燈箱js -->

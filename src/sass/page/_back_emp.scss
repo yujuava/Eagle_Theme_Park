@@ -5,9 +5,22 @@
         border-left: 50px solid $color1;
         border-right: 50px solid $color1;
 
-        h2 {
-            margin: 15px 0px;
+        position: relative;
+        height: 100vh;  //高度維持100視窗高
+        overflow: hidden;
+      
+        &::-webkit-scrollbar {  //隱藏卷軸
+            display: none;
+        }
+        
+        h2 {        //標題
+            margin: 15px 0px -15px 0;    
             text-align: left;
+            font-size: $h2-fzSize;
+            font-weight: bold;
+            color:$color4
+            // position: fixed;
+            // top:0px;
         }
 
         font-size: $word-fzSize;
@@ -16,21 +29,37 @@
             margin: 10px 0px;
             text-align: left;
 
-            button {
+            button {    //新增按鈕
                 font-size: $btnMd-fzSize;
                 margin-right: 15px;
+                // position: fixed;
+                // top:80px;
             }
         }
-
-        .box {
+        .box_father{ //為了多一個爸爸來overflow
+            border: 1px solid $color2;
+            overflow-y: scroll;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            &::-webkit-scrollbar {  //隱藏卷軸
+                display: none;
+            }
+        }
+        .box { //table
             width: 100%;
             text-align: center;
             line-height: 30px;
             table-layout: fixed;
             word-wrap: break-word;
             border-collapse: collapse;
-            border: 1px solid $color2;
+            // border: 1px solid $color2;
+        
+            margin-bottom: 50px;
+            font-family: $family2;
+            font-weight: 300;
 
+            table-layout : fixed;
+            top:130px;
             img {
                 // aspect-ratio:16/9; 
                 width: 100%;
@@ -42,11 +71,22 @@
             th {
                 background-color: $color2;
                 padding: 7px;
+
+                position:sticky;    //固定首列
+                top:0px;  
+                color:$color5;
+                font-weight: 400;
+                font-size: 1.3rem;
+                
             }
 
             td {
                 vertical-align: middle;
                 padding: 10px;
+
+                color:$color9;
+                font-size: $word-fzSize;
+               
             }
 
         }
@@ -84,21 +124,28 @@
             justify-content: center;
             align-items: center;
 
+
             >div {
                 width: 40%;
                 margin: auto;
                 background-color: $color1;
                 padding: 50px;
-                position: relative;
                 border-radius: 25px;
                 border: 10px solid $color3;
 
+                position: relative;
+                max-height: 85vh;
+                overflow-y: scroll;
+                padding: 10px;
+
+                &::-webkit-scrollbar {  //隱藏卷軸
+                    display: none;
+                }
                 i {
                     position: absolute;
                     top: 20px;
                     right: 20px;
                     font-size: 20px;
-
                     &:hover {
                         cursor: pointer;
                     }
@@ -107,6 +154,7 @@
                 table {
                     border: 1px solid $color2;
                     margin: auto;
+                  
 
                     tr {
                         padding: 20px;
@@ -119,9 +167,19 @@
                         td {
                             padding: 17px;
                             display:inline-block;
+
+                            input[type="file"] {
+                                padding: 0;
+                            }
+                            select{
+                                // border: 5px solid #000;
+                                padding: 3px 10px;
+                            }
+                        }
                         }
                     }
-                }
+
+                   
 
                 div {
                     margin-top: 30px;

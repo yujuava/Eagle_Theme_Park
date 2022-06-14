@@ -62,28 +62,28 @@
                             <p>姓氏</p>
                         </div>
                         <div class="item-body">
-                            <input type="text" id="name">
-                            <input type="text" id="last-name">
+                            <input type="text" id="name" class="dataorder" v-model="objResult.mem_name">
+                            <input type="text" id="last-name" class="dataorder" v-model="objResult.mem_lastname">
                         </div>
                         <div class="item-country">
                             <p>國家/地區</p>
                             <p>聯絡電話</p>
                         </div>
                         <div class="item-Body">
-                            <input type="text" id="country">
-                            <input type="text" id="tel">
+                            <input type="text" id="country" class="dataorder" v-model="objResult.mem_country">
+                            <input type="text" id="tel" class="dataorder" v-model="objResult.mem_tel">
                         </div>
                         <div class="item-email">
                             <p>電子郵件信箱</p>
                         </div>
                         <div class="itemBody">
-                            <input type="text" id="email" class="col">
+                            <input type="text" id="email" class="dataorder" class="col" v-model="objResult.mem_mail">
                         </div>
                         <div class="item-adress">
                             <p>聯絡地址</p>
                         </div>
                         <div class="item-footer">
-                            <input type="text" id="adress" class="col">
+                            <input type="text" id="adress" class="col dataorder" v-model="objResult.mem_address">
                         </div>
                     </div>
                 </div>
@@ -104,10 +104,13 @@
                         <div class="item-credit-card">
                             <p>信用卡卡號</p>
                             <div class="item-body">
-                                <input type="text" id="">
-                                <input type="text" id="">
-                                <input type="text" id="">
-                                <input type="text" id="">
+                                <input id="cardnum1" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum2');">
+                                <input id="cardnum2" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum3');">
+                                <input id="cardnum3" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum4');">
+                                <input id="cardnum4" class="dataorder" maxlength="4" type="text">
                             </div>
                         </div>
                         <!-- 信用卡年月 -->
@@ -116,14 +119,14 @@
                             <form date="airform">
                                 <div class="Info">
                                     <div class="month">
-                                        <select id="month">
-                                            <option value=" ">請輸入</option>
+                                        <select id="month" class="dataorder">
+                                            <option id="cardnum5" value="">請輸入</option>
                                         </select>
                                         <p>月</p>
                                     </div>
                                     <div class="year">
-                                        <select id="year">
-                                            <option value=" ">請輸入</option>
+                                        <select id="year" class="dataorder">
+                                            <option value="" id="cardnum6">請輸入</option>
                                         </select>
                                         <p>年</p>
                                     </div>
@@ -131,7 +134,7 @@
                                 <!-- 後三碼 -->
                                 <div class="back-three">
                                     <p>後三碼</p>
-                                    <input type="text" id="lastThreeYards">
+                                    <input maxlength="3" type="text" class="dataorder" id="lastThreeYards">
                                 </div>
                             </form>
                         </div>
@@ -139,7 +142,7 @@
                 </div>
             </div>
             <div class="check-btn">
-                <button class="bgBtn-check" type="submit">確認</button>
+                <button class="bgBtn-check" id="submit" type="submit" @click="sendForm">確認</button>
             </div>
         </div>
     </section>
@@ -174,9 +177,57 @@
             el: '#product-purchase',
             data: {
                 carts,
+                textResult: [], //ajax回傳
+                objResult: [],
+                acount: '',
+                password: '',
+                send_result: {
+                    last_name: '',
+                    first_name: ''
+                },
             },
             mounted() {},
-            methods: {},
+            methods: {
+                sendForm() {
+
+                    // 1. 宣告XMLHttpRequest()
+                    let xhr = new XMLHttpRequest();
+
+                    // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
+                    // xhr.open("POST", "./product-order-about.php", true);
+                    xhr.open("POST", "./php/product-order-about.php", true);
+
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                    // 3. 封裝接收到的檔案  此處以JSON格式為例
+                    // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
+                    let sendObj = {};
+
+                    Object.keys(this.objResult).forEach(key => {
+                        // console.log(this.objResult[key]);
+                        if (this.objResult[key]) sendObj[key] = this.objResult[
+                        key]; //如果這個key是原來的，給的資料就是原來的
+                        else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
+                    })
+                    console.log(sendObj)
+
+                    // sendObj.memId = $id("acount").value;//this.acount
+                    // sendObj.memPsw = $id("password").value;//this.password
+
+                    // let sendInfo = JSON.stringify(this.send_result);
+                    // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
+                    // xhr.send(JSON.stringify(sendObj));
+                    // let data_info = `json=${JSON.stringify(sendObj)}`;
+
+                    // // 5. XMLHttpRequest送出
+                    // xhr.send(data_info);
+
+                    let data_info = `json=${JSON.stringify(sendObj)}`;
+
+                    // // 5. XMLHttpRequest送出
+                    xhr.send(data_info);
+                }
+            },
             computed: {
                 totalamount() {
                     const arramount = carts.map(item => Object.values(item)[4]);
@@ -194,9 +245,21 @@
                         stotal = item.product_amount * item.product_price
                         sum += stotal
                     });
-                    return "$ "+sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                    return "$ " + sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                },
+            },
+            created() {
+                let xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    // alert();
+                    this.objResult = JSON.parse(xhr.responseText); //把
+                    this.textResult = xhr.responseText;
+                    // console.log("textResult", this.textResult);
+                    // console.log("objResult", this.objResult)
                 }
-            }
+                xhr.open("get", "php/login_getMember.php", true);
+                xhr.send(null);
+            },
 
         })
     </script>
@@ -215,6 +278,34 @@
                 select_month.add(Opt);
             }
         })
+
+        function setBlur(obj, target2) {
+            let target = document.getElementById(target2);
+            if (obj.value.length == obj.getAttribute('maxlength')) {
+                // console.log(target)
+                target.focus();
+            }
+            return;
+        }
+
+        function submitOrder() {
+            let dataorderInner = document.querySelectorAll('.dataorder');
+            // for (i = 0; i < dataorderInner.length; i++) {
+            //     console.log(dataorderInner[i].value)
+            //     if (dataorderInner[i].value == "") {
+            //         alert('還有欄位未輸入唷~!')
+            //         return;
+            //     }
+            // }
+            alert('訂單已送出~!')
+            // window.location.href = "member-info.html";
+            // localStorage.clear()
+        }
+
+        function init() {
+            document.getElementById('submit').onclick = submitOrder;
+        }
+        window.addEventListener('load', init);
     </script>
 
     <!--  ===============map ===============  -->
