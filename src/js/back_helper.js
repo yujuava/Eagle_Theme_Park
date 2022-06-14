@@ -9,7 +9,10 @@ let helperVue = new Vue({
     methods: {   
         show(){
             this.isOpen = true;
-        },     
+        },
+        showAlert(){
+            window.confirm("是否確認刪除?");
+        }     
     },
     mounted(){     //第一步仔入完成才開始執行            
         console.log("init");         
