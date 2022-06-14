@@ -3,7 +3,7 @@ let newsVue = new Vue({
     el:'#back',
     data:{
         isOpen: false,
-        newsTitle: ['消息編號','消息名稱','消息內容','發布日期'],
+        // newsTitle: ['消息編號','消息名稱','消息內容','發布日期'],
         newsRows:[],      //資料的陣列
     },
     methods: {   

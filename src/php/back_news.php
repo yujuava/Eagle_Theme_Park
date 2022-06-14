@@ -1,13 +1,15 @@
 <?php
-//抓後台頁面的會員資料
 try{
     require_once("../connect_cgd101g3.php");
+
     // echo "連線成功<br>";
-    $sql ="SELECT * FROM `news`";
-    $news = $pdo->query($sql);    //取變數名稱 ,執行第6行
-    // $x = $pdo->exec($sql);
+    $sql ="select * from news";
+    $pdoStatement = $pdo->query($sql); 
+     // $x = $pdo->exec($sql);
     // echo "成功了異動了{$x}筆資料<br>";  
-	$newsRow = $news->fetchAll(PDO::FETCH_ASSOC);  //把資料打包處裡,存到newsRow(盡量)
+
+    $news = $pdo->query($sql);    
+	$newsRow = $news->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($newsRow);     //用json格式 echo送回頁面
 }catch(PDOException $e){
     echo"錯誤訊息:" ,$e->getMessage(),"<br>";
