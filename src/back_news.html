@@ -51,10 +51,12 @@
                 <th v-for="title in memTitle">{{title}}</th>
             </tr> -->
             <tr v-for="newsRow in newsRows">
-                <td>{{newsRow.news_content}} </td> 
-                <!-- <td>{{newsRow.mem_id}}</td>
-                <td>{{newsRow.mem_lastname}} {{memRow.mem_name}}</td>
-                <td>{{newsRow.mem_date}}</td> -->
+                <td>{{newsRow.news_no}} </td> 
+                <td>{{newsRow.news_name}}</td>
+                <!-- <td><img src="'images//'{{NewRow.}}" alt=""></td> -->
+                <td>{{newsRow.news_content}}</td>
+                <td>{{newsRow.news_date}}</td>
+                <td><button @click="show(facilityRow.fac_no)" >編輯</button></td>
             </tr>
         </table>
         <div class="back_lightbox backLightbox" v-show="isOpen">
