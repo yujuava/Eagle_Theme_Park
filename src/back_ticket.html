@@ -24,7 +24,7 @@
                     <th>狀態</th>
                     <th></th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>成人票</td>
                     <td>1000元</td>
                     <td>可購買</td>
@@ -41,7 +41,14 @@
                     <td>400元</td>
                     <td>可購買</td>
                     <td><button @click="show">編輯</button></td>
+                </tr> -->
+                <tr v-for="ticketRow in ticketRows">
+                    <td>{{ticketRow.ticket_name}}</td>
+                    <td>{{ticketRow.ticket_price}}</td>
+                    <td>可購買</td>
+                    <td><button @click="show">編輯</button></td>
                 </tr>
+
             </table>
 
         </div>
