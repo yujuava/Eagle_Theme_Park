@@ -26,11 +26,18 @@
                     <th>建立時間</th>
                     <th></th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>範例</td>
                     <td>wd02004@tibame.com</td>
                     <td>正常</td>
                     <td>2022/5/29</td>
+                    <td><button @click="show">編輯</button></td>
+                </tr> -->
+                <tr v-for="empRow in empRows">
+                    <td>{{empRow.emp_no}}</td>
+                    <td>{{empRow.emp_id}}</td>
+                    <td>{{empRow.emp_status}}</td>
+                    <td>{{empRow.emp_enroll_date}}</td>
                     <td><button @click="show">編輯</button></td>
                 </tr>
             </table>
