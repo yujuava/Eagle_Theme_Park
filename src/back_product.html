@@ -30,26 +30,30 @@
             <button @click="addHandler">新增</button>
         </div>
 
-        <table class="box">
-            <tr>
-                <th>品號</th>
-                <th>商品圖</th>
-                <th>品名</th>
-                <th>售價</th>
-                <th>狀態</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr v-for="prodRow in prodRows">
-                <td>{{prodRow.product_no}}</td>
-                <td><img :src="'images//' + prodRow.product_pic"></td>
-                <td>{{prodRow.product_name}}</td>
-                <td>{{prodRow.product_price}}</td>
-                <td>{{prodRow.product_st}}</td>
-                <td><button @click="show(prodRow.product_no)">修改</button></td>
-                <td><button @click="showAlert();">刪除</button></td>
-            </tr>
-        </table>
+        <div class=box_father>
+            <table class="box">
+                <tr>
+                    <th>品號</th>
+                    <th>商品圖</th>
+                    <th>品名</th>
+                    <th>售價</th>
+                    <th>狀態</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr v-for="prodRow in prodRows">
+                    <td>{{prodRow.product_no}}</td>
+                    <td><img :src="'images//' + prodRow.product_pic"></td>
+                    <td>{{prodRow.product_name}}</td>
+                    <td>{{prodRow.product_price}}</td>
+                    <td>{{prodRow.product_st}}</td>
+                    <td><button @click="show(prodRow.product_no)">修改</button></td>
+                    <td><button @click="showAlert();">刪除</button></td>
+                </tr>
+            </table>
+
+        </div>
+
 
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>

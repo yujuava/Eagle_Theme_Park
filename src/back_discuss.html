@@ -24,11 +24,11 @@
                 <th>標題內容</th> -->
                 <th></th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>2022-03-15</td>
-                <td>10</td>
-                <td>伊果好好玩</td>
+            <tr v-for="discussRow in discussRows">
+                <td>{{discussRow.article_no}}</td>
+                <td>{{discussRow.article_date}}</td>
+                <td>{{discussRow.mem_no}}</td>
+                <td>{{discussRow.article_title}}</td>
                 <td><button onclick="showAlert();">刪除</button></td>
             </tr>
         </table>

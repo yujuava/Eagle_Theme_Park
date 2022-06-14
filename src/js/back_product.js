@@ -35,10 +35,10 @@ var prods = new Vue({
         showAlert() {
             window.confirm("是否確認刪除?");
         },
-        addPro() {
+        addPro() {  //燈箱的新增按鈕
             
-        },
-        change() {
+        },  
+        change() {   //燈箱的修改按鈕
             
         }
     }
