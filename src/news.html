@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "最新消息"
+    "title" : "最新消息"
     })
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
     <style>
-    
+
     </style>
 </head>
+
 <body class="news">
     <!-- 共用header -->
     @@include('layout/header-final.html')
     <!-- 共用header end -->
     <!-- 最新消息h2 -->
     @@include('layout/h2Style.html',{
-        "h2Title" : "最新消息"
+    "h2Title" : "最新消息"
     })
     <img id="airplane" src="./images/airplane.svg" alt="">
 
     <!-- 伊果快報 -->
     <section id="all_news" class="newspapers">
         @@include('layout/title.html',{
-            "h3TitleTC" : "伊果快報",
-            "h3TitleEN": "Eagle News"
+        "h3TitleTC" : "伊果快報",
+        "h3TitleEN": "Eagle News"
         })
         <div class="wrap">
-            <transition-group name="cards" tag="div" class="all-card">
-                <card-component v-for="item in cards" :item="item" :key="item.id" @click.native="setFocusId(item.id)"/>
-            </transition-group>
-            <div id="newsinner "class="news_inner full-screen">
-                <div class="inner_total  lightbox-bdr">
-                    <i @click="close" id="close" 
-                    class="fa-solid fa-xmark"></i>
+            <div class="all-card" name="cards">
+                <card-component v-for="(item,index) in cards" :item="item" :key="item.id"
+                    @click.native="setFocusId(item.news_no)" />
+            </div>
+            <div id="newsinner " class="news_inner full-screen">
+                <div id="lightbox" class="inner_total  lightbox-bdr">
+                    <i @click="close" id="close" class="fa-solid fa-xmark"></i>
                     <div>
-                        <news-component :item="showPopupItem"/>
+                        <news-component :item="showPopupItem" />
                     </div>
-                </div>    
+                </div>
             </div>
         </div>
     </section>
@@ -45,8 +47,8 @@
     <!-- 遊行活動 -->
     <section id="parade" class="parade">
         @@include('layout/title.html',{
-            "h3TitleTC" : "遊行活動",
-            "h3TitleEN": "Parades"
+        "h3TitleTC" : "遊行活動",
+        "h3TitleEN": "Parades"
         })
 
         <div class="full">
@@ -68,14 +70,14 @@
 
             </div>
         </div>
-   
+
     </section>
 
     <!-- 設施保養 -->
     <section id="facility" class="facility">
         @@include('layout/title.html',{
-            "h3TitleTC" : "設施保養",
-            "h3TitleEN": "Maintenance"
+        "h3TitleTC" : "設施保養",
+        "h3TitleEN": "Maintenance"
         })
         <div class="full">
             <table>
@@ -117,81 +119,81 @@
     @@include('layout/map.html')
     <!-- footer  -->
     @@include('layout/footer.html')
-    <script>        
-    //開消息燈箱
-        const cards=[{
-            id:1,
-            name:'優惠快訊',
-            img: './images/facilities.jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-        {
-            id:2,
-            name:'活動快報',
-            img: './images/facilities8 (24).jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-        {   
-            id:3,
-            name:'休園公告',
-            img: './images/facilities8 (8).jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-        {
-            id:4,
-            name:'防疫須知',
-            img: './images/facilities2.jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-        {
-            id:5,
-            name:'活動快報',
-            img: './images/facilities8 (2).jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-        {
-            id:6,
-            name:'休園公告',
-            img: './images/facilities8 (18).jpg',
-            info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
-        },
-    ]
-        Vue.component('card-component',{
+    <script>
+        //開消息燈箱
+        //     const cards=[{
+        //         id:1,
+        //         name:'優惠快訊',
+        //         img: './images/facilities.jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        //     {
+        //         id:2,
+        //         name:'活動快報',
+        //         img: './images/facilities8 (24).jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        //     {   
+        //         id:3,
+        //         name:'休園公告',
+        //         img: './images/facilities8 (8).jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        //     {
+        //         id:4,
+        //         name:'防疫須知',
+        //         img: './images/facilities2.jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        //     {
+        //         id:5,
+        //         name:'活動快報',
+        //         img: './images/facilities8 (2).jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        //     {
+        //         id:6,
+        //         name:'休園公告',
+        //         img: './images/facilities8 (18).jpg',
+        //         info:"亞洲第一座U型滑軌懸吊式螺旋雲霄飛，瞬間最高時速122公里。",
+        //     },
+        // ]
+        Vue.component('card-component', {
             methods: {
-                openNews:function(todo){
-                    document.querySelector('.news_inner').style.display="flex";
+                openNews: function (todo) {
+                    document.querySelector('.news_inner').style.display = "flex";
                 }
             },
-            template:`
+            template: `
             <div @click="openNews" class="newspaper_item">
-                <h4>{{item.name}}</h4>
+                <h4>{{item.news_name}}</h4>
                 <div class="picture">
-                    <img :src="item.img" alt="Image">
+                    <img :src="'images//' + item.news_pic">
                 </div>
                 <div class="inner_text">
-                    <p>{{item.info}}</p>
+                    <p>{{item.news_content}}</p>
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
             `,
-            props:{
-                item:Object
+            props: {
+                item: Object
             }
         });
-    
+
         Vue.component('news-component',{
             methods: {
-            
+
             },
             template:`
             <div class="change_inner">
-                <h4>{{item.name}}</h4>
+                <h4>{{item.news_name}}</h4>
                 <div class="inner">
                     <div class="inner_picture">
-                        <img :src="item.img" alt="Image">
+                        <img :src="'images//' + item.news_pic">
                     </div>
                     <div class="inner_artical">
-                        <p>{{item.info}}</p>
+                        <p>{{item.news_content}}</p>
                     </div>
                 </div>
             </div>
@@ -201,37 +203,61 @@
                 newsSource:Object,
             }
         });
-    
+
         new Vue({
-            data(){
-                return {
-                    cards,
-                    focusKey: '',
-                }
+            el: '#all_news',
+            data: {
+                cards: [],
+                focusKey: '',
             },
-            el:'#all_news',
             computed: {
                 showPopupItem() {
-                    return this.cards.find(v => v.id == this.focusKey) ?? this.cards[0];
+                    return this.cards.find(v => v.news_no == this.focusKey) ?? this.cards[0];
                 },
             },
             methods: {
-                close:function(todo){
-                    document.querySelector('.news_inner').style.display="none";
+                close: function (todo) {
+                    document.querySelector('.news_inner').style.display = "none";
                 },
-                setFocusId(id) {
-                    console.log(id)
-                    this.focusKey = id;
+                setFocusId(news_no) {
+                    console.log(news_no)
+                    this.focusKey = news_no;
                     this.$nextTick(() => {
                         console.log(this.showPopupItem)
                     })
                 },
             },
-    
+            // mounted() { //第一步仔入完成才開始執行            
+            //     // console.log("init");
+            //     let xhr = new XMLHttpRequest(); //建立ajax物件取XHR
+            //     // xhr.onload = function(){
+            //     //     this.memRows = JSON.parse(xhr.responseText);
+            //     //     alert(this.memRows);
+            //     //     console.log(this.memRows);
+            //     // }
+            //     xhr.onload = () => { //等待回復訊息
+            //         newsVue.cards = JSON.parse(xhr.responseText); //收到打開資料,儲存到newVue的陣列
+            //         console.log(newsVue.cards);
+            //     }
+            //     xhr.open("get", "php/back_news.php", true); //決定請求送至PHP
+            //     xhr.send(null); //完成送出
+            // },
+            created() {
+                let xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    // alert();
+                    this.cards = JSON.parse(xhr.responseText); //把
+                    // this.cards = xhr.responseText;
+                    // console.log("textResult", this.textResult);
+                    // console.log("objResult", this.objResult)
+                }
+                xhr.open("get", "php/back_news.php", true); //決定請求送至PHP
+                xhr.send(null);
+            },
         })
-    
     </script>
     <script src="js/MNevents.js"></script>
     <script src="js/littlefly.js"></script>
 </body>
+
 </html>

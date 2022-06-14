@@ -52,21 +52,26 @@
                 box-shadow: $card-shadow3;
                 border: 3px solid #ffffff;
                 align-items: center;
+
                 @include md() {
                     aspect-ratio: 9/5;
                     width: 48%;
                     padding: 15px 20px 15px 20px;
-                    &:hover{
+
+                    &:hover {
                         background-color: #d9f1f1;
                     }
-                    &:hover i:last-child{
+
+                    &:hover i:last-child {
                         color: $color6;
                     }
+
                     &:hover img {
                         transform: scale(1.10);
                     }
-                    &:hover p{
-                        color:rgb(42, 42, 42);
+
+                    &:hover p {
+                        color: rgb(42, 42, 42);
                     }
                 }
 
@@ -90,17 +95,18 @@
                     width: 50%;
                     height: 100%;
                     overflow: hidden;
-                    aspect-ratio: 4.5/3;    
+                    aspect-ratio: 4.5/3;
+
                     // object-fit: cover;   //這個是設定在圖片本人
                     img {
                         // width: 155%;
-                        width: 100%;    //圖片寬高應該都是100%;
+                        width: 100%; //圖片寬高應該都是100%;
                         height: 100%;
                         transition: ease 0.3s;
                         object-fit: cover;
                     }
 
-                    @include md(){
+                    @include md() {
                         aspect-ratio: 4.5/3;
                     }
                 }
@@ -113,16 +119,26 @@
                     flex-direction: row;
                     align-items: center;
                     position: relative;
-                    p{
+
+                    p {
                         font-size: $word-fzSize;
-                        
+                        // padding: 5px 15px 0px 15px;
+                        // font-size: 1.4rem;
+                        // font-family: "Noto Sans TC", sans-serif;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        white-space: normal;
+
                         @include md() {
                             padding: 10px 10px 0px 10px;
                             font-size: $word-fzSize;
                         }
                     }
 
-                  
+
 
                     i {
                         color: $color1;
@@ -131,6 +147,7 @@
                         bottom: 0;
                         right: 10px;
                         cursor: pointer;
+
                         @include md() {
                             right: 0px;
                         }
@@ -161,6 +178,7 @@
                             background-position: 10%;
                         }
                     }
+
                     .picture {
                         order: 1;
 
@@ -170,33 +188,45 @@
                     }
                 }
             }
+
             //文章內頁 燈箱
             .news_inner {
 
                 display: none;
+
                 .test {
                     display: flex;
                 }
+
                 .inner_total {
                     padding: 20px 30px 30px 30px;
                     background-color: $color1;
                     margin: auto;
                     position: relative;
                     overflow: hidden;
+                    width: 90vw;
+
                     @include md() {
+                        width: 80vw;
                     }
+
                     @include lg() {
+                        width: 70vw;
                     }
+
                     @include xl() {
+                        width: 60vw;
                     }
+
                     i {
                         font-size: $h5_fzSize;
                         color: $color9;
                         position: absolute;
                         right: 20px;
                         top: 20px;
-                        cursor:pointer;
+                        cursor: pointer;
                     }
+
                     h4 {
                         text-align: center;
                         background-image: url(../images/news_inner_h4.png);
@@ -206,11 +236,13 @@
                         background-position: 50% 50%;
                         color: $color5;
                         font-family: $family1;
+
                         @include md() {
                             line-height: 60px;
                             background-size: 50%;
                             margin: 15px 0 15px 0;
                         }
+
                         @include lg() {
                             background-size: 50%;
                             margin: 25px 0 25px 0;
@@ -220,6 +252,7 @@
                     .inner {
                         overflow-y: auto;
                         width: 100%;
+
                         @include md() {
                             display: flex;
                             justify-content: center;
@@ -230,16 +263,19 @@
                             aspect-ratio: 2 / 1.3;
                             position: relative;
                             overflow: hidden;
-                            @include md{
+
+                            @include md {
                                 width: 50%;
                                 aspect-ratio: 1.5 / 1;
                             }
+
                             img {
                                 width: 100%;
                                 height: 100%;
                                 object-fit: cover;
                             }
-                            &::before{
+
+                            &::before {
                                 content: '';
                                 width: 65px;
                                 height: 10px;
@@ -250,7 +286,8 @@
                                 transform: rotate(40deg);
                                 box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.329);
                             }
-                            &::after{
+
+                            &::after {
                                 content: '';
                                 width: 65px;
                                 height: 10px;
@@ -262,27 +299,30 @@
                                 box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.329);
                             }
                         }
+
                         .inner_artical {
                             width: 100%;
                             margin-top: 10px;
                             margin-bottom: 15px;
-                            @include md(){
+
+                            @include md() {
                                 width: 50%;
                                 margin: 0 10px;
                             }
-                            
-                            p{
+
+                            p {
                                 font-size: $h6-fzSize;
-                                @include md(){
+
+                                @include md() {
                                     font-size: $word-fzSize;
                                 }
-                                
+
                             }
                         }
                     }
 
                 }
-            }       
+            }
         }
     }
 
@@ -335,7 +375,7 @@
                     animation: change 3s linear 2s 3;
 
                     .center {
-                        cursor:grab;
+                        cursor: grab;
                         position: absolute;
                         top: 50%;
                         margin-top: -25px;
@@ -369,6 +409,7 @@
                 table-layout: fixed;
                 line-height: $th-line-height;
                 font-family: $family2;
+
                 tr {
                     th {
                         color: #ffffff;
@@ -378,12 +419,15 @@
                         padding: 5px 0;
                         font-size: $word2-fzSize;
                         font-weight: bold;
-                        @include md(){
+
+                        @include md() {
                             font-size: $btnMd-fzSize;
                         }
-                        @include lg(){
+
+                        @include lg() {
                             font-size: $h6-fzSize;
                         }
+
                         i {
                             animation: circle infinite 3s;
                             animation-timing-function: linear;
@@ -414,15 +458,18 @@
                         color: $color5;
                         padding: 5px 0;
                         font-size: $word2-fzSize;
-                        li{
+
+                        li {
                             margin: 5px 0 5px 0;
                         }
-                        @include md(){
+
+                        @include md() {
                             line-height: 30px;
                             padding: 15px 0;
                             font-size: $btnMd-fzSize;
                         }
-                        @include lg(){
+
+                        @include lg() {
                             line-height: 35px;
                             padding: 25px 0;
                             font-size: $h6-fzSize;
@@ -440,7 +487,7 @@
             color: $color5;
         }
     }
-    
+
 }
 
 .ease {
