@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-14 20:21:33
+-- 產生時間： 2022-06-14 23:08:14
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -195,19 +195,15 @@ INSERT INTO `member` (`mem_no`, `mem_name`, `mem_lastname`, `mem_id`, `mem_psw`,
 (2, '小強', '陳', 'chen', 'chen1234', '0935222333', 'chen@gmail.com', 0, '中壢區民權路3號', '台灣', '1991-01-05', '2022-03-04'),
 (3, '靜香', '林', 'smellgood', 'smellgood123', '0935333444', 'smellgood@gmail.com', 0, '中壢區民權路4號', '台灣', '1990-12-10', '2022-06-05'),
 (4, '丞軒', '葉', 'eagleyeh', 'eagleyeh', '0912345678', 'eagleyeh@gmail.com', 1, '桃園市中壢區復興路46號', '台灣', '1996-06-01', '2022-06-07'),
-(5, '小夫', '賀', 'good', 'goodgood', '0912222522', 'good@gmail.com', '0', '台北市火星街4號7樓', '台灣', '2014-05-13', '2022-06-06'),
-(6, '胖虎', '李', 'fat', 'fatfat', '0945522522', 'fat@gmail.com', '0', '台北市火星街4號6樓', '台灣', '2012-05-12', '2022-06-07'),
-(7, '大雄', '葉', 'yeh', 'yehyeh', '0935522522', 'yeh@gmail.com', '0', '台北市大同路2段3號', '台灣', '2013-02-10', '2022-06-08'),
-(8, '檬檬', '吳', 'mon', 'monmon', '0955522522', 'mon@gmail.com', '0', '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
-(9, '瓜瓜', '吳', 'gua', 'guagua', '0915522522', 'gua@gmail.com', '0', '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
-(10, '莓莓', '吳', 'mei', 'meimei', '0925522522', 'mei@gmail.com', '0', '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
-(11, '叮噹', '小', 'doraemon', 'doraemonlove', '0912222523', 'doraemon@gmail.com', '0', '台北市火星街4號8樓', '台灣', '2014-05-13', '2022-06-14'),
-(12, '牛牛', '劉', 'cow', 'cowcow', '0912222524', 'cow@gmail.com', '0', '動物園草地街23號', '台灣', '2015-01-29', '2022-06-14'),
-(13, '貓貓', '毛', 'cat', 'catcat', '0912222526', 'cat@gmail.com', '0', '動物園屋頂路23號', '台灣', '2015-04-02', '2022-06-14');
-
-
-
-
+(5, '小夫', '賀', 'good', 'goodgood', '0912222522', 'good@gmail.com', 0, '台北市火星街4號7樓', '台灣', '2014-05-13', '2022-06-06'),
+(6, '胖虎', '李', 'fat', 'fatfat', '0945522522', 'fat@gmail.com', 0, '台北市火星街4號6樓', '台灣', '2012-05-12', '2022-06-07'),
+(7, '大雄', '葉', 'yeh', 'yehyeh', '0935522522', 'yeh@gmail.com', 0, '台北市大同路2段3號', '台灣', '2013-02-10', '2022-06-08'),
+(8, '檬檬', '吳', 'mon', 'monmon', '0955522522', 'mon@gmail.com', 0, '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
+(9, '瓜瓜', '吳', 'gua', 'guagua', '0915522522', 'gua@gmail.com', 0, '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
+(10, '莓莓', '吳', 'mei', 'meimei', '0925522522', 'mei@gmail.com', 0, '中壢市新生路213號', '台灣', '2020-07-01', '2022-06-09'),
+(11, '叮噹', '小', 'doraemon', 'doraemonlove', '0912222523', 'doraemon@gmail.com', 0, '台北市火星街4號8樓', '台灣', '2014-05-13', '2022-06-14'),
+(12, '牛牛', '劉', 'cow', 'cowcow', '0912222524', 'cow@gmail.com', 0, '動物園草地街23號', '台灣', '2015-01-29', '2022-06-14'),
+(13, '貓貓', '毛', 'cat', 'catcat', '0912222526', 'cat@gmail.com', 0, '動物園屋頂路23號', '台灣', '2015-04-02', '2022-06-14');
 
 -- --------------------------------------------------------
 
@@ -333,6 +329,15 @@ CREATE TABLE `ticket` (
   `ticket_creat` date NOT NULL COMMENT '票券種類建立日期',
   `ticket_price` int NOT NULL COMMENT '票券價格'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='票券種類';
+
+--
+-- 傾印資料表的資料 `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_no`, `ticket_name`, `ticket_creat`, `ticket_price`) VALUES
+(1, '成人票', '2022-05-22', 1000),
+(2, '幼童票', '2022-05-22', 500),
+(3, '愛心票', '2022-05-22', 400);
 
 -- --------------------------------------------------------
 
@@ -516,7 +521,7 @@ ALTER TABLE `facility`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=10;
+  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
@@ -558,7 +563,7 @@ ALTER TABLE `product_order_item`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號';
+  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket_order`
