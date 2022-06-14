@@ -47,7 +47,7 @@
                     <td>{{prodRow.product_name}}</td>
                     <td>{{prodRow.product_price}}</td>
                     <td>{{prodRow.product_st}}</td>
-                    <td><button @click="show(prodRow.product_no)">修改</button></td>
+                    <td><button @click="show(prodRow.product_no)">編輯</button></td>
                     <td><button @click="showAlert();">刪除</button></td>
                 </tr>
             </table>
@@ -80,7 +80,7 @@
                 </table>
                 <div>
                     <button @click="addPro">新增</button>
-                    <button @click="changeHandler" type="button">修改確定</button>
+                    <button @click="changeHandler" type="button">確定</button>
                 </div>
             </div>
         </div>
