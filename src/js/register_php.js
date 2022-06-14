@@ -15,7 +15,7 @@ function DoFirst(){
         let xhr = new XMLHttpRequest();
         
         // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
-        xhr.open("POST", "./register_ajax.php", true);
+        xhr.open("POST", "./product-order-about.php", true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
         // 3. 封裝接收到的檔案  此處以JSON格式為例
