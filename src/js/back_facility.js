@@ -1,14 +1,6 @@
 
 new Vue({
     el:'#back',
-    // data() {
-    //     return {
-    //         isOpen: false,
-    //         facilityTitle: ['設施序號','設施圖片','設施名稱','所屬園區','維護時間','雨天影響','孕婦乘坐','輪椅乘坐','設施排名','編輯'],
-    //         facilityRows:[],       
-    //     },
-    // },
-    
     data: {
         isOpen: false,
         facilityTitle: ['設施名稱','設施圖片','設施名稱','所屬園區','維護時間','雨天乘坐','孕婦乘坐','輪椅乘坐','設施排名',''],
@@ -26,9 +18,9 @@ new Vue({
             fac_descrip: '',
             fac_chart: '',
         },
+        defaultResult: {},//新的更新過的資料
+        sendFacObj:{},
     },
-
- 
     computed: { //一直在做
         currentItem() { //現在原本的的資料
             return this.facilityRows.find(v => v.fac_no == this.currentNo) ?? this.facilityRows[0]
@@ -58,7 +50,15 @@ new Vue({
         change() {   //燈箱的修改按鈕
             this.isOpen = false;
             
-        }
+        },
+        async changeFinalFac() {//非同步//綁最後的按鍵     
+            let sendFacObj = JSON.stringify(this.popup);//取最後要在資料庫呈現的東西
+            let xhr = new XMLHttpRequest();
+            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+            xhr.open("POST","./php/update_back_facility.php",true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.send(`json=${sendFacObj}`);
+        },
     },
     mounted(){
         let xhr = new XMLHttpRequest();
