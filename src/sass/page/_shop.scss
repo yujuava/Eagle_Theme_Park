@@ -101,7 +101,7 @@
     // border: 1px solid #000;
     position: absolute;
     width: 11%;
-    left: 82%;
+    left: 83%;
     top: 10%;
     aspect-ratio: 1/1;
   }
@@ -154,6 +154,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    i{
+      color: $color9;
+    }
   }
   
   #sliderLeft, #sliderRight{
@@ -198,9 +201,9 @@
   @include bgBtn(shop){
     
   }  
-  .shopbtn{
-    border: 3px solid $color3;
-  }
+  // .shopbtn{
+  //   border: 3px solid $color3;
+  // }
   // ------商品-------------------------------------
   .product{
       >div{
