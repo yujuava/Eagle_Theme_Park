@@ -185,6 +185,7 @@
                     last_name: '',
                     first_name: ''
                 },
+                // total,
             },
             mounted() {},
             methods: {
@@ -201,16 +202,19 @@
 
                     // 3. 封裝接收到的檔案  此處以JSON格式為例
                     // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
-                    let sendObj = {};
+                    let sendObj = {carts};
 
+                    // let sendpro = {carts};
                     Object.keys(this.objResult).forEach(key => {
                         // console.log(this.objResult[key]);
                         if (this.objResult[key]) sendObj[key] = this.objResult[
                         key]; //如果這個key是原來的，給的資料就是原來的
                         else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
                     })
-                    console.log(sendObj)
-
+                    // console.log(sendObj)
+                    // console.log(carts)
+                    // let ordercarts = {};
+                    // console.log(total)
                     // sendObj.memId = $id("acount").value;//this.acount
                     // sendObj.memPsw = $id("password").value;//this.password
 
@@ -223,9 +227,10 @@
                     // xhr.send(data_info);
 
                     let data_info = `json=${JSON.stringify(sendObj)}`;
-
+                    // let data_pro = `json=${(JSON.stringify(carts))}`;
                     // // 5. XMLHttpRequest送出
                     xhr.send(data_info);
+                    // xhr.send(carts);
                 }
             },
             computed: {
