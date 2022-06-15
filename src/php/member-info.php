@@ -30,6 +30,22 @@ try{
     $members->execute();
     echo "異動成功~~";
 
+	// 同時更新SESSION 新註冊會員資料為空的 若未同步更新會造成無法讀取
+	$sql = "select * from `member` where mem_no=:mem_no";
+	$member = $pdo->prepare($sql);
+	$member -> bindValue(":mem_no", $dataset["mem_no"]);
+	$member -> execute();
+	$memRow = $member->fetch(PDO::FETCH_ASSOC);
+    $_SESSION["mem_no"] = $memRow["mem_no"]; //把正確的欄位送到session =前面是給seesion =後面是依據mysql的
+    $_SESSION["mem_id"] = $memRow["mem_id"];
+    $_SESSION["mem_name"] = $memRow["mem_name"];
+    $_SESSION["mem_mail"] = $memRow["mem_mail"];
+    $_SESSION["mem_psw"] = $memRow["mem_psw"];
+    $_SESSION["mem_lastname"] = $memRow["mem_lastname"];
+    $_SESSION["mem_tel"] = $memRow["mem_tel"];
+    $_SESSION["mem_address"] = $memRow["mem_address"];
+    $_SESSION["mem_country"] = $memRow["mem_country"];
+
 }catch(PDOException $e){
 	echo "系統暫時無法提供服務, 請聯絡系統維護人員<br>";
 	echo "錯誤訊息 : ", $e->getMessage(), "<br>";
