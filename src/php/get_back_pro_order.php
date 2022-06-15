@@ -12,9 +12,9 @@ try{
     // $x = $pdo->exec($sql);
     // echo "成功了異動了{$x}筆資料<br>";  
 
-    $facility = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
-	$facilityRows = $facility->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($facilityRows);
+    $orderRow = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
+	$orderRows = $orderRow->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($orderRows);
 }catch(PDOException $e){
     echo"錯誤訊息:" ,$e->getMessage(),"<br>";
     echo"錯誤行號:" ,$e->getLine(),"<br>";
