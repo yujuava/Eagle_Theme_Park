@@ -54,9 +54,17 @@ var prods = new Vue({
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
-            xhr.open("POST","./php/update_back_product.php",true);
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            xhr.send(`json=${sendObj}`);
+
+            let formData = new FormData();
+            formData.append("product_name", this.popup.product_name);
+            formData.append("product_infor", this.popup.product_infor);
+            formData.append("product_price", this.popup.product_price);
+            // alert(document.getElementById("uploadPic").files.length);
+            formData.append("product_pic", document.getElementById("uploadPic").files[0]);
+
+            xhr.open("POST","./php/add_back_product.php",true);
+            
+            xhr.send(formData);
 
             window.confirm("是否確認新增?");
             this.isOpen = false;
