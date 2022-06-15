@@ -63,11 +63,11 @@ Vue.component('member-order',{
                 <div class="th-col order-num">
                     <div>
                         <span>訂單編號</span>
-                        <span>{{item.id}}</span>
+                        <span>{{123}}</span>
                     </div>
                     <div>
                         <span>訂單日期</span>
-                        <span>{{item.date}}</span>
+                        <span>{{123}}</span>
                     </div>
                 </div>
                 <div class="th-col">
@@ -89,17 +89,17 @@ Vue.component('member-order',{
                 </div>
 
                 <div class="pc-sum pc-list">
-                    <p> $ {{item.sum}}</p>
+                    <p> $ {{123}}</p>
 
                 </div>
                 
                 <div class="pc-pay-state pc-list">
-                    <p>{{item.payState}}</p>
+                    <p>{{123}}</p>
 
                 </div>
 
                 <div class="pc-order-state pc-list">
-                    <p>{{item.orderState}}</p>
+                    <p>{{123}}</p>
 
                 </div>
 
@@ -161,8 +161,10 @@ Vue.component('product-list',{
 new Vue({
     el: '#memberCentre',
     data: {     // 變數放這裡!
+         //按鈕
         type:'A',
         isActive: true,
+         //會員資料
         textResult:[], //ajax回傳
         //編輯會員
         objResult: {},//原來的物件
@@ -173,21 +175,26 @@ new Vue({
         inputPsw1:"",
         inputPsw2:"",
 
+        //訂單資料
+        productOrderNo:[],
+        objOrderResult:{},
     },
     methods: {  // 函數大部分放這裡!
-
+        // 按鈕換頁1
         changeA(){
         this.type = 'A';
         this.$refs.A.style.background="#FDB52D";
         this.$refs.B.style.background="#A7D4D3";
         this.$refs.C.style.background="#A7D4D3";
         },
+        // 按鈕換頁2
         changeB(){
         this.type = 'B'
         this.$refs.B.style.background="#FDB52D";
         this.$refs.A.style.background="#A7D4D3";
         this.$refs.C.style.background="#A7D4D3";
         },
+        // 按鈕換頁3
         changeC(){
         this.type = 'C'
         this.$refs.C.style.background="#FDB52D";
@@ -208,16 +215,33 @@ new Vue({
                 if (this.objResult[key]) sendObj[key] = this.objResult[key];//如果這個key是原來的，給的資料就是原來的
                 else sendObj[key] = this.defaultResult[key];//不然給的就是新的結果
             })
-            console.log("sendObj",sendObj)
+            console.log("會員:sendObj",sendObj)
             let data_info = `json=${JSON.stringify(sendObj)}`; 
 
           
             // xhr.send(JSON.stringify(sendObj));
             xhr.send(data_info);
         },
-       
     },
-    computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
+
+    computed: {
+        getOrder() {    //幾筆訂單
+            return this.objOrderResult.set(v => {
+                return v.product_order_no == this.productOrderNo
+            })
+        },
+        //如果會員編號==訂單的會員編號，就撈出來
+        // getMemberOrder(){
+        //     // console.log("會員編號",defaultResult.mem_no)
+        //     // console.log("訂單的會員編號",this.objOrderResult[0].mem_no)
+        //     Object.keys(this.objOrderResult).forEach( key => {
+        //         // console.log("objResult[key]",this.objResult[key]);
+        //         console.log("訂單的會員編號",this.objOrderResult[key].mem_no)
+        //         return this.objOrderResult.filter( v => {
+        //             return v.mem_no == this.objResult.mem_no
+        //         })
+        //     })
+        // }
     },
     created(){
         //會員資料
@@ -227,10 +251,24 @@ new Vue({
             this.objResult = JSON.parse(xhr.responseText); //把
             this.defaultResult = JSON.parse(xhr.responseText);
             this.textResult = xhr.responseText;
-            console.log("textResult",this.textResult);
-            console.log("objResult",this.objResult)
+            // console.log("會員資料:textResult",this.textResult);
+            console.log("會員資料:objResult",this.objResult)
         }
         xhr.open("get","./php/login_getMember.php",true);
         xhr.send(null);
+
+        //訂單資料
+        let xhrOrder = new XMLHttpRequest();
+        xhrOrder.onload = () => {
+            // alert();
+            this.objOrderResult = JSON.parse(xhrOrder.responseText); //把
+            this.defaultResult = JSON.parse(xhrOrder.responseText);
+            // this.textResult = xhrOrder.responseText;
+            // console.log("訂單:textResult",this.textResult);
+            console.log("訂單:objOrderResult",this.objOrderResult)            
+        }
+        xhrOrder.open("get","./php/member-order.php",true);
+        xhrOrder.send(null);
+
     },
 });
