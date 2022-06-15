@@ -201,10 +201,11 @@
             methods: {
                 //計算燈箱內商品數量加減
                 countadd(id, amount) {
-                    console.log(id)
-                    let item = this.prodRows[id - 1].product_amount + amount;
+                    let idRowsList = this.prodRows.map(item => Object.values(item)[0]);
+                    let realId = idRowsList.indexOf(id)
+                    let item = this.prodRows[realId].product_amount + amount;
                     if (item >= 1) {
-                        this.prodRows[id - 1].product_amount = item;
+                        this.prodRows[realId].product_amount = item;
                     }
                 },
                 show() {
@@ -228,13 +229,15 @@
                     //如果有相同ID -> 更新相對應ID的數量
                     const idList = carts.map(item => Object.values(item)[0]);
                     //有存在(更新數量放回localstorage)
+                    let idRowsList = this.prodRows.map(item => Object.values(item)[0]);
+                    let realId = idRowsList.indexOf(id)
                     if (idList.indexOf(id) != -1) {
-                        carts[idList.indexOf(id)].product_amount += this.prodRows[id - 1].product_amount
+                        carts[idList.indexOf(id)].product_amount += this.prodRows[realId].product_amount
                         alert('已加入購物車')
                         //不存在(整筆商品放入localstorage)
                     } else {
-                        console.log(id)
-                        let sumid = this.prodRows[id - 1];
+                        // console.log(id)
+                        let sumid = this.prodRows[realId];
                         carts.push(sumid)
                         alert('已加入購物車')
                     }
@@ -245,6 +248,7 @@
             },
         })
         const prodRows = [];
+
         function getProducts() {
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
@@ -261,4 +265,5 @@
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
 </body>
+
 </html>

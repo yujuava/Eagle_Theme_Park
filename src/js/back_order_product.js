@@ -44,6 +44,7 @@ let orderVue = new Vue({
         showPopupItem() {
             return this.orderRows.find(v => v.product_order_no == this.focusKey) ?? this.orderRows[0];
         },
+
     },
     mounted(){     
         
@@ -60,7 +61,7 @@ let orderVue = new Vue({
             // console.log(result);
             let set = new Set();
             orderVue.results = orderVue.orderRows.filter(item => !set.has(item.product_order_no) ? set.add(item.product_order_no) : false);
-            // console.log(orderVue.results); 
+            console.log(orderVue.results); 
             // let results=[result];
         }
 
@@ -74,25 +75,3 @@ let orderVue = new Vue({
     }
 })
 
-// var origin = [1, 2, 'a', 3, 1, 'b', 'a'];
-// var result = [...(new Set(orderRows))];
-// console.log(result);
-
-// var origin = [1, 2, 'a', 3, 1, 'b', 'a'];
-// var result = [...(new Set(origin))];
-// console.log(result); // [1, 2, "a
-
-// var origin = [1, 2, 'a', 3, 1, 'b', 'a'];
-// var result = Array.from(new Set(origin));
-// console.log(result); // [1, 2, "a", 3, "b"]
-
-// const arr = [
-//     {name:'alex',value:10},
-//     {name:'alex',value:20},
-//     {name:'tom',value:30},
-//     {name:'tom',value:40}
-//   ];
-//   const set = new Set();
-//   const result = arr.filter(item => !set.has(item.name) ? set.add(item.name) : false);
-//   console.log(result); 
-  // [{name: "alex", value: 10}, {name: "tom", value: 30}]
