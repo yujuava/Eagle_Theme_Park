@@ -164,8 +164,15 @@ new Vue({
         type:'A',
         isActive: true,
         textResult:[], //ajax回傳
+        //編輯會員
         objResult: {},//原來的物件
         defaultResult: {},//新的更新過的資料
+        //驗證新密碼與確認密碼相同
+        pswResult1:"",
+        pswResult2:"",
+        inputPsw1:"",
+        inputPsw2:"",
+
     },
     methods: {  // 函數大部分放這裡!
 
