@@ -1,58 +1,70 @@
 // by hana
-const orderDetail=[{
-    id:"#1111",
-    date:'2022-05-28',
-    sum:'111',  //如何計算
-    payState:'已收到款項',
-    orderState:'已完成',
-    productList:[
-    {
-        id:1,
-        name:'伊果帽子',
-        price:'700',
-        count:'3',
-    },
-    {
-        id:2,
-        name:'伊果雨衣',
-        price:'100',
-        count:'5',
-    },
-    {
-        id:3,
-        name:'伊果短T',
-        price:'700',
-        count:'1',
-    },
-    ]
-},
-{
-    id:"#1112",
-    date:'2022-05-29',
-    sum:'1332',
-    payState:'已收到款項',
-    orderState:'已完成',
-    productList:[
-    {
-        id:1,
-        name:'伊果褲子',
-        price:'200',
-        count:'2',
-    },
-    ]
-}
-]
+// const orderDetail=[{
+//     id:"#1111",
+//     date:'2022-05-28',
+//     sum:'111',  //如何計算
+//     payState:'已收到款項',
+//     orderState:'已完成',
+//     productList:[
+//     {
+//         id:1,
+//         name:'伊果帽子',
+//         price:'700',
+//         count:'3',
+//     },
+//     {
+//         id:2,
+//         name:'伊果雨衣',
+//         price:'100',
+//         count:'5',
+//     },
+//     {
+//         id:3,
+//         name:'伊果短T',
+//         price:'700',
+//         count:'1',
+//     },
+//     ]
+// },
+// {
+//     id:"#1112",
+//     date:'2022-05-29',
+//     sum:'1332',
+//     payState:'已收到款項',
+//     orderState:'已完成',
+//     productList:[
+//     {
+//         id:1,
+//         name:'伊果褲子',
+//         price:'200',
+//         count:'2',
+//     },
+//     ]
+// }
+// ]
 // 會員訂單組件
 Vue.component('member-order',{
     data(){
-        return{}
+        return{
+            
+        }
     },
-    props:{
-        item:Object
+    props:{ //爸爸傳什麼給小孩，小孩在這裡接
+        orderlist:Object,
+        // getOrder:Function,
+        orderlistSon: {
+            type: Object
+        },
+        
+
+
     },
     computed: {
+        // list() {
+        // return this.item.productList ?? []; //如果item裡面沒有list,就空陣列
+        // }
         list() {
-        return this.item.productList ?? []; //如果item裡面沒有list,就空陣列
+            return this.orderlistSon.data ?? [];
         }
     },
     template:`
@@ -63,11 +75,11 @@ Vue.component('member-order',{
                 <div class="th-col order-num">
                     <div>
                         <span>訂單編號</span>
-                        <span>{{123}}</span>
+                        <span>{{orderlistSon.product_order_no}}</span>
                     </div>
                     <div>
                         <span>訂單日期</span>
-                        <span>{{123}}</span>
+                        <span>{{orderlistSon.product_order_time}}</span>
                     </div>
                 </div>
                 <div class="th-col">
@@ -85,21 +97,21 @@ Vue.component('member-order',{
             <!-- 商品欄位 -->
             <div class="all-tr">
                 <div class="product-list">
-                    <product-list  v-for="subitem in list" :item="subitem" :key="subitem.id"> </product-list>  
+                   <product-list  v-for="orderDetail in list" :item="orderDetail" :apple ="orderDetail"> </product-list> 
                 </div>
 
                 <div class="pc-sum pc-list">
-                    <p> $ {{123}}</p>
+                    <p> $ {{orderlistSon.product_order_tp}}</p>
 
                 </div>
                 
                 <div class="pc-pay-state pc-list">
-                    <p>{{123}}</p>
+                    <p>已收到款項</p>
 
                 </div>
 
                 <div class="pc-order-state pc-list">
-                    <p>{{123}}</p>
+                    <p>{{orderlistSon.order_shipping}}</p>
 
                 </div>
 
@@ -108,7 +120,7 @@ Vue.component('member-order',{
 
             <!-- 總金額 -->
 
-            <div class="tr sum">總金額   $1255</div>
+            <div class="tr sum">總金額{{orderlistSon.product_order_tp}}</div>
             <!-- 狀態 -->
             <div class="tr state">
 
@@ -119,12 +131,12 @@ Vue.component('member-order',{
 
                 <div  class="tr-col">
                     <p>配送狀態</p>
-                    <p>已出貨</p>
+                    <p>未出貨</p>
                 </div>
 
                 <div  class="tr-col">
                     <p>訂單狀態</p>
-                    <p></p>
+                    <p>{{orderlistSon.order_shipping}}</p>
                 </div>
 
             </div>
@@ -141,17 +153,21 @@ Vue.component('product-list',{
         return{}
     },
     props:{
-        item:Object
+        orderDetail:Object,
+        orderlist:Object,
+        apple: {
+            type: Object
+        },
     },
     method:{
         //所有總數如何相加
     },
     template:`
         <div class="tr product">
-            <p class="td">{{item.name}}</p>
+            <p class="td">{{apple.product_name}}</p>   
             <span class="td">
-                <p>{{item.price}}</p>
-                <p>數量: {{item.count}}</p>
+                <p>{{apple.product_order_price}}</p>
+                <p>數量: {{apple.product_total}}</p>
             </span>
         </div>
     `,
@@ -160,11 +176,11 @@ Vue.component('product-list',{
 
 new Vue({
     el: '#memberCentre',
-    data: {     // 變數放這裡!
-         //按鈕
+    data: { 
+        //按鈕
         type:'A',
         isActive: true,
-         //會員資料
+        //會員資料
         textResult:[], //ajax回傳
         //編輯會員
         objResult: {},//原來的物件
@@ -178,6 +194,7 @@ new Vue({
         //訂單資料
         productOrderNo:[],
         objOrderResult:{},
+        
     },
     methods: {  // 函數大部分放這裡!
         // 按鈕換頁1
@@ -226,22 +243,35 @@ new Vue({
 
     computed: {
         getOrder() {    //幾筆訂單
-            return this.objOrderResult.set(v => {
-                return v.product_order_no == this.productOrderNo
-            })
+              var map = {},
+                  newObj = [];
+              for(var i = 0; i < this.objOrderResult.length; i++){
+                  var eachObj = this.objOrderResult[i];
+                  // console.log("每個物件:",eachObj);
+                if(!map[eachObj.product_order_no]){
+                      newObj.push({
+                        product_order_no: eachObj.product_order_no,
+                        product_order_tp: eachObj.product_order_tp,
+                        order_shipping: eachObj.order_shipping,
+                        product_order_time: eachObj.product_order_time,
+                        
+                        data: [eachObj],
+                      });
+                      map[eachObj.product_order_no] = eachObj;
+                  }else{
+                      for(var j = 0; j < newObj.length; j++){
+                          var dj = newObj[j];
+                          if(dj.product_order_no == eachObj.product_order_no){
+                              dj.data.push(eachObj);
+                            //   console.log("dj",dj);
+                              break;
+                          }
+                      }
+                  }
+              }
+            console.log("newObj:",newObj);
+            return newObj;
         },
-        //如果會員編號==訂單的會員編號，就撈出來
-        // getMemberOrder(){
-        //     // console.log("會員編號",defaultResult.mem_no)
-        //     // console.log("訂單的會員編號",this.objOrderResult[0].mem_no)
-        //     Object.keys(this.objOrderResult).forEach( key => {
-        //         // console.log("objResult[key]",this.objResult[key]);
-        //         console.log("訂單的會員編號",this.objOrderResult[key].mem_no)
-        //         return this.objOrderResult.filter( v => {
-        //             return v.mem_no == this.objResult.mem_no
-        //         })
-        //     })
-        // }
     },
     created(){
         //會員資料
@@ -261,11 +291,13 @@ new Vue({
         let xhrOrder = new XMLHttpRequest();
         xhrOrder.onload = () => {
             // alert();
-            this.objOrderResult = JSON.parse(xhrOrder.responseText); //把
-            this.defaultResult = JSON.parse(xhrOrder.responseText);
+            this.objOrderResult = JSON.parse(xhrOrder.responseText);
             // this.textResult = xhrOrder.responseText;
             // console.log("訂單:textResult",this.textResult);
-            console.log("訂單:objOrderResult",this.objOrderResult)            
+            console.log("訂單:objOrderResult",this.objOrderResult);
+            
+            let set = new Set();
+
         }
         xhrOrder.open("get","./php/member-order.php",true);
         xhrOrder.send(null);
