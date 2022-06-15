@@ -4,7 +4,7 @@ $json = $_POST["json"];
 // // 2. 解封裝並儲存到DATASET變數裡
 $dataset = json_decode($json, true); //true:關聯性陣列
 
-// echo var_dump($dataset);
+echo var_dump($dataset);
 $total = 0;
 // $ary = $dataset["carts"];
 // $stotal = $ary[0]["product_price"] * $ary[0]["product_amount"]
@@ -31,21 +31,19 @@ try{
 	$order->bindValue(":mem_address", $dataset["mem_address"]);
 	$order->bindValue(":product_order_tp", $total);
 	$order->execute();
+	$orderNo = $pdo->lastInsertId();
 
-	
+	$sql = "INSERT INTO `product_order_item` (`product_order_no`, `product_no`, `product_total`, `product_order_price`) VALUES ($orderNo, :product_no, :product_amount, :product_price);";
+		
+	$orderitem = $pdo->prepare($sql);
 	for($j=0;$j<count($dataset["carts"]);$j++){
-		
-		$sql = "INSERT INTO `product_order_item` (`product_order_no`, `product_no`, `product_total`, `product_order_price`) VALUES (NULL, :product_no, :product_amount, :product_price);";
-		
-		$orderitem = $pdo->prepare($sql);
 		$orderitem->bindValue(":product_no",$dataset["carts"][$j]["product_no"]);
 		$orderitem->bindValue(":product_amount", $dataset["carts"][$j]["product_amount"]);
 		$orderitem->bindValue(":product_price", $dataset["carts"][$j]["product_price"]);
 		$orderitem->execute();
-		
 	}
 
-	echo json_encode("0"); // response 0 as sucess order
+	echo json_encode("{}"); // response 0 as sucess order
 
 }catch(PDOException $e){
 	echo "系統暫時無法提供服務, 請聯絡系統維護人員<br>";

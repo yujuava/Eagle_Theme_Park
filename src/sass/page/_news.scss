@@ -42,6 +42,7 @@
 
             //文章外面
             .newspaper_item {
+                cursor: pointer;
                 background-color: $color2;
                 margin-bottom: 20px;
                 display: flex;
@@ -53,26 +54,27 @@
                 border: 3px solid #ffffff;
                 align-items: center;
 
+                &:hover {
+                    background-color: #d9f1f1;
+                }
+
+                &:hover i:last-child {
+                    color: $color6;
+                }
+
+                &:hover img {
+                    transform: scale(1.10);
+                }
+
+                &:hover p {
+                    color: rgb(42, 42, 42);
+                }
+                
                 @include md() {
                     aspect-ratio: 9/5;
                     width: 48%;
                     padding: 15px 20px 15px 20px;
 
-                    &:hover {
-                        background-color: #d9f1f1;
-                    }
-
-                    &:hover i:last-child {
-                        color: $color6;
-                    }
-
-                    &:hover img {
-                        transform: scale(1.10);
-                    }
-
-                    &:hover p {
-                        color: rgb(42, 42, 42);
-                    }
                 }
 
                 @include lg() {}
