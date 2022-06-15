@@ -18,16 +18,21 @@
 
     <section class="visitor-Experience-Page">
         <div class="container card-bdr">
-            <div class="card">
+            <div id="pages">
+                <transition-group name="item" tag="div">
+                    <list-component v-for="item in list" :item="item" :key="item.id">
+                </transition-group>
+            </div>
+            <!-- <div class="card">
                 <div class="card-header"></div>
                 <div class="card-pic">
                     <div class="pic">
                         <img src="./images/happy4.jpg" alt="isgood">
                     </div>  
                 </div>
-                <div class="card-body">
+                <div class="card-body"> -->
                     <!-- 會員頭像 -->
-                    <div class="mem">
+                    <!-- <div class="mem">
                         <div class="mem-pic">
                             <img src="./images/mem.png" alt="小鷹">
                         </div>
@@ -36,10 +41,10 @@
                     </div>
                     <p>伊果樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模。</p>
                 </div>
-                <div class="card-footer"></div>
-            </div>
+                <div class="card-footer"></div> -->
+            <!-- </div> -->
             <!-- 留言區 -->
-            <div class="message-area">
+            <!-- <div class="message-area">
                 <div class="item">
                     <div class="pic">
                         <img src="./images/eagle-stand-s.png" alt="">
@@ -83,9 +88,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="message-bar">
+                <!-- <div class="message-bar">
                     <div class="pic">
                         <img src="./images/eagle-stand-s.png" alt="">
                     </div>
@@ -95,9 +100,10 @@
 
                 <div class="message-footer"></div>
 
-            </div>
+            </div> -->
         </div>
     </section>
+    <script src="./js/page.js"></script>
 
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
