@@ -187,7 +187,8 @@ new Vue({
         this.$refs.B.style.background="#A7D4D3";
         this.$refs.A.style.background="#A7D4D3";
         },
-        async sendData() {//非同步//綁最後的按鍵
+        //非同步//綁會員修改完成的按鍵
+        async sendData() {
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
             xhr.open("POST","./php/member-info.php",true);
@@ -212,6 +213,7 @@ new Vue({
     computed: { // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
     },
     created(){
+        //會員資料
         let xhr = new XMLHttpRequest();
         xhr.onload = () => {
             // alert();
