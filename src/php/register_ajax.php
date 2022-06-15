@@ -1,4 +1,5 @@
 <?php 
+
 // 1. 接收送過來的JSON檔案
 $json = $_POST["json"]; 
 // 2. 解封裝並儲存到DATASET變數裡
@@ -30,7 +31,29 @@ try{
 	$register->bindValue(":mem_id", $dataset["memId"]);
 	$register->bindValue(":mem_psw", $dataset["memPsw1"]);
 	$register->execute();
-	echo json_encode("0"); // response 0 as sucess register
+
+	session_start();
+	// 同時寫入SESSION以便後續都入使用
+	// 寫入session後直接帶入
+	$sql = "select * from `member` where mem_id=:mem_id";
+	$member = $pdo->prepare($sql);
+	$member ->bindValue(":mem_id", $dataset["memId"]);
+	$member->execute();
+	$memRow = $member->fetch(PDO::FETCH_ASSOC);
+    $_SESSION["mem_no"] = $memRow["mem_no"]; //把正確的欄位送到session =前面是給seesion =後面是依據mysql的
+    $_SESSION["mem_id"] = $memRow["mem_id"];
+    $_SESSION["mem_name"] = $memRow["mem_name"];
+    $_SESSION["mem_mail"] = $memRow["mem_mail"];
+    $_SESSION["mem_psw"] = $memRow["mem_psw"];
+    $_SESSION["mem_lastname"] = $memRow["mem_lastname"];
+    $_SESSION["mem_tel"] = $memRow["mem_tel"];
+    $_SESSION["mem_address"] = $memRow["mem_address"];
+    $_SESSION["mem_country"] = $memRow["mem_country"];
+
+
+	// response 0 as sucess register
+	// Note: even echo a single word, strongly recommend encode dataType in Object
+	echo json_encode("0"); 
 
 }catch(PDOException $e){
 	echo "系統暫時無法提供服務, 請聯絡系統維護人員<br>";
