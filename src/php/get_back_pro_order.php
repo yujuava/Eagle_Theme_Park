@@ -7,14 +7,9 @@ try{
     , p.product_name,o.product_order_time, o.mem_no,o.product_order_place, o.product_order_tp, o.order_shipping,m.mem_name
    from product p join product_order_item i on p.product_no = i.product_no
    LEFT join product_order o on i.product_order_no = o.product_order_no
-<<<<<<< HEAD
-   LEFT join member m on o.mem_no = m.mem_no;";
-    // $pdoStatement = $pdo->query($sql); 
-=======
    LEFT join member m on o.mem_no = m.mem_no
    order by product_order_no ASC;";
     $pdoStatement = $pdo->query($sql); 
->>>>>>> Ava
     // $x = $pdo->exec($sql);
     // echo "成功了異動了{$x}筆資料<br>";  
 

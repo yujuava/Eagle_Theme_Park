@@ -27,6 +27,7 @@ let orderVue = new Vue({
         helperTitle: ['關鍵字編號','關鍵字','關鍵字回應'],
         orderRows:[],      //資料的陣列
         results:[],
+        newObj:[],
     },
     methods: {   
         show(){
@@ -39,6 +40,11 @@ let orderVue = new Vue({
                 console.log(this.showPopupItem)
             })
         },
+        idpopup(){
+
+            // let idRowsList = this.orderRows.map(item => Object.values(item)[0]); 
+            // // console.log(no)
+        }
     },
     computed: {
         showPopupItem() {
@@ -61,8 +67,31 @@ let orderVue = new Vue({
             // console.log(result);
             let set = new Set();
             orderVue.results = orderVue.orderRows.filter(item => !set.has(item.product_order_no) ? set.add(item.product_order_no) : false);
-            console.log(orderVue.results); 
+            // console.log(orderVue.results); 
             // let results=[result];
+            var map = {};
+            // orderVue.newObj = [];
+            for(var i = 0; i < orderVue.orderRows.length; i++){
+                var eachObj = orderVue.orderRows[i];
+            if(!map[eachObj.product_order_no]){
+                    orderVue.newObj.push({
+                        product_order_no: eachObj.product_order_no,
+                        data: [eachObj]
+                    });
+                    map[eachObj.product_order_no] = eachObj;
+                }else{
+                    for(var j = 0; j < orderVue.newObj.length; j++){
+                        var dj = orderVue.newObj[j];
+                        if(dj.product_order_no == eachObj.product_order_no){
+                            dj.data.push(eachObj);
+                        //   console.log("dj",dj);
+                            break;
+                        }
+                    
+                    }
+                }
+            }
+            console.log("newObj:",orderVue.newObj[0].data[0].product_name);
         }
 
         
@@ -75,3 +104,7 @@ let orderVue = new Vue({
     }
 })
 
+
+  
+
+  

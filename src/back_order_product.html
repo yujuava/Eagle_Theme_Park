@@ -49,7 +49,7 @@
                     </td>
                     <td>已付款</td>
                     <td>{{item.product_order_place}}</td>
-                    <td><button @click="show">MORE</button></td>
+                    <td @click="idpopup()"><button @click="show">MORE</button></td>
                 </tr>
             </table>
         </div>
@@ -59,7 +59,7 @@
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                 <div>
-                    <table-component v-for="item in orderRows":item="showPopupItem"></table-component>
+                    <table-component v-for="item in orderRows" :item="showPopupItem"></table-component>
                 </div>
                 
             </div>

@@ -6,18 +6,10 @@ $dataset = json_decode($json, true); //true:關聯性陣列
 
 echo var_dump($dataset);
 $total = 0;
-// $ary = $dataset["carts"];
-// $stotal = $ary[0]["product_price"] * $ary[0]["product_amount"]
 for($i=0;$i<count($dataset["carts"]);$i++){
 	$stotal = ($dataset["carts"][$i]["product_price"]*($dataset["carts"][$i]["product_amount"]));
 	$total += $stotal;}
-// echo $total;
-// echo var_dump(($ary[0]["product_price"] * $ary[0]["product_amount"]))
-// echo var_dump(($dataset["carts"][0]["product_price"]*($dataset["carts"][0]["product_amount"])));
-// echo $dataset["mem_name"];
-// echo var_dump(count($dataset["carts"]));
 
-// echo $dataset.mem_no
 // echo "商品編號:";
 try{
 
