@@ -37,8 +37,8 @@ try{
 	// 寫入session後直接帶入
 	$sql = "select * from `member` where mem_id=:mem_id";
 	$member = $pdo->prepare($sql);
-	$member ->bindValue(":mem_id", $dataset["memId"]);
-	$member->execute();
+	$member -> bindValue(":mem_id", $dataset["memId"]);
+	$member -> execute();
 	$memRow = $member->fetch(PDO::FETCH_ASSOC);
     $_SESSION["mem_no"] = $memRow["mem_no"]; //把正確的欄位送到session =前面是給seesion =後面是依據mysql的
     $_SESSION["mem_id"] = $memRow["mem_id"];
