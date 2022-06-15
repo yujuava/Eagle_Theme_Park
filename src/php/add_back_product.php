@@ -1,15 +1,10 @@
 <?php
 session_start();
-//接收送過來的json檔
-// $json = $_POST["json"];
 
-// //解封裝儲存到DATASET變數裡
-// $dataset = json_decode($json,true);
-// echo $dataset["mem_name"];
 try{
     require_once("../connect_cgd101g3.php");
     $fileInfoArr = pathinfo($_FILES["product_pic"]["name"]);
-	$fileName = uniqid().".{$fileInfoArr["extension"]}"; //usq321Bddd.gif 
+	$fileName = uniqid().".{$fileInfoArr["extension"]}"; 
 
 	$from = $_FILES["product_pic"]["tmp_name"];
 	$to = "../images/$fileName";

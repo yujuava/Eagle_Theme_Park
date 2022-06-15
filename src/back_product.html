@@ -36,19 +36,24 @@
                     <th>品號</th>
                     <th>商品圖</th>
                     <th>品名</th>
+                    <th>商品介紹</th>
                     <th>售價</th>
                     <th>狀態</th>
-                    <th></th>
                     <th></th>
                 </tr>
                 <tr v-for="prodRow in prodRows">
                     <td>{{prodRow.product_no}}</td>
                     <td><img :src="'images//' + prodRow.product_pic"></td>
                     <td>{{prodRow.product_name}}</td>
+                    <td>{{prodRow.product_infor}}</td>
                     <td>{{prodRow.product_price}}</td>
-                    <td>{{prodRow.product_st}}</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="">0</option>
+                            <option value="">1</option>
+                        </select>
+                    </td>
                     <td><button @click="show(prodRow.product_no)">編輯</button></td>
-                    <td><button @click="showAlert();">刪除</button></td>
                 </tr>
             </table>
         </div>
@@ -69,7 +74,16 @@
                     <tr>
                         <th>商品介紹</th>
                         <td>
-                            <textarea name="" id="" cols="23" rows="10"></textarea>
+                            <textarea name="" id="" cols="23" rows="10" v-model="popup.product_infor"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品狀態</th>
+                        <td>
+                            <select name="" id="">
+                                <option value="">0</option>
+                                <option value="">1</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
