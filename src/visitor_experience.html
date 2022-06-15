@@ -76,9 +76,12 @@
             </div>
             
             <div class="container-grid"  id="voice-of-tourists">
-                <transition-group name="item" tag="div" class="row">
-                    <item-component v-for="item in cards" :item="item" :key="item.id">
-                </transition-group>
+                <!-- <transition-group name="item" tag="div" class="row"> -->
+                <div class="row">
+                    <item-component v-for="item in cards" :item="item" :key="item.id"
+                    @click.native="setFocusId(item.article_no)">
+                </div>
+                <!-- </transition-group> -->
             </div>        
             
         </div>
