@@ -93,7 +93,10 @@ let headerVue = new Vue({
                 if(validateResult == '1'){
                     alert("輸入資料有誤 請檢查");
                 }else{
-                    alert("註冊成功 準備跳轉會員中心");
+                    alert("註冊成功!");
+                    window.location.href = "member-info.html";
+                    headerVue.loginBoxShow=false;
+                    headerVue.RegisterBoxShow=false;
                 }
             };
             // 3. 封裝接收到的檔案  此處以JSON格式為例
