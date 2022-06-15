@@ -10,7 +10,8 @@ var prods = new Vue({
             product_name: '',
             product_infor: '',
             product_price: '',
-            product_pic: ''
+            product_pic: '',
+            product_st: ''
         },
         objResult: {},  // 原來的物件
         defaultResult: {},  // 新的更新過的資料
@@ -34,9 +35,6 @@ var prods = new Vue({
             this.popup = JSON.parse(JSON.stringify(this.default));
             this.isOpen = true;
         },
-        showAlert() {
-            window.confirm("是否確認刪除?");
-        },
         async changeHandler() {  //修改商品  // 非同步  // 綁最後的按鍵
             console.log('changeHandler')
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
@@ -59,7 +57,6 @@ var prods = new Vue({
             formData.append("product_name", this.popup.product_name);
             formData.append("product_infor", this.popup.product_infor);
             formData.append("product_price", this.popup.product_price);
-            // alert(document.getElementById("uploadPic").files.length);
             formData.append("product_pic", document.getElementById("uploadPic").files[0]);
 
             xhr.open("POST","./php/add_back_product.php",true);

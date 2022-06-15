@@ -5,7 +5,6 @@ $json = $_POST["json"];
 
 // //解封裝儲存到DATASET變數裡
 $dataset = json_decode($json,true);
-// echo $dataset["mem_name"];
 try{
     require_once("../connect_cgd101g3.php");
 
