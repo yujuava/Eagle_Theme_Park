@@ -23,7 +23,7 @@ try{
     $_SESSION["mem_id"] = $memRow["mem_id"];
     $_SESSION["mem_name"] = $memRow["mem_name"];
     $_SESSION["mem_mail"] = $memRow["mem_mail"];
-
+    $_SESSION["mem_psw"] = $memRow["mem_psw"];
     $_SESSION["mem_lastname"] = $memRow["mem_lastname"];
     $_SESSION["mem_tel"] = $memRow["mem_tel"];
     $_SESSION["mem_address"] = $memRow["mem_address"];
@@ -32,6 +32,7 @@ try{
     // $result = ["mem_no"=>$_SESSION["mem_no"], "mem_id"=>$_SESSION["mem_id"], "mem_name"=>$_SESSION["mem_name"], "mem_mail"=>$_SESSION["mem_mail"]];
     $result = ["mem_no"=>$_SESSION["mem_no"],
 	"mem_id"=>$_SESSION["mem_id"],
+  "mem_psw"=>$_SESSION["mem_psw"],
 	"mem_name"=>$_SESSION["mem_name"], 
 	"mem_mail"=>$_SESSION["mem_mail"],
 	"mem_lastname"=>$_SESSION["mem_lastname"],

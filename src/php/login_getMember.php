@@ -7,6 +7,7 @@ if(isset($_SESSION["mem_id"]) == true){ //已登入
 
     $result = ["mem_no"=>$_SESSION["mem_no"],
 	"mem_id"=>$_SESSION["mem_id"],
+	"mem_psw"=>$_SESSION["mem_psw"],
 	"mem_name"=>$_SESSION["mem_name"], 
 	"mem_mail"=>$_SESSION["mem_mail"],
 	"mem_lastname"=>$_SESSION["mem_lastname"],
