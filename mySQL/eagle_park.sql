@@ -112,12 +112,12 @@ INSERT INTO `comment` (`comment_no`, `article_no`, `mem_no`, `comment_date`, `co
 (31, 14, 13, '2022-05-27 10:44:02', '感受用心維護，現在是疫情期間，距離入園100公尺前，就有熱情的工作人員，提醒要掃實聯制'),
 (32, 15, 13, '2022-05-16 18:24:02', '自從國中畢業旅行來過，就沒有再訪過，這次帶著小鬼頭開學的最後幾天，來樂園走走，從第一步踏入門口，滿滿的懷念感湧上心頭'),
 (33, 15, 5, '2022-05-30 09:41:02', '園區維護得很好，看得出來很用心，空間寬敞乾淨（真的乾淨！！！），人員親切，表演人員也很可愛用心'),
-(33, 16, 10, '2022-05-13 18:24:02', '只能說人多，園區植物開得很美！！人一堆人狂拍照...另外帶家庭親子的早點進場@-@讓小孩放風吧'),
-(34, 16, 8, '2022-05-17 11:24:02', '當女兒身高超過90公分後，就開始帶著她和老婆一起到全台各大遊樂場開始遊玩，上回來應該已經超過五年以上了，在這段期間內部也有了很大的變化\r\n'),
-(35, 16, 11, '2022-06-01 10:51:02', '相對台灣其他的遊樂園，有更多適合小小孩玩的設施，讓女兒玩到都不想回家了，當然除了小小孩的遊樂設施外，也有適合大人玩樂的刺激設施\r\n'),
-(36, 17, 10, '2022-05-16 19:40:27', '多數遊樂設施不需要排隊太久，部分會淋濕的遊樂設施在入口處有提供投幣式置物櫃，使用一次20元。園內販售雨衣含鞋套。園內消費無法使用一般信用卡，若能開放信用卡和行動支付，應能讓遊客更有意願購買。'),
-(37, 17, 9, '2022-05-27 12:40:27', '上次來已是10年前，覺得保養的很好！ 環境很乾淨舒服，有感受到有持續推陳出新的主題樂園'),
-(38, 18, 6, '2022-06-02 15:40:27', '有持續推陳出新的主題樂園，非常推薦以西部樂園的家屋與各式建築的展示區，有先見之明的保留與重建許多已經消失的珍貴建築。\r\n');
+(34, 16, 10, '2022-05-13 18:24:02', '只能說人多，園區植物開得很美！！人一堆人狂拍照...另外帶家庭親子的早點進場@-@讓小孩放風吧'),
+(35, 16, 8, '2022-05-17 11:24:02', '當女兒身高超過90公分後，就開始帶著她和老婆一起到全台各大遊樂場開始遊玩，上回來應該已經超過五年以上了，在這段期間內部也有了很大的變化\r\n'),
+(36, 16, 11, '2022-06-01 10:51:02', '相對台灣其他的遊樂園，有更多適合小小孩玩的設施，讓女兒玩到都不想回家了，當然除了小小孩的遊樂設施外，也有適合大人玩樂的刺激設施\r\n'),
+(37, 17, 10, '2022-05-16 19:40:27', '多數遊樂設施不需要排隊太久，部分會淋濕的遊樂設施在入口處有提供投幣式置物櫃，使用一次20元。園內販售雨衣含鞋套。園內消費無法使用一般信用卡，若能開放信用卡和行動支付，應能讓遊客更有意願購買。'),
+(38, 17, 9, '2022-05-27 12:40:27', '上次來已是10年前，覺得保養的很好！ 環境很乾淨舒服，有感受到有持續推陳出新的主題樂園'),
+(39, 18, 6, '2022-06-02 15:40:27', '有持續推陳出新的主題樂園，非常推薦以西部樂園的家屋與各式建築的展示區，有先見之明的保留與重建許多已經消失的珍貴建築。\r\n');
 
 -- --------------------------------------------------------
 
@@ -368,7 +368,7 @@ CREATE TABLE `product_order_item` (
   `product_order_price` int NOT NULL COMMENT '當時商品價格'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品訂單項目';
 
-ALTER TABLE `product_order_item` DROP PRIMARY KEY, ADD PRIMARY KEY (`product_order_no`, `product_no`) USING BTREE;
+
 
 -- --------------------------------------------------------
 
@@ -538,13 +538,13 @@ ALTER TABLE `ticket_order`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT;
+  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=19;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `coupon`
@@ -556,31 +556,31 @@ ALTER TABLE `coupon`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cust_service`
 --
 ALTER TABLE `cust_service`
-  MODIFY `key_word_no` int NOT NULL AUTO_INCREMENT COMMENT '關鍵字編號', AUTO_INCREMENT;
+  MODIFY `key_word_no` int NOT NULL AUTO_INCREMENT COMMENT '關鍵字編號', AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `emp`
 --
 ALTER TABLE `emp`
-  MODIFY `emp_no` int NOT NULL AUTO_INCREMENT COMMENT '管理員編號', AUTO_INCREMENT;
+  MODIFY `emp_no` int NOT NULL AUTO_INCREMENT COMMENT '管理員編號', AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號', AUTO_INCREMENT;
+  MODIFY `fac_no` int NOT NULL AUTO_INCREMENT COMMENT '設施編號', AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT;
+  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號', AUTO_INCREMENT;
+  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號', AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `postcard`
@@ -598,7 +598,7 @@ ALTER TABLE `postcard_co`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號', AUTO_INCREMENT;
+  MODIFY `product_no` int NOT NULL AUTO_INCREMENT COMMENT '商品編號', AUTO_INCREMENT=8;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
@@ -616,7 +616,7 @@ ALTER TABLE `product_order_item`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號', AUTO_INCREMENT;
+  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket_order`
@@ -684,7 +684,7 @@ ALTER TABLE `ticket_order`
 
 
 
-
+ALTER TABLE `product_order_item` DROP PRIMARY KEY, ADD PRIMARY KEY (`product_order_no`, `product_no`) USING BTREE;
 COMMIT;
 
 
