@@ -1,9 +1,7 @@
 <?php 
 $json = $_POST["json"]; 
-// 2. 解封裝並儲存到DATASET變數裡
 $dataset = json_decode($json, true);
 
-echo "收到文章編號: ",$dataset["articleNo"];
 try{
 	require_once("../connect_cgd101g3.php");
 
@@ -23,20 +21,13 @@ try{
 	$comment -> execute();
 	$commentdRow = $comment->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-	echo "<br>巢狀JOSN資料<br>";
 	// array_unshift($articledRow, "queryResult: articledRow");
 	// array_unshift($commentdRow, "queryResult: commentdRow");
 	$responseResults = array();
 	array_push($responseResults ,$articledRow, $commentdRow);
 	// echo var_dump($responseResults);
 
-
-	// echo "<br>我是分隔線<br>";
 	echo json_encode( $responseResults );
-	// echo "<br>我是分隔線<br>";
-
 
 
 }catch(PDOException $e){

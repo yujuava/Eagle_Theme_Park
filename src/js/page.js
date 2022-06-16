@@ -240,11 +240,11 @@ new Vue({
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "./php/articleAndComment.php", true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        // 4. waiting for response and render result to page
-    //     xhr.onload = function () {
-    //         let validateResult = JSON.parse(xhr.responseText);
-    //         console.log(validateResult);
-    //    };
+
+        xhr.onload = function () {
+            let articleAndComment = JSON.parse(xhr.responseText);
+            console.log(articleAndComment);
+       };
         // substract currrent page no
        let currentURL = window.location.href;
        currentURL.split("page-no=");
