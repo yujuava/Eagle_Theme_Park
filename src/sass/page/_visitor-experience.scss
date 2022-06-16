@@ -20,6 +20,7 @@
             width: 90%;
         }
     }
+    
 }
 
 // 燈箱
@@ -42,21 +43,25 @@
         background-color: #fff;
         margin: auto;
         aspect-ratio: 2 / 2.2;
+        width: 90vw;
 
         @include md() {
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             aspect-ratio: 2 / 1;
+            width: 80vw;
         }
 
         @include lg() {
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
             aspect-ratio: 1.8 / 1;
+            width: 70vw;
         }
 
         @include xl() {
             aspect-ratio: 2 / 1.2;
+            width: 60vw;
         }
 
 
@@ -227,7 +232,7 @@
 
             }
 
-            @include mdBtn(submit) {
+            @include mdBtn(postbtn) {
                 background-color: $color4;
                 border: 1px solid$color4;
                 color: #fff;

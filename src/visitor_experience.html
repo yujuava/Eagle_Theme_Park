@@ -65,8 +65,8 @@
 
                             <!-- 按鈕 -->
                             <div class="btn">
-                                <button @click="closeBox" class="mdBtn-cancel">取消</button>
-                                <button type="submit" class="mdBtn-submit">發表文章</button>
+                                <button @click="closeBox" type="button" class="mdBtn-cancel">取消</button>
+                                <button @click="addPost" type="button" class="mdBtn-postbtn">發表文章</button>
                             </div>
 
                         </div>
@@ -76,10 +76,12 @@
             </div>
             
             <div class="container-grid"  id="voice-of-tourists">
+                <!-- 撈後台無法用transition-group? -->
                 <!-- <transition-group name="item" tag="div" class="row"> -->
                 <div class="row">
                     <item-component v-for="item in cards" :item="item" :key="item.id"
-                    @click.native="setFocusId(item.article_no)">
+                    @click.native="setFocusId(item.article_no)"> <!--甚麼意思-->
+                    
                 </div>
                 <!-- </transition-group> -->
             </div>        
@@ -93,6 +95,8 @@
             el: '#app',
             data: {
                 Post: '我要發文',
+                postup:{},
+
             },
             methods: {
                 openBox: function () {
@@ -103,6 +107,24 @@
                     let lightbox = document.querySelector('.light-box');
                     lightbox.classList.remove('show-Lightbox');
                 },
+                async addPost(){ //新增留言 //使用非同步
+                    console.log('addPost')
+                    // 取最後要再資料庫呈現的東西
+                    let sendObj = JSON.stringify(this.postup);
+                    let xhr = new XMLHttpRequest();
+                    
+                    let formData = new FormData();
+                    formData.addend("article_title",this.postup.article_title);
+                    formData.addend("article_content",this.postup.article_content);
+                    formData.addend("article_image",document.getElementById('InsertPicture').files[0]);
+
+                    xhr.open("POST","./php/add_back_post.php",true);
+
+                    xhr.send(formData);
+
+                    window.confirm("是否確認新增?");
+                    // this.isOpen = false;
+                }
             },
         })
 
