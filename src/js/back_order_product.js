@@ -67,6 +67,7 @@ let orderVue = new Vue({
                         product_order_tp: eachObj.product_order_tp.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
                         product_order_time: eachObj.product_order_time,
                         mem_name: eachObj.mem_name,
+                        mem_no: eachObj.mem_no,
                         product_order_place: eachObj.product_order_place,
                         data: [eachObj]
                     });

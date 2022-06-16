@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-17 00:53:50
+-- 產生時間： 2022-06-17 01:36:29
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -355,6 +355,14 @@ CREATE TABLE `product_order` (
   `product_order_tp` int NOT NULL COMMENT '總價'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品訂單';
 
+--
+-- 傾印資料表的資料 `product_order`
+--
+
+INSERT INTO `product_order` (`product_order_no`, `mem_no`, `coupon_no`, `order_shipping`, `product_order_time`, `product_order_way`, `product_order_place`, `product_order_over_time`, `product_order_real_price`, `product_order_tp`) VALUES
+(1, 4, NULL, '0', '2022-06-17', '0', '桃園市中壢區復興路46號', NULL, 3900, 3900),
+(2, 4, NULL, '0', '2022-06-17', '0', '桃園市中壢區復興路46號', NULL, 2300, 2300);
+
 -- --------------------------------------------------------
 
 --
@@ -368,6 +376,18 @@ CREATE TABLE `product_order_item` (
   `product_order_price` int NOT NULL COMMENT '當時商品價格'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品訂單項目';
 
+--
+-- 傾印資料表的資料 `product_order_item`
+--
+
+INSERT INTO `product_order_item` (`product_order_no`, `product_no`, `product_total`, `product_order_price`) VALUES
+(1, 1, 3, 600),
+(1, 3, 3, 400),
+(1, 4, 3, 300),
+(2, 2, 1, 800),
+(2, 4, 2, 300),
+(2, 6, 3, 300);
+
 -- --------------------------------------------------------
 
 --
@@ -380,6 +400,15 @@ CREATE TABLE `ticket` (
   `ticket_creat` date NOT NULL COMMENT '票券種類建立日期',
   `ticket_price` int NOT NULL COMMENT '票券價格'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='票券種類';
+
+--
+-- 傾印資料表的資料 `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_no`, `ticket_name`, `ticket_creat`, `ticket_price`) VALUES
+(1, '成人票', '2022-06-17', 900),
+(2, '孩童票', '2022-06-17', 500),
+(3, '愛心票', '2022-06-17', 400);
 
 -- --------------------------------------------------------
 
@@ -593,7 +622,7 @@ ALTER TABLE `product`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號';
+  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order_item`
@@ -605,7 +634,7 @@ ALTER TABLE `product_order_item`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號';
+  MODIFY `ticket_no` int NOT NULL AUTO_INCREMENT COMMENT '票券種類編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket_order`
