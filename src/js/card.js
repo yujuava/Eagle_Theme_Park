@@ -59,16 +59,17 @@
 //     img: './images/smiley-female.jpg',
 //     info: '適合親子打發時間用，親子時光無價啊，玩好玩滿玩得好開心哈哈。',
 // }]
-
-
+//./visitor_experience_page.html?page-no=  "item.article_no"
+// "'/job/' + r.id"
+// "`/job/${r.id}`"
 Vue.component('item-component', {
     template: `
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
         <div class="card">
             <div class="card-header"></div>
             <div class="card-pic">
-                <div class="pic">
-                    <a href="./visitor_experience_page.html?page-no=">
+                <div class="pic"> 
+                    <a :href="'./visitor_experience_page.html?page-no=' + item.article_no">
                         <img :src="item.article_image" alt="感覺很恐怖">
                     </a>
                 </div>
@@ -85,7 +86,7 @@ Vue.component('item-component', {
 
             <div class="card-body">
                 <p>{{item.article_content}}</p>
-                <a href="visitor_experience_page.html" class="mdBtn-more">MORE</a>
+                <a :href="'./visitor_experience_page.html?page-no=' + item.article_no" class="mdBtn-more">MORE</a>
             </div>
             <div class="card-footer"></div>
         </div>
