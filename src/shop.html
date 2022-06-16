@@ -254,7 +254,7 @@
             xhr.onload = function () {
                 prods.prodRows = JSON.parse(xhr.responseText);
             }
-            xhr.open("get", "./php/get_back_product.php", true);
+            xhr.open("get", "./php/get_product_st.php", true);
             xhr.send(null);
         }
         window.addEventListener("load", function () {
