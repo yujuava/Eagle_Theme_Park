@@ -47,12 +47,7 @@
                     <td>{{prodRow.product_name}}</td>
                     <td>{{prodRow.product_infor}}</td>
                     <td>{{prodRow.product_price}}</td>
-                    <td>
-                        <select name="" id="">
-                            <option value="">0</option>
-                            <option value="">1</option>
-                        </select>
-                    </td>
+                    <td>{{prodRow.product_st}}</td>
                     <td><button @click="show(prodRow.product_no)">編輯</button></td>
                 </tr>
             </table>
@@ -80,10 +75,7 @@
                     <tr>
                         <th>商品狀態</th>
                         <td>
-                            <select name="" id="">
-                                <option value="">0</option>
-                                <option value="">1</option>
-                            </select>
+                            <input type="text" v-model="popup.product_st">
                         </td>
                     </tr>
                     <tr>
