@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-15 11:59:24
+-- 產生時間： 2022-06-17 00:53:50
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -224,16 +224,16 @@ INSERT INTO `facility` (`fac_no`, `fac_pic`, `fac_name`, `fac_descrip`, `fac_sta
 
 CREATE TABLE `member` (
   `mem_no` int NOT NULL COMMENT '會員編號',
-  `mem_name` varchar(50) NULL COMMENT '會員名',
-  `mem_lastname` varchar(15) NULL COMMENT '會員姓氏',
+  `mem_name` varchar(50) DEFAULT NULL COMMENT '會員名',
+  `mem_lastname` varchar(15) DEFAULT NULL COMMENT '會員姓氏',
   `mem_id` varchar(15) NOT NULL COMMENT '會員帳號',
   `mem_psw` varchar(15) NOT NULL COMMENT '會員密碼',
-  `mem_tel` varchar(10) NULL COMMENT '電話',
-  `mem_mail` varchar(40) NULL COMMENT 'E-mail',
+  `mem_tel` varchar(10) DEFAULT NULL COMMENT '電話',
+  `mem_mail` varchar(40) DEFAULT NULL COMMENT 'E-mail',
   `mem_state` tinyint(1) NOT NULL COMMENT '會員狀態\r\n(0.正常,1停權)',
-  `mem_address` varchar(50) NULL COMMENT '會員地址',
-  `mem_country` varchar(50) NULL COMMENT '會員國家/地區',
-  `mem_birth` date NULL COMMENT '會員生日',
+  `mem_address` varchar(50) DEFAULT NULL COMMENT '會員地址',
+  `mem_country` varchar(50) DEFAULT NULL COMMENT '會員國家/地區',
+  `mem_birth` date DEFAULT NULL COMMENT '會員生日',
   `mem_date` date NOT NULL COMMENT '註冊時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='會員';
 
@@ -345,7 +345,7 @@ INSERT INTO `product` (`product_no`, `product_name`, `product_price`, `product_i
 CREATE TABLE `product_order` (
   `product_order_no` int NOT NULL COMMENT '商品訂單編號',
   `mem_no` int NOT NULL COMMENT '會員編號',
-  `coupon_no` int NULL COMMENT '優惠券編號',
+  `coupon_no` int DEFAULT NULL COMMENT '優惠券編號',
   `order_shipping` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '訂單狀態(0:未出貨、1:已出貨、2:已收貨、3:訂單完成、4:已取消)',
   `product_order_time` date DEFAULT NULL COMMENT '下訂時間',
   `product_order_way` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '取貨方式(0:宅配、1:超商取貨)',
@@ -354,26 +354,6 @@ CREATE TABLE `product_order` (
   `product_order_real_price` int DEFAULT NULL COMMENT '實際金額(打折後)',
   `product_order_tp` int NOT NULL COMMENT '總價'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品訂單';
-
---
--- 傾印資料表的資料 `product_order`
---
-
-INSERT INTO `product_order` (`product_order_no`, `mem_no`, `coupon_no`, `order_shipping`, `product_order_time`, `product_order_way`, `product_order_place`, `product_order_over_time`, `product_order_real_price`, `product_order_tp`) VALUES
-(1, 2, NULL, '0', '2022-06-14', '0', '中壢區民權路3號', NULL, 2800, 2800),
-(2, 2, NULL, '0', '2022-06-14', '0', '中壢區民權路3號', NULL, 8600, 8600),
-(3, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5800, 5800),
-(4, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5100, 5100),
-(5, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5100, 5100),
-(6, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5100, 5100),
-(7, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(8, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(9, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(10, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(11, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(12, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 5300, 5300),
-(13, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 3600, 3600),
-(14, 2, NULL, '0', '2022-06-15', '0', '中壢區民權路3號', NULL, 4350, 4350);
 
 -- --------------------------------------------------------
 
@@ -387,33 +367,6 @@ CREATE TABLE `product_order_item` (
   `product_total` tinyint DEFAULT NULL COMMENT '購買商品數量',
   `product_order_price` int NOT NULL COMMENT '當時商品價格'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品訂單項目';
-
---
--- 傾印資料表的資料 `product_order_item`
---
-
-INSERT INTO `product_order_item` (`product_order_no`, `product_no`, `product_total`, `product_order_price`) VALUES
-(1, 3, 4, 400),
-(7, 5, 4, 150),
-(8, 5, 4, 150),
-(9, 5, 4, 150),
-(10, 1, 5, 600),
-(10, 2, 5, 300),
-(10, 5, 4, 150),
-(10, 7, 1, 200),
-(11, 1, 5, 600),
-(11, 2, 5, 300),
-(11, 5, 4, 150),
-(11, 7, 1, 200),
-(12, 1, 5, 600),
-(12, 2, 5, 300),
-(12, 5, 4, 150),
-(12, 7, 1, 200),
-(13, 1, 2, 600),
-(13, 3, 6, 400),
-(14, 2, 3, 800),
-(14, 3, 3, 400),
-(14, 5, 5, 150);
 
 -- --------------------------------------------------------
 
@@ -580,7 +533,7 @@ ALTER TABLE `article`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `comment_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `coupon`
@@ -610,7 +563,7 @@ ALTER TABLE `facility`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=10;
+  MODIFY `mem_no` int NOT NULL AUTO_INCREMENT COMMENT '會員編號', AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
@@ -640,13 +593,13 @@ ALTER TABLE `product`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=15;
+  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號';
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order_item`
 --
 ALTER TABLE `product_order_item`
-  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=15;
+  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=18;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ticket`
@@ -716,14 +669,7 @@ ALTER TABLE `ticket_item`
 --
 ALTER TABLE `ticket_order`
   ADD CONSTRAINT `ticket_order_ibfk_1` FOREIGN KEY (`mem_no`) REFERENCES `member` (`mem_no`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-
-
-
-ALTER TABLE `product_order_item` DROP PRIMARY KEY, ADD PRIMARY KEY (`product_order_no`, `product_no`) USING BTREE;
 COMMIT;
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
