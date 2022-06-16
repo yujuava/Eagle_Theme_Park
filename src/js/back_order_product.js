@@ -1,11 +1,10 @@
 Vue.component('table-component',{
     template:`
-    <table class="innerData" >
+    <table class="innerData" id="innerOrder">
         <tr>
             <th>商品名稱</th>
             <th>購買單價</th>
             <th>購買數量</th>
-            
         </tr>
         <tr v-for="(item,index) in list" :key="index">
             <td>{{item.product_name}}</td>
@@ -16,11 +15,6 @@ Vue.component('table-component',{
     `,
     props:{
         detail:Object,
-        // orderDetail:Object,
-        // orderlist:Object,
-        // apple: {
-        //     type: Object
-        // },
     },
     computed: {
         list() {
@@ -37,32 +31,21 @@ let orderVue = new Vue({
         results:[],
         newObj:[],
         orderlist:Object,
-        // getOrder:Function,
         focusKey: '',
     },
     methods: {   
-        show(){
-           
-        },
-        setFocusId(product_order_no) {
-            console.log(product_order_no)
-            
-            this.$nextTick(() => {
-                console.log(this.showPopupItem)
-            })
-        },
         idpopup(product_order_no){
             this.isOpen = true;
             this.focusKey = product_order_no;
-            // let idRowsList = this.orderRows.map(item => Object.values(item)[0]); 
-            // // console.log(no)
         }
     },
     computed: {
         showPopupItem() {
             return this.newObj.find(v => v.product_order_no == this.focusKey) ?? this.newObj[0];
         },
-
+        // showPopupItem() {
+        //     return this.newObj.product_order_no
+        // },
     },
     mounted(){     
         
@@ -73,22 +56,15 @@ let orderVue = new Vue({
         xhr.onload = () => {   //等待回復訊息
             orderVue.orderRows = JSON.parse(xhr.responseText); 
             //收到打開資料,儲存到newVue的陣列
-            // console.log(orderVue.orderRows);
-
-            // var result = Array.from(new Set(orderVue.orderRows.product_order_no));
-            // console.log(result);
             let set = new Set();
             orderVue.results = orderVue.orderRows.filter(item => !set.has(item.product_order_no) ? set.add(item.product_order_no) : false);
-            // console.log(orderVue.results); 
-            // let results=[result];
             var map = {};
-            // orderVue.newObj = [];
             for(var i = 0; i < orderVue.orderRows.length; i++){
                 var eachObj = orderVue.orderRows[i];
             if(!map[eachObj.product_order_no]){
                     orderVue.newObj.push({
                         product_order_no: eachObj.product_order_no,
-                        product_order_tp: eachObj.product_order_tp,
+                        product_order_tp: eachObj.product_order_tp.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
                         product_order_time: eachObj.product_order_time,
                         mem_name: eachObj.mem_name,
                         product_order_place: eachObj.product_order_place,
@@ -100,7 +76,6 @@ let orderVue = new Vue({
                         var dj = orderVue.newObj[j];
                         if(dj.product_order_no == eachObj.product_order_no){
                             dj.data.push(eachObj);
-                        //   console.log("dj",dj);
                             break;
                         }
                     

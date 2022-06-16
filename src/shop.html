@@ -203,7 +203,7 @@
                 countadd(id, amount) {
                     let index = this.prodRows.findIndex(v => v.product_no == id);
                     let currentAmount = this.prodRows[index].product_amount;
-                    this.prodRows[index]['product_amount'] = currentAmount + amount < 0 ? 0 : currentAmount + amount;
+                    this.prodRows[index]['product_amount'] = currentAmount + amount < 1 ? 1 : currentAmount + amount;
                     // let idRowsList = this.prodRows.map(item => Object.values(item)[0]);
                     // let realId = idRowsList.indexOf(id)
                     // let item = this.prodRows[realId].product_amount + amount;

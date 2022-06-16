@@ -23,7 +23,7 @@
         </div>
 
         <div class="box_father">
-            <table class="box">
+            <table class="box" id="box">
                 <tr>
                     <th>訂單編號</th>
                     <th>成立時間</th>
@@ -39,12 +39,12 @@
                     <td>{{item.product_order_time}}</td>
                     <td>{{item.mem_name}}</td>
                     <td>{{item.product_order_tp}}</td>
-                    <td>
-                        <select name="" id="">
+                    <td>待出貨
+                        <!-- <select name="" id="">
                             <option value="">待出貨</option>
                             <option value="">已出貨</option>
                             <option value="">已退貨</option>
-                        </select>
+                        </select> -->
                     </td>
                     <td>已付款</td>
                     <td>{{item.product_order_place}}</td>
@@ -56,7 +56,7 @@
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
-                <div>
+                <div id="orderDetail">
                     <table-component :detail="showPopupItem"></table-component>
                 </div>
                 
@@ -64,11 +64,6 @@
         </div>
 
     </div>
-
-    <!--  ===============map ===============  -->
-    <!-- @@include('layout/map.html') -->
-    <!-- footer  -->
-    <!-- @@include('layout/footer.html') -->
 </body>
 </html>
 <!-- 共用燈箱js -->

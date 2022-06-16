@@ -185,7 +185,6 @@
                     last_name: '',
                     first_name: ''
                 },
-                // total,
             },
             mounted() {},
             methods: {
@@ -193,7 +192,6 @@
 
                     let dataorderInner = document.querySelectorAll('.dataorder');
                     for (i = 0; i < dataorderInner.length; i++) {
-                        // console.log(dataorderInner[i].value)
                         if (dataorderInner[i].value == "") {
                             alert('還有欄位未輸入唷~!')
                             return;
@@ -207,7 +205,7 @@
                     let xhr = new XMLHttpRequest();
 
                     // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
-                    // xhr.open("POST", "./product-order-about.php", true);
+                    
                     xhr.open("POST", "./php/product-order-about.php", true);
 
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -218,33 +216,20 @@
                         carts
                     };
 
-                    // let sendpro = {carts};
                     Object.keys(this.objResult).forEach(key => {
-                        // console.log(this.objResult[key]);
                         if (this.objResult[key]) sendObj[key] = this.objResult[
                             key]; //如果這個key是原來的，給的資料就是原來的
                         else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
                     })
-                    // console.log(sendObj)
-                    // console.log(carts)
-                    // let ordercarts = {};
-                    // console.log(total)
-                    // sendObj.memId = $id("acount").value;//this.acount
-                    // sendObj.memPsw = $id("password").value;//this.password
-
-                    // let sendInfo = JSON.stringify(this.send_result);
+                    
                     // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
-                    // xhr.send(JSON.stringify(sendObj));
-                    // let data_info = `json=${JSON.stringify(sendObj)}`;
+                    
 
                     // // 5. XMLHttpRequest送出
-                    // xhr.send(data_info);
 
                     let data_info = `json=${JSON.stringify(sendObj)}`;
-                    // let data_pro = `json=${(JSON.stringify(carts))}`;
                     // // 5. XMLHttpRequest送出
                     xhr.send(data_info);
-                    // xhr.send(carts);
                 }
             },
             computed: {
@@ -270,11 +255,9 @@
             created() {
                 let xhr = new XMLHttpRequest();
                 xhr.onload = () => {
-                    // alert();
                     this.objResult = JSON.parse(xhr.responseText); //把
                     this.textResult = xhr.responseText;
-                    // console.log("textResult", this.textResult);
-                    // console.log("objResult", this.objResult)
+               
                 }
                 xhr.open("get", "php/login_getMember.php", true);
                 xhr.send(null);
@@ -306,20 +289,6 @@
             }
             return;
         }
-
-        // function submitOrder() {
-        //     // let dataorderInner = document.querySelectorAll('.dataorder');
-        //     // for (i = 0; i < dataorderInner.length; i++) {
-        //     //     // console.log(dataorderInner[i].value)
-        //     //     if (dataorderInner[i].value == "") {
-        //     //         alert('還有欄位未輸入唷~!')
-        //     //         return;
-        //     //     }
-        //     // }
-        //     // alert('訂單已送出~!')
-        //     // window.location.href = "member-info.html";
-        //     // localStorage.clear()
-        // }
 
         function init() {
             document.getElementById('submit').onclick = submitOrder;

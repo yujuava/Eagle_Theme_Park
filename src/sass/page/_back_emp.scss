@@ -192,3 +192,15 @@
 
     }
 }
+#box{
+    table-layout: auto;
+}
+#orderDetail{
+    margin-bottom: 30px;
+    #innerOrder{
+        text-align: center;
+        td{
+            display:table-cell;
+        }
+    }
+}
