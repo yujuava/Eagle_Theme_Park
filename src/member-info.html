@@ -30,7 +30,7 @@
                         <form action="">
                             <div class="sum-money">
                                 <label for="">累積消費金額</label>
-                                <label for=""  class="color4" >NT${{123}}</label>
+                                <label for=""  class="color4" >NT${{eachTotal}}</label>
                                 <!-- <input type="number" value="0" disabled  class="color4"> -->
                             </div>
                             <div class="coupon">
@@ -132,7 +132,7 @@
 
                 <!-- 訂單一 -->
                 <div>
-                    <member-order v-for="orderlist in getOrder" :item="orderlist" :orderlist-Son="orderlist">
+                    <member-order v-for="(orderlist, idx) in getOrder" :key="idx" :item="orderlist" :orderlist-Son="orderlist">
                     </member-order>
                 </div>
 
