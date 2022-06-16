@@ -23,20 +23,17 @@
                 <img src="./images/logo.svg" alt="logo">
             </div>
             <h2>後台管理系統</h2>
-            <form action="">
+            <form action="./php/back_login.php" method="post">
                 <div>
                     <label for="user_name">帳號：</label>
-                    <input type="text" placeholder="請輸入帳號" maxlength="15">
+                    <input type="text" placeholder="請輸入帳號" maxlength="15" name="empId">
                 </div>
                 <div>
                     <label for="user_name">密碼：</label>
-                    <input type="password" placeholder="請輸入密碼" maxlength="15">
+                    <input type="password" placeholder="請輸入密碼" maxlength="15" name="empPsw">
                 </div>
                 <div>
-                    <a href="back_emp.html">
-                        登入後台按這個-因為下方button不會換頁先使用這個 
-                        <button>登入</button>
-                    </a>
+                    <button>登入</button>
                 </div>
             </form>
         </div>
@@ -439,15 +436,9 @@
 
         <script src="js/footer-scroll-robot.js"></script>
         </contain>
-
-
-
-
-
         <!--  ===============map ===============  -->
         <!-- @@include('layout/map.html') -->
         <!-- footer  -->
         <!-- @@include('layout/footer.html') -->
 </body>
-
 </html>
