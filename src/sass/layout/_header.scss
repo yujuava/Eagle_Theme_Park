@@ -104,6 +104,12 @@ header{
         justify-content: flex-end;
         align-items: center;
         margin-top: 10px;
+        #mobile-username-lo{
+          // border: 1px solid #000;
+          margin-right: 15px;
+          color:$color4;
+
+        }
         &:hover{
           cursor: pointer;
         }

@@ -219,13 +219,14 @@
       justify-content: flex-start;
       gap:20px;
       .itemColumn{
-        // border: 2px solid blue;
-        // width: 50%; 
+        // border: 3px solid pink;
+        width: 100%; 
         // padding: 30px;
         margin-bottom: 30px;
         text-align: center;
         .item{
           // border: 1px solid green;
+          width: 100%;
           .itempic{
             // border: 1px solid pink;
             margin-bottom: 15px;
