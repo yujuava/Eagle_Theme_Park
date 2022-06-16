@@ -55,9 +55,6 @@ Vue.component('member-order',{
         orderlistSon: {
             type: Object
         },
-        
-
-
     },
     computed: {
         // list() {

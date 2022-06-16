@@ -34,8 +34,7 @@
                     <th>收件地址</th>
                     <th>詳細內容</th>
                 </tr>
-                <tr v-for="item in newObj" :item="item":key="item.id" @click.native="setFocusId(item.product_order_no)"
-                >
+                <tr v-for="item in newObj" :item="item"  :key="item.id">
                     <td>{{item.product_order_no}}</td>
                     <td>{{item.product_order_time}}</td>
                     <td>{{item.mem_name}}</td>
@@ -49,20 +48,20 @@
                     </td>
                     <td>已付款</td>
                     <td>{{item.product_order_place}}</td>
-                    <td @click="idpopup()"><button @click="show">MORE</button></td>
+                    <td><button @click="idpopup(item.product_order_no)">MORE</button></td>
                 </tr>
             </table>
         </div>
+        
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                 <div>
-                    <table-component v-for="item in orderRows" :item="showPopupItem"></table-component>
+                    <table-component :detail="showPopupItem"></table-component>
                 </div>
                 
             </div>
         </div>
-
 
     </div>
 

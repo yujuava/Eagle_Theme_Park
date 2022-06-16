@@ -3,52 +3,64 @@ Vue.component('table-component',{
     <table class="innerData" >
         <tr>
             <th>商品名稱</th>
-            <td>{{item.product_name}}</td>
-        </tr>
-        <tr>
             <th>購買單價</th>
-            <td>{{item.product_order_price}}</td>
-        </tr>
-        <tr>
             <th>購買數量</th>
+            
+        </tr>
+        <tr v-for="(item,index) in list" :key="index">
+            <td>{{item.product_name}}</td>
+            <td>{{item.product_order_price}}</td>
             <td>{{item.product_total}}個</td>
         </tr>
     </table>
     `,
     props:{
-        item:Object,
-    }
+        detail:Object,
+        // orderDetail:Object,
+        // orderlist:Object,
+        // apple: {
+        //     type: Object
+        // },
+    },
+    computed: {
+        list() {
+            return this.detail?.data ?? [];
+        },
+    },
 })
 
 let orderVue = new Vue({
     el:'#back',
     data:{
         isOpen: false,
-        helperTitle: ['關鍵字編號','關鍵字','關鍵字回應'],
         orderRows:[],      //資料的陣列
         results:[],
         newObj:[],
+        orderlist:Object,
+        // getOrder:Function,
+        focusKey: '',
     },
     methods: {   
         show(){
-            this.isOpen = true;
+           
         },
         setFocusId(product_order_no) {
             console.log(product_order_no)
-            this.focusKey = product_order_no;
+            
             this.$nextTick(() => {
                 console.log(this.showPopupItem)
             })
         },
-        idpopup(){
-
+        idpopup(product_order_no){
+            this.isOpen = true;
+            this.focusKey = product_order_no;
             // let idRowsList = this.orderRows.map(item => Object.values(item)[0]); 
             // // console.log(no)
         }
     },
     computed: {
         showPopupItem() {
-            return this.orderRows.find(v => v.product_order_no == this.focusKey) ?? this.orderRows[0];
+            return this.newObj.find(v => v.product_order_no == this.focusKey) ?? this.newObj[0];
         },
 
     },
@@ -97,7 +109,6 @@ let orderVue = new Vue({
             }
             console.log("newObj:",orderVue.newObj);
         }
-
         
         xhr.open("get","php/get_back_pro_order.php",true);   
         //決定請求送至PHP
