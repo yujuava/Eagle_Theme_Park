@@ -135,68 +135,39 @@ const list = [
 
 Vue.component('list-component',{
     template: `
+        <div>
         <div class="card">
             <div class="card-header"></div>
             <div class="card-pic">
                 <div class="pic">
-                    <img :src="item.playPic">
+                    <img :src="item.article_image">
                 </div>  
             </div>
             <div class="card-body">
                 
                 <div class="mem">
                     <div class="mem-pic">
-                        <img :src="item.playerPic">
+                        <img :src="item.article_image">
                     </div>
                     
-                    <div class="mem-name">{{item.memName}}</div>
+                    <div class="mem-name">{{item.mem_name}}</div>
                 </div>
-                <p>{{item.content}}</p>
+                <p>{{item.article_content}}</p>
             </div>
             <div class="card-footer"></div>
         </div>
         
         <div class="message-area">
-            <div class="item">
+            <div class="item" v-for="comment in comments" :key="comment.comment_no">
                 <div class="pic">
                     <img :src="item.areaPlayerpic" alt="">
                 </div>
                 <div class="message-strip">
                     <div class="message">
-                        <div class="name">{{item.areaPlayer}}</div>
+                        <div class="name">{{item.mem_name}}</div>
                         <div class="message-content">
                             <p>{{item.messageContent}}</p>
-                            <div class="time">{{item.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="item">
-                <div class="pic">
-                    <img :src="item.areaPlayerpic" alt="">
-                </div>
-                <div class="message-strip">
-                    <div class="message">
-                        <div class="name">{{item.areaPlayer}}</div>
-                        <div class="message-content">
-                            <p>{{item.messageContent}}</p>
-                            <div class="time">{{item.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="pic">
-                    <img :src="item.areaPlayerpic" alt="">
-                </div>
-                <div class="message-strip">
-                    <div class="message">
-                        <div class="name">{{item.areaPlayer}}</div>
-                        <div class="message-content">
-                            <p>{{item.messageContent}}</p>
-                            <div class="time">{{item.time}}</div>
+                            <div class="time">{{item.article_date}}</div>
                         </div>
                     </div>
                 </div>
@@ -211,15 +182,51 @@ Vue.component('list-component',{
             </d>
             <div class="message-footer"></div>
         </div>
+        </div>
     `,
     props: {
-        item: Object
+        item: Object,
+        comments: {
+            type: Array,
+            default: [],
+        },
     }
 })
 new Vue({
     el: '#pages',
     data: {
         list,
+        article: {"article_no":1,"mem_no":1,"article_title":"","article_date":"","article_content":"","article_image":"","mem_name":""},
+        comments: [],
+
+    },
+    methods: {
+        async getArticle() {
+            let xhr = new XMLHttpRequest();
+        xhr.open("POST", "./php/articleAndComment.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+        xhr.onload = () => {
+            this.article = JSON.parse(xhr.responseText)[0][0];
+            this.comments = JSON.parse(xhr.responseText)[1];
+       };
+        // substract currrent page no
+       let currentURL = window.location.href;
+       currentURL.split("page-no=");
+
+        let dataset = {};
+        dataset.articleNo = currentURL.split("page-no=")[1];
+        let data_info = `json=${JSON.stringify(dataset)}`;
+        // 3. sent data to php
+        xhr.send(data_info);
+        },
+        async sendComment() {
+            // 這邊處理點擊後送最新的留言到php
+            // 完成後重新呼叫文章留言內容
+        //     xhr.onload = () => {
+        //         this.getArticle();
+        //    };
+        },
     },
     created() {
         let uri = window.location.href.split('?');
@@ -237,22 +244,6 @@ new Vue({
         }
     },
     mounted(){
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "./php/articleAndComment.php", true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-
-        xhr.onload = function () {
-            let articleAndComment = JSON.parse(xhr.responseText);
-            console.log(articleAndComment);
-       };
-        // substract currrent page no
-       let currentURL = window.location.href;
-       currentURL.split("page-no=");
-
-        let dataset = {};
-        dataset.articleNo = currentURL.split("page-no=")[1];
-        let data_info = `json=${JSON.stringify(dataset)}`;
-        // 3. sent data to php
-        xhr.send(data_info);
+        this.getArticle();
     }
 })

@@ -2,25 +2,34 @@
 session_start();
 
 try{
-    require_once("../connect_cgd101g3.php");
-    $fileInfoArr = pathinfo($_FILES["product_pic"]["name"]);
-	$fileName = uniqid().".{$fileInfoArr["extension"]}"; 
 
-	$from = $_FILES["article_image"]["tmp_name"];
-	$to = "../images/$fileName";
-    if(copy( $from, $to)===true){
-        //寫入資料庫指令
-        $sql = "insert into `article` (`article_no`, `mem_no`, `article_title`, `article_date`, `article_content`, `article_image`) values (:article_title, :article_content, :article_image)";
+    if(isset($_SESSION["mem_id"]) == true){
+        require_once("../connect_cgd101g3.php");
+        $fileInfoArr = pathinfo($_FILES["article_image"]["name"]);
+        $fileName = uniqid().".{$fileInfoArr["extension"]}"; 
+    
+        $from = $_FILES["article_image"]["tmp_name"];
+        $to = "../images/$fileName";
 
-
-        //合成sql指令,並綁訂對應值
-        $post = $pdo->prepare($sql);
-        $post->bindValue(":article_title",$_POST["article_title"]);
-        $post->bindValue(":article_content",$_POST["article_content"]);
-        $post->bindValue(":article_image",$fileName);
-        $post->execute();
-        echo "異動成功~~";  
+        if(copy( $from, $to)===true){
+            //寫入資料庫指令
+            $sql = "insert into `article` (`article_no`, `mem_no`, `article_title`, `article_date`, `article_content`, `article_image`) values (NULL, :mem_no, :article_title, NOW(), :article_content, :article_image)";
+    
+            //合成sql指令,並綁訂對應值
+            $post = $pdo->prepare($sql);
+            $post->bindValue(":mem_no",$_SESSION["mem_no"]);
+            $post->bindValue(":article_title",$_POST["article_title"]);
+            $post->bindValue(":article_content",$_POST["article_content"]);
+            $post->bindValue(":article_image", "./images/".$fileName);
+            $post->execute();
+            echo "異動成功~~";  
+        }
+    }else{
+        echo "請先登入";
     }
+
+
+ 
     
 
 }catch(PDOException $e){

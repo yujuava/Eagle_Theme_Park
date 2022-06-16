@@ -19,9 +19,10 @@
     <section class="visitor-Experience-Page">
         <div class="container card-bdr">
             <div id="pages">
-                <transition-group name="item" tag="div">
-                    <list-component v-for="item in list" :item="item" :key="item.id">
-                </transition-group>
+                <div>
+                    <list-component :item="article" :comments="comments"></list-component>
+                </div>
+
             </div>
             <!-- <div class="card">
                 <div class="card-header"></div>

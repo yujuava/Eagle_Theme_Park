@@ -5,7 +5,7 @@
     @@include('layout/meta.html', {
     "title" : "遊客體驗"
     })
-    
+
 </head>
 
 <body class="visitor_experience">
@@ -74,28 +74,34 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="container-grid"  id="voice-of-tourists">
+
+            <div class="container-grid" id="voice-of-tourists">
                 <!-- 撈後台無法用transition-group? -->
-                <!-- <transition-group name="item" tag="div" class="row"> -->
-                <div class="row">
-                    <item-component v-for="item in cards" :item="item" :key="item.id"
-                    @click.native="setFocusId(item.article_no)"> <!--甚麼意思-->
-                    
-                </div>
-                <!-- </transition-group> -->
-            </div>        
-            
+                <transition-group name="item" tag="div" class="row">
+                <!-- <div class="row"> -->
+                    <item-component v-for="item in cards" :item="item" :key="item.article_no"
+                        @click.native="setFocusId(item.article_no)">
+                        <!--甚麼意思-->
+
+                <!-- </div> -->
+                </transition-group>
+            </div>
+
         </div>
     </section>
-    
-    
+
+
     <script>
         new Vue({
             el: '#app',
             data: {
                 Post: '我要發文',
-                postup:{},
+                postup: {},
+                default:{
+                    article_title:'',
+                    article_content:'',
+                    article_image:''
+                },
 
             },
             methods: {
@@ -107,18 +113,22 @@
                     let lightbox = document.querySelector('.light-box');
                     lightbox.classList.remove('show-Lightbox');
                 },
-                async addPost(){ //新增留言 //使用非同步
+                addHandler() {  
+                    this.postup = JSON.parse(JSON.stringify(this.default));
+                    // this.isOpen = true;
+                },
+                async addPost() { //新增留言 //使用非同步
                     console.log('addPost')
                     // 取最後要再資料庫呈現的東西
                     let sendObj = JSON.stringify(this.postup);
                     let xhr = new XMLHttpRequest();
-                    
-                    let formData = new FormData();
-                    formData.addend("article_title",this.postup.article_title);
-                    formData.addend("article_content",this.postup.article_content);
-                    formData.addend("article_image",document.getElementById('InsertPicture').files[0]);
 
-                    xhr.open("POST","./php/add_back_post.php",true);
+                    let formData = new FormData();
+                    formData.append("article_title", this.postup.article_title);
+                    formData.append("article_content", this.postup.article_content);
+                    formData.append("article_image", document.getElementById('InsertPicture').files[0]);
+
+                    xhr.open("POST", "./php/add_back_post.php", true);
 
                     xhr.send(formData);
 
