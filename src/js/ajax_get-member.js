@@ -67,6 +67,15 @@ Vue.component('member-order',{
 
        
     },
+    methods: {
+        statusText(num) {
+            if (num == 0) return '未出貨'
+            if (num == 1) return '已出貨'
+            if (num == 2) return '已收貨'
+            if (num == 3) return '訂單完成'
+            return '已取消'
+        },
+    },
     template:`
     <div class="member-frame member-order big-card-bdr">
         <div class="order-table">
@@ -111,7 +120,7 @@ Vue.component('member-order',{
                 </div>
 
                 <div class="pc-order-state pc-list">
-                    <p>{{orderlistSon.order_shipping}}</p>
+                    <p>{{statusText(orderlistSon.order_shipping)}}</p>
 
                 </div>
 
@@ -136,7 +145,7 @@ Vue.component('member-order',{
 
                 <div  class="tr-col">
                     <p>訂單狀態</p>
-                    <p>{{orderlistSon.order_shipping}}</p>
+                    <p>{{statusText(orderlistSon.order_shipping)}}</p>
                 </div>
 
             </div>
@@ -156,7 +165,7 @@ Vue.component('product-list',{
         orderDetail:Object,
         orderlist:Object,
         apple: {
-            type: Object
+            type: Object,
         },
     },
     method:{
@@ -194,7 +203,7 @@ new Vue({
         //訂單資料
         productOrderNo:[],
         objOrderResult:{},
-        // moneyTotal,
+        // Total,
         
     },
     methods: {  // 函數大部分放這裡!
@@ -273,13 +282,32 @@ new Vue({
             return newObj;
         },
 
-        // moneyTotal(){   //總金額
-        //     // Object.keys(getOrder).forEach(key => {
-        //     //      total += key.product_order_tp;
-        //     //      console.log(key.product_order_tp);
-        //     // })
-        //     // return 123;
-        // },
+        eachTotal(){   //總金額
+            // console.log('12312312')
+            let total = 0;
+            let sum = 0;
+            this.getOrder.map((item) => {
+                total = item.product_order_tp;
+                // console.log("total:",item.product_order_tp)
+                return total;
+            }).forEach( e => {
+                sum += e;
+            });
+            return sum;
+            
+        },
+        moneyTotal(){
+            let sum = 0;
+            // this.eachTotal.forEach( e => {
+            //     sum += e;
+            // });
+            return sum
+        },
+        money() {
+            let aa = 10
+            return this.eachTotal;
+        },
+
     },
     created(){
         //會員資料

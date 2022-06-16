@@ -3,7 +3,7 @@ new Vue({
     el:'#back',
     data: {
         isOpen: false,
-        facilityTitle: ['設施名稱','設施圖片','設施名稱','所屬園區','維護時間','雨天乘坐','孕婦乘坐','輪椅乘坐','設施排名',''],
+        facilityTitle: ['設施序號','設施圖片','設施名稱','所屬園區','維護時間','雨天乘坐','孕婦乘坐','輪椅乘坐','設施排名',''],
         facilityRows:[],
         currentNo: 0,
         popup: {},       //在燈箱更改後的資料          
@@ -41,13 +41,13 @@ new Vue({
         addHandler(){  //最上面的新增按鈕所綁定的事件
             this.popup = JSON.parse(JSON.stringify(this.default));
             this.isOpen = true;
-            console.log(this.popup)
+            // console.log(this.popup)
         },  
-        addPro() {  //燈箱的新增按鈕
-            this.isOpen = false;
+        // addPro() {  //燈箱的新增按鈕
+        //     this.isOpen = false;
             
-        },  
-        async changeFinalFac() {//非同步//綁最後的按鍵     
+        // },  
+        async changeFinalFac() {//非同步//綁最後的按鍵      修改
             let sendFacObj = JSON.stringify(this.popup);//取最後要在資料庫呈現的東西
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
@@ -56,6 +56,30 @@ new Vue({
             xhr.send(`json=${sendFacObj}`);
 
             window.confirm("是否確認修改?");
+            this.isOpen = false;
+        },
+
+        async addPro() {  //新增設施  // 非同步  // 綁最後的按鍵
+            // console.log('addPro')
+            let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            let xhr = new XMLHttpRequest();
+            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+
+            let formData = new FormData();
+            formData.append("fac_pic", document.getElementById("uploadPic").files[0]);
+            formData.append("fac_name", this.popup.fac_name);
+            formData.append("fac_area", this.popup.fac_area);
+            formData.append("fac_maintain_data", this.popup.fac_maintain_data);
+            formData.append("fac_rainy", this.popup.fac_rainy);
+            formData.append("fac_preg", this.popup.fac_preg);
+            formData.append("fac_wheelchair", this.popup.fac_wheelchair);
+            formData.append("fac_chart", this.popup.fac_chart);
+
+            xhr.open("POST","./php/add_back_facility.php",true);
+            
+            xhr.send(formData);
+
+            window.confirm("是否確認新增?");
             this.isOpen = false;
         },
     },

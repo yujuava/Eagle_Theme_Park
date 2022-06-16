@@ -14,7 +14,7 @@
     <div id="back" class="back_content">
         <h2>設施管理</h2>
         <div>
-            <button>新增</button>
+            <button @click="addHandler">新增</button>
         </div>
 
         <div class="box_father">
@@ -45,7 +45,8 @@
                 <table class="innerData">
                     <tr>
                         <th>設施圖片</th>
-                        <td><input type="file"></td>
+                        <!-- <td><input type="file"></td> -->
+                        <td><input type="file" id="uploadPic"></td>
                     </tr>
                     <tr>
                         <th>設施名稱</th>
