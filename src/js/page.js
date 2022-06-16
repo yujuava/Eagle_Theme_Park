@@ -235,5 +235,24 @@ new Vue({
             console.log(getVars);
             // do 
         }
+    },
+    mounted(){
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "./php/articleAndComment.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+        xhr.onload = function () {
+            let articleAndComment = JSON.parse(xhr.responseText);
+            console.log(articleAndComment);
+       };
+        // substract currrent page no
+       let currentURL = window.location.href;
+       currentURL.split("page-no=");
+
+        let dataset = {};
+        dataset.articleNo = currentURL.split("page-no=")[1];
+        let data_info = `json=${JSON.stringify(dataset)}`;
+        // 3. sent data to php
+        xhr.send(data_info);
     }
 })

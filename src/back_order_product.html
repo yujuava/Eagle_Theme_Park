@@ -34,11 +34,11 @@
                     <th>收件地址</th>
                     <th>詳細內容</th>
                 </tr>
-                <tr v-for="orderRow in orderRows">
-                    <td>{{orderRow.product_order_no}}</td>
-                    <td>{{orderRow.product_order_time}}</td>
-                    <td>{{orderRow.mem_name}}</td>
-                    <td>{{orderRow.product_order_tp}}</td>
+                <tr v-for="item in newObj" :item="item"  :key="item.id">
+                    <td>{{item.product_order_no}}</td>
+                    <td>{{item.product_order_time}}</td>
+                    <td>{{item.mem_name}}</td>
+                    <td>{{item.product_order_tp}}</td>
                     <td>
                         <select name="" id="">
                             <option value="">待出貨</option>
@@ -47,32 +47,22 @@
                         </select>
                     </td>
                     <td>已付款</td>
-                    <td>{{orderRow.product_order_place}}</td>
-                    <td><button @click="show">MORE</button></td>
+                    <td>{{item.product_order_place}}</td>
+                    <td><button @click="idpopup(item.product_order_no)">MORE</button></td>
                 </tr>
             </table>
         </div>
-
-
+        
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
-                <table class="innerData">
-                    <tr>
-                        <th>商品名稱</th>
-                        <td>杯子</td>
-                    </tr>
-                    <tr>
-                        <th>購買單價</th>
-                        <td>299元</td>
-                    </tr>
-                    <tr>
-                        <th>購買數量</th>
-                        <td>1個</td>
-                    </tr>
-                </table>
+                <div>
+                    <table-component :detail="showPopupItem"></table-component>
+                </div>
+                
             </div>
         </div>
+
     </div>
 
     <!--  ===============map ===============  -->

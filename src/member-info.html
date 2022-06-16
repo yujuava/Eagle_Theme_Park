@@ -16,7 +16,7 @@
     })
     
     <div id="memberCentre">
-
+        
         <!-- ==================共用上半部start ================== -->
         <section>
             <div class="wrap  member-wrap">
@@ -30,8 +30,8 @@
                         <form action="">
                             <div class="sum-money">
                                 <label for="">累積消費金額</label>
-                                <label for=""  class="color4" >NT$</label>
-                                <input type="number" value="0" disabled  class="color4">
+                                <label for=""  class="color4" >NT${{eachTotal}}</label>
+                                <!-- <input type="number" value="0" disabled  class="color4"> -->
                             </div>
                             <div class="coupon">
                                 <label for="">專屬優惠券</label>
@@ -131,8 +131,10 @@
                 <h3>近期訂單</h3>
 
                 <!-- 訂單一 -->
-                    <member-order v-for="item in orderDetail" :item="item" :key="item.id">
+                <div>
+                    <member-order v-for="(orderlist, idx) in getOrder" :key="idx" :item="orderlist" :orderlist-Son="orderlist">
                     </member-order>
+                </div>
 
                 <!-- 訂單二 -->
 

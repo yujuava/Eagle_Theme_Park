@@ -3,12 +3,15 @@
 <header  id="header" class="@@class">
     <div class="left-back">
         <!-- 手機板上方 -->
+       
         <div class="mobile-icon">
+            <span id="mobile-username-lo"></span>
             <div class="member-enter" @click="loginBoxShow = !loginBoxShow" id="mobile-member-enter">
                 <img src="./images/Vector2.svg" alt="">
             </div>
             <a href="shoppingCart.html">
                 <img src="./images/Basket2.png" alt="">
+                <input type="text" class="carts" v-model="cartsnum" disabled ></input>
             </a>
         </div>
 
@@ -122,6 +125,7 @@
     </div>
     <!-- HEADER MAIN 結束 -->
     <div class="right-back">
+       
         <!-- 手機板nav漢堡 -->
         <label class="hbg" v-on:click="mobileHbgShow = !mobileHbgShow">
             <span></span>
@@ -200,6 +204,7 @@
         <img src="./images/ticket.svg" alt="">
     </a>
     <div class="bottom-back">
+       
         <div class="bcg-front"></div>
     </div>
 
