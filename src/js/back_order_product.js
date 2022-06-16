@@ -76,6 +76,10 @@ let orderVue = new Vue({
             if(!map[eachObj.product_order_no]){
                     orderVue.newObj.push({
                         product_order_no: eachObj.product_order_no,
+                        product_order_tp: eachObj.product_order_tp,
+                        product_order_time: eachObj.product_order_time,
+                        mem_name: eachObj.mem_name,
+                        product_order_place: eachObj.product_order_place,
                         data: [eachObj]
                     });
                     map[eachObj.product_order_no] = eachObj;
@@ -91,7 +95,7 @@ let orderVue = new Vue({
                     }
                 }
             }
-            console.log("newObj:",orderVue.newObj[0].data[0].product_name);
+            console.log("newObj:",orderVue.newObj);
         }
 
         

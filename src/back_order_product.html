@@ -34,7 +34,7 @@
                     <th>收件地址</th>
                     <th>詳細內容</th>
                 </tr>
-                <tr v-for="item in results" :item="item":key="item.id" @click.native="setFocusId(item.product_order_no)"
+                <tr v-for="item in newObj" :item="item":key="item.id" @click.native="setFocusId(item.product_order_no)"
                 >
                     <td>{{item.product_order_no}}</td>
                     <td>{{item.product_order_time}}</td>
@@ -53,8 +53,6 @@
                 </tr>
             </table>
         </div>
-
-
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
@@ -64,6 +62,8 @@
                 
             </div>
         </div>
+
+
     </div>
 
     <!--  ===============map ===============  -->
