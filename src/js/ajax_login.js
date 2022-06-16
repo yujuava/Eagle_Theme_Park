@@ -1,5 +1,6 @@
 // by hana
-let usernameLocation = document.getElementById("username-lo"); //秀出您好的位置
+let usernameLocation = document.getElementById("username-lo"); //秀出您好的位置(電腦)
+let mobileUsernameLocation = document.getElementById("mobile-username-lo"); //秀出您好的位置(手機)
 let mobileMemberEnter = document.getElementById("mobile-member-enter"); //手機member進入按鈕
 let pcMemberEnter = document.getElementById("member-enter");//電腦member進入按鈕
 let loginBox = document.getElementById("loginBox"); //登入燈箱
@@ -17,6 +18,7 @@ function getMemberInfo(){
     
     if(objResult.mem_name){
       usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
+      mobileUsernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
       pcMemberEnter.addEventListener("click",function(){
       window.location.href = "member-info.html";
       loginBox.style.display="none";

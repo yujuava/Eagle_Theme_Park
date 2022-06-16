@@ -120,6 +120,12 @@ header{
           font-weight: 550;
         }
 
+        #mobile-username-lo{
+          // border: 1px solid #000;
+          margin-right: 15px;
+          color:$color4;
+
+        }
         &:hover{
           cursor: pointer;
         }

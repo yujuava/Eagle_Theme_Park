@@ -55,8 +55,6 @@ Vue.component('member-order',{
         orderlistSon: {
             type: Object
         },
-        
-
 
     },
     computed: {
@@ -65,7 +63,9 @@ Vue.component('member-order',{
         // }
         list() {
             return this.orderlistSon.data ?? [];
-        }
+        },
+
+       
     },
     template:`
     <div class="member-frame member-order big-card-bdr">
@@ -194,6 +194,7 @@ new Vue({
         //訂單資料
         productOrderNo:[],
         objOrderResult:{},
+        // moneyTotal,
         
     },
     methods: {  // 函數大部分放這裡!
@@ -253,8 +254,7 @@ new Vue({
                         product_order_no: eachObj.product_order_no,
                         product_order_tp: eachObj.product_order_tp,
                         order_shipping: eachObj.order_shipping,
-                        product_order_time: eachObj.product_order_time,
-                        
+                        product_order_time: eachObj.product_order_time,                     
                         data: [eachObj],
                       });
                       map[eachObj.product_order_no] = eachObj;
@@ -272,6 +272,14 @@ new Vue({
             console.log("newObj:",newObj);
             return newObj;
         },
+
+        // moneyTotal(){   //總金額
+        //     // Object.keys(getOrder).forEach(key => {
+        //     //      total += key.product_order_tp;
+        //     //      console.log(key.product_order_tp);
+        //     // })
+        //     // return 123;
+        // },
     },
     created(){
         //會員資料
