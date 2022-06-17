@@ -2,15 +2,13 @@
 session_start();
 
 try{
+    require_once("../connect_cgd101g3.php");
+    $fileInfoArr = pathinfo($_FILES["article_image"]["name"]);
+    $fileName = uniqid().".{$fileInfoArr["extension"]}"; 
+    $from = $_FILES["article_image"]["tmp_name"];
+    $to = "../images/$fileName";
 
     if(isset($_SESSION["mem_id"]) == true){
-        require_once("../connect_cgd101g3.php");
-        $fileInfoArr = pathinfo($_FILES["article_image"]["name"]);
-        $fileName = uniqid().".{$fileInfoArr["extension"]}"; 
-    
-        $from = $_FILES["article_image"]["tmp_name"];
-        $to = "../images/$fileName";
-
         if(copy( $from, $to)===true){
             //寫入資料庫指令
             $sql = "insert into `article` (`article_no`, `mem_no`, `article_title`, `article_date`, `article_content`, `article_image`) values (NULL, :mem_no, :article_title, NOW(), :article_content, :article_image)";
