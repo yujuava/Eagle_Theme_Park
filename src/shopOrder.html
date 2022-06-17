@@ -199,7 +199,7 @@
                     }
                     alert('訂單已送出~!')
                     window.location.href = "member-info.html";
-                    localStorage.clear()
+                    localStorage.removeItem('carts');
 
                     // 1. 宣告XMLHttpRequest()
                     let xhr = new XMLHttpRequest();

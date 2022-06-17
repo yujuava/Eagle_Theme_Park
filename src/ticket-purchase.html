@@ -16,7 +16,7 @@
     })
 
 
-    <section class="Ticket-Purchase">
+    <section class="product-Purchase" id="ticket-purchase">
         <div class="wrap purchase">
             <!-- 圈圈 -->
             <div class="purchase-process one">
@@ -30,36 +30,21 @@
                 <h2>購票明細</h2>
                 <div class="table-item ONE">
                     <div class="item-price">
-                        <p>張數</p>
+                        <p>數量</p>
                         <p>價格</p>
                     </div>
                     <div class="item">
-                        <div class="ticket-type">
-                            <p>成人票</p>
-                            <input type="text" id="ticketTotal" class="col" value="2" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="1,000" disabled>
-                        </div>
-                        <div class="ticket-type">
-                            <p>幼童票</p>
-                            <input type="text" id="ticketTotal" class="col" value="0" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="500" disabled>
-                        </div>
-                        <div class="ticket-type">
-                            <p>愛心票</p>
-                            <input type="text" id="ticketTotal" class="col" value="0" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="400" disabled>
+                        <div>
+                            <order-component v-for="item in tickets" :item="item" :key='item.id' />
                         </div>
                         <div class="ticket-type">
                             <p>總計</p>
-                            <input type="text" id="ticketTotal" class="col" value="2" disabled>
-                            <input type="text" id="ticketPrice" class="col" value="2,000" disabled>
+                            <input type="text" id="ticketTotal" class="col" v-model="totalamount" disabled>
+                            <input type="text" id="ticketPrice" class="col" v-model="total" disabled>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
             <!-- 圈圈 -->
             <div class="purchase-process two">
                 <div class="circular">1</div>
@@ -77,32 +62,31 @@
                             <p>姓氏</p>
                         </div>
                         <div class="item-body">
-                            <input type="text" id="name">
-                            <input type="text" id="last-name">
+                            <input type="text" id="name" class="dataorder" v-model="objResult.mem_name">
+                            <input type="text" id="last-name" class="dataorder" v-model="objResult.mem_lastname">
                         </div>
                         <div class="item-country">
                             <p>國家/地區</p>
                             <p>聯絡電話</p>
                         </div>
                         <div class="item-Body">
-                            <input type="text" id="country">
-                            <input type="text" id="tel">
+                            <input type="text" id="country" class="dataorder" v-model="objResult.mem_country">
+                            <input type="text" id="tel" class="dataorder" v-model="objResult.mem_tel">
                         </div>
                         <div class="item-email">
                             <p>電子郵件信箱</p>
                         </div>
                         <div class="itemBody">
-                            <input type="text" id="email" class="col">
+                            <input type="text" id="email" class="dataorder" class="col" v-model="objResult.mem_mail">
                         </div>
                         <div class="item-adress">
                             <p>聯絡地址</p>
                         </div>
                         <div class="item-footer">
-                            <input type="text" id="adress" class="col">
+                            <input type="text" id="adress" class="col dataorder" v-model="objResult.mem_address">
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- 圈圈 -->
             <div class="purchase-process three">
@@ -116,32 +100,33 @@
                 <h2>結帳</h2>
                 <div class="table-item THREE">
                     <div class="info">
-
                         <!-- 信用卡卡號 -->
                         <div class="item-credit-card">
                             <p>信用卡卡號</p>
                             <div class="item-body">
-                                <input type="text" id="">
-                                <input type="text" id="">
-                                <input type="text" id="">
-                                <input type="text" id="">
+                                <input id="cardnum1" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum2');">
+                                <input id="cardnum2" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum3');">
+                                <input id="cardnum3" class="dataorder" maxlength="4" type="text"
+                                    onKeyUp="setBlur(this,'cardnum4');">
+                                <input id="cardnum4" class="dataorder" maxlength="4" type="text">
                             </div>
                         </div>
-
                         <!-- 信用卡年月 -->
                         <div class="item">
                             <p>信用卡有效月年</p>
                             <form date="airform">
                                 <div class="Info">
                                     <div class="month">
-                                        <select id="month">
-                                            <option value="" selected="true" disabled="disabled">請輸入</option>
+                                        <select id="month" class="dataorder">
+                                            <option id="cardnum5" value="">請輸入</option>
                                         </select>
                                         <p>月</p>
                                     </div>
                                     <div class="year">
-                                        <select id="year">
-                                            <option  value="" selected="true" disabled="disabled">請輸入</option>
+                                        <select id="year" class="dataorder">
+                                            <option value="" id="cardnum6">請輸入</option>
                                         </select>
                                         <p>年</p>
                                     </div>
@@ -149,24 +134,137 @@
                                 <!-- 後三碼 -->
                                 <div class="back-three">
                                     <p>後三碼</p>
-                                    <input type="text" id="lastThreeYards">
+                                    <input maxlength="3" type="text" class="dataorder" id="lastThreeYards">
                                 </div>
                             </form>
-
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
             <div class="check-btn">
-                <button class="bgBtn-check" type="submit">確認</button>
+                <button class="bgBtn-check" id="submit" type="submit" @click="sendForm">確認</button>
             </div>
-
         </div>
     </section>
+    <script>
+        let tickets = [];
+        if (localStorage.getItem('tickets') === null) {
+            let tickets = [];
+            localStorage.setItem('tickets', JSON.stringify(tickets));
+        } else {
+            tickets = JSON.parse(localStorage.getItem('tickets'));
+        };
+        Vue.component('order-component', {
+            props: {
+                item: Object,
+            },
+            computed: {
+                stotal() {
+                    let stotal = this.item.ticket_amount * this.item.ticket_price
+                    return stotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                }
+            },
+            methods: {},
+            template: `
+            <div class="ticket-type">
+                <p>{{item.ticket_name}}</p>
+                <input type="text" id="ticketTotal" class="col" v-model="item.ticket_amount" disabled>
+                <input type="text" id="ticketPrice" class="col" v-model="stotal" disabled>
+            </div>
+            `
+        })
+        new Vue({
+            el: '#ticket-purchase',
+            data: {
+                tickets,
+                textResult: [], //ajax回傳
+                objResult: [],
+                acount: '',
+                password: '',
+                send_result: {
+                    last_name: '',
+                    first_name: ''
+                },
+            },
+            mounted() {},
+            methods: {
+                sendForm() {
+
+                    let dataorderInner = document.querySelectorAll('.dataorder');
+                    for (i = 0; i < dataorderInner.length; i++) {
+                        if (dataorderInner[i].value == "") {
+                            alert('還有欄位未輸入唷~!')
+                            return;
+                        }
+                    }
+                    alert('訂單已送出~!')
+                    window.location.href = "member-info.html";
+                    localStorage.removeItem('tickets');
+
+                    // 1. 宣告XMLHttpRequest()
+                    let xhr = new XMLHttpRequest();
+
+                    // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
+                    
+                    xhr.open("POST", "./php/ticket-order-about.php", true);
+
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                    // 3. 封裝接收到的檔案  此處以JSON格式為例
+                    // 因為本案例不須跳轉頁面 在這邊把對應資料抓過來封裝成物件就好
+                    let sendObj = {
+                        tickets
+                    };
+
+                    Object.keys(this.objResult).forEach(key => {
+                        if (this.objResult[key]) sendObj[key] = this.objResult[
+                            key]; //如果這個key是原來的，給的資料就是原來的
+                        else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
+                    })
+                    
+                    // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
+                    
+
+                    // // 5. XMLHttpRequest送出
+
+                    let data_info = `json=${JSON.stringify(sendObj)}`;
+                    // // 5. XMLHttpRequest送出
+                    xhr.send(data_info);
+                }
+            },
+            computed: {
+                totalamount() {
+                    const arramount = tickets.map(item => Object.values(item)[4]);
+                    let tamount = 0;
+                    arramount.forEach((item) => {
+                        tamount += item
+                    });
+                    return tamount;
+                    console.log(tamount)
+                },
+                total() {
+                    let sum = 0;
+                    let stotal = 0
+                    this.tickets.forEach((item, i) => {
+                        stotal = item.ticket_amount * item.ticket_price
+                        sum += stotal
+                    });
+                    return "$ " + sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                },
+            },
+            created() {
+                let xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    this.objResult = JSON.parse(xhr.responseText); //把
+                    this.textResult = xhr.responseText;
+               
+                }
+                xhr.open("get", "php/login_getMember.php", true);
+                xhr.send(null);
+            },
+
+        })
+    </script>
     <script>
         window.addEventListener("load", function () {
             let select_year = document.querySelector("#year");
@@ -183,6 +281,19 @@
             }
         })
 
+        function setBlur(obj, target2) {
+            let target = document.getElementById(target2);
+            if (obj.value.length == obj.getAttribute('maxlength')) {
+                // console.log(target)
+                target.focus();
+            }
+            return;
+        }
+
+        function init() {
+            document.getElementById('submit').onclick = submitOrder;
+        }
+        window.addEventListener('load', init);
     </script>
 
     <!--  ===============map ===============  -->

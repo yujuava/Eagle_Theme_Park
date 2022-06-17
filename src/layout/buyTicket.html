@@ -1,118 +1,136 @@
 <!-- ===============大票券=============== -->
-<div class="big-ticket">
+<div class="big-ticket" id="big-ticket">
     <div class="leftOrTop">
     </div>
-    <div class="rightOrBottom" id="big-ticket">
+    <div class="rightOrBottom">
         <p class="ticket-title">樂園票券</p>
-        <form action="">            
-            <ticket-type-component v-for="item in ticketTypes" :item="item" :key="item.id">                  
+        <form action="">
+            <ticket-type-component @newcount="ticketCount" v-for="item in ticketTypes" :item="item" :key="item.id">
         </form>
     </div>
-    <a href="ticket-purchase.html" class="bgBtn-book">我要訂票</a>
-    
+    <!-- <a href="ticket-purchase.html" @click="addticketlocal" class="bgBtn-book">我要訂票</a> -->
+    <!-- <div @click="addticketlocal" class="bgBtn-book">我要訂票</div> -->
+    <input type="button" @click="addticketlocal" value="我要訂票" class="bgBtn-book">
+
 </div>
 
 
 <!-- vue -->
 <script>
-//宣告三個物件在ticketTypes陣列裡
-const ticketTypes =[{
-    id:1,
-    name:'成人票',
-    age:"12+",
-},
-{
-    id:2,
-    name:'兒童票',
-    age:"4-11",
-},
-{
-    id:3,
-    name:'愛心票',
-    age:"65+",
-},
-]
+    let tickets = [];
 
-Vue.component('ticket-type-component',{
-    data(){
-        return{
-            count:0,
-            minCount:0,
-            maxCount:10,
-        }
-    },
-    template:`
+    //宣告三個物件在ticketTypes陣列裡
+    const ticketTypes = [{
+            ticket_no: 1,
+            ticket_name: '成人票',
+            age: "12+",
+            ticket_price: 900,
+            ticket_amount: 0,
+        },
+        {
+            ticket_no: 2,
+            ticket_name: '兒童票',
+            age: "4-11",
+            ticket_price: 500,
+            ticket_amount: 0,
+
+        },
+        {
+            ticket_no: 3,
+            ticket_name: '愛心票',
+            age: "65+",
+            ticket_price: 400,
+            ticket_amount: 0,
+
+        },
+    ]
+
+    Vue.component('ticket-type-component', {
+        data() {
+            return {
+                count: 0,
+                minCount: 0,
+                maxCount: 10,
+            }
+        },
+        template: `
     <div class="col">
         <label for="">
-            <p>{{item.name}}</p>
+            <p>{{item.ticket_name}}</p>
             <p>({{item.age}})</p>
         </label>
         <div class="count">
-            <div class="minus" @click="countMinus">
+            <div class="minus" @click="countAdd(item.ticket_no,-1)">
                 <i class="fa-solid fa-minus"></i>
             </div>
-            <p class="num">{{count}}</p>
-            <div class="plus" @click="countAdd">    
+            <p class="num">{{item.ticket_amount}}</p>
+            <div class="plus" @click="countAdd(item.ticket_no,1)">    
                 <i class="fa-solid fa-plus"></i>
             </div>
         </div>
     </div>
     `,
-    props:{
-        item:Object,
-    },
-    methods: { 
-        countAdd(){
-            if(this.count < this.maxCount){
-                this.count++;
-            }else{
-                this.count = this.maxCount;
-            };
+        props: {
+            item: Object,
         },
-        countMinus(){
-            if(this.count > this.minCount){
-                this.count--;
-            }else{
-                this.count = this.minCount;
-            };
+        methods: {
+            countAdd(id, amount) {
+                this.$emit('newcount', id, amount)
+                // if(this.count < this.maxCount){
+                //     this.count++;
+                // }else{
+                //     this.count = this.maxCount;
+                // };
+            },
+            // countMinus(){
+            //     if(this.count > this.minCount){
+            //         this.count--;
+            //     }else{
+            //         this.count = this.minCount;
+            //     };
+            // },
+
         },
-        
-    },
 
-});
+    });
 
 
 
-new Vue({
-    el:'#big-ticket',
-    data:{
-        count:0,
-        ticketTypes,
-    },
-    computed: {  
-    },
-    methods: { 
-        countAdd(){
-            this.count++;
-            alert("hi");
-            if(this.count < this.maxCount){
-                
-                this.count++;
-            }else{
-                this.count = this.maxCount;
-            };
+    new Vue({
+        el: '#big-ticket',
+        data: {
+            count: 0,
+            ticketTypes,
+            tickets,
         },
-        countMinus(){
-            if(this.count > this.minCount){
-                this.count--;
-            }else{
-                this.count = this.minCount;
-            };
+        computed: {},
+        methods: {
+            ticketCount(id, amount) {
+                let index = this.ticketTypes.findIndex(v => v.ticket_no == id);
+                let currentAmount = this.ticketTypes[index].ticket_amount;
+                this.ticketTypes[index]['ticket_amount'] = currentAmount + amount < 0 ? 0 : currentAmount +
+                    amount;
+            },
+            addticketlocal() {
+                let totalamount = 0
+
+                for (let i = 0; i < this.ticketTypes.length; i++) {
+                    totalamount += this.ticketTypes[i].ticket_amount;
+                }
+
+                if (totalamount == "0") {
+                    alert('還沒選擇票券唷~!')
+                    return;
+                }
+
+
+
+                let tickets = this.ticketTypes;
+                localStorage.setItem('tickets', JSON.stringify(tickets));
+                // //同步更新小購物車數量
+                window.location.href = "ticket-purchase.html";
+            }
+
         },
-        
-    },
-})
+    })
 </script>
-
-
-
