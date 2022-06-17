@@ -19,7 +19,7 @@
  
     <section>
         <div class="wrap games__row">
-            <div class="games__col">
+            <!-- <div class="games__col">
                 <div class="gamesCard">
                     <p>接漢堡</p>
                     <div class="gamesImg">
@@ -30,7 +30,7 @@
                         <button class="bgBtn-games">開始遊戲</button>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <div class="games__col">
                 <div class="gamesCard">
                     <p>換衣服</p>
@@ -48,7 +48,29 @@
     </section>
 
 
+<script>
+    // 提示訊息：成為會員後可獲得優惠券
+    function DoFirst(){
 
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "./php/gameCoupon.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        
+        xhr.onload = function () {
+            loginStatusResult = JSON.parse(xhr.responseText);
+            if(loginStatusResult == '0'){
+                window.alert("建議先登入/註冊成為會員，完成小遊戲可獲得優惠券");
+            }
+        }
+        // action代表 :檢查登入狀態
+        let dataset = {};
+        dataset.action = "loginStatus";
+        let data_info = `json=${JSON.stringify(dataset)}`;
+        xhr.send(data_info);
+
+    }
+    window.addEventListener('load', DoFirst);
+</script>
 
 
     <!-- footer  -->

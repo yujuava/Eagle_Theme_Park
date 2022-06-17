@@ -174,7 +174,29 @@ function DoFirst(){
             if( progressResult == 3 && couponMsg == false){
                 couponMsg = true;
                 setTimeout( ()=> {
-                        alert('恭喜獲得優惠券!');
+                    // 判斷是否登入會員
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "./php/gameCoupon.php", true);
+                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+                    xhr.onload = function () {
+                        couponResult = JSON.parse(xhr.responseText);
+                        if(couponResult == '0'){
+                            window.alert("謝謝你幫果果穿上衣服");
+                        }else if(couponResult == '1'){
+                            window.alert("恭喜獲得優惠券! (即將跳轉會員中心)");
+                            window.location.href = "member-info.html";
+                        }else{
+                            window.alert(couponResult);
+                        }
+                    }
+                    // action代表 :完成遊戲
+                    let dataset = {};
+                    dataset.action = "gameComplete";
+                    // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
+                    let data_info = `json=${JSON.stringify(dataset)}`;
+                    xhr.send(data_info);
+
                     } , 500 );
             }
         }
