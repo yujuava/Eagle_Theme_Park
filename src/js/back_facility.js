@@ -74,8 +74,7 @@ let vm = new Vue({
             }).then(resonse => {
                 console.log("axios.resonse",resonse);
                 // 將獲取回來的資料賦值給list
-                // this.list = resonse
-
+                this.list = resonse.append("fac_pic", document.getElementById("uploadPic").files[0]);
                 // console.log("this.list",this.list);
                 // let formData = new FormData();
                 // formData.append("fac_pic", document.getElementById("uploadPic").files[0]);

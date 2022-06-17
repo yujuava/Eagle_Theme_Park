@@ -204,6 +204,12 @@ new Vue({
         productOrderNo:[],
         objOrderResult:{},
         // Total,
+        //優惠券資料
+        useState:['未使用','已使用'],
+        couponShow:"未使用",
+        currentState:"未使用",
+
+        objCouponResult:[],
         
     },
     methods: {  // 函數大部分放這裡!
@@ -213,6 +219,7 @@ new Vue({
         this.$refs.A.style.background="#FDB52D";
         this.$refs.B.style.background="#A7D4D3";
         this.$refs.C.style.background="#A7D4D3";
+        this.$refs.D.style.background="#A7D4D3";
         },
         // 按鈕換頁2
         changeB(){
@@ -220,6 +227,7 @@ new Vue({
         this.$refs.B.style.background="#FDB52D";
         this.$refs.A.style.background="#A7D4D3";
         this.$refs.C.style.background="#A7D4D3";
+        this.$refs.D.style.background="#A7D4D3";
         },
         // 按鈕換頁3
         changeC(){
@@ -227,6 +235,19 @@ new Vue({
         this.$refs.C.style.background="#FDB52D";
         this.$refs.B.style.background="#A7D4D3";
         this.$refs.A.style.background="#A7D4D3";
+        this.$refs.D.style.background="#A7D4D3";
+        },
+        // 按鈕換頁4
+        changeD(){
+            this.type = 'D'
+            this.$refs.D.style.background="#FDB52D";
+            this.$refs.B.style.background="#A7D4D3";
+            this.$refs.A.style.background="#A7D4D3";
+            this.$refs.C.style.background="#A7D4D3";
+
+        },
+        isclose(){
+            couponShow = false;
         },
         //非同步//綁會員修改完成的按鍵
         async sendData() {
@@ -296,17 +317,6 @@ new Vue({
             return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
             
         },
-        // moneyTotal(){
-        //     let sum = 0;
-        //     // this.eachTotal.forEach( e => {
-        //     //     sum += e;
-        //     // });
-        //     return sum
-        // },
-        // money() {
-        //     let aa = 10
-        //     return this.eachTotal;
-        // },
 
     },
     created(){
@@ -337,6 +347,16 @@ new Vue({
         }
         xhrOrder.open("get","./php/member-order.php",true);
         xhrOrder.send(null);
+
+        //會員優惠券
+        let xhrCoupon = new XMLHttpRequest();
+        xhrCoupon.onload = () => {
+            this.objCouponResult = JSON.parse(xhrCoupon.responseText);
+            console.log("優惠券:objCouponResult",this.objCouponResult);
+
+        }
+        xhrCoupon.open("get","./php/member-coupon.php",true);
+        xhrCoupon.send(null);
 
     },
 });

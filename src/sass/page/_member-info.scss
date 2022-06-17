@@ -390,12 +390,52 @@
                  cursor: pointer;   
                 }
             }
+            .Used-color{
+                //  background-color: red;   
+                 color:$color5;
+                 font-weight: bold;    
+            }
         }
         p{
             width: 100%;
             text-align: center;
             font-size: $h6-fzSize;
         }
+        .coupon-box{
+            width: 100%;
+            // border: 1px solid #000;
+            display: flex;
+            justify-content: flex-start;
+            margin: auto;
+            .coupon{
+                display: block;
+                width: 150px;
+                // border: 3px solid $color5;
+                // background-color: $color7;
+                padding: 15px 25px;
+                // border-radius: 10px;
+                margin: 20px;
+                color:$color5;
+                font-weight: bold;
+                font-size: 1.2rem;
+                background-image: url(../images/coupon.png);
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                aspect-ratio: 1 / 0.5;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            p{
+                width: auto;
+            }
+          
+        }
+    
     }
 
     //color
