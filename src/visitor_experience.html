@@ -33,7 +33,7 @@
 
                         <div class="box-body">
                             <!-- 標題 -->
-                            <input type="text" placeholder="標題">
+                            <input type="text" placeholder="標題" id="article_title">
 
                             <!-- 圖片? -->
                             <input type="file" id="InsertPicture" accept="image/*">
@@ -44,7 +44,7 @@
                                 <div class="text-area">
 
                                     <textarea cols="50" rows="5" maxlength="300"
-                                        placeholder="請輸入內文(發文須注意禮節)"></textarea>
+                                        placeholder="請輸入內文(發文須注意禮節)" id="article_content"></textarea>
                                     <!-- <p>發表需注意網路禮節</p> -->
                                 </div>
 
@@ -56,8 +56,7 @@
 
                                     <div class="img" id="img">
                                         <img src="" alt="your Image" class="blah">
-                                        <span class="image-preview__default-text"><i
-                                                class="fa-regular fa-image"></i></span>
+                                        <span class="image-preview__default-text"><i class="fa-regular fa-image"></i></span>
                                     </div>
                                 </div>
 
@@ -115,7 +114,7 @@
                 },
                 addHandler() {  
                     this.postup = JSON.parse(JSON.stringify(this.default));
-                    // this.isOpen = true;
+                    this.lightbox = true;
                 },
                 async addPost() { //新增留言 //使用非同步
                     console.log('addPost')
@@ -124,8 +123,8 @@
                     let xhr = new XMLHttpRequest();
 
                     let formData = new FormData();
-                    formData.append("article_title", this.postup.article_title);
-                    formData.append("article_content", this.postup.article_content);
+                    formData.append("article_title", document.getElementById('article_title').value);
+                    formData.append("article_content", document.getElementById('article_content').value);
                     formData.append("article_image", document.getElementById('InsertPicture').files[0]);
 
                     xhr.open("POST", "./php/add_back_post.php", true);
@@ -133,7 +132,7 @@
                     xhr.send(formData);
 
                     window.confirm("是否確認新增?");
-                    // this.isOpen = false;
+                    this.closeBox();
                 }
             },
         })

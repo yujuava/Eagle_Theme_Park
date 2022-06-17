@@ -21,6 +21,8 @@ try{
 	$comment -> execute();
 	$commentdRow = $comment->fetchAll(PDO::FETCH_ASSOC);
 
+	
+
 	// array_unshift($articledRow, "queryResult: articledRow");
 	// array_unshift($commentdRow, "queryResult: commentdRow");
 	$responseResults = array();

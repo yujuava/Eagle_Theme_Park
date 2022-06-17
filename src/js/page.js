@@ -1,6 +1,6 @@
 Vue.component('list-component', {
     template: `
-        <div>
+    <div>
         <div class="card">
             <div class="card-header"></div>
             <div class="card-pic">
@@ -29,25 +29,25 @@ Vue.component('list-component', {
                 </div>
                 <div class="message-strip">
                     <div class="message">
-                        <div class="name">{{item.mem_name}}</div>
+                        <div class="name">{{comment.mem_name}}</div>
                         <div class="message-content">
-                            <p>{{item.comment_content}}</p>
-                            <div class="time">{{item.comment_date}}</div>
+                            <p>{{comment.comment_content}}</p>
+                            <div class="time">{{comment.comment_date}}</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <d  iv class="message-bar">
+            <div class="message-bar">
                 <div class="pic">
                     <img :src="item.article_image" alt="">
                 </div>
                 <input type="text" placeholder="留言">
                 <a href="#"><i class="fa-solid fa-paper-plane"></i></a>
-            </d>
+            </div>
             <div class="message-footer"></div>
         </div>
-        </div>
+    </div>
     `,
     props: {
         item: Object,
@@ -61,17 +61,7 @@ new Vue({
     el: '#pages',
     data: {
         article: { "article_no": 1, "mem_no": 1, "article_title": "", "article_date": "", "article_content": "", "article_image": "", "mem_name": "" },
-        comments: [],
-        focusKey:'',
-    },
-    created(){
-        let xhr = new XMLHttpRequest();
-        xhr.onload = () =>{
-            this.comments = JSON(xhr.responseText);
-            console.log(this.comments);
-        }
-        xhr.open("get","php/get_back_discuss.php",true);
-        xhr.send(null);
+        comments: {},
     },
     methods: {
         async getArticle() {
