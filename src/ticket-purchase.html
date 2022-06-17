@@ -62,7 +62,7 @@
                             <p>姓氏</p>
                         </div>
                         <div class="item-body">
-                            <input type="text" id="name" class="dataorder" v-model="objResult.mem_name">
+                            <input type="text" id="name" class="dataorder" @click="doublecheck" v-model="objResult.mem_name">
                             <input type="text" id="last-name" class="dataorder" v-model="objResult.mem_lastname">
                         </div>
                         <div class="item-country">
@@ -186,10 +186,21 @@
                     first_name: ''
                 },
             },
-            mounted() {},
+            mounted() {
+               
+            },
             methods: {
+                doublecheck(){
+                    if (document.getElementById("username-lo").innerText == "") {
+                        loginBox.style.display = "flex";
+                        return;
+                    } 
+                },
                 sendForm() {
-
+                    if (document.getElementById("username-lo").innerText == "") {
+                        loginBox.style.display = "flex";
+                        return;
+                    }
                     let dataorderInner = document.querySelectorAll('.dataorder');
                     for (i = 0; i < dataorderInner.length; i++) {
                         if (dataorderInner[i].value == "") {
@@ -197,6 +208,7 @@
                             return;
                         }
                     }
+                    
                     alert('訂單已送出~!')
                     window.location.href = "member-info.html";
                     localStorage.removeItem('tickets');
@@ -205,7 +217,7 @@
                     let xhr = new XMLHttpRequest();
 
                     // 2.決定傳送方法POST, 傳送目標, true代表非同步執行
-                    
+
                     xhr.open("POST", "./php/ticket-order-about.php", true);
 
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -221,9 +233,9 @@
                             key]; //如果這個key是原來的，給的資料就是原來的
                         else sendObj[key] = this.defaultResult[key]; //不然給的就是新的結果
                     })
-                    
+
                     // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
-                    
+
 
                     // // 5. XMLHttpRequest送出
 
@@ -257,7 +269,7 @@
                 xhr.onload = () => {
                     this.objResult = JSON.parse(xhr.responseText); //把
                     this.textResult = xhr.responseText;
-               
+
                 }
                 xhr.open("get", "php/login_getMember.php", true);
                 xhr.send(null);
