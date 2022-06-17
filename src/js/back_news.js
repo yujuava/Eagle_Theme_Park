@@ -1,29 +1,95 @@
 
-let newsVue = new Vue({
+var newsVue = new Vue({
     el:'#back',
-    data:{
-        isOpen: false,
-        // newsTitle: ['消息編號','消息名稱','消息內容','發布日期'],
+    data: {
         newsRows:[],      //資料的陣列
+        isOpen: false,
+        // prodRows:[],
+        currentNo: 0,
+        popup: {},
+        default: {
+            news_name: '',
+            news_content: '',
+            news_pic: '',
+            news_date: '',
+        },
+        objResult: {},  // 原來的物件
+        defaultResult: {},  // 新的更新過的資料
+        // newsTitle: ['消息編號','消息名稱','消息內容','發布日期'],
+    },
+    computed: {
+        currentItem() {
+            return this.newsRows.find(v => v.news_no == this.currentNo) ?? this.newsRows[0]
+        },
+    },
+    watch: {
+        currentItem(nVal) {
+            this.popup = nVal;
+        },
     },
     methods: {   
-        show(){
+        show(no){
+            this.currentNo = no;
             this.isOpen = true;
-        },     
+        },
+        addHandler() {  // 左上新增商品
+            this.popup = JSON.parse(JSON.stringify(this.default));
+            this.isOpen = true;
+        },
+        async changeHandler() {  //修改商品  // 非同步  // 綁最後的按鍵
+            console.log('changeHandler')
+            let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            let xhr = new XMLHttpRequest();
+            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+            xhr.open("POST","./php/update_back_news.php",true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.send(`json=${sendObj}`);
+
+            window.confirm("是否確認修改?");
+            this.isOpen = false;
+        },
+        async addNews() {  //新增商品  // 非同步  // 綁最後的按鍵
+            console.log('addNews')
+            let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            let xhr = new XMLHttpRequest();
+            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+
+            let formData = new FormData();
+            formData.append("news_name", this.popup.news_name);
+            formData.append("news_content", this.popup.news_content);
+            formData.append("news_date", this.popup.news_date);
+            formData.append("news_pic", document.getElementById("uploadPic").files[0]);
+
+            xhr.open("POST","./php/add_back_news.php",true);
+            
+            xhr.send(formData);
+
+            window.confirm("是否確認新增?");
+            this.isOpen = false;
+        },
     },
-    mounted(){     //第一步仔入完成才開始執行            
-        console.log("init");         
-        let xhr = new XMLHttpRequest();    //建立ajax物件取XHR
-        // xhr.onload = function(){
-        //     this.memRows = JSON.parse(xhr.responseText);
-        //     alert(this.memRows);
-        //     console.log(this.memRows);
-        // }
-        xhr.onload = () => {   //等待回復訊息
-            newsVue.newsRows = JSON.parse(xhr.responseText); //收到打開資料,儲存到newVue的陣列
-            console.log(newsVue.newsRows);
-        }
-        xhr.open("get","php/back_news.php",true);   //決定請求送至PHP
-        xhr.send(null);                              //完成送出
+    // mounted(){     //第一步仔入完成才開始執行            
+    //             console.log("init");         
+    //             let xhr = new XMLHttpRequest();    
+    //             //建立ajax物件取XHR
+        
+    //             xhr.onload = () => {   //等待回復訊息
+    //                 newsVue.newsRows = JSON.parse(xhr.responseText); //收到打開資料,儲存到newVue的陣列
+    //                 console.log(newsVue.newsRows);
+    //             }
+    //             xhr.open("get","php/back_news.php",true);   //決定請求送至PHP
+    //             xhr.send(null);                              //完成送出
+    //         }
+})
+function getNews() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+         newsVue.newsRows = JSON.parse(xhr.responseText);
+        console.log(newsVue.newsRows);
     }
+    xhr.open("get", "./php/back_news.php", true);
+    xhr.send(null);
+}
+window.addEventListener("load", function () {
+    getNews();
 })
