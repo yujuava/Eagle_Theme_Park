@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-17 01:36:29
+-- 產生時間： 2022-06-17 21:34:11
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -58,7 +58,8 @@ INSERT INTO `article` (`article_no`, `mem_no`, `article_title`, `article_date`, 
 (15, 13, '全台灣的遊樂園實在是很少會有這種規模', '2022-05-05 21:30:35', '遊樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模', './images/themePark__facIndian_spread_Md_2.jpg'),
 (16, 7, '表演一天只有表演一次而已，所以要看準時間去看，還蠻值得的', '2022-05-07 15:40:35', '是跟小孩來校外教學，因為下雨的關係有很多遊樂設施都沒有開放，不然其實是蠻好玩的\r\n1:廁所是蠻乾淨的2:餐廳用餐的話價位大概都200以上居多3:路邊的餐點平均大概都100以上4:好玩的遊樂設施都要等很久5:表演一天只有表演一次而已，所以要看準時間去看，還蠻值得的', './images/themePark__facIndian_adventure_Lg_3.jpg'),
 (17, 6, '園區內服務員很熱心也認真', '2022-05-10 15:05:35', '這麼大的園區乾淨清潔，尤其是廁所，幾乎沒有味道，當然也有可能是疫情期間人少了，也因為這樣中餐廳跟牛排館都沒開，好可惜但也無可奈何，餐點真的可以再精緻一點，園區內服務員很熱心也認真，尤其動物導覽，聽得出來他們都是真心愛動物們', './images/themePark__attrWest_1.jpg'),
-(18, 5, '搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', '2022-05-13 20:17:35', '在2009年時耗資新台幣2億元打造英式復古蒸氣火車，且重新規劃該園區。搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', './images/themePark__facWest_tourist_Lg_2.jpg');
+(18, 5, '搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', '2022-05-13 20:17:35', '在2009年時耗資新台幣2億元打造英式復古蒸氣火車，且重新規劃該園區。搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', './images/themePark__facWest_tourist_Lg_2.jpg'),
+(19, 4, '我要發文', '2022-06-17 18:18:42', '我是Ava', './images/62ac550231e79.png');
 
 -- --------------------------------------------------------
 
@@ -275,12 +276,14 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`news_no`, `news_pic`, `news_name`, `news_content`, `news_date`) VALUES
-(1, 'facilities2.jpg', '休園公告', '2022/06/28-06/29 因進行設施調整及維護，將暫停對外開放 造成您的不便，敬請見諒。', '2022-06-06'),
-(2, 'themePark__attrNY_4.jpg', '優惠快訊', '慶開幕! 當月壽星購買門票只要『半價』 ! 快揪親朋好友一起來伊果樂園留下美好回憶', '2022-05-25'),
+(1, 'burger7.jpg', '伊果美食', '伊果美食週，來自美國的五星主廚宏敏大師，歡迎各位大朋友小朋友，一起來伊果樂園倆受美食唷~!!', '2022-06-17'),
+(2, 'closed_Ferris-wheel_eagle.gif', '優惠快訊', '慶開幕!當月壽星購買門票只要『半價』且由駿騰大攝影師拍下您的生日美照上傳再享生日好禮一份 ! 快揪親朋好友一起來伊果樂園留下美好回憶~!', '2022-05-25'),
 (3, 'shutterstock.jpg', '防疫須知', '因疫情影響，伊果樂園一切將配合政府防疫措施，並落實每小時消毒，疫情防治，我們一起努力！', '2022-06-01'),
-(4, 'themePark__attrNY_2.jpg', '優惠快訊', '暫時不能出國，就來伊果樂園大玩特玩吧！ 入園即送兩張不限金額抵用券，歡度精彩美好假期！', '2022-06-08'),
+(4, 'facilities7.jpg', '優惠快訊', '入園即送兩張Light Up For You不限金額抵用券，歡樂買燈飾，家裡來點質感氣息，若想出門，趕緊來伊果樂園大玩特玩吧！歡度精彩美好假期！', '2022-06-08'),
 (5, 'facilities8 (11).jpg', '活動快報', '請勿購買來路不明或轉售之伊果樂園相關票券及商品。本公司有權禁止收受截圖、翻拍、轉售等形式之電子票券。如有疑問還請於入園時提供系統購買證明。', '2022-06-14'),
-(6, 'friend.jpg', '活動快報', '浪漫伊果，婚紗拍攝&求婚活動。走進幸福國度，漫步在異國主題村，留下深刻難忘回憶。', '2022-06-06');
+(6, 'friend.jpg', '活動快報', '浪漫伊果，婚紗拍攝&求婚活動。走進幸福國度，漫步在異國主題村，留下深刻難忘回憶。', '2022-06-06'),
+(9, 'facilities8 (25).jpg', '休園公告', '6/28-6/29，全園區設備半年度保養，休園二日唷，親愛的再等等，將為您提供更棒的伊果樂園~!', '2022-06-17'),
+(10, 'smiley-female.jpg', '語實巨進', '伊果好友們，快來加一語實巨進，提供完善的教學課程及問答諮詢，成為伊果會員，讓您日文英文中文嘛欸通。', '2022-06-17');
 
 -- --------------------------------------------------------
 
@@ -361,7 +364,8 @@ CREATE TABLE `product_order` (
 
 INSERT INTO `product_order` (`product_order_no`, `mem_no`, `coupon_no`, `order_shipping`, `product_order_time`, `product_order_way`, `product_order_place`, `product_order_over_time`, `product_order_real_price`, `product_order_tp`) VALUES
 (1, 4, NULL, '0', '2022-06-17', '0', '桃園市中壢區復興路46號', NULL, 3900, 3900),
-(2, 4, NULL, '0', '2022-06-17', '0', '桃園市中壢區復興路46號', NULL, 2300, 2300);
+(2, 4, NULL, '0', '2022-06-17', '0', '桃園市中壢區復興路46號', NULL, 2300, 2300),
+(3, 12, NULL, '0', '2022-06-17', '0', '動物園草地街23號', NULL, 2400, 2400);
 
 -- --------------------------------------------------------
 
@@ -386,7 +390,8 @@ INSERT INTO `product_order_item` (`product_order_no`, `product_no`, `product_tot
 (1, 4, 3, 300),
 (2, 2, 1, 800),
 (2, 4, 2, 300),
-(2, 6, 3, 300);
+(2, 6, 3, 300),
+(3, 3, 6, 400);
 
 -- --------------------------------------------------------
 
@@ -556,7 +561,7 @@ ALTER TABLE `ticket_order`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=19;
+  MODIFY `article_no` int NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=20;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `comment`
@@ -598,7 +603,7 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號', AUTO_INCREMENT=7;
+  MODIFY `news_no` int NOT NULL AUTO_INCREMENT COMMENT '消息編號', AUTO_INCREMENT=11;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `postcard`
@@ -622,7 +627,7 @@ ALTER TABLE `product`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=3;
+  MODIFY `product_order_no` int NOT NULL AUTO_INCREMENT COMMENT '商品訂單編號', AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_order_item`
