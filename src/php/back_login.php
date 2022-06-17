@@ -23,6 +23,6 @@ if($emp->rowCount() == 0){//若查無此人的資料即為帳密錯誤, 請重�
 	$empRow = $emp->fetch(PDO::FETCH_ASSOC);
     $_SESSION["empId"] = $empRow["emp_id"];
     $_SESSION["empPsw"] = $empRow["emp_psw"];
-	echo "<script>window.alert('歡迎登入伊果樂園後台');location.href='../back_emp.html'</script>";
+	echo "<script>location.href='../back_emp.html'</script>";
 }
 ?>
