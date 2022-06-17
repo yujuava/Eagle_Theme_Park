@@ -27,7 +27,7 @@
     <div id="back" class="back_content">
         <h2>最新消息管理</h2>
         <div>
-            <button @click="show">新增</button>
+            <button @click="addHandler" >新增</button>
         </div>
 
         <div class="box_father">
@@ -46,7 +46,7 @@
                     <td>{{newsRow.news_name}}</td>
                     <td>{{newsRow.news_content}}</td>
                     <td>{{newsRow.news_date}}</td>
-                    <td><button @click="show">編輯</button></td>
+                    <td><button @click="show(newsRow.news_no)">編輯</button></td>
                 </tr>
             </table>
         </div>
@@ -58,24 +58,26 @@
                 <table class="innerData">
                     <tr>
                         <th>消息照片</th>
-                        <td><input type="file"></td>
+                        <td><input type="file" id="uploadPic"></td>
                     </tr>
                     <tr>
                         <th>消息標題</th>
-                        <td><input type="text"></td>
+                        <td><input type="text" v-model="popup.news_name"></td>
                     </tr>
                     <tr>
                         <th>消息內容</th>
-                        <td><input type="text"></td>
+                        <td>
+                            <textarea name="" id="" cols="23" rows="10" v-model="popup.news_content"></textarea>
+                        </td>
                     </tr>
                     <tr>
                         <th>更新日期</th>
-                        <td><input type="date"></td>
+                        <td><input type="date" v-model="popup.news_date"></td>
                     </tr>
                 </table>
                 <div>
-                    <button>新增</button>
-                    <button>修改確定</button>
+                    <button @click="addNews" type="button">新增</button>
+                    <button @click="changeHandler" type="button">修改確定</button>
                 </div>
             </div>
         </div>
