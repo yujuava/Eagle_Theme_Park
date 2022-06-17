@@ -38,7 +38,9 @@ var newsVue = new Vue({
         },
         async changeHandler() {  //修改商品  // 非同步  // 綁最後的按鍵
             console.log('changeHandler')
+            this.popup.news_pic = document.getElementById("uploadPic").files[0].name;
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            console.log(document.getElementById("uploadPic").files[0])
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
             xhr.open("POST","./php/update_back_news.php",true);
@@ -68,18 +70,6 @@ var newsVue = new Vue({
             this.isOpen = false;
         },
     },
-    // mounted(){     //第一步仔入完成才開始執行            
-    //             console.log("init");         
-    //             let xhr = new XMLHttpRequest();    
-    //             //建立ajax物件取XHR
-        
-    //             xhr.onload = () => {   //等待回復訊息
-    //                 newsVue.newsRows = JSON.parse(xhr.responseText); //收到打開資料,儲存到newVue的陣列
-    //                 console.log(newsVue.newsRows);
-    //             }
-    //             xhr.open("get","php/back_news.php",true);   //決定請求送至PHP
-    //             xhr.send(null);                              //完成送出
-    //         }
 })
 function getNews() {
     let xhr = new XMLHttpRequest();
