@@ -16,8 +16,8 @@
         <div>
             <button @click="addHandler">新增</button>
         </div>
-
-        <div class="box_father">
+        
+        <div class="box_father">    
 
             <table class="box" >
                 <tr>
@@ -25,7 +25,7 @@
                 </tr>
                 <tr v-for="facilityRow in facilityRows">
                     <td>{{facilityRow.fac_no}}</td>
-                    <td><img :src="'images//' + facilityRow.fac_pic" alt=""></td>
+                    <td><img :src="'images//' + facilityRow.fac_pic"></td>
                     <td>{{facilityRow.fac_name}}</td>
                     <td>{{facilityRow.fac_area}}</td>
                     <td>{{facilityRow.fac_maintain_date}}</td>
@@ -119,7 +119,7 @@
                     </tr>
                 </table>
                 <div>
-                    <button  @click="addPro">新增</button>
+                    <button @click="addFac">新增</button>
                     <button @click="changeFinalFac" type="button">確定</button>
                 </div>
             </div>
@@ -129,5 +129,9 @@
 </body>
 
 </html>
-<!-- 共用燈箱js -->
-<script src="js/back_facility.js"></script>
+
+<!-- js -->
+<!-- <script  src="js/back_facility.js"></script> -->
+<script type="module" src="js/back_facility.js">
+    import vm from 'js/back_facility';
+</script>
