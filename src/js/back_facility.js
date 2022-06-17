@@ -1,12 +1,15 @@
 
-new Vue({
+let vm = new Vue({
     el:'#back',
     data: {
         isOpen: false,
         facilityTitle: ['設施序號','設施圖片','設施名稱','所屬園區','維護時間','雨天乘坐','孕婦乘坐','輪椅乘坐','設施排名',''],
         facilityRows:[],
         currentNo: 0,
-        popup: {},       //在燈箱更改後的資料          
+        popup: {      
+            // fac_maintain_date:'2022-06-17',
+
+        },       //在燈箱更改後的資料          
         default: {       //資料庫原本預設的資料
             fac_pic: '',       
             fac_name: '',   
@@ -20,6 +23,9 @@ new Vue({
         },
         defaultResult: {},//新的更新過的資料
         sendFacObj:{},
+
+
+        list: [] //新增用axios寫
     },
     computed: { //一直在做
         currentItem() { //現在原本的的資料
@@ -43,47 +49,44 @@ new Vue({
             this.isOpen = true;
             // console.log(this.popup)
         },  
-        // addPro() {  //燈箱的新增按鈕
-        //     this.isOpen = false;
-            
-        // },  
         async changeFinalFac() {//非同步//綁最後的按鍵      修改
+            this.popup.fac_pic = document.getElementById("uploadPic").files[0].name;
+            console.log(document.getElementById("uploadPic").files[0].name);
             let sendFacObj = JSON.stringify(this.popup);//取最後要在資料庫呈現的東西
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
             xhr.open("POST","./php/update_back_facility.php",true);
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             xhr.send(`json=${sendFacObj}`);
+            
 
             window.confirm("是否確認修改?");
             this.isOpen = false;
         },
 
-        async addPro() {  //新增設施  // 非同步  // 綁最後的按鍵
-            // console.log('addPro')
-            let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
-            let xhr = new XMLHttpRequest();
-            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+        addFac(){   //新增的按鈕
+            // const options ={
+            //     method:'post',
+            //     header:{""}
+            // }
+            axios.post('./php/add_back_facility.php',  this.popup,{
+                headers:{"content-type" : 'application/from-data'},
+            }).then(resonse => {
+                console.log("axios.resonse",resonse);
+                // 將獲取回來的資料賦值給list
+                // this.list = resonse
 
-            let formData = new FormData();
-            formData.append("fac_pic", document.getElementById("uploadPic").files[0]);
-            formData.append("fac_name", this.popup.fac_name);
-            formData.append("fac_area", this.popup.fac_area);
-            formData.append("fac_maintain_data", this.popup.fac_maintain_data);
-            formData.append("fac_rainy", this.popup.fac_rainy);
-            formData.append("fac_preg", this.popup.fac_preg);
-            formData.append("fac_wheelchair", this.popup.fac_wheelchair);
-            formData.append("fac_chart", this.popup.fac_chart);
+                // console.log("this.list",this.list);
+                // let formData = new FormData();
+                // formData.append("fac_pic", document.getElementById("uploadPic").files[0]);
+              })
+              .catch(err => {
+                console.log("axios錯誤",err);
+            })
+        }
 
-            xhr.open("POST","./php/add_back_facility.php",true);
-            
-            xhr.send(formData);
-
-            window.confirm("是否確認新增?");
-            this.isOpen = false;
-        },
     },
-    mounted(){
+    mounted(){  
         let xhr = new XMLHttpRequest();
         xhr.onload = () => {
             this.facilityRows = JSON.parse(xhr.responseText);
@@ -91,5 +94,7 @@ new Vue({
         }
         xhr.open("get","./php/get_back_facility.php",true);
         xhr.send(null);
-    },
+    }
 })
+
+export default vm;

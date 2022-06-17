@@ -293,20 +293,20 @@ new Vue({
             }).forEach( e => {
                 sum += e;
             });
-            return sum;
+            return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
             
         },
-        moneyTotal(){
-            let sum = 0;
-            // this.eachTotal.forEach( e => {
-            //     sum += e;
-            // });
-            return sum
-        },
-        money() {
-            let aa = 10
-            return this.eachTotal;
-        },
+        // moneyTotal(){
+        //     let sum = 0;
+        //     // this.eachTotal.forEach( e => {
+        //     //     sum += e;
+        //     // });
+        //     return sum
+        // },
+        // money() {
+        //     let aa = 10
+        //     return this.eachTotal;
+        // },
 
     },
     created(){

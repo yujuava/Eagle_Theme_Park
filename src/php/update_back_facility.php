@@ -36,7 +36,9 @@ try{
      $facility->bindValue(":fac_preg", $dataset["fac_preg"]);
      $facility->bindValue(":fac_wheelchair", $dataset["fac_wheelchair"]);
      $facility->execute();
-     echo "異動成功~~";
+    //  echo "異動成功~~";
+
+
 
 }catch(PDOException $e){
 	echo "系統暫時無法提供服務, 請聯絡系統維護人員<br>";
