@@ -16,9 +16,9 @@
     <div id="back" class="back_content">
         <h2>票券訂單管理</h2>
         <div>
-            <button>未取票</button>
-            <button>已取票</button>
-            <button>全部</button>
+            <!-- <button>未取票</button>
+            <button>已取票</button> -->
+            <!-- <button>全部</button> -->
         </div>
 
         <div class="box_father">
@@ -31,18 +31,13 @@
                     <th>票務狀況</th>
                     <th>詳細內容</th>
                 </tr>
-                <tr>
-                    <td>202205292338</td>
-                    <td>2022-05-29</td>
-                    <td>19</td>
-                    <td>1000元</td>
-                    <td>
-                        <select name="" id="">
-                            <option value="">未取票</option>
-                            <option value="">已取票</option>
-                        </select>
-                    </td>
-                    <td><button @click="show">MORE</button></td>
+                <tr v-for="item in newObj" :item="item"  :key="item.id">
+                    <td>{{item.ticket_order_no}}</td>
+                    <td>{{item.ticket_order_time}}</td>
+                    <td>{{item.mem_no}}</td>
+                    <td>{{item.ticket_order_tp}}</td>
+                    <td>已取票</td>
+                    <td><button @click="idpopup(item.ticket_order_no)">MORE</button></td>
                 </tr>
             </table>
 
@@ -51,7 +46,11 @@
         <div class="back_lightbox backLightbox" v-show="isOpen">
             <div>
                 <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
-                <table class="innerData">
+                <div id="orderDetail">
+                    <table-component :detail="showPopupItem"></table-component>
+                </div>
+
+                <!-- <table class="innerData">
                     <tr>
                         <th>票券名稱</th>
                         <td>兒童票</td>
@@ -80,7 +79,7 @@
                         <th>會員email</th>
                         <td>eagle123@gmail.com</td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
