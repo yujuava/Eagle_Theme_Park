@@ -42,8 +42,8 @@ Vue.component('list-component', {
                 <div class="pic">
                     <img :src="item.article_image" alt="">
                 </div>
-                <input type="text" placeholder="留言">
-                <a href="#"><i class="fa-solid fa-paper-plane"></i></a>
+                <input type="text" placeholder="留言" id="comment_content">
+                <button @click="sendcomment"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
             <div class="message-footer"></div>
         </div>
@@ -55,13 +55,43 @@ Vue.component('list-component', {
             type: Array,
             default: [],
         },
-    }
+    },
+    methods: {
+        async sendcomment() {
+            // 這邊處理點擊後送最新的留言到php
+            // 完成後重新呼叫文章留言內容
+            let sendObj = {
+                "article_no" : this.article_no,
+                "comment_content" : this.comment_content
+            };
+            let xhr = new XMLHttpRequest();
+            
+            // let formData = new FormData();
+            // formData.append("comment_content", document.getElementById('comment_content').value);
+            xhr.open("POST", "./php/add_back_comment.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            // let dataset = {};
+            // dataset.comment_content =this.comment_content;
+            // dataset.article_no = this.article_no;
+            let data_info = `json=${JSON.stringify(sendObj)}`;
+            xhr.send(data_info);
+        },
+        // addHandler() {
+        //     this.commentsup = JSON.parse(JSON.stringify(this.default));
+        // },
+    },
 })
 new Vue({
     el: '#pages',
     data: {
         article: { "article_no": 1, "mem_no": 1, "article_title": "", "article_date": "", "article_content": "", "article_image": "", "mem_name": "" },
         comments: {},
+        commentsup: {},
+        // default: {
+        //     // article_no:'',
+        //     comment_content: ''
+        // },
+
     },
     methods: {
         async getArticle() {
@@ -83,13 +113,9 @@ new Vue({
             // 3. sent data to php
             xhr.send(data_info);
         },
-        async sendComment() {
-            // 這邊處理點擊後送最新的留言到php
-            // 完成後重新呼叫文章留言內容
-            //     xhr.onload = () => {
-            //         this.getArticle();
-            //    };
-        },
+        // 這邊處理點擊後送最新的留言到php
+        // 完成後重新呼叫文章留言內容
+
     },
     created() {
         let uri = window.location.href.split('?');
