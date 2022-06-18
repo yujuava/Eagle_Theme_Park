@@ -3,3 +3,4 @@ dist
 package-lock.json
 src/connect_cgd101g3.php
 src\connect_cgd101g3.php
+.vscode/settings.json
