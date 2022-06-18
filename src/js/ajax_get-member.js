@@ -42,6 +42,9 @@
 //     ]
 // }
 // ]
+
+//===============================================
+
 // 會員訂單組件
 Vue.component('member-order',{
     data(){
@@ -129,7 +132,7 @@ Vue.component('member-order',{
 
             <!-- 總金額 -->
 
-            <div class="tr sum">總金額{{orderlistSon.product_order_tp}}</div>
+            <div class="tr sum">總金額$ {{orderlistSon.product_order_tp}}</div>
             <!-- 狀態 -->
             <div class="tr state">
 
@@ -146,6 +149,107 @@ Vue.component('member-order',{
                 <div  class="tr-col">
                     <p>訂單狀態</p>
                     <p>{{statusText(orderlistSon.order_shipping)}}</p>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    `
+}),
+
+//會員票券組件
+Vue.component('member-ticket',{
+    data(){
+        return{
+            
+        }
+    },
+    props:{ //爸爸傳什麼給小孩，小孩在這裡接
+        ticketlist:Object,
+        ticketlistSon: {
+            type: Object
+        },
+
+    },
+    computed: {
+        tList() {
+            return this.ticketlistSon.data ?? [];
+        },
+    },
+    methods: {
+    },
+    template:`
+    <div class="member-frame member-order big-card-bdr">
+        <div class="order-table">
+            <!-- 標題 -->
+            <div class="th">
+                <div class="th-col order-num">
+                    <div>
+                        <span>訂單編號</span>
+                        <span>{{ticketlistSon.ticket_order_no}}</span>
+                    </div>
+                    <div>
+                        <span>訂單日期</span>
+                        <span>{{ticketlistSon.ticket_order_time}}</span>
+                    </div>
+                </div>
+                <div class="th-col">
+                    <span>總金額</span>
+                </div>
+                <div class="th-col">
+                    <span>付款狀態</span>
+                </div>
+                <div class="th-col">
+                    <span>訂單狀態</span>
+                </div>
+
+            </div>
+
+            <!-- 商品欄位 -->
+            <div class="all-tr">
+                <div class="product-list">
+                    <ticket-list  v-for="ticketDetail in tList" :item="ticketDetail" :banana ="ticketDetail"> </ticket-list>
+                </div>
+
+                <div class="pc-sum pc-list">
+                    <p> $ {{ticketlistSon.ticket_order_tp}}</p>
+
+                </div>
+                
+                <div class="pc-pay-state pc-list">
+                    <p>已收到款項</p>
+
+                </div>
+
+                <div class="pc-order-state pc-list">
+                    <p>未取票</p>
+
+                </div>
+
+        
+            </div>
+
+            <!-- 總金額 -->
+
+            <div class="tr sum">總金額$ {{ticketlistSon.ticket_order_tp}}</div>
+            <!-- 狀態 -->
+            <div class="tr state">
+
+                <div  class="tr-col">
+                    <p>付款狀態</p>
+                    <p>已收到款項</p>
+                </div>
+
+                <div  class="tr-col">
+                    <p>配送狀態</p>
+                    <p>未出票</p>
+                </div>
+
+                <div  class="tr-col">
+                    <p>訂單狀態</p>
+                    <p>未完成</p>
                 </div>
 
             </div>
@@ -182,6 +286,32 @@ Vue.component('product-list',{
     `,
 }),
 
+// 票券明細組件
+Vue.component('ticket-list',{
+    data(){
+        return{}
+    },
+    props:{
+        ticketDetail:Object,
+        ticketlist:Object,
+        banana: {
+            type: Object,
+        },
+    },
+    method:{
+        //所有總數如何相加
+    },
+    template:`
+        <div class="tr product">
+            <p class="td"> {{banana.ticket_name}} </p>   
+            <span class="td">
+                <p> {{banana.ticket_price}} </p>
+                <p>數量: {{banana.ticket_total}} </p>
+            </span>
+        </div>
+    `,
+}),
+
 
 new Vue({
     el: '#memberCentre',
@@ -200,17 +330,17 @@ new Vue({
         inputPsw1:"",
         inputPsw2:"",
 
-        //訂單資料
-        productOrderNo:[],
+        //商品訂單資料
+        // productOrderNo:[],
         objOrderResult:{},
+        //票券訂單資料
+        objTicketResult:{},
         // Total,
         //優惠券資料
+        objCouponResult:[],
         useState:['未使用','已使用'],
         couponShow:"未使用",
         currentState:"未使用",
-
-        objCouponResult:[],
-        
     },
     methods: {  // 函數大部分放這裡!
         // 按鈕換頁1
@@ -273,7 +403,7 @@ new Vue({
     },
 
     computed: {
-        getOrder() {    //幾筆訂單
+        getOrder() {    //幾筆商品訂單
               var map = {},
                   newObj = [];
               for(var i = 0; i < this.objOrderResult.length; i++){
@@ -303,6 +433,37 @@ new Vue({
             return newObj;
         },
 
+        getTicket() {    //幾筆票券訂單
+            var map = {},
+            newTObj = [];
+            for(var i = 0; i < this.objTicketResult.length; i++){
+                var eachTObj = this.objTicketResult[i];
+                // console.log("每個物件:",eachObj);
+              if(!map[eachTObj.ticket_order_no]){
+                newTObj.push({
+                    ticket_order_no: eachTObj.ticket_order_no,
+                    ticket_name: eachTObj.ticket_name,
+                    ticket_order_time: eachTObj.ticket_order_time,
+                    ticket_order_tp:eachTObj.ticket_order_tp,
+                    ticket_price: eachTObj.ticket_price,
+                    ticket_total: eachTObj.ticket_total,        
+                    data: [eachTObj],
+                    });
+                    map[eachTObj.ticket_order_no] = eachTObj;
+                }else{newTObj
+                    for(var j = 0; j < newTObj.length; j++){
+                        var dj = newTObj[j];
+                        if(dj.ticket_order_no == eachTObj.ticket_order_no){
+                            dj.data.push(eachTObj);
+                            break;
+                        }
+                    }
+                }
+            }
+            console.log("newTObj:",newTObj);
+            return newTObj;
+        },
+
         eachTotal(){   //總金額
             // console.log('12312312')
             let total = 0;
@@ -320,7 +481,7 @@ new Vue({
 
     },
     created(){
-        //會員資料
+        //============會員資料============
         let xhr = new XMLHttpRequest();
         xhr.onload = () => {
             // alert();
@@ -329,32 +490,39 @@ new Vue({
             this.textResult = xhr.responseText;
             // console.log("會員資料:textResult",this.textResult);
             console.log("會員資料:objResult",this.objResult)
-        }
+        },
         xhr.open("get","./php/login_getMember.php",true);
         xhr.send(null);
 
-        //訂單資料
+        //============商品訂單============
         let xhrOrder = new XMLHttpRequest();
         xhrOrder.onload = () => {
-            // alert();
             this.objOrderResult = JSON.parse(xhrOrder.responseText);
-            // this.textResult = xhrOrder.responseText;
-            // console.log("訂單:textResult",this.textResult);
-            console.log("訂單:objOrderResult",this.objOrderResult);
-            
-            let set = new Set();
-
-        }
+            console.log("商品訂單:objOrderResult",this.objOrderResult);
+            // let set = new Set();
+        },
         xhrOrder.open("get","./php/member-order.php",true);
         xhrOrder.send(null);
 
-        //會員優惠券
+        //============票券訂單============
+
+        let xhrTicket = new XMLHttpRequest();
+        xhrTicket.onload = () => {
+            this.objTicketResult = JSON.parse(xhrTicket.responseText);
+            console.log("票券訂單:objTicketResult",this.objTicketResult);
+
+        },
+        xhrTicket.open("get","./php/member-ticket.php",true);
+        xhrTicket.send(null);
+
+
+        //============會員優惠券============
         let xhrCoupon = new XMLHttpRequest();
         xhrCoupon.onload = () => {
             this.objCouponResult = JSON.parse(xhrCoupon.responseText);
             console.log("優惠券:objCouponResult",this.objCouponResult);
 
-        }
+        },
         xhrCoupon.open("get","./php/member-coupon.php",true);
         xhrCoupon.send(null);
 

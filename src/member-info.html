@@ -147,18 +147,16 @@
         </section>
 
         <!-- 票券訂單 -->
-        <section v-else-if="type=='D'" id="member-order">
+        <section v-else-if="type=='D'" id="member-ticket">
             <div class="wrap member-wrap">
                 <h3>近期訂單</h3>
 
                 <!-- 訂單一 -->
                 <div>
-                    <member-order v-for="(orderlist, idx) in getOrder" :key="idx" :item="orderlist" :orderlist-Son="orderlist">
-                    </member-order>
+                   
+                    <member-ticket v-for="(ticketlist, idx) in getTicket" :key="idx" :item="ticketlist" :ticketlist-Son="ticketlist">
+                    </member-ticket>
                 </div>
-
-                <!-- 訂單二 -->
-
             </div>
         </section>
 
@@ -195,8 +193,6 @@
     <!-- ================== vue點擊 ================== -->
 
     <!-- 登出按鍵 -->
-    <!-- <script src="./js/ajax_login.js"></script> -->
-
     <script>
         // (會員中心的登出按鍵所觸發的函式)
         function logout(){
