@@ -31,7 +31,7 @@
                     <td>{{ticketRow.ticket_name}}</td>
                     <td>{{ticketRow.ticket_price}}</td>
                     <td>可購買</td>
-                    <td><button @click="show">編輯</button></td>
+                    <td><button @click="show(ticketRow.ticket_no)">編輯</button></td>
                 </tr>
 
             </table>
@@ -44,11 +44,11 @@
                 <table class="innerData">
                     <tr>
                         <th>票價</th>
-                        <td><input type="text"></td>
+                        <td><input type="text" v-model="popup.ticket_price"></td>
                     </tr>
                 </table>
                 <div>
-                    <button>確定</button>
+                    <button @click="changeHandler" type="button">確定</button>
                 </div>
             </div>
         </div>
