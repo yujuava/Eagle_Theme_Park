@@ -324,11 +324,14 @@ new Vue({
         //編輯會員
         objResult: {},//原來的物件
         defaultResult: {},//新的更新過的資料
+
         //驗證新密碼與確認密碼相同
-        pswResult1:"",
-        pswResult2:"",
-        inputPsw1:"",
-        inputPsw2:"",
+        inputOriPsw:'', //輸入的原密碼
+        OriPswHint:'', //提示字元
+        inputnewPsw1:'',    //輸入新密碼1
+        NewPswHint1:'', //提示字元
+        inputnewPsw2:'',    //確認輸入的新密碼
+        NewPswHint2:'', //提示字元
 
         //商品訂單資料
         // productOrderNo:[],
@@ -379,6 +382,36 @@ new Vue({
         isclose(){
             couponShow = false;
         },
+        validateOriPsw(){   //輸入舊密碼
+            if(this.inputOriPsw == this.objResult.mem_psw){
+                this.OriPswHint = "密碼正確";
+                console.log('正確');
+            }else{
+                this.OriPswHint = "密碼錯誤";
+                console.log('xx');
+            }
+        },
+        validateNewPsw1(){  //輸入新密碼
+            if (this.inputnewPsw1.length<8){
+                this.NewPswHint1 = "密碼長度不足";
+                console.log("密碼長度不足");
+            }else{
+                let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+                if(passwordCheck.test(this.inputnewPsw1)!=true){
+                    this.NewPswHint1 = "密碼請輸入大小寫英文及數字8~12碼";
+                }else{
+                    this.NewPswHint1 = "此密碼可用";
+                }
+            }
+        },
+        validateNewPsw2(){  //新密碼確認
+            if (this.inputnewPsw2 == this.inputnewPsw1){
+                this.NewPswHint2 = "新密碼確認正確";
+            }else{
+                this.NewPswHint2 = "新密碼確認不正確";
+            }
+        },
+
         //非同步//綁會員修改完成的按鍵
         async sendData() {
             let xhr = new XMLHttpRequest();
@@ -400,6 +433,8 @@ new Vue({
             // xhr.send(JSON.stringify(sendObj));
             xhr.send(data_info);
         },
+
+
     },
 
     computed: {
@@ -463,20 +498,36 @@ new Vue({
             console.log("newTObj:",newTObj);
             return newTObj;
         },
-
-        eachTotal(){   //總金額
+        eachProductTotal(){   //商品總金額
             // console.log('12312312')
-            let total = 0;
-            let sum = 0;
+            let totalS = 0;
+            let sumS = 0;
             this.getOrder.map((item) => {
-                total = item.product_order_tp;
+                totalS = item.product_order_tp;
                 // console.log("total:",item.product_order_tp)
-                return total;
+                return totalS;
             }).forEach( e => {
-                sum += e;
+                sumS += e;
             });
-            return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-            
+            return sumS;
+            // return sumS.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        },
+        eachtTicketTotal(){   //票券總金額
+            let totalT = 0;
+            let sumT = 0;
+            this.getTicket.map((item) => {
+                totalT = item.ticket_order_tp;
+                // console.log("total:",item.product_order_tp)
+                return totalT;
+            }).forEach( e => {
+                sumT += e;
+            });
+            return sumT;
+            // return sumT.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        },
+        eachTotal(){    //商品+票券總金額
+            // return 123;
+            return (this.eachProductTotal + this.eachtTicketTotal).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
         },
 
     },
