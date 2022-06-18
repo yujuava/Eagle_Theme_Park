@@ -91,7 +91,8 @@ new Vue({
     },
     computed: {  // 函數也可以放這裡，但是放在這裡的函數不能傳參數，一定要有傳回值(return)
         filterHotFac() {
-            return this.facilityRows.filter(v => v.fac_chart > 0);
+            return this.facilityRows.filter(v => v.fac_chart > 0)
+            // return this.facilityRows.sort(v => v.fac_chart > 0)
         },
         facilityName() {
             return this.filterHotFac.map(v=> v.fac_name)
