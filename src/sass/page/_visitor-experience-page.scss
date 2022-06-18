@@ -181,10 +181,15 @@
                 }
             }
 
-            a {
+            button{
                 margin: 10px;
-                font-size: 20px;
+                font-size: 30px;
                 color: $color4;
+                border: none;
+                background-color: transparent;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
 

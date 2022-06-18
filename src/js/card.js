@@ -16,7 +16,7 @@ Vue.component('item-component', {
                     <img src="./images/mem.png" alt="老鷹">
                 </div>
 
-                <div class="mem-name">小鷹</div>
+                <div class="mem-name">{{item.mem_name}}</div>
 
             </div>
 

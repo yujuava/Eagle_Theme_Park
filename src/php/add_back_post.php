@@ -7,7 +7,6 @@ try{
     $fileName = uniqid().".{$fileInfoArr["extension"]}"; 
     $from = $_FILES["article_image"]["tmp_name"];
     $to = "../images/$fileName";
-
     if(isset($_SESSION["mem_id"]) == true){
         if(copy( $from, $to)===true){
             //寫入資料庫指令
@@ -23,7 +22,7 @@ try{
             echo "異動成功~~";  
         }
     }else{
-        echo "請先登入";
+        echo "<script>alert('請先登入')</script>";
     }
 
 
