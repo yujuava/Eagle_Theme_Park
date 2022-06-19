@@ -37,10 +37,10 @@ var newsVue = new Vue({
             this.isOpen = true;
         },
         async changeHandler() {  //修改商品  // 非同步  // 綁最後的按鍵
-            console.log('changeHandler')
-            this.popup.news_pic = document.getElementById("uploadPic").files[0].name;
+            //判斷使否新增照片如果沒有使用 this.popup.news_pic
+            let newPic = document.getElementById("uploadPic").files[0]?.name?? this.popup.news_pic;
+            this.popup.news_pic = newPic;  
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
-            console.log(document.getElementById("uploadPic").files[0])
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
             xhr.open("POST","./php/update_back_news.php",true);
@@ -51,7 +51,6 @@ var newsVue = new Vue({
             this.isOpen = false;
         },
         async addNews() {  //新增商品  // 非同步  // 綁最後的按鍵
-            console.log('addNews')
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行

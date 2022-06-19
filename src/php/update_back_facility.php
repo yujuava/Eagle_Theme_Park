@@ -5,7 +5,7 @@ $json = $_POST["json"];
 
 // //解封裝儲存到DATASET變數裡
 $dataset = json_decode($json,true);
-// echo $dataset["mem_name"];
+echo var_dump($dataset);
 try{
     require_once("../connect_cgd101g3.php");
 
@@ -18,7 +18,7 @@ try{
      fac_area = :fac_area,
      fac_maintain_date = :fac_maintain_date,
      fac_chart = :fac_chart, fac_rainy=:fac_rainy,fac_preg = :fac_preg,
-     fac_wheelchair=:fac_wheelchair
+     fac_wheelchair = :fac_wheelchair
      where fac_no = :fac_no";
 
      //合成sql指令,並綁訂對應值
