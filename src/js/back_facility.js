@@ -23,7 +23,6 @@ let vm = new Vue({
         },
         defaultResult: {},//新的更新過的資料
         sendFacObj:{},
-        lmodel:'23',
     },
     computed: { //一直在做
         currentItem() { //現在原本的的資料
@@ -49,9 +48,13 @@ let vm = new Vue({
         },  
         async changeFinalFac() {//非同步//綁最後的按鍵      修改
             
+            this.popup.fac_pic = document.getElementById("uploadPic").files[0].name;
             let sendFacObj = JSON.stringify(this.popup);//取最後要在資料庫呈現的東西
+
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
+
+
             xhr.open("POST","./php/update_back_facility.php",true);
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             xhr.send(`json=${sendFacObj}`);
@@ -60,34 +63,48 @@ let vm = new Vue({
             window.confirm("是否確認修改?");
             this.isOpen = false;
         },
-
-        onChange(event) {
-            this.file = event.target.file;
-            console.log( this.file)
-        },
-
-        addFac(){   //新增的按鈕
-            // const options ={
-            //     method:'post',
-            //     header:{""}
-            // }
+        // addFac(){   //新增的按鈕}
             
-            axios.post('./php/add_back_facility.php',  this.popup,{
-                headers:{"content-type" : 'application/form-data'},
-            }).then(resonse => {
-                console.log("axios.resonse",resonse);
-                // 將獲取回來的資料賦值給list
-                this.popup.fac_pic = document.getElementById("uploadPic").files[0].name;
-                onsole.log(document.getElementById("uploadPic").files[0].name);
+        //     axios.post('./php/add_back_facility.php',  this.popup,{
+        //         headers:{"content-type" : 'application/form-data'},
+        //     }).then(resonse => {
+        //         console.log("axios.resonse",resonse);
+        //         // 將獲取回來的資料賦值給list
+                
+        //         let formData = new FormData();
+        //         formData.append("news_pic", document.getElementById("uploadPic").files[0]);
+                
+        //         window.confirm("是否確認新增?");
+        //         this.isOpen = false;
 
-                // let formData = new FormData();
-                // formData.append("fac_pic", document.getElementById("uploadPic").files[0]);
-                // console.log("this.list",this.list);
-              })
-              .catch(err => {
-                console.log("axios錯誤",err);
-            })
-        }
+
+        //       })
+        //       .catch(err => {
+        //         console.log("axios錯誤",err);
+        //     })
+        // }
+        async addFac() {  //新增商品  // 非同步  // 綁最後的按鍵
+            let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            let xhr = new XMLHttpRequest();
+            // 決定傳送方法POST, 傳送目標, true代表非同步執行
+
+            let formData = new FormData();
+            formData.append("fac_pic",  document.getElementById("uploadPic").files[0]);
+            formData.append("fac_name", this.popup.fac_name);
+            formData.append("fac_area", this.popup.fac_area);
+            formData.append("fac_maintain_date", this.popup.fac_maintain_date);
+            formData.append("fac_rainy", this.popup.fac_rainy);
+            formData.append("fac_preg", this.popup.fac_preg);
+            formData.append("fac_wheelchair", this.popup.fac_wheelchair);
+            formData.append("fac_chart", this.popup.fac_chart);
+
+            xhr.open("POST","./php/add_back_facility.php",true);
+            
+            xhr.send(formData);
+
+            window.confirm("是否確認新增?");
+            this.isOpen = false;
+        },
 
     },
     mounted(){  
