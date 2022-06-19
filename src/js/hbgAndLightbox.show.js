@@ -52,9 +52,10 @@ let headerVue = new Vue({
             if (this.inputPsw1.length<8){
                 this.pswResult1 = "密碼長度不足";
             }else{
-                let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+                // previous regx: (?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}
+                let passwordCheck = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
                 if(passwordCheck.test(this.inputPsw1)!=true){
-                    this.pswResult1 = "密碼請輸入大小寫英文及數字8~12碼";
+                    this.pswResult1 = "密碼請包含至少1個英文及數字，共8~12碼";
                 }else{
                     this.pswResult1 = "此密碼可用";
                 }

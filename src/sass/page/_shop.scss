@@ -89,13 +89,23 @@
       align-items: center;
       margin-top: 10px;
       position: relative;
+      border: 1px solid black;
   }
-  .postcard>img{
+  .postcard img{
       width: 100%;
       display: block;
       margin: auto;
       justify-content: center;
       align-items: center;
+  }
+  .postcardback{
+
+    position: relative;  
+  }
+  #postcardText{
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .stamp{
     // border: 1px solid #000;
@@ -195,6 +205,12 @@
   }
   .upload{
     display: flex;
+    justify-content: center;
+  }
+  .uploadCol{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: center;
   }
 

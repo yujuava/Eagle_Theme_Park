@@ -6,6 +6,10 @@
     })
 </head>
 
+<!-- 明信片文字用jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
 <body class="shop">
     <!-- 共用header -->
     @@include('layout/header-final.html')
@@ -42,7 +46,11 @@
                 </div>
                 <!-- 明信片內容 -->
                 <div class="postcard">
-                    <img src="./images/postcardback.jpg" alt="">
+                    <div class="postcardback" id="dragContainer">
+                        <img src="./images/postcardback.jpg" alt="">
+                        <span id="postcardText">TEST</span>
+                    </div>
+
                     <div class="stamp">
                         <img id="stamp" src="./images/sticker1.png" alt="">
                     </div>
@@ -73,7 +81,14 @@
             </div>
             <!-- 寄送按鈕 -->
             <div class="upload">
-                <button class="bgBtn-shop  shopbtn" id="shopBtn">寄送</button>
+                <div class="uploadCol">
+                    <textarea name="" id="ipnutText" cols="30" rows="10" placeholder="請輸入明信片內文 (文字可拖曳)"></textarea>
+                </div>
+                <div class="uploadCol">
+                    <button class="bgBtn-shop shopbtn" id="postcardReset">重設</button>
+                    <button class="bgBtn-shop shopbtn" id="postcardSave">存檔</button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -106,7 +121,7 @@
     <!-- footer  -->
     @@include('layout/footer.html')
     <!-- ----------------------------------------------------------- -->
-    <script>
+    <!-- <script>
         let carts = [];
         Vue.component('product-component', {
 
@@ -263,10 +278,11 @@
         window.addEventListener("load", function () {
             getProducts();
         })
-    </script>
+    </script> -->
     <script src="./js/shopSlideshow.js"></script>
     <script src="./js/shopStickerslider.js"></script>
     <script src="./js/postcardStamp.js"></script>
+    <script src="./js/postcardText.js"></script>
 </body>
 
 </html>

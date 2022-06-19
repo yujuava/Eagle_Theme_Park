@@ -23,7 +23,7 @@ btnLeft.addEventListener('click', ()=>{
         slider.style.left = -20*index + '%';
     });
 
-document.getElementById('shopBtn').addEventListener('click',function(){
-    alert("恭喜完成明信片~~");
-    console.log(shopBtn);
-});
+// document.getElementById('shopBtn').addEventListener('click',function(){
+//     alert("恭喜完成明信片~~");
+//     console.log(shopBtn);
+// });
