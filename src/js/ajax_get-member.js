@@ -394,7 +394,7 @@ new Vue({
         validateNewPsw1(){  //輸入新密碼
             if (this.inputnewPsw1.length<8){
                 this.NewPswHint1 = "密碼長度不足";
-                console.log("密碼長度不足");
+                // console.log("密碼長度不足");
             }else{
                 let passwordCheck = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$";
                 if(passwordCheck.test(this.inputnewPsw1)!=true){

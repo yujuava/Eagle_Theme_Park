@@ -171,17 +171,12 @@
             <div class="wrap member-wrap">
                 <h3>我的優惠券</h3>
                 <div class="member-frame member-coupon big-card-bdr">
-                <!-- class="bgBtn-area" :class="{'is-active' : currentArea == item}"  @click="currentArea = item" v-for="item in names" -->
-                    <!-- <div class="use-state" v-for="aaa in use-state">
-                        <p :class="{ 'Used-color': Used }"  @click="currentArea = aaa" >已使用</p>
-                        <p :class="{ 'Used-color': Used }"  @click="Used = true">未使用</p>
-                    </div> -->
                     <div class="use-state">
                         <p :class="{ 'Used-color': currentState == aaa }" @click="currentState = aaa ;couponShow =aaa" v-for="aaa in useState">{{aaa}}</p>
                     </div>
 
                     <div class="coupon-box" >
-                        <p v-for="item in objCouponResult.length" class="coupon" v-if="couponShow">八折</p>
+                        <p v-for="item in objCouponResult.length" class="coupon" v-if="couponShow == '未使用'">八折</p>
                     </div>
 
                     <!-- <p>目前沒有可使用優惠券</p> -->
