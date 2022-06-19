@@ -89,7 +89,7 @@
       align-items: center;
       margin-top: 10px;
       position: relative;
-      border: 1px solid black;
+      overflow: hidden;
   }
   .postcard img{
       width: 100%;
@@ -97,6 +97,7 @@
       margin: auto;
       justify-content: center;
       align-items: center;
+      user-select: none;
   }
   .postcardback{
 
@@ -104,8 +105,9 @@
   }
   #postcardText{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20%;
+    left: 20%;
+    user-select: none;
   }
   .stamp{
     // border: 1px solid #000;

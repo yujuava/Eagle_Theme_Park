@@ -7,8 +7,9 @@
 </head>
 
 <!-- 明信片文字用jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> -->
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <body class="shop">
     <!-- 共用header -->
@@ -46,9 +47,9 @@
                 </div>
                 <!-- 明信片內容 -->
                 <div class="postcard">
-                    <div class="postcardback" id="dragContainer">
+                    <div class="postcardback">
                         <img src="./images/postcardback.jpg" alt="">
-                        <span id="postcardText">TEST</span>
+                        <p id="postcardText"></p>
                     </div>
 
                     <div class="stamp">
