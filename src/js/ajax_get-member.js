@@ -396,9 +396,9 @@ new Vue({
                 this.NewPswHint1 = "密碼長度不足";
                 console.log("密碼長度不足");
             }else{
-                let passwordCheck = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+                let passwordCheck = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$";
                 if(passwordCheck.test(this.inputnewPsw1)!=true){
-                    this.NewPswHint1 = "密碼請輸入大小寫英文及數字8~12碼";
+                    this.NewPswHint1 = "密碼請輸入英文及數字8~12碼";
                 }else{
                     this.NewPswHint1 = "此密碼可用";
                 }
