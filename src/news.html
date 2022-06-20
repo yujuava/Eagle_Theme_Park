@@ -30,14 +30,15 @@
         })
         <div class="wrap">
             <div class="all-card" name="cards">
-                <card-component v-for="(item,index) in cards" :item="item" :key="item.id"
+                <card-component v-for="(item,index) in cards" :item="item" :key="item.id" @show="isOpen=true"
                     @click.native="setFocusId(item.news_no)" />
             </div>
-            <div id="newsinner " class="news_inner full-screen">
+            <!-- <div id="newsinner " class="news_inner full-screen" v-show="isOpen"> -->
+            <div id="newsinner " class="news_inner full-screen" v-show="isOpen">   
                 <div id="lightbox" class="inner_total  lightbox-bdr">
-                    <i @click="close" id="close" class="fa-solid fa-xmark"></i>
+                    <i @click="isOpen = false" id="close" class="fa-solid fa-xmark"></i>
                     <div>
-                        <news-component :item="showPopupItem" />
+                        <news-component v-if="isOpen" :item="showPopupItem" />
                     </div>
                 </div>
             </div>

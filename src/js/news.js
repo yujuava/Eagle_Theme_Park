@@ -1,7 +1,7 @@
 Vue.component('card-component', {
     methods: {
-        openNews: function (todo) {
-            document.querySelector('.news_inner').style.display = "flex";
+        openNews(){
+            this.$emit('show')
         }
     },
     template: `
@@ -17,7 +17,9 @@ Vue.component('card-component', {
     </div>
     `,
     props: {
-        item: Object
+        item: Object,
+        isOpen: false,
+
     }
 });
 
@@ -40,7 +42,7 @@ Vue.component('news-component',{
     `,
     props:{
         item:Object,
-        newsSource:Object,
+        // newsSource:Object,
     }
 });
 
@@ -49,6 +51,7 @@ new Vue({
     data: {
         cards: [],
         focusKey: '',
+        isOpen:false,
     },
     computed: {
         showPopupItem() {
@@ -56,9 +59,7 @@ new Vue({
         },
     },
     methods: {
-        close: function (todo) {
-            document.querySelector('.news_inner').style.display = "none";
-        },
+      
         setFocusId(news_no) {
             console.log(news_no)
             this.focusKey = news_no;
@@ -71,7 +72,6 @@ new Vue({
     created() {
         let xhr = new XMLHttpRequest();
         xhr.onload = () => {
-            // alert();
             this.cards = JSON.parse(xhr.responseText); //把
 
         }
