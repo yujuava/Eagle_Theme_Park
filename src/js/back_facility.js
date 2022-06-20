@@ -115,7 +115,7 @@ let vm = new Vue({
         }
         xhr.open("get","./php/get_back_facility.php",true);
         xhr.send(null);
-    }
+    },
 })
 
 export default vm;
