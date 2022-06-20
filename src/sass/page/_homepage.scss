@@ -133,9 +133,10 @@
             //雲霄飛車圖
             .pic{
                 @include xl(){
+                    border: 5px solid #000;
                     position: absolute;
-                    bottom:-570px;
-                    left:-2.7%;
+                    bottom:-530px;
+                    left:-13%;
                     z-index: 2;
                 }
                 img{
