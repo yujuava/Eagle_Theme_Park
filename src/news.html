@@ -90,25 +90,30 @@
                 </tr>
                 <tr>
                     <td>
-                        <li>天旋地轉</li>
+                        <li v-for="one in filterFacDate1">{{one.fac_name}}</li>
+                        <!-- <li>天旋地轉</li>
                         <li>旋轉木馬</li>
-                        <li>伊果飛車</li>
+                        <li>伊果飛車</li> -->
                     </td>
                     <td>
-                        <li>極速飛鷹</li>
-                        <li>伊果飛車</li>
+                        <li v-for="two in filterFacDate2">{{two.fac_name}}</li>            
+                        <!-- <li>極速飛鷹</li>
+                        <li>伊果飛車</li> -->
                     </td>
                     <td>
-                        <li>大海盜</li>
+                        <li v-for="three in filterFacDate3">{{three.fac_name}}</li>     
+                        <!-- <li>大海盜</li>
                         <li>空中UFO</li>
-                        <li>極速飛鷹</li>
+                        <li>極速飛鷹</li> -->
                     </td>
                     <td>
-                        <li>自由落體</li>
-                        <li>伊飛沖天</li>
+                        <li v-for="four in filterFacDate4">{{four.fac_name}}</li>     
+                        <!-- <li>自由落體</li>
+                        <li>伊飛沖天</li> -->
                     </td>
                     <td>
-                        <li>仙女散花</li>
+                        <li v-for="five in filterFacDate5">{{five.fac_name}}</li>     
+                        <!-- <li>仙女散花</li> -->
                     </td>
                 </tr>
             </table>

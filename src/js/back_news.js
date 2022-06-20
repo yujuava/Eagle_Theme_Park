@@ -68,7 +68,10 @@ var newsVue = new Vue({
             window.confirm("是否確認新增?");
             this.isOpen = false;
         },
+
+        
     },
+
 })
 function getNews() {
     let xhr = new XMLHttpRequest();
