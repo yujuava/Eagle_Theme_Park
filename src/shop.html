@@ -109,7 +109,7 @@
         <div class="full-screen light" v-show="isOpen">
             <div id="lightBox" class="lightbox-bdr light-box">
                 <div class="lightBoxContent">
-                    <productdetail-component @tocart="addcartlocal" @count="countadd" :item="showthispro">
+                    <productdetail-component @tocart="addcartlocal" @count="countadd" :item="showthispro" v-if="isOpen">
                     </productdetail-component>
                     <i @click="isOpen = false" class="fa-solid fa-xmark" id="turnOff"></i>
                 </div>

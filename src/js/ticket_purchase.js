@@ -151,7 +151,7 @@ function setBlur(obj, target2) {
     return;
 }
 
-function init() {
-    document.getElementById('submit').onclick = submitOrder;
-}
-window.addEventListener('load', init);
+// function init() {
+//     document.getElementById('submit').onclick = submitOrder;
+// }
+// window.addEventListener('load', init);
