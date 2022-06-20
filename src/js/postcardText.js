@@ -88,6 +88,12 @@ function DoFirst(){
     function setUpDownloadPageAsImage() {
       document.getElementById("postcardSave").addEventListener("click", function() {
         html2canvas(container).then(function(canvas) {
+          // var  _canvas = document.createElement("canvas");
+          // _canvas.setAttribute('width', 1088);
+          // _canvas.setAttribute('height', 579);
+          // var ctx = _canvas.getContext('2d');
+          // ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 1088, 579);
+
           simulateDownloadImageClick(canvas.toDataURL(), 'postcardContent.png');});
 
           // find current postcard image
@@ -99,6 +105,13 @@ function DoFirst(){
             }
           };
           html2canvas(cover[currentCover]).then(function(canvas) {
+
+            // var  _canvas = document.createElement("canvas");
+            // _canvas.setAttribute('width', 1080);
+            // _canvas.setAttribute('height', 570);
+            // var ctx = _canvas.getContext('2d');
+            // ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 1080, 570);
+      
             simulateDownloadImageClick(canvas.toDataURL(), 'postcardCover.png');});
 
       });
