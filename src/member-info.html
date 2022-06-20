@@ -114,13 +114,13 @@
                     
                     <div class="col f-col password-change">
                         <label for="">修改密碼</label>
-                        <p v-model="OriPswHint">{{OriPswHint}}</p>
+                        <p>{{OriPswHint}}</p>
                         <input type="password" id="mem_psw" placeholder="請輸入舊密碼" v-model="inputOriPsw"  @keyup="validateOriPsw">
 
-                        <p v-model="NewPswHint1">{{NewPswHint1}}</p>
+                        <p>{{NewPswHint1}}</p>
                         <input type="password" placeholder="請輸入大小寫英文及數字8~12碼"  v-model="inputnewPsw1" @keyup="validateNewPsw1">
                         
-                        <p v-model="NewPswHint2">{{NewPswHint2}}</p>
+                        <p>{{NewPswHint2}}</p>
                         <input type="password" placeholder="新密碼確認"  v-model="inputnewPsw2" @keyup="validateNewPsw2">
                     </div>
         

@@ -28,7 +28,17 @@ try{
     $members->bindValue(":mem_country",$dataset["mem_country"]);
     $members->bindValue(":mem_no", $dataset["mem_no"]);
     $members->execute();
-    echo "異動成功~~";
+    echo "異動成功~~";  
+
+    //修改密碼
+    if($dataset["mem_NewPsw"] != NULL){
+        $sql = "update member set mem_psw = :mem_NewPsw where mem_no = :mem_no";
+        $memberNewPsw= $pdo->prepare($sql);
+        $memberNewPsw -> bindValue(":mem_no", $dataset["mem_no"]);
+        $memberNewPsw -> bindValue(":mem_NewPsw", $dataset["mem_NewPsw"]);
+        $memberNewPsw -> execute();
+    }
+
 
 	// 同時更新SESSION 新註冊會員資料為空的 若未同步更新會造成無法讀取
 	$sql = "select * from `member` where mem_no=:mem_no";
