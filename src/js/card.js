@@ -60,7 +60,7 @@ new Vue({
             this.$nextTick(() => {
                 console.log(this.showPopupItem)
             })
-        }
+        },
     },
     mounted(){
         console.log("card init");

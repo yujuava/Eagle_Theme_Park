@@ -43,8 +43,8 @@
                                 <!-- 打字區 -->
                                 <div class="text-area">
 
-                                    <textarea cols="50" rows="5" maxlength="300"
-                                        placeholder="請輸入內文(發文須注意禮節)" id="article_content"></textarea>
+                                    <textarea cols="50" rows="5" maxlength="300" placeholder="請輸入內文(發文須注意禮節)"
+                                        id="article_content"></textarea>
                                     <!-- <p>發表需注意網路禮節</p> -->
                                 </div>
 
@@ -56,7 +56,8 @@
 
                                     <div class="img" id="img">
                                         <img src="" alt="your Image" class="blah">
-                                        <span class="image-preview__default-text"><i class="fa-regular fa-image"></i></span>
+                                        <span class="image-preview__default-text"><i
+                                                class="fa-regular fa-image"></i></span>
                                     </div>
                                 </div>
 
@@ -77,12 +78,12 @@
             <div class="container-grid" id="voice-of-tourists">
                 <!-- 撈後台無法用transition-group? -->
                 <transition-group name="item" tag="div" class="row">
-                <!-- <div class="row"> -->
+                    <!-- <div class="row"> -->
                     <item-component v-for="item in cards" :item="item" :key="item.article_no"
                         @click.native="setFocusId(item.article_no)">
                         <!--甚麼意思-->
 
-                <!-- </div> -->
+                        <!-- </div> -->
                 </transition-group>
             </div>
 
@@ -91,15 +92,15 @@
 
 
     <script>
-        new Vue({
+        let commetVue = new Vue({
             el: '#app',
             data: {
                 Post: '我要發文',
                 postup: {},
-                default:{
-                    article_title:'',
-                    article_content:'',
-                    article_image:''
+                default: {
+                    article_title: '',
+                    article_content: '',
+                    article_image: ''
                 },
 
             },
@@ -112,7 +113,7 @@
                     let lightbox = document.querySelector('.light-box');
                     lightbox.classList.remove('show-Lightbox');
                 },
-                addHandler() {  
+                addHandler() {
                     this.postup = JSON.parse(JSON.stringify(this.default));
                 },
                 async addPost() { //新增留言 //使用非同步
@@ -120,6 +121,13 @@
                     // 取最後要再資料庫呈現的東西
                     let sendObj = JSON.stringify(this.postup);
                     let xhr = new XMLHttpRequest();
+
+                    xhr.onload = () => {
+                        let result = JSON.parse(xhr.responseText);
+                        if (result == "update") {
+                            commetVue.getArticle();
+                        }
+                    };
 
                     let formData = new FormData();
                     formData.append("article_title", document.getElementById('article_title').value);
@@ -132,7 +140,29 @@
 
                     window.confirm("是否確認新增?");
                     this.closeBox();
-                }
+                },
+                async getArticle() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "./php/articleAndComment.php", true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                    xhr.onload = () => {
+                        this.article = JSON.parse(xhr.responseText)[0][0];
+                        this.comments = JSON.parse(xhr.responseText)[1];
+                    };
+                    // substract currrent page no
+                    let currentURL = window.location.href;
+                    currentURL.split("page-no=");
+
+                    let dataset = {};
+                    dataset.articleNo = currentURL.split("page-no=")[1];
+                    let data_info = `json=${JSON.stringify(dataset)}`;
+                    // 3. sent data to php
+                    xhr.send(data_info);
+                },
+            },
+            mounted() {
+                this.getArticle();
             },
         })
 
@@ -168,7 +198,7 @@
 
 
 
-    
+
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->

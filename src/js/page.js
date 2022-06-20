@@ -58,7 +58,6 @@ Vue.component('list-component', {
     },
     data() {
         return {
-            // article_no:'',
             comment_content: ''
         }
     },
@@ -66,10 +65,6 @@ Vue.component('list-component', {
         async sendcomment() {
             // 這邊處理點擊後送最新的留言到php
             // 完成後重新呼叫文章留言內容
-            // let sendObj = {
-            //     "article_no" : THIS.ARTICLE_NO,
-            //     "comment_content" : THIS.CONTENT
-            //     };
             let xhr = new XMLHttpRequest();
 
             xhr.onload = () => {
@@ -80,10 +75,6 @@ Vue.component('list-component', {
             };
 
 
-            
-            // let formData = new FormData();
-            // formData.append("article_no", document.getElementById('article_no').value);
-            // formData.append("comment_content", document.getElementById('comment_content').value);
             let sendObj = {};
 
             let currentURL = window.location.href;
@@ -96,9 +87,6 @@ Vue.component('list-component', {
             let data_info = `json=${JSON.stringify(sendObj)}`;
             xhr.send(data_info);
         },
-        // addHandler() {
-        //     this.commentup = JSON.parse(JSON.stringify(this.default));
-        // },
     },
 })
 let commetVue = new Vue({
@@ -106,10 +94,6 @@ let commetVue = new Vue({
     data: {
         article: { "article_no": 1, "mem_no": 1, "article_title": "", "article_date": "", "article_content": "", "article_image": "", "mem_name": "" },
         comments: {},
-        // default: {
-        //     article_no:'',
-        //     comment_content: ''
-        // },
 
     },
     methods: {
@@ -153,5 +137,21 @@ let commetVue = new Vue({
     },
     mounted() {
         this.getArticle();
+        console.log("card init");
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "./php/gameCoupon.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        
+        xhr.onload = function () {
+            loginStatusResult = JSON.parse(xhr.responseText);
+            if(loginStatusResult == '0'){
+                window.alert("留言前請先登入/註冊成為會員");
+            }
+        }
+        // action代表 :檢查登入狀態
+        let dataset = {};
+        dataset.action = "loginStatus";
+        let data_info = `json=${JSON.stringify(dataset)}`;
+        xhr.send(data_info);
     }
 })
