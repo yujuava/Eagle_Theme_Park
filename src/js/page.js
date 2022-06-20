@@ -40,7 +40,7 @@ Vue.component('list-component', {
 
             <div class="message-bar">
                 <div class="pic">
-                    <img :src="item.article_image" alt="">
+                    <img :src="item.article_image" alt="" >
                 </div>
                 <input type="text" placeholder="留言" id="comment_content">
                 <button @click="sendcomment"><i class="fa-solid fa-paper-plane"></i></button>
@@ -60,24 +60,25 @@ Vue.component('list-component', {
         async sendcomment() {
             // 這邊處理點擊後送最新的留言到php
             // 完成後重新呼叫文章留言內容
-            let sendObj = {
-                "article_no" : this.article_no,
-                "comment_content" : this.comment_content
-            };
+            // let sendObj = {
+            //     "article_no" : THIS.ARTICLE_NO,
+            //     "comment_content" : THIS.CONTENT
+            //     };
             let xhr = new XMLHttpRequest();
             
             // let formData = new FormData();
+            // formData.append("article_no", document.getElementById('article_no').value);
             // formData.append("comment_content", document.getElementById('comment_content').value);
+            let sendObj = {};
+            sendObj.article_no=this.article_no;
+            sendObj.comment_content = document.getElementById('comment_content');
             xhr.open("POST", "./php/add_back_comment.php", true);
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            // let dataset = {};
-            // dataset.comment_content =this.comment_content;
-            // dataset.article_no = this.article_no;
             let data_info = `json=${JSON.stringify(sendObj)}`;
             xhr.send(data_info);
         },
         // addHandler() {
-        //     this.commentsup = JSON.parse(JSON.stringify(this.default));
+        //     this.commentup = JSON.parse(JSON.stringify(this.default));
         // },
     },
 })
@@ -86,11 +87,10 @@ new Vue({
     data: {
         article: { "article_no": 1, "mem_no": 1, "article_title": "", "article_date": "", "article_content": "", "article_image": "", "mem_name": "" },
         comments: {},
-        commentsup: {},
-        // default: {
-        //     // article_no:'',
-        //     comment_content: ''
-        // },
+        default: {
+            article_no:'',
+            comment_content: ''
+        },
 
     },
     methods: {
