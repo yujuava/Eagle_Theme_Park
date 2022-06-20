@@ -391,26 +391,32 @@ new Vue({
                 console.log('xx');
             }
         },
-        validateNewPsw1(){  //輸入新密碼
+        validateNewPsw1(){
+            console.log(this.inputnewPsw1.length);
             if (this.inputnewPsw1.length<8){
                 this.NewPswHint1 = "密碼長度不足";
                 // console.log("密碼長度不足");
             }else{
-                let passwordCheck = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$";
+                // console.log("跳出來");
+                let passwordCheck = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                // console.log(this.inputnewPsw1);
                 if(passwordCheck.test(this.inputnewPsw1)!=true){
-                    this.NewPswHint1 = "密碼請輸入英文及數字8~12碼";
+                    this.NewPswHint1 = "密碼請輸入大小寫英文及數字8~12碼";
+                    // console.log("not pass");
                 }else{
-                    this.NewPswHint1 = "此密碼可用";
+                    console.log("pass");
+                    // this.NewPswHint1 = "此密碼可用";
                 }
             }
         },
-        validateNewPsw2(){  //新密碼確認
+        validateNewPsw2(){
             if (this.inputnewPsw2 == this.inputnewPsw1){
                 this.NewPswHint2 = "新密碼確認正確";
             }else{
                 this.NewPswHint2 = "新密碼確認不正確";
             }
         },
+
 
         //非同步//綁會員修改完成的按鍵
         async sendData() {
@@ -420,18 +426,23 @@ new Vue({
             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
             let sendObj = {};//取最後要再資料庫呈現的東西
+            console.log("sendObj",sendObj);
             
             Object.keys(this.objResult).forEach(key => {
                 console.log("objResult[key]",this.objResult[key]);
                 if (this.objResult[key]) sendObj[key] = this.objResult[key];//如果這個key是原來的，給的資料就是原來的
                 else sendObj[key] = this.defaultResult[key];//不然給的就是新的結果
-            })
+            });
+            // sendObj.oldPSW = "this.inputOriPsw"
+            sendObj.mem_NewPsw = this.inputnewPsw1;
             console.log("會員:sendObj",sendObj)
             let data_info = `json=${JSON.stringify(sendObj)}`; 
 
           
             // xhr.send(JSON.stringify(sendObj));
             xhr.send(data_info);
+            alert("修改成功");
+            location.reload();
         },
 
 

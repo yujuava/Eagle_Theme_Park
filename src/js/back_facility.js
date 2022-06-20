@@ -22,7 +22,7 @@ let vm = new Vue({
             fac_chart: '',
         },
         defaultResult: {},//新的更新過的資料
-        sendFacObj:{},
+        // sendFacObj:{},
     },
     computed: { //一直在做
         currentItem() { //現在原本的的資料

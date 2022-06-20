@@ -3,7 +3,6 @@
 window.addEventListener("load",function(){  
 
     let screenWidth = screen.width;
-    document.getElementById("header").classList.remove("hide");
     
     if (window.innerWidth > 996){
         document.addEventListener("scroll",function(){

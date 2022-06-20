@@ -1,5 +1,4 @@
 <?php
-session_start();
 //接收送過來的json檔
 $json = $_POST["json"];
 
