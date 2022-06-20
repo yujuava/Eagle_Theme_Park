@@ -2,7 +2,6 @@
 session_start();
 $json = $_POST["json"]; 
 $dataset = json_decode($json, true);
-// echo $json["comment_content"];
 
 try{
     require_once("../connect_cgd101g3.php");
@@ -11,13 +10,13 @@ try{
         $sql = "insert into `comment` (`comment_no`, `article_no`,`mem_no`, 
         `comment_date`, `comment_content`) values (NULL,:article_no, :mem_no , NOW(), :comment_content)";
 
-        //合成sql指令,並綁訂對應值
+        // //合成sql指令,並綁訂對應值
         $comment = $pdo->prepare($sql);
         $comment->bindValue(":mem_no",$_SESSION["mem_no"]);
         $comment->bindValue(":article_no",$dataset["article_no"]);
         $comment->bindValue(":comment_content",$dataset["comment_content"]);
         $comment->execute();
-        echo "異動成功~~";  
+        echo json_encode("update");
     }else{
         echo '請先登入';
     }
