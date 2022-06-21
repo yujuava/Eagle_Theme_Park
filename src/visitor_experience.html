@@ -76,14 +76,11 @@
             </div>
 
             <div class="container-grid" id="voice-of-tourists">
-                <!-- 撈後台無法用transition-group? -->
                 <transition-group name="item" tag="div" class="row">
-                    <!-- <div class="row"> -->
                     <item-component v-for="item in cards" :item="item" :key="item.article_no"
                         @click.native="setFocusId(item.article_no)">
-                        <!--甚麼意思-->
+                        
 
-                        <!-- </div> -->
                 </transition-group>
             </div>
 
@@ -122,13 +119,6 @@
                     let sendObj = JSON.stringify(this.postup);
                     let xhr = new XMLHttpRequest();
 
-                    xhr.onload = () => {
-                        let result = JSON.parse(xhr.responseText);
-                        if (result == "update") {
-                            commetVue.getArticle();
-                        }
-                    };
-
                     let formData = new FormData();
                     formData.append("article_title", document.getElementById('article_title').value);
                     formData.append("article_content", document.getElementById('article_content').value);
@@ -141,28 +131,6 @@
                     window.confirm("是否確認新增?");
                     this.closeBox();
                 },
-                async getArticle() {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", "./php/articleAndComment.php", true);
-                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-                    xhr.onload = () => {
-                        this.article = JSON.parse(xhr.responseText)[0][0];
-                        this.comments = JSON.parse(xhr.responseText)[1];
-                    };
-                    // substract currrent page no
-                    let currentURL = window.location.href;
-                    currentURL.split("page-no=");
-
-                    let dataset = {};
-                    dataset.articleNo = currentURL.split("page-no=")[1];
-                    let data_info = `json=${JSON.stringify(dataset)}`;
-                    // 3. sent data to php
-                    xhr.send(data_info);
-                },
-            },
-            mounted() {
-                this.getArticle();
             },
         })
 

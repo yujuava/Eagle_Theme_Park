@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     @@include('layout/meta.html', {
     "title" : "購票頁面"
     })
 </head>
-
 <body class="ticket">
 
     <!-- 共用header -->
@@ -23,30 +22,17 @@
         "h3TitleEN": "Ticket"
         })
         <div class="wrap">
-            <table class="ticket-table">
-                <thead>
+            <table class="ticket-table" id="ticket">
                     <tr>
                         <th>票種</th>
-                        <th>票價</th>
+                        <th>票價</th>   
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>成人票</td>
-                        <td>900元</td>
+                    <tr v-for="ticket in tickets">
+                        <td>{{ticket.ticket_name}}</td>
+                        <td>{{ticket.ticket_price}}</td>
                     </tr>
-                    <tr>
-                        <td>兒童票</td>
-                        <td>500元</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>愛心票</td>
-                        <td>400元</td>
-                    </tr>
-                </tfoot>
             </table>
+            
             <div class="notice">
                 <ul>
                     <li>1.未滿3歲或身高100cm以下，且有家長陪伴之幼兒可免費入園。</li>
@@ -137,9 +123,7 @@
         </iframe>
         <p>伊果樂園座落於桃園中壢，無論乘坐大眾運輸工具、巴士、或自行駕車，十分方便。</p>
     </div>
-
-
-
+    
     <!--  ===============map ===============  -->
     @@include('layout/map.html')
     <!-- footer  -->
@@ -147,3 +131,4 @@
 </body>
 
 </html>
+<script src="./js/get_back_ticket.js"></script>
