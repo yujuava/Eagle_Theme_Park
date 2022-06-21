@@ -4,7 +4,7 @@
         <img src="./images/eagleRobot.png" alt="">
         <p>\伊果客服/</p>
     </div>
-    <div id="robotArea" class="robot_area full-screen" v-show="openRobot">
+    <div id="robotArea" class="robot_area full-screen" v-show="openRobot" v-cloak>
         <div class="wrap robot_inner  lightbox-bdr">
             <i @click="openRobot = false" id="robotClose" class="fa-solid fa-xmark"></i>
             <div class="robot_talk">
