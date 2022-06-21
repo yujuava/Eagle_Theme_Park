@@ -21,7 +21,7 @@
     "h3TitleTC" : "購物車",
     "h3TitleEN": "Theme Area"
     })
-    <div id="shoppingcart">
+    <div id="shoppingcart" v-cloak>
         <section class="shopcar">
             <div class="wrap">
                 <div class="table">
@@ -67,7 +67,7 @@
                 <div class="discount">
                     <div class="price">
                         <button @click="isOpen=true" class="coupon">
-                            點選優惠券</button>
+                            查看優惠券</button>
                         <div class="discount-row">
                             <label for="">折扣前: $</label>
                             <input type="text" class="acount" v-model="calculate" disabled>
@@ -81,7 +81,7 @@
                             <button id="checkmember" class="bgBtn-bill bill">前往結帳</button>
                         </div>
                     </div>
-                    <!-- <div class="mycoupons full-screen" v-show="isOpen" v-cloak>
+                    <div class="mycoupons full-screen" v-show="isOpen" v-cloak>
                         <div class="lightbox-bdr">
                             <p>選擇優惠券</p>
                             <i @click="isOpen=false" id="close" class="fa-solid fa-xmark"></i>
@@ -96,7 +96,7 @@
                                 <span>無期限</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
             </div>
