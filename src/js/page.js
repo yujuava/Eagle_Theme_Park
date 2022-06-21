@@ -63,28 +63,40 @@ Vue.component('list-component', {
     },
     methods: {
         async sendcomment() {
-            // 這邊處理點擊後送最新的留言到php
-            // 完成後重新呼叫文章留言內容
             let xhr = new XMLHttpRequest();
+            xhr.open("POST", "./php/gameCoupon.php", true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            // action代表 :檢查登入狀態
+            let dataset = {};
+            dataset.action = "loginStatus";
+            let data_info = `json=${JSON.stringify(dataset)}`;
+            
 
-            xhr.onload = () => {
-               let result = JSON.parse(xhr.responseText);
-                if(result == "update"){
-                    commetVue.getArticle();
+            xhr.onload = function () {
+                loginStatusResult = JSON.parse(xhr.responseText);
+                if (loginStatusResult == '0') {
+                    window.alert("留言前請先登入/註冊成為會員");
+                } else {
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = () => {
+                        let result = JSON.parse(xhr.responseText);
+                        if (result == "update") {
+                            commetVue.getArticle();
+                        }
+                    };
+                    //發文
+                    let sendObj = {};
+                    let currentURL = window.location.href;
+                    currentURL.split("page-no=");
+                    sendObj.article_no = currentURL.split("page-no=")[1];
+                    sendObj.comment_content = document.getElementById('comment_content').value;
+                    document.getElementById('comment_content').value = "";
+                    xhr.open("POST", "./php/add_back_comment.php", true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                    let data_info2 = `json=${JSON.stringify(sendObj)}`;
+                    xhr.send(data_info2);
                 }
-            };
-
-
-            let sendObj = {};
-
-            let currentURL = window.location.href;
-            currentURL.split("page-no=");
-            sendObj.article_no= currentURL.split("page-no=")[1];  
-            sendObj.comment_content = document.getElementById('comment_content').value;
-            document.getElementById('comment_content').value = "";
-            xhr.open("POST", "./php/add_back_comment.php", true);
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            let data_info = `json=${JSON.stringify(sendObj)}`;
+            }
             xhr.send(data_info);
         },
     },
@@ -137,21 +149,5 @@ let commetVue = new Vue({
     },
     mounted() {
         this.getArticle();
-        console.log("card init");
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "./php/gameCoupon.php", true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        
-        xhr.onload = function () {
-            loginStatusResult = JSON.parse(xhr.responseText);
-            if(loginStatusResult == '0'){
-                window.alert("留言前請先登入/註冊成為會員");
-            }
-        }
-        // action代表 :檢查登入狀態
-        let dataset = {};
-        dataset.action = "loginStatus";
-        let data_info = `json=${JSON.stringify(dataset)}`;
-        xhr.send(data_info);
     }
 })
