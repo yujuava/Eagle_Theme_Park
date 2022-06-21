@@ -250,6 +250,7 @@
             margin-bottom: 15px;
             width: 80%;
             padding: 40px;
+            border-radius: 50%;
 
             position: relative;
             // border: 2px solid blue;
@@ -271,12 +272,14 @@
               width: 100%;
               padding: 30px;
             }
-          }
-          .itempic:hover{
-            animation: swing 0.8s 2;
-            cursor: pointer;
-            background-color: $color6;
-            border-radius: 50%;
+            &:hover{
+              @include xl(){
+                animation: swing 0.8s 2;
+                cursor: pointer;
+                background-color: $color6;
+                border-radius: 50%;
+              }
+            }
           }
           @keyframes swing{
             15%{transform: translate(5px);}

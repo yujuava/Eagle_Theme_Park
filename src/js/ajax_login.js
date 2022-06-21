@@ -18,7 +18,7 @@ function getMemberInfo(){
     
     if(objResult.mem_name){
       usernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
-      mobileUsernameLocation.innerText = "親愛的" + objResult.mem_name + "，您好";
+      mobileUsernameLocation.innerText = objResult.mem_name;
       pcMemberEnter.addEventListener("click",function(){
       window.location.href = "member-info.html";
       loginBox.style.display="none";
