@@ -93,7 +93,7 @@ let commetVue = new Vue({
     el: '#pages',
     data: {
         article: { "article_no": 1, "mem_no": 1, "article_title": "", "article_date": "", "article_content": "", "article_image": "", "mem_name": "" },
-        comments: {},
+        comments: [],
 
     },
     methods: {
