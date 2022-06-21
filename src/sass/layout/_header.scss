@@ -122,7 +122,7 @@ header{
 
         #mobile-username-lo{
           // border: 1px solid #000;
-          margin-right: 15px;
+          margin-right: 5px;
           color:$color4;
 
         }
@@ -492,13 +492,19 @@ header{
   .ticket{
       // border: 1px solid #000;
       position: absolute;
-      width: 50px;
+      width: 120px;
       top:-20px;
-      left:26%;
+      left:24%;
       z-index: 2;
       &:hover{
         top:-10px;
-      }      
+      }   
+      @include md(){
+        width: 180px;
+        top:-20px;
+        left:26%;
+      }
+      
       @include lg(){
           top:-30px;
           left:22%;
@@ -512,10 +518,7 @@ header{
       }
      
       img{
-          width: 120px;
-          @include md(){
-            width: 180px;
-          }
+          width: 100%;
       }
   }
   .bottom-back{
