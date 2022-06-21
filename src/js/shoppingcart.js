@@ -53,7 +53,11 @@ new Vue({
                 stotal = item.product_amount * item.product_price
                 sum += stotal
             });
-            return sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            // let regExp = RegExp('\\B(?<!\\.\\d*)(?=(\\d{3})+(?!\\d))', 'g');
+            // let result = sum.toString().replace(regExp, ',');
+            result = sum.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+            return result;
+            // return sum;
         }
     },
 })
