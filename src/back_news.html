@@ -42,7 +42,7 @@
                 </tr>
                 <tr v-for="newsRow in newsRows">
                     <td>{{newsRow.news_no}}</td>
-                    <td><img :src="'images//' + newsRow.news_pic"></td>
+                    <td><img :src="'images//' + newsRow.news_pic" id="originPic"></td>
                     <td>{{newsRow.news_name}}</td>
                     <td>{{newsRow.news_content}}</td>
                     <td>{{newsRow.news_date}}</td>
@@ -58,7 +58,7 @@
                 <table class="innerData">
                     <tr>
                         <th>消息照片</th>
-                        <td><input type="file" id="uploadPic"></td>
+                        <td><input type="file" id="uploadPic" v-model="popup.news_pic"></td>
                     </tr>
                     <tr>
                         <th>消息標題</th>

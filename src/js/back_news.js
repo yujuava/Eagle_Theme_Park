@@ -38,14 +38,42 @@ var newsVue = new Vue({
         },
         async changeHandler() {  //修改商品  // 非同步  // 綁最後的按鍵
             //判斷使否新增照片如果沒有使用 this.popup.news_pic
-            let newPic = document.getElementById("uploadPic").files[0]?.name?? this.popup.news_pic;
-            this.popup.news_pic = newPic;  
+            // let newPic = document.getElementById("uploadPic").files[0]?.name?? this.popup.news_pic;
+            // this.popup.news_pic = newPic;  
+            // let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
+            // let xhr = new XMLHttpRequest();
+            // // 決定傳送方法POST, 傳送目標, true代表非同步執行
+            // xhr.open("POST","./php/update_back_news.php",true);
+            // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            // xhr.send(`json=${sendObj}`);
+
+            // window.confirm("是否確認修改?");
+            // this.isOpen = false;
+
             let sendObj = JSON.stringify(this.popup);  // 取最後要再資料庫呈現的東西
             let xhr = new XMLHttpRequest();
             // 決定傳送方法POST, 傳送目標, true代表非同步執行
+            console.log(this.popup.news_pic)
+            console.log(document.getElementById("uploadPic").files[0])
+            // let reader = new FileReader();
+            // reader.onload = function () {
+            //     document.getElementById('originPic').src = this.result;
+            // };
+
+            let formData = new FormData();
+            formData.append("news_no", this.popup.news_no);
+            formData.append("news_name", this.popup.news_name);
+            formData.append("news_content", this.popup.news_content);
+            formData.append("news_date", this.popup.news_date);
+            if(document.getElementById("uploadPic").files[0]==""){
+                formData.append("news_pic", this.popup.news_pic.src);
+            }else{
+                formData.append("news_pic", document.getElementById("uploadPic").files[0]);
+            }
+
             xhr.open("POST","./php/update_back_news.php",true);
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            xhr.send(`json=${sendObj}`);
+            
+            xhr.send(formData);
 
             window.confirm("是否確認修改?");
             this.isOpen = false;
