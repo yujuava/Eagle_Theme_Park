@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022-06-19 20:30:26
+-- 產生時間： 2022-06-21 17:00:47
 -- 伺服器版本： 8.0.29
 -- PHP 版本： 8.1.5
 
@@ -58,8 +58,7 @@ INSERT INTO `article` (`article_no`, `mem_no`, `article_title`, `article_date`, 
 (15, 13, '全台灣的遊樂園實在是很少會有這種規模', '2022-05-05 21:30:35', '遊樂園的環境實在是很令大人及小朋友喜歡，你說為什麼呢，主要是因為有動物區以及遊樂區，全台灣的遊樂園實在是很少會有這種規模', './images/themePark__facIndian_spread_Md_2.jpg'),
 (16, 7, '表演一天只有表演一次而已，所以要看準時間去看，還蠻值得的', '2022-05-07 15:40:35', '是跟小孩來校外教學，因為下雨的關係有很多遊樂設施都沒有開放，不然其實是蠻好玩的\r\n1:廁所是蠻乾淨的2:餐廳用餐的話價位大概都200以上居多3:路邊的餐點平均大概都100以上4:好玩的遊樂設施都要等很久5:表演一天只有表演一次而已，所以要看準時間去看，還蠻值得的', './images/themePark__facIndian_adventure_Lg_3.jpg'),
 (17, 6, '園區內服務員很熱心也認真', '2022-05-10 15:05:35', '這麼大的園區乾淨清潔，尤其是廁所，幾乎沒有味道，當然也有可能是疫情期間人少了，也因為這樣中餐廳跟牛排館都沒開，好可惜但也無可奈何，餐點真的可以再精緻一點，園區內服務員很熱心也認真，尤其動物導覽，聽得出來他們都是真心愛動物們', './images/themePark__attrWest_1.jpg'),
-(18, 5, '搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', '2022-05-13 20:17:35', '在2009年時耗資新台幣2億元打造英式復古蒸氣火車，且重新規劃該園區。搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', './images/themePark__facWest_tourist_Lg_2.jpg'),
-(19, 4, '我要發文', '2022-06-17 18:18:42', '我是Ava', './images/62ac550231e79.png');
+(18, 5, '搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', '2022-05-13 20:17:35', '在2009年時耗資新台幣2億元打造英式復古蒸氣火車，且重新規劃該園區。搭著蒸氣火車緩緩越過大草原，讓遊客以不同的角度體驗西部風光', './images/themePark__facWest_tourist_Lg_2.jpg');
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,7 @@ INSERT INTO `comment` (`comment_no`, `article_no`, `mem_no`, `comment_date`, `co
 CREATE TABLE `coupon` (
   `coupon_no` int NOT NULL,
   `mem_no` int NOT NULL,
-  `cupon_status` tinyint NOT NULL COMMENT '0:狀態未定, 1:狀態未定'
+  `cupon_status` tinyint NOT NULL COMMENT '0:使用, 1:未使用'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='優惠劵';
 
 -- --------------------------------------------------------
@@ -322,7 +321,7 @@ CREATE TABLE `product` (
   `product_infor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品資訊',
   `product_amount` int NOT NULL DEFAULT '1' COMMENT '商品預設數量',
   `product_pic` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '商品圖片',
-  `product_st` tinyint NOT NULL COMMENT '商品狀態(0.正常,1下架,2缺貨)',
+  `product_st` tinyint NOT NULL COMMENT '商品狀態(0.上架,1下架)',
   `product_creat` date DEFAULT NULL COMMENT '建立日期'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品';
 
