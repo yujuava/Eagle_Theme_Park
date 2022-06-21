@@ -7,7 +7,7 @@ window.addEventListener("load",function(){
         // console.log(screenHeight)
         let robot = document.getElementById("robot");
         let top = document.getElementById("topCircle");
-        // console.log(ScrollNum)
+        // console.log(scrollY)
             if(ScrollNum>150){
                 robot.classList.remove("hide");
                 top.classList.remove("hide");
