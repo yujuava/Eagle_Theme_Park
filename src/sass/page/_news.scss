@@ -3,6 +3,9 @@
     background-repeat: no-repeat;
     background-position: 20% 25%;
     background-size: 95% 42%;
+    [v-cloak] {
+        display: none;
+      }
 
     #airplane {
         display: block;
