@@ -392,7 +392,7 @@ header{
       z-index: 50;
       background-color: $color3;
     //   opacity: 0.8;
-      @include md(){
+      @include lg(){
           display: none;
       }
       .top-block{
