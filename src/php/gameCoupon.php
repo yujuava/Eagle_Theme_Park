@@ -9,6 +9,8 @@ switch ($dataset["action"]){
     case "loginStatus":
         if(isset($_SESSION["mem_id"]) == false){
             echo json_encode("0");
+        }else{
+            echo json_encode("1");
         };
     break;
 
