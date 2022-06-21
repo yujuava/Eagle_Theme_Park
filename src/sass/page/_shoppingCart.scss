@@ -1,4 +1,7 @@
 .shoppingcart {
+    [v-cloak] {
+        display: none;
+      }
     .shopcar {
         .table {
             table-layout: fixed;
