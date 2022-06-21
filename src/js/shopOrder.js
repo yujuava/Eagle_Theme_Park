@@ -12,7 +12,8 @@ Vue.component('order-component', {
     computed: {
         stotal() {
             let stotal = this.item.product_amount * this.item.product_price
-            return stotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            result = stotal.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+            return result;
         }
     },
     methods: {},
@@ -100,7 +101,8 @@ new Vue({
                 stotal = item.product_amount * item.product_price
                 sum += stotal
             });
-            return "$ " + sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            result = sum.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+            return "$"+ result;
         },
     },
     created() {
