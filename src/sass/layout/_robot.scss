@@ -9,6 +9,10 @@
     padding: 100px 0;
     justify-content: center;
 
+    [v-cloak] {
+        display: none;
+    }
+
     img {
         width: 23%;
         transform: rotateY(180deg);
@@ -55,6 +59,7 @@
         }
 
         .robot_talk {
+
             .box {
                 margin: 1.25rem;
                 padding: 1.25rem;
