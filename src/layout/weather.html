@@ -1,0 +1,72 @@
+
+  <div id="weather">
+
+   <div class="info">
+     
+     <p class="ct">{{forecast.MinT}} ~ {{forecast.MaxT}} °C</p>
+     <p class="feeling">{{forecast.CI}}</p>
+     <div class="wet">
+       <i class="fa-solid fa-umbrella"></i>
+       <span id='humidity'>{{forecast.PoP}} %</span>
+     </div>
+   </div>
+
+   <div class="area">
+     <div class="pic">
+       <img :src="'images//' + this.weatherimg" alt="">
+     </div>
+     <p>{{ forecast.Wx }}</p>
+     
+
+   </div>
+  </div>
+
+  
+<script>
+
+//串接台灣天氣api，將城市名稱代入html的選單中
+new Vue({
+  el:'#weather',
+  data:{
+    dataObject:[],
+    location:[],
+    forecast : {
+      CI:'',
+    },
+    weathercode:{},
+
+    weatherimg:'',
+  },
+  computed: {  
+  },
+  methods: {
+    initData() {
+      let xhr = new XMLHttpRequest();
+      xhr.open('get','https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON',true);
+      xhr.onload =  ()=> {
+          this.dataObject = JSON.parse(xhr.responseText);
+          this.location = this.dataObject.cwbopendata.dataset.location;
+          // this.location.filter(v => v.locationName == "桃園市" );
+          let obj = this.location.find(v => v.locationName == '桃園市');
+          obj.weatherElement.forEach(v => this.forecast[v.elementName] = v.time[1].parameter.parameterName);
+          obj.weatherElement.find(v => this.weathercode[v.elementName] = v.time[1].parameter.parameterValue); //天氣對應圖案代碼
+
+          console.log('weathercode',this.weathercode.Wx)
+          this.weatherimg =  0 + this.weathercode.Wx + '.svg';
+          console.log('weatherimg',this.weatherimg)
+      }
+      xhr.send(null);
+    },
+
+    
+  },
+  created(){
+    this.initData();
+  },
+    
+})
+
+</script>
+    
+</body>
+</html>
