@@ -79,7 +79,7 @@
                 <transition-group name="item" tag="div" class="row">
                     <item-component v-for="item in cards" :item="item" :key="item.article_no"
                         @click.native="setFocusId(item.article_no)">
-                        
+
 
                 </transition-group>
             </div>
@@ -105,6 +105,22 @@
                 openBox: function () {
                     let lightbox = document.querySelector('.light-box');
                     lightbox.classList.add('show-Lightbox');
+                    console.log("card init");
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "./php/gameCoupon.php", true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                    xhr.onload = function () {
+                        loginStatusResult = JSON.parse(xhr.responseText);
+                        if (loginStatusResult == '0') {
+                            window.alert("發文前請先登入/註冊成為會員");
+                        }
+                    }
+                    // action代表 :檢查登入狀態
+                    let dataset = {};
+                    dataset.action = "loginStatus";
+                    let data_info = `json=${JSON.stringify(dataset)}`;
+                    xhr.send(data_info);
                 },
                 closeBox: function () {
                     let lightbox = document.querySelector('.light-box');
