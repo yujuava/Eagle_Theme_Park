@@ -62,23 +62,5 @@ new Vue({
             })
         },
     },
-    mounted(){
-        // console.log("card init");
-        // let xhr = new XMLHttpRequest();
-        // xhr.open("POST", "./php/gameCoupon.php", true);
-        // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        
-        // xhr.onload = function () {
-        //     loginStatusResult = JSON.parse(xhr.responseText);
-        //     if(loginStatusResult == '0'){
-        //         window.alert("發文前請先登入/註冊成為會員");
-        //     }
-        // }
-        // // action代表 :檢查登入狀態
-        // let dataset = {};
-        // dataset.action = "loginStatus";
-        // let data_info = `json=${JSON.stringify(dataset)}`;
-        // xhr.send(data_info);
-    }
 });
 
