@@ -1,115 +1,187 @@
-.robot_area{
-    // position: fixed;
-    // background-color: rgba(255, 255, 255, 0.644);
-    // width: 100%;
-    // height: 100%;
-    // top: 0;
-    // left: 0;  
-    // z-index: 50;  
-    display: none;
-    // padding: 100px 0;
-    // justify-content: center;
-    p{
-        margin: 10px 0;
-    }
-    img{
-        width: 15%;
+.robot_area {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.644);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    padding: 100px 0;
+    justify-content: center;
+
+    img {
+        width: 23%;
         transform: rotateY(180deg);
-        @include md(){
+
+        @include md() {
             width: 17%;
         }
-        @include lg(){
+
+        @include lg() {
             width: 19%;
         }
-        @include xl(){
-            width: 15%;
+
+        @include xl() {
+            width: 23%;
         }
     }
-    .robot_inner{
+
+    .robot_inner {
         margin: auto;
-        background-color:$color1;
-        // border: 5px solid $color6;
-        // border-radius: 10px;
+        background-color: $color1;
         position: relative;
         padding: 20px 10px;
         width: 80%;
-        @include md(){
-            width:60%;
+
+        @include md() {
+            width: 60%;
         }
-        @include lg(){
-            width:50%;
+
+        @include lg() {
+            width: 50%;
         }
-        @include xl(){
-            width:40%;
+
+        @include xl() {
+            width: 40%;
         }
-        i{
+
+        i {
             font-size: $h5_fzSize;
             color: $color9;
             position: absolute;
             right: 10px;
             top: 10px;
-            cursor:pointer;
+            cursor: pointer;
         }
-        .robot_talk{
-            .welcome{
-                display: flex;
-                align-items: center;
-                .robot_reply{
-                    padding: 10px;
-                    background-color: $color6;
-                    margin-left: 10px;
-                    border-radius: 10px;
-                    position: relative;
-                    &::before{
-                        content: '';
-                        position: absolute;
-                        bottom: 10px;
-                        left: -15px;
-                        border-right: 10px solid $color6;
-                        border-bottom: 10px solid $color6;
-                        border-left: 15px solid $color1;
+
+        .robot_talk {
+            .box {
+                margin: 1.25rem;
+                padding: 1.25rem;
+
+                #content {
+                    height: 340px;
+                    overflow-y: scroll;
+                    font-size: $word-fzSize;
+                    width: 100%;
+
+                    .info_r {
+                        position: relative;
+
+                        .circle_r {
+                            position: absolute;
+                            left: 0;
+                        }
+
+                        .con_r {
+                            // 左對話框顏色
+                            display: inline-block;
+                            width: 55%;
+                            min-height: 55px;
+                            background-color: #FDB52D;
+                            border-radius: 6px;
+                            padding: 10px;
+                            margin-left: 40px;
+                        }
+
+                        .con_text {
+                            // 左側對話文字顏色
+                            color: #333;
+                            margin-bottom: 5px;
+                            line-height: 1.5;
+
+                            .con_que {
+                                // 可能想問內容框
+                                height: 30px;
+                                line-height: 30px;
+                                cursor: pointer;
+
+                                .czkj-question-msg {
+                                    // 可能想問框
+                                    float: left;
+                                    font-size: $word-fzSize;
+                                    color: #245D68;
+                                }
+                            }
+                        }
+
+                        .time_r {
+                            // 左下時間
+                            margin-left: 45px;
+                            color: #999999;
+                            font-size: $sm-word-fzSize;
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    .info_l {
+                        // 右側對話框
+                        text-align: right;
+                        margin-top: 10px;
+
+                        .time_l {
+                            // 右下時間
+                            margin-right: 10px;
+                            color: #999999;
+                            font-size: $sm-word-fzSize;
+                            margin-top: 5px;
+                            margin-bottom: 15px;
+                        }
+
+                        .con_l {
+                            // 右側提問框
+                            display: inline-block;
+                            width: 220px;
+                            min-height: 45px;
+                            background-color: #A7D4D3;
+                            border-radius: 6px;
+                            padding: 10px;
+                            text-align: left;
+                            color: #333;
+                            margin-right: 5px;
+                        }
                     }
                 }
             }
-            .dialogue_area{
-                display: flex;
-                flex-direction: column;
-                .message_area{
-                    display: inline-block;
-                    padding: 10px;
-                    background-color: $color2;
-                    margin-left: auto;
-                    margin-right: 20px;
-                    border-radius: 10px;
-                    position: relative;
-                    &::before{
-                        content: '';
-                        position: absolute;
-                        bottom: 10px;
-                        right: -15px;
-                        border-left: 10px solid $color2;
-                        border-bottom: 10px solid $color2;
-                        border-right: 15px solid $color1;
-                    } 
-                }
-            }
         }
-        .input_area{
+
+        .setproblem {
+            width: 100%;
             margin: auto;
             display: flex;
-            justify-content: end;
-            input{
-                outline: none;
-                border-radius: $sm-word-fzSize;
-                border:0;
-                height: 25px;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 10px;
+
+            textarea {
+                // 下方提問輸入框
+                color: #333;
                 padding: 10px;
-                box-shadow:$button-shadow;
-                @include lg(){
-                    height: 30px;
-                }
+                box-sizing: border-box;
+                height: 100px;
+                width: 85%;
+                resize: none;
+                border-color: #ccc;
+                border-radius: 15px;
+                outline: none;
+                font-size: $word-fzSize;
+                box-shadow: $button-shadow;
             }
-            @include mdBtn(submit){}
+
+            button {
+                // 下方送出按鈕
+                width: 4rem;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                background: #FDB52D;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: $word-fzSize;
+                cursor: pointer;
+                border: none;
+                border-radius: $sm-word-fzSize;
+                box-shadow: $button-shadow;
+            }
         }
     }
 }
