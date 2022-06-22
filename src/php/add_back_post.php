@@ -19,7 +19,7 @@ try{
             $post->bindValue(":article_content",$_POST["article_content"]);
             $post->bindValue(":article_image", "./images/".$fileName);
             $post->execute();
-            echo json_encode("update");
+            echo json_encode("update",JSON_NUMERIC_CHECK);
             echo "異動成功~~";  
         }
     }else{
