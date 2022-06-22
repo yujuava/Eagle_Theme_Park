@@ -16,7 +16,7 @@ if(isset($_SESSION["mem_id"]) == true){ //已登入
 	"mem_country"=>$_SESSION["mem_country"]];
 
 
-	echo json_encode($result);
+	echo json_encode($result,JSON_NUMERIC_CHECK);
 }else{
 	echo "{}";
 }

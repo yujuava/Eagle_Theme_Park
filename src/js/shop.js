@@ -93,7 +93,7 @@ var prods = new Vue({
         //計算燈箱內商品數量加減
         countadd(id, amount) {
             let index = this.prodRows.findIndex(v => v.product_no == id);
-            let currentAmount = this.prodRows[index].product_amount;
+            let currentAmount = parseInt(this.prodRows[index].product_amount);
             this.prodRows[index]['product_amount'] = currentAmount + amount < 1 ? 1 : currentAmount + amount;
             // let idRowsList = this.prodRows.map(item => Object.values(item)[0]);
             // let realId = idRowsList.indexOf(id)

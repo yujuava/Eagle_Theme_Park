@@ -10,7 +10,7 @@ try{
 
     $facility = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$facilityRows = $facility->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($facilityRows);
+    echo json_encode($facilityRows,JSON_NUMERIC_CHECK);
 }catch(PDOException $e){
     echo"錯誤訊息:" ,$e->getMessage(),"<br>";
     echo"錯誤行號:" ,$e->getLine(),"<br>";
