@@ -1,20 +1,20 @@
 function DoFirst(){
 
-    let ipnutText = document.getElementById("ipnutText");
+    let inputText = document.getElementById("inputText");
     let postcardText = document.getElementById("postcardText");
     let postcardReset = document.getElementById("postcardReset");
 
     // sync text with textarea
-    ipnutText.addEventListener("input", syncText);
+    inputText.addEventListener("input", syncText);
     
     function syncText(){
-        postcardText.innerText = ipnutText.value;
+        postcardText.innerText = inputText.value;
     };
 
     // reset text button
     postcardReset.addEventListener("click", ()=>{
         postcardText.innerText = "";
-        ipnutText.value = "";
+        inputText.value = "";
     });
 
     var dragItem = document.getElementById("postcardText");
