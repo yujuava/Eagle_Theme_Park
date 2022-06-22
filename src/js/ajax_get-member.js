@@ -538,8 +538,14 @@ new Vue({
         },
         eachTotal(){    //商品+票券總金額
             // return 123;
+            let total = this.eachProductTotal + this.eachtTicketTotal;
+
+            let result = total.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+
+            return result;
+
             // return (this.eachProductTotal + this.eachtTicketTotal).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-            return (this.eachProductTotal + this.eachtTicketTotal);
+            // return (this.eachProductTotal + this.eachtTicketTotal);
         },
 
     },
