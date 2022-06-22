@@ -227,8 +227,9 @@
     width: fit-content;;
   }
   #inputText{
+    resize: none;
     padding: 10px;
-    height: 80px;
+    height: 100px;
     font-size: $h6-fzSize;
     border: 0;
     color: $color5;
