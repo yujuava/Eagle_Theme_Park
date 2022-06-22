@@ -30,7 +30,7 @@
                     <td>{{discussRow.article_date}}</td>
                     <td>{{discussRow.mem_no}}</td>
                     <td>{{discussRow.article_title}}</td>
-                    <td><button onclick="showAlert();">刪除</button></td>
+                    <td><button type="button" @click="deletePost(discussRow.article_no)">刪除</button></td>
                 </tr>
             </table>
 

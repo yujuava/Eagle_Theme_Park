@@ -111,7 +111,7 @@
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                     xhr.onload = function () {
                         loginStatusResult = JSON.parse(xhr.responseText);
-                        if (loginStatusResult == '0') {
+                        if (`${loginStatusResult}` == '0'){
                             window.alert("發文前請先登入/註冊成為會員");
                         }
                     }
