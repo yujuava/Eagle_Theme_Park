@@ -5,7 +5,6 @@ $json = $_POST["json"];
 $dataset = json_decode($json, true);
 
 switch ($dataset["action"]){
-
     case "loginStatus":
         if(isset($_SESSION["mem_id"]) == false){
             echo json_encode("0");

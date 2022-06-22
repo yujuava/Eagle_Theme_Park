@@ -74,7 +74,7 @@ Vue.component('list-component', {
 
             xhr.onload = function () {
                 loginStatusResult = JSON.parse(xhr.responseText);
-                if (loginStatusResult == '0') {
+                if (`${loginStatusResult}` == '0') {
                     window.alert("留言前請先登入/註冊成為會員");
                 } else {
                     let xhr = new XMLHttpRequest();
