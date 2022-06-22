@@ -65,11 +65,9 @@ var newsVue = new Vue({
             formData.append("news_name", this.popup.news_name);
             formData.append("news_content", this.popup.news_content);
             formData.append("news_date", this.popup.news_date);
-            if(document.getElementById("uploadPic").files[0]==""){
-                formData.append("news_pic", this.popup.news_pic.src);
-            }else{
-                formData.append("news_pic", document.getElementById("uploadPic").files[0]);
-            }
+            formData.append("news_pic_origin", this.popup.news_pic);
+            formData.append("news_pic", document.getElementById("uploadPic").files[0]);
+            
 
             xhr.open("POST","./php/update_back_news.php",true);
             
