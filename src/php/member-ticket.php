@@ -10,7 +10,7 @@ try{
   $memberTicket -> bindValue(":bbb", $_SESSION["mem_no"]); 
   $memberTicket ->execute();
   $memberTicketRows = $memberTicket->fetchAll(PDO::FETCH_ASSOC);
-  echo json_encode($memberTicketRows);
+  echo json_encode($memberTicketRows,JSON_NUMERIC_CHECK);
 //  echo var_dump($memberOrderResult);
 
 }catch(PDOException $e){

@@ -13,7 +13,7 @@ try{
     $memberCoupon -> bindValue(":bbb", $_SESSION["mem_no"]); 
     $memberCoupon ->execute();
     $memberCouponRows = $memberCoupon->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($memberCouponRows);
+    echo json_encode($memberCouponRows,JSON_NUMERIC_CHECK);
     // echo "異動成功~~";
 
 }catch(PDOException $e){

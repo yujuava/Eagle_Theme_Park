@@ -9,7 +9,7 @@ try{
   $memberOrder -> bindValue(":aaa", $_SESSION["mem_no"]); 
   $memberOrder ->execute();
   $memberOrderRows = $memberOrder->fetchAll(PDO::FETCH_ASSOC);
-  echo json_encode($memberOrderRows);
+  echo json_encode($memberOrderRows,JSON_NUMERIC_CHECK);
 //  echo var_dump($memberOrderResult);
 
 }catch(PDOException $e){
