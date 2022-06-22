@@ -59,10 +59,9 @@
         }
 
         .robot_talk {
-
+            
             .box {
                 margin: 1.25rem;
-                padding: 1.25rem;
 
                 #content {
                     height: 340px;
@@ -81,12 +80,16 @@
                         .con_r {
                             // 左對話框顏色
                             display: inline-block;
-                            width: 55%;
+                            width: 70%;
                             min-height: 55px;
                             background-color: #FDB52D;
                             border-radius: 6px;
                             padding: 10px;
                             margin-left: 40px;
+
+                            @include xl() {
+                                width: 55%;
+                            }
                         }
 
                         .con_text {
@@ -136,7 +139,7 @@
                         .con_l {
                             // 右側提問框
                             display: inline-block;
-                            width: 220px;
+                            width: 150px;
                             min-height: 45px;
                             background-color: #A7D4D3;
                             border-radius: 6px;
@@ -144,6 +147,10 @@
                             text-align: left;
                             color: #333;
                             margin-right: 5px;
+
+                            @include xl() {
+                                width: 220px;
+                            }
                         }
                     }
                 }
@@ -164,13 +171,17 @@
                 padding: 10px;
                 box-sizing: border-box;
                 height: 100px;
-                width: 85%;
+                width: 78%;
                 resize: none;
                 border-color: #ccc;
                 border-radius: 15px;
                 outline: none;
                 font-size: $word-fzSize;
                 box-shadow: $button-shadow;
+                
+                @include xl() {
+                    width: 87%;
+                }
             }
 
             button {
