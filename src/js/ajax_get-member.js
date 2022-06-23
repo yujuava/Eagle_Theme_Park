@@ -387,7 +387,7 @@ new Vue({
                 this.OriPswHint = "密碼正確";
                 console.log('正確');
             }else{
-                this.OriPswHint = "密碼錯誤";
+                this.OriPswHint = "密碼錯誤";   
                 // console.log('xx');
             }
         },
