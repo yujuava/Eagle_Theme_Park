@@ -388,7 +388,7 @@ new Vue({
                 console.log('正確');
             }else{
                 this.OriPswHint = "密碼錯誤";
-                console.log('xx');
+                // console.log('xx');
             }
         },
         validateNewPsw1(){
@@ -405,7 +405,7 @@ new Vue({
                     // console.log("not pass");
                 }else{
                     console.log("pass");
-                    // this.NewPswHint1 = "此密碼可用";
+                    this.NewPswHint1 = "此密碼可用";
                 }
             }
         },
