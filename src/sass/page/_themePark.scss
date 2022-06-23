@@ -612,5 +612,30 @@
         padding: 10px;
     }
 
+    // ultraviolet index API 
+    #uvIndex{
+        position: absolute;
+        right: 10%;
+        top: 10%;
+        background-color: $color2;
+        width: 150px;
+        height: 100px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        img{
+            width: 30px;
+            height: 30px;
+        }
+        .iconBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
 }
 
