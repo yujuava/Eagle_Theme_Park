@@ -76,7 +76,7 @@ let headerVue = new Vue({
             }
         },
         prepareRegister(){
-            headerVue.agreement = true;
+            headerVue.agreement = document.getElementById("accept").checked;
         },
         sendRegister(){
             if(headerVue.agreement == false){

@@ -4,7 +4,7 @@ try{
 
 
     // 測試 回傳文章表格與會員名稱
-    $sql = "SELECT `article`.*, `member`.`mem_name`, `article`.`article_no` FROM `article` LEFT JOIN `member` ON `article`.`mem_no` = `member`.`mem_no`"; //準備好sql指令
+    $sql = "SELECT `article`.*, `member`.`mem_name`, `article`.`article_no` FROM `article` LEFT JOIN `member` ON `article`.`mem_no` = `member`.`mem_no` ORDER BY `article`.`article_date` DESC;"; //準備好sql指令
 	$article = $pdo->query($sql);
 	$articledRow = $article->fetchAll(PDO::FETCH_ASSOC);
 

@@ -12,18 +12,23 @@
     @@include('layout/header-final.html')
     <!-- 共用header end -->
 
-    <!-- 大標使用這個-->
-    @@include('layout/h2Style.html',{
-        "h2Title" : "紐約都會"
-    })
-
-    <!-- <div id="uvIndex">
-        <div class="iconBox">
-            <div><img src="https://picsum.photos/300/200/?random=10" alt=""></div>
-            <p>{{uvLevel}}</p>
+    <section class="themePark__title">
+        <!-- 大標使用這個-->
+        @@include('layout/h2Style.html',{
+            "h2Title" : "紐約都會"
+        })
+        <!-- UV index -->
+        <div id="uvIndex">
+            <div class="iconBox">
+                <div><img id="uvPic" src="https://picsum.photos/300/200/?random=10" alt=""></div>
+                <p>紫外線指數: {{uvLevel}}</p>
+            </div>
+            <p>{{dataTime}} 更新</p>
         </div>
-        <p>{{dataTime}}</p>
-    </div> -->
+    </section>
+
+
+
 
     <section>
         @@include('layout/title.html',{
@@ -305,6 +310,6 @@
     <script src="./js/themePark_touchSlide.js"></script>
     <script src="./js/themePark_changeVideoBox.js"></script>
     <script src="./js/themePark_sliderCardHeight.js"></script>
-    <!-- <script src="./js/themePark_uvIndex.js"></script> -->
+    <script src="./js/themePark_uvIndex.js"></script>
 </body>
 </html>

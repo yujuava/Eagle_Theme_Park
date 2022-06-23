@@ -612,13 +612,16 @@
         padding: 10px;
     }
 
+    .themePark__title{
+        position: relative;
+    }
     // ultraviolet index API 
     #uvIndex{
         position: absolute;
-        right: 10%;
-        top: 10%;
+        right: 5%;
+        bottom: -100px;
         background-color: $color2;
-        width: 150px;
+        width: 180px;
         height: 100px;
         border-radius: 10px;
         display: flex;
@@ -626,6 +629,7 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
+        opacity: 0.8;
         img{
             width: 30px;
             height: 30px;
