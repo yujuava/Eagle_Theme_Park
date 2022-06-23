@@ -64,7 +64,7 @@ let orderVue = new Vue({
             if(!map[eachObj.ticket_order_no]){
                     orderVue.newObj.push({
                         ticket_order_no: eachObj.ticket_order_no,
-                        ticket_order_tp: eachObj.ticket_order_tp.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
+                        ticket_order_tp: eachObj.ticket_order_tp.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2'),
                         ticket_order_time: eachObj.ticket_order_time,
                         mem_name: eachObj.mem_name,
                         mem_no: eachObj.mem_no,
