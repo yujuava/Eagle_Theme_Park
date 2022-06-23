@@ -617,20 +617,24 @@
     }
     // ultraviolet index API 
     #uvIndex{
-        position: absolute;
-        right: 5%;
-        bottom: -100px;
-        background-color: $color2;
-        width: 180px;
-        height: 100px;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: auto;
+        width: fit-content;
+        padding: 15px;
+        background-color: $color11;
+        border: 2px solid $color4;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 10px;
-        opacity: 0.8;
         img{
+            margin-right: 5px;
+            display: block;
             width: 30px;
             height: 30px;
         }
@@ -638,6 +642,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+    }
+    #uvIndex p{
+        color: $color5;
+    }
+    @include md{
+        #uvIndex{
+            position: absolute;
+            left: unset;
+            right: 20px;
+            top: 0;
+            margin: unset;
         }
     }
 

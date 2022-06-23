@@ -3,7 +3,6 @@ let uvIndexVue = new Vue({
     data: {
         dataTime : "",
         uvLevel:"",
-        uvIndexIcon:"",
         vueData:{},
     },
     methods: {
@@ -22,17 +21,13 @@ let uvIndexVue = new Vue({
                   }
                  });
               }
-              // console.log(arr[0]);
-              // console.log(arr[0]["uvi"]);
 
               uvIndexVue.dataTime = arr[0]["publishtime"];
-              uvIndexVue.uvIndexIcon = arr[0]["publishagency"];
-              let uvIndexCompare = uvIndexVue.uvIndexContrast(arr[0]["uvi"]);
-              // console.log(uvIndexCompare);
-              // console.log(uvIndexCompare["text"]);
+              uvIndexVue.dataTime += "更新";
+
               uvIndexVue.uvLevel = uvIndexVue.uvIndexContrast(arr[0]["uvi"])["text"];
 
-              document.getElementById("uvPic");
+              document.getElementById("uvPic").src = uvIndexVue.uvIndexContrast(arr[0]["uvi"])["picSrc"];
 
             }
             xhr.open("GET", "./php/uvIdex.php", true);
@@ -63,8 +58,8 @@ let uvIndexVue = new Vue({
             uvToIcon.picSrc = "./images/uv_danger.png";
             return uvToIcon;
           }else{
-            uvToIcon.text = "無資料";
-            uvToIcon.picSrc = "./images/uv_none.png";
+            uvToIcon.text = "(暫無資料)";
+            uvToIcon.picSrc = "./images/uv_cloud.png";
             return uvToIcon;
           }
         }

@@ -11,10 +11,20 @@
     @@include('layout/header-final.html')
     <!-- 共用header end -->
 
-    <!-- 大標使用這個-->
-    @@include('layout/h2Style.html',{
-        "h2Title" : "西部農莊"
-    })
+    <div class="themePark__title">
+        <!-- 大標使用這個-->
+        @@include('layout/h2Style.html',{
+            "h2Title" : "西部農莊"
+        })
+        <!-- UV index -->
+        <div id="uvIndex">
+            <div class="iconBox">
+                <div><img id="uvPic" src="./images/uv_cloud.png" alt="uvIdexPic"></div>
+                <p>紫外線指數: {{uvLevel}}</p>
+            </div>
+            <p>{{dataTime}}</p>
+        </div>
+    </div>
 
     <section>
         @@include('layout/title.html',{
@@ -293,5 +303,6 @@
     <script src="./js/themePark_touchSlide.js"></script>
     <script src="./js/themePark_changeVideoBox.js"></script>
     <script src="./js/themePark_sliderCardHeight.js"></script>
+    <script src="./js/themePark_uvIndex.js"></script>
 </body>
 </html>

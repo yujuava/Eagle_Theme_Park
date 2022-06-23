@@ -12,7 +12,7 @@
     @@include('layout/header-final.html')
     <!-- 共用header end -->
 
-    <section class="themePark__title">
+    <div class="themePark__title">
         <!-- 大標使用這個-->
         @@include('layout/h2Style.html',{
             "h2Title" : "紐約都會"
@@ -20,12 +20,12 @@
         <!-- UV index -->
         <div id="uvIndex">
             <div class="iconBox">
-                <div><img id="uvPic" src="https://picsum.photos/300/200/?random=10" alt=""></div>
+                <div><img id="uvPic" src="./images/uv_cloud.png" alt="uvIdexPic"></div>
                 <p>紫外線指數: {{uvLevel}}</p>
             </div>
-            <p>{{dataTime}} 更新</p>
+            <p>{{dataTime}}</p>
         </div>
-    </section>
+    </div>
 
 
 
