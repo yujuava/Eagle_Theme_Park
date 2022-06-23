@@ -16,6 +16,7 @@ var newsVue = new Vue({
         objResult: {},  // 原來的物件
         defaultResult: {},  // 新的更新過的資料
         // newsTitle: ['消息編號','消息名稱','消息內容','發布日期'],
+        inputOriPsw:'',
     },
     computed: {
         currentItem() {
