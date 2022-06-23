@@ -150,7 +150,7 @@ new Vue({
             });
         },
         showTimer() {
-            this.timer = setTimeout(this.endMsg, 1000 * 60);
+            this.timer = setTimeout(this.endMsg, 1000 * 20);
         },
         getTodayTime() {
             // 獲取當前時間
