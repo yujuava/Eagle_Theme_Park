@@ -349,7 +349,7 @@ CREATE TABLE `product_order` (
   `mem_no` int NOT NULL COMMENT '會員編號',
   `coupon_no` int DEFAULT NULL COMMENT '優惠券編號',
   `order_shipping` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '訂單狀態(0:未出貨、1:已出貨、2:已收貨、3:訂單完成、4:已取消)',
-  `product_order_time` date DEFAULT NULL COMMENT '下訂時間',
+  `product_order_time` datetime DEFAULT NULL COMMENT '下訂時間',
   `product_order_way` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '取貨方式(0:宅配、1:超商取貨)',
   `product_order_place` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '取貨地點',
   `product_order_over_time` datetime DEFAULT NULL COMMENT '取貨時間',
@@ -488,7 +488,7 @@ CREATE TABLE `ticket_order` (
   `ticket_order_no` int NOT NULL COMMENT '票券訂單編號',
   `mem_no` int NOT NULL COMMENT '會員編號',
   `ticket_order_tp` int NOT NULL COMMENT '票券訂單總價',
-  `ticket_order_time` date NOT NULL COMMENT '票券訂單下定時間',
+  `ticket_order_time` datetime NOT NULL COMMENT '票券訂單下定時間',
   `ticket_order_shipping` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '票券訂單狀態(1:已出票、2:已取消)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='票券訂單';
 

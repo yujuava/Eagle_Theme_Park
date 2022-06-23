@@ -15,7 +15,7 @@ try{
 
 	require_once("../connect_cgd101g3.php");
 
-    $sql = "INSERT INTO `product_order` (`product_order_no`, `mem_no`, `coupon_no`, `order_shipping`, `product_order_time`, `product_order_way`, `product_order_place`, `product_order_over_time`, `product_order_real_price`, `product_order_tp`) VALUES (NULL,:mem_no, NULL, '0',CURRENT_DATE(), '0', :mem_address, NULL, :product_order_tp, :product_order_tp);";
+    $sql = "INSERT INTO `product_order` (`product_order_no`, `mem_no`, `coupon_no`, `order_shipping`, `product_order_time`, `product_order_way`, `product_order_place`, `product_order_over_time`, `product_order_real_price`, `product_order_tp`) VALUES (NULL,:mem_no, NULL, '0',NOW(), '0', :mem_address, NULL, :product_order_tp, :product_order_tp);";
 	// 記得值要綁到 與欄位的資料形態要正確
 	//訂單成立匯入資料庫
 	$order = $pdo->prepare($sql);
