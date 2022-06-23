@@ -27,7 +27,9 @@
             position: relative;
         }
         .index__bcgImg{
-            width: 100%;
+            // width: 100%;
+            min-width: 100vw;
+            height: 100vh;
         }
         .index__ballon1, .index__ballon2, .index__cloud{
             position: absolute;
