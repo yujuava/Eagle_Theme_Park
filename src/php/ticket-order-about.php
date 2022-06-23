@@ -15,7 +15,7 @@ try{
 
 	require_once("../connect_cgd101g3.php");
 
-    $sql = "INSERT INTO `ticket_order` (`ticket_order_no`, `mem_no`, `ticket_order_tp`, `ticket_order_time`, `ticket_order_shipping`) VALUES (NULL,:mem_no, :ticket_order_tp,CURRENT_DATE(),'1');";
+    $sql = "INSERT INTO `ticket_order` (`ticket_order_no`, `mem_no`, `ticket_order_tp`, `ticket_order_time`, `ticket_order_shipping`) VALUES (NULL,:mem_no, :ticket_order_tp,NOW(),'1');";
 	// 記得值要綁到 與欄位的資料形態要正確
 	//訂單成立匯入資料庫
 	$order = $pdo->prepare($sql);

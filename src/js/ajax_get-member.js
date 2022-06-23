@@ -388,7 +388,7 @@ new Vue({
                 console.log('正確');
             }else{
                 this.OriPswHint = "密碼錯誤";
-                console.log('xx');
+                // console.log('xx');
             }
         },
         validateNewPsw1(){
@@ -399,13 +399,13 @@ new Vue({
             }else{
                 // console.log("跳出來");
                 let passwordCheck = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-                // console.log(this.inputnewPsw1);
+                console.log(this.inputnewPsw1);
                 if(passwordCheck.test(this.inputnewPsw1)!=true){
                     this.NewPswHint1 = "密碼請輸入大小寫英文及數字8~12碼";
                     // console.log("not pass");
                 }else{
                     console.log("pass");
-                    // this.NewPswHint1 = "此密碼可用";
+                    this.NewPswHint1 = "此密碼可用";
                 }
             }
         },
