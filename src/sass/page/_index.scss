@@ -10,6 +10,16 @@
     width: 100%;
     margin: 0;
     border: 0px;
+
+    position: relative;
+    .notice{
+        z-index: 1000;
+        position: absolute;
+        bottom:5px;
+        text-align: center;
+        width: 100%;
+        color:$color5;
+    }
     .index__bcgImg, .index__ballon1, .index__ballon2, .index__cloud{
         display: none;
     }
