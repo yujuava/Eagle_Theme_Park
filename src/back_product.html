@@ -47,7 +47,7 @@
                     <td>{{prodRow.product_name}}</td>
                     <td>{{prodRow.product_infor}}</td>
                     <td>{{prodRow.product_price}}</td>
-                    <td>{{prodRow.product_st}}</td>
+                    <td>{{prodRow.product_st?"下架":"上架"}}</td>
                     <td><button @click="show(prodRow.product_no)">編輯</button></td>
                 </tr>
             </table>
@@ -75,7 +75,10 @@
                     <tr>
                         <th>商品狀態</th>
                         <td>
-                            <input type="text" v-model="popup.product_st">
+                            <select v-model="popup.product_st">
+                                <option value="0">上架</option>
+                                <option value="1">下架</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>

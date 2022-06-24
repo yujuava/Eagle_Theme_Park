@@ -13,7 +13,6 @@ try{
 
     //合成sql指令,並綁訂對應值
     $products = $pdo->prepare($sql);
-    // $products->bindValue(":product_no",$dataset["product_no"]);
     $products->bindValue(":product_name",$dataset["product_name"]);
     $products->bindValue(":product_price",$dataset["product_price"]);
     $products->bindValue(":product_infor",$dataset["product_infor"]);
