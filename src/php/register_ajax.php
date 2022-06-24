@@ -25,9 +25,11 @@ try{
 
 	// 3. 準備寫入資料庫指令, 
 	// insert這種落落長的指令 不用特別指定欄位(mem_id=:mem_id (X) ), 直接擺value上去就好
-	$sql = "INSERT INTO `member` (`mem_no`, `mem_name`, `mem_lastname`, `mem_id`, `mem_psw`, `mem_tel`, `mem_mail`, `mem_state`, `mem_address`, `mem_country`, `mem_birth`, `mem_date`) VALUES (NULL, NULL, NULL, :mem_id, :mem_psw, NULL, NULL, 0, NULL, NULL, NULL, CURRENT_DATE() )";
+	$sql = "INSERT INTO `member` (`mem_no`, `mem_name`, `mem_lastname`, `mem_id`, `mem_psw`, `mem_tel`, `mem_mail`, `mem_state`, `mem_address`, `mem_country`, `mem_birth`, `mem_date`) VALUES (NULL, :mem_name, :mem_lastname, :mem_id, :mem_psw, NULL, NULL, 0, NULL, NULL, NULL, CURRENT_DATE() )";
 	// 4. 合成SQL指令, 並將綁定對應值
 	$register = $pdo->prepare($sql);
+	$register->bindValue(":mem_name", $dataset["memFirstName"]);
+	$register->bindValue(":mem_lastname", $dataset["memLastName"]);
 	$register->bindValue(":mem_id", $dataset["memId"]);
 	$register->bindValue(":mem_psw", $dataset["memPsw1"]);
 	$register->execute();

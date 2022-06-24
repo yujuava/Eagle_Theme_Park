@@ -9,9 +9,8 @@ let uvIndexVue = new Vue({
         uvIndexAPI(){
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){ 
-              let resData = JSON.parse(xhr.responseText);
-              uvIndexVue.vueData = resData.records;
-
+              uvIndexVue.vueData = JSON.parse(xhr.responseText);
+              // receive uv records data that pre-substract in php
               let arr = [];
               for(let i=0;i<uvIndexVue.vueData.length; i++){
                 Object.keys(uvIndexVue.vueData[i]).forEach(key => {

@@ -16,6 +16,8 @@ let headerVue = new Vue({
         pswResult2:"",
         inputPsw1:"",
         inputPsw2:"",
+        memFirstName:"",
+        memLastName:"",
         agreement:false,
         //小購物車計算使用
         sum:{type:[Number]},
@@ -84,6 +86,10 @@ let headerVue = new Vue({
                 alert("請同意使用者條款");
                 return;
             }
+            if(headerVue.memLastName == "" && headerVue.memFirstName ==""){
+                alert("請填寫姓名");
+                return;
+            }
             // lock all input data 通通給我鎖起來  別想傳怪東西到資料庫
             // 1. 宣告XMLHttpRequest()
             let xhr = new XMLHttpRequest();
@@ -107,6 +113,8 @@ let headerVue = new Vue({
             dataset.memId = headerVue.inputAccount;
             dataset.memPsw1 = headerVue.inputPsw1;
             dataset.memPsw2 = headerVue.inputPsw2;
+            dataset.memLastName = headerVue.memLastName;
+            dataset.memFirstName = headerVue.memFirstName;
             // 4. 透過JSON.stringify將處理好的物件封裝成JSON檔案
             let data_info = `json=${JSON.stringify(dataset)}`;
             // 5. XMLHttpRequest送出
