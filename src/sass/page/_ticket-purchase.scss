@@ -102,7 +102,7 @@
 
             //張數
             .item-price {
-                width: 70%;
+                // width: 70%;
                 margin: auto;
                 display: flex;
                 text-align: center;
@@ -110,8 +110,7 @@
                 padding:10px;
                 p{
                     width: 40%;
-        font-family: $family2;
-
+                    font-family: $family2;
                 }
             }
 
@@ -133,15 +132,15 @@
 
                         }
                     }
+                    .col { 
+                        width: 50%;
+                        border: none;
+                        text-align: center;
+                        font-size: $h5-fzSize;
+                        background-color: $color2;
+                    }
                 }
 
-                .col {
-                    width: 40%;
-                    border: none;
-                    text-align: center;
-                    font-size: $h5-fzSize;
-                    background-color: $color2;
-                }
             }
         }
 
