@@ -29,9 +29,9 @@
                     <td>{{facilityRow.fac_name}}</td>
                     <td>{{facilityRow.fac_area}}</td>
                     <td>{{facilityRow.fac_maintain_date}}</td>
-                    <td>{{facilityRow.fac_rainy}}</td>
-                    <td>{{facilityRow.fac_preg}}</td>
-                    <td>{{facilityRow.fac_wheelchair}}</td>
+                    <td>{{facilityRow.fac_rainy ? "可乘" : "不可乘"}}</td>
+                    <td>{{facilityRow.fac_preg ? "可乘" : "不可乘"}}</td>
+                    <td>{{facilityRow.fac_wheelchair ? "可乘" : "不可乘"}}</td>
                     <td>{{facilityRow.fac_chart}}</td>
                     <td><button @click="show(facilityRow.fac_no)" >編輯</button></td>
                 </tr>
