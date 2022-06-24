@@ -2,7 +2,7 @@ let uvIndexVue = new Vue({
     el: '#uvIndex',
     data: {
         dataTime : "",
-        uvLevel:"",
+        uvLevel:"(暫無資料)",
         vueData:{},
     },
     methods: {
@@ -23,7 +23,7 @@ let uvIndexVue = new Vue({
 
               uvIndexVue.dataTime = arr[0]["publishtime"];
               uvIndexVue.dataTime += "更新";
-
+              uvIndexVue.uvLevel = "";
               uvIndexVue.uvLevel = uvIndexVue.uvIndexContrast(arr[0]["uvi"])["text"];
 
               document.getElementById("uvPic").src = uvIndexVue.uvIndexContrast(arr[0]["uvi"])["picSrc"];
