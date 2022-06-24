@@ -64,7 +64,7 @@
                     font-weight: bold;
                     font-size: $word-fzSize;
                     overflow: hidden;
-
+                    
                     img {
                         aspect-ratio: 1/1;
                         width: 100%;
@@ -74,10 +74,12 @@
 
                 .mem-name {
                     font-size: $h6-fzSize;
-                    color: $color9;
+                    color: $color5;
                     margin-left: 10px;
                     font-weight: 400;
                     font-family: $family2;
+
+                    font-weight: bold;
                 }
             }
 
@@ -99,73 +101,123 @@
     .message-area {
         background-color: #f7f7f7;
         padding-top: 20px;
+        // border: 10px solid #000;
+        
 
         @include md() {
             width: 45%;
             width: 100%;
         }
+        .say{
+            // border: 1px solid #000;
+            padding: 10px 20px 10px 20px;
+            font-size: $h6-fzSize;
+            font-weight: bold;
+            color:$color3;
+        }
 
         .item {
             display: flex;
-            align-items: center;
-            margin: 20px;
+            // align-items: center;
+            // margin: 20px;
             padding: 5px;
+            padding: 10px 20px 10px 20px;
             border-bottom: 1px solid $color8;
+            // border: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            .up{
+                // border: 1px solid #000;
+                display: flex;
+                align-items: center;
+                .pic {
+                    border: 2px solid $color3;
+                    border-radius: 50%;
+                    background-color: $color2;
+                    width: 45px;
+                    height: 45px;
+                    margin-right: 10px;
+                    overflow: hidden;
+                    position: relative;
 
-            .pic {
-                border: 2px solid $color3;
-                border-radius: 50%;
-                background-color: $color2;
-                width: 45px;
-                height: 45px;
-                margin-right: 20px;
-                overflow: hidden;
-                position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                        position: absolute;
+                    }
+                }   
+                .mobile_name{
+                    font-size: $word-fzSize;
+                    color: $color9;
+                    font-weight: 300;
+                    font-family: $family2;
+                    margin-bottom: 5px;
+                    @include md() {
+                        // display: none;
+                    }
+                    
+                } 
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: top;
-                    position: absolute;
-                }
             }
-
+            
             .message-strip {
                 // width: 100%; //100%會壓縮到圖片
-                width: 75%;
-                flex-grow: 1;
+                width: 100%;
+
+                @include md() {
+                    // width: 75%;
+                    flex-grow: 1;
+                }
+                
 
                 .message {
                     .name {
-                        font-size: $word-fzSize;
-                        color: $color5;
-                        font-weight: bold;
-                        font-family: $family2;
-                        margin-bottom: 5px;
+                        display: none;
+                        @include md() {
+                            font-size: $word-fzSize;
+                            color: $color5;
+                            font-weight: bold;
+                            font-family: $family2;
+                            margin-bottom: 5px;
+                        }
+                   
                     }
 
                     .message-content {
+                        // border: 1px solid red;
                         line-height: 1.5;
-                        display: block;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                
+                     
+                        width: 100%;
 
                         @include lg() {
                             display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
                             justify-content: space-between;
                         }
 
                         p {
-                            color: $color9;
+                            color: lighten($color9, 20%);
                             font-size: $word-fzSize;
                             font-family: $family2;
                             margin:10px 0;
                             @include lg(){
-                                width: 85%;
+                                width: 100%;
                                 
                             }
                         }
                     }
                 }
+                .time{
+                    color:lighten($color9, 20%)
+                }
+                    
             }
         }
 

@@ -21,12 +21,24 @@ Vue.component('list-component', {
             </div>
             <div class="card-footer"></div>
         </div>
+
         
         <div class="message-area">
+            <p class="say"> 留言區 </p>
+
+
             <div class="item" v-for="comment in comments" :key="comment.comment_no">
-                <div class="pic">
-                    <img :src="item.article_image" alt="">
-                </div>
+                
+                 <div class="up">
+                    <div class="pic">
+                     <img :src="item.article_image" alt="">
+                    
+                    </div>
+                    <div class="mobile_name">{{comment.mem_name}}</div>      
+            
+                 </div>
+
+            
                 <div class="message-strip">
                     <div class="message">
                         <div class="name">{{comment.mem_name}}</div>
