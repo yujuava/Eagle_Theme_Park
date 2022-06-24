@@ -71,6 +71,7 @@ let headerVue = new Vue({
                     this.pswResult1 = "密碼相符";
                     this.pswResult2 = "密碼相符";
                 }else{
+                    this.pswResult1 = "密碼錯誤";
                     this.pswResult2 = "密碼錯誤";
                 }
             }

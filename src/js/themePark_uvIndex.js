@@ -7,7 +7,6 @@ let uvIndexVue = new Vue({
     },
     methods: {
         uvIndexAPI(){
-            console.log("methods");
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){ 
               let resData = JSON.parse(xhr.responseText);
