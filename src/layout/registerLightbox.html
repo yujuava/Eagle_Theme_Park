@@ -30,19 +30,31 @@
                         <div class="inputfather">
                             <label>密碼確認</label>
                             <span>{{pswResult2}}</span>
-                        </div>   
-                       
-                            
-                            
-                        <input id="checkPassword" maxlength="12" placeholder="請再次確認密碼" type="password" v-model="inputPsw2" @keyup="validatePsw2">
-                    
-                    
+                        </div>      
+                        <input id="checkPassword" maxlength="12" placeholder="請再次確認密碼" type="password" v-model="inputPsw2" @keyup="validatePsw2">        
                     </div>
                     <!-- <div>
                         <label>手機號碼</label>
                         <input type="text">
                     
                     </div> -->
+                    <div>
+                        <div class="inputfather">
+                            <label>會員名稱</label>
+                        </div>
+                        <div class="inputMemName">
+                            <input maxlength="15" id="memLastName" placeholder="請輸入姓氏" type="text">                   
+                            <input maxlength="15" id="memFirstName" placeholder="請輸入姓名" type="text">
+                        </div>
+        
+                    </div>
+                    
+                    <!-- <div class="btnAgreement"> -->
+                        <button class="smBtn-agreement" onClick="newWindow=window.open('./agreement.html','newWindow','width=300,height=300'); return false;">
+                            點擊閱讀會員條款
+                        </button>
+                    <!-- </div> -->
+
 
                     <div class="accept">
                         <input type="checkbox" id="accept" v-model="agreement" @change="prepareRegister">
@@ -58,7 +70,7 @@
                     <button type="button" class="bgBtn-login" value="註冊" id="register" @click="sendRegister">註冊</button>
 
                     <span @click="loginBoxShow = !loginBoxShow ,RegisterBoxShow = !RegisterBoxShow">
-                        <p id="alreadyhave-btn">已有帳號按此登入</p>
+                        <span id="alreadyhave-btn">已有帳號按此登入</span>
                     </span>
                 </div>
             </form>
