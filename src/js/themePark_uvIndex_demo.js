@@ -36,10 +36,9 @@ let uvIndexVue = new Vue({
           let today = new Date();
           let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
           let time = today.getHours() + ":" + today.getMinutes();
-          let dateTime = date+' '+time;
+          let dateTime = `${date} (測試資料)`;
 
           uvIndexVue.dataTime = dateTime;
-          uvIndexVue.dataTime += "更新";
           uvIndexVue.uvLevel = "";
           uvIndexVue.uvLevel = uvIndexVue.uvIndexContrast(2)["text"];
 
