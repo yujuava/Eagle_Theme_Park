@@ -98,18 +98,20 @@
 
             //張數
             .item-price {
-                width: 70%;
+                width: 80%;
                 margin: auto;
                 display: flex;
                 text-align: center;
                 justify-content: flex-end;
-                padding: 10px;
-
+                padding: 5px;
+                @include xl() {
+                    width: 70%;
+                }
                 p {
-                    width: 35%;
+                    width: 39%;
 
                     @include md() {
-                        width: 40%;
+                        width: 42%;
 
                     }
                 }
